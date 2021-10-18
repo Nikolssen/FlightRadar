@@ -17,7 +17,14 @@ struct OnBoaringView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                NavigationLink(destination: MainView(), tag: 1, selection: $transitionIndex) {
+                NavigationLink(destination:
+                                MainView()
+                                .navigationBarTitle("", displayMode: .inline)
+                                .navigationBarBackButtonHidden(true)
+                                .navigationBarHidden(true)
+                                .edgesIgnoringSafeArea([.top, .bottom]),
+                               tag: 1,
+                               selection: $transitionIndex) {
                     EmptyView()
                 }
                 Color.whiteLiliac

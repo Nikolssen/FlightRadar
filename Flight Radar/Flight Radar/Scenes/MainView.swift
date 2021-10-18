@@ -6,18 +6,22 @@
 //
 
 import SwiftUI
-
+import MapKit
 struct MainView: View {
     var body: some View {
         TabView {
-            Color.athensGray
+            Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 50), latitudinalMeters: 30000, longitudinalMeters: 30000)))
                 .tabItem{Image(systemName: "map")}
+                .edgesIgnoringSafeArea([.top])
+                .navigationBarHidden(true)
             Color.sanMarino
                 .tabItem{Image(systemName: "clock")}
+                
             Color.manhattan
                 .tabItem{Image(systemName: "airplane")}
+                
         }
-        
+        .ignoresSafeArea()
     }
 }
 
