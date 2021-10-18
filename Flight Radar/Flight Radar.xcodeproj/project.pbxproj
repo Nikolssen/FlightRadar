@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2A2F12271D6B52007276E1 /* PromoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F11271D6B52007276E1 /* PromoViewModel.swift */; };
+		3F2A2F15271D7513007276E1 /* OnBoaringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F14271D7513007276E1 /* OnBoaringView.swift */; };
+		3F2A2F18271D760F007276E1 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F17271D760F007276E1 /* OnBoardingViewModel.swift */; };
 		3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF00461271847CC00404C7A /* Flight_RadarApp.swift */; };
-		3FF00464271847CC00404C7A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF00463271847CC00404C7A /* ContentView.swift */; };
 		3FF00466271847CE00404C7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00465271847CE00404C7A /* Assets.xcassets */; };
 		3FF00469271847CE00404C7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00468271847CE00404C7A /* Preview Assets.xcassets */; };
 		3FF0047127184B6000404C7A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF0047027184B6000404C7A /* Launch Screen.storyboard */; };
@@ -23,9 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F2A2F11271D6B52007276E1 /* PromoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewModel.swift; sourceTree = "<group>"; };
+		3F2A2F14271D7513007276E1 /* OnBoaringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoaringView.swift; sourceTree = "<group>"; };
+		3F2A2F17271D760F007276E1 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		3FF0045E271847CC00404C7A /* Flight Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF00461271847CC00404C7A /* Flight_RadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_RadarApp.swift; sourceTree = "<group>"; };
-		3FF00463271847CC00404C7A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3FF00465271847CE00404C7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FF00468271847CE00404C7A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FF0046F27184AB400404C7A /* Flight-Radar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flight-Radar-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -51,6 +55,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F2A2F13271D6BF6007276E1 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				3F2A2F16271D757A007276E1 /* Promo */,
+				3F2A2F14271D7513007276E1 /* OnBoaringView.swift */,
+				3F2A2F17271D760F007276E1 /* OnBoardingViewModel.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		3F2A2F16271D757A007276E1 /* Promo */ = {
+			isa = PBXGroup;
+			children = (
+				3FF00483271874C200404C7A /* PromoView.swift */,
+				3F2A2F11271D6B52007276E1 /* PromoViewModel.swift */,
+			);
+			path = Promo;
+			sourceTree = "<group>";
+		};
+		3F2A2F19271D77C3007276E1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3F2A2F13271D6BF6007276E1 /* OnBoarding */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		3FF00455271847CC00404C7A = {
 			isa = PBXGroup;
 			children = (
@@ -70,11 +101,12 @@
 		3FF00460271847CC00404C7A /* Flight Radar */ = {
 			isa = PBXGroup;
 			children = (
+				3F2A2F19271D77C3007276E1 /* Scenes */,
+				3FF004802718666500404C7A /* Custom Views */,
 				3FF004742718532200404C7A /* Resources */,
 				3FF0047027184B6000404C7A /* Launch Screen.storyboard */,
 				3FF0046F27184AB400404C7A /* Flight-Radar-Info.plist */,
 				3FF00461271847CC00404C7A /* Flight_RadarApp.swift */,
-				3FF00463271847CC00404C7A /* ContentView.swift */,
 				3FF00467271847CE00404C7A /* Preview Content */,
 			);
 			path = "Flight Radar";
@@ -91,7 +123,6 @@
 		3FF004742718532200404C7A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3FF004802718666500404C7A /* Custom Views */,
 				3FF004772718536400404C7A /* Fonts */,
 				3FF004722718513A00404C7A /* Color + CustomColors.swift */,
 				3FF00465271847CE00404C7A /* Assets.xcassets */,
@@ -115,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				3FF004812718668F00404C7A /* SolidButton.swift */,
-				3FF00483271874C200404C7A /* PromoView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -195,9 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2A2F15271D7513007276E1 /* OnBoaringView.swift in Sources */,
 				3FF00484271874C200404C7A /* PromoView.swift in Sources */,
 				3FF004762718535E00404C7A /* Fonts.swift in Sources */,
-				3FF00464271847CC00404C7A /* ContentView.swift in Sources */,
+				3F2A2F18271D760F007276E1 /* OnBoardingViewModel.swift in Sources */,
+				3F2A2F12271D6B52007276E1 /* PromoViewModel.swift in Sources */,
 				3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */,
 				3FF004822718668F00404C7A /* SolidButton.swift in Sources */,
 				3FF004732718513A00404C7A /* Color + CustomColors.swift in Sources */,

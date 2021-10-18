@@ -8,11 +8,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Oswald-Medium.ttf">
-            <string>Oswald-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -23,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XXR-gc-CB3">
-                                <rect key="frame" x="20" y="242.5" width="374" height="421.5"/>
+                                <rect key="frame" x="20" y="266" width="374" height="374"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="x3n-gc-2Mu">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
@@ -31,12 +26,6 @@
                                             <constraint firstAttribute="width" secondItem="x3n-gc-2Mu" secondAttribute="height" multiplier="1:1" id="9RI-L4-dDV"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Radar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJd-3m-B9y">
-                                        <rect key="frame" x="0.0" y="374" width="374" height="47.5"/>
-                                        <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="32"/>
-                                        <color key="textColor" name="Athens Gray"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -56,9 +45,6 @@
     </scenes>
     <resources>
         <image name="logo" width="600" height="600"/>
-        <namedColor name="Athens Gray">
-            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="San Marino">
             <color red="0.31764705882352939" green="0.40392156862745099" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

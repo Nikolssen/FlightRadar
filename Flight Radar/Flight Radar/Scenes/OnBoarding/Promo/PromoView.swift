@@ -8,26 +8,27 @@
 import SwiftUI
 
 struct PromoView: View {
-    let headerText: String
-    let image: Image
-    let bottomText: String
+    
+    let viewModel: PromoViewModel
     
     var body: some View {
         
         VStack {
             Spacer()
-            Text(headerText)
+            Text(viewModel.headerText)
                 .font(.oswaldMedium(size: 36))
                 .lineLimit(2)
+                .foregroundColor(.charcoal)
             Spacer()
-            image
+            viewModel.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 80, style: .continuous))
                 .padding()
             Spacer()
-            Text(bottomText)
+            Text(viewModel.bottomText)
                 .font(.oswaldLight(size: 24))
+                .foregroundColor(.charcoal)
             Spacer()
         }
     }

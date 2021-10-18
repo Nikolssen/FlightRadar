@@ -25,8 +25,14 @@ struct SolidButtonStyle: ButtonStyle {
             .font(.oswaldRegular(size: 20))
             .foregroundColor(.whiteLiliac)
             .frame(width: UIScreen.main.bounds.width - 60, height: 50, alignment: .center)
-            .background(configuration.isPressed ? Color.sanMarino.opacity(0.8) : Color.sanMarino)
+            .background(configuration.isPressed ? Color.sanMarino.opacity(0.9) : Color.sanMarino)
             .clipShape(Capsule(style: .continuous))
             .shadow(color: Color.charcoal.opacity(0.5), radius: 5, x: 0, y: 5)
+    }
+}
+
+struct SolidButton_Previews: PreviewProvider {
+    static var previews: some View {
+        SolidButton(title: "Continue", action: {})
     }
 }
