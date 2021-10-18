@@ -25,8 +25,11 @@ struct OnBoaringView: View {
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                SolidButton(title: selectedIndex == viewModel.promoViewModels.count - 1 ? Constants.getStartedMessage : Constants.continueMessage, action: {print("Hello")})
-                Spacer()
+                Button(action: {}) {
+                    Text(Constants.continueMessage)
+                }
+                .buttonStyle(SolidButtonStyle())
+                Spacer(minLength: 10)
                 
             }
         }
@@ -36,8 +39,8 @@ struct OnBoaringView: View {
 
 extension OnBoaringView {
     enum Constants {
-        static let continueMessage: String = "Continue"
-        static let getStartedMessage: String = "Get started"
+        static let continueMessage: LocalizedStringKey = "continue_title"
+        static let getStartedMessage: LocalizedStringKey = "get_started_title"
     }
 }
 

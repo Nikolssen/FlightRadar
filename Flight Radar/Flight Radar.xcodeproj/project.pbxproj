@@ -10,6 +10,7 @@
 		3F2A2F12271D6B52007276E1 /* PromoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F11271D6B52007276E1 /* PromoViewModel.swift */; };
 		3F2A2F15271D7513007276E1 /* OnBoaringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F14271D7513007276E1 /* OnBoaringView.swift */; };
 		3F2A2F18271D760F007276E1 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F17271D760F007276E1 /* OnBoardingViewModel.swift */; };
+		3F2A2F1E271D7C98007276E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F2A2F20271D7C98007276E1 /* Localizable.strings */; };
 		3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF00461271847CC00404C7A /* Flight_RadarApp.swift */; };
 		3FF00466271847CE00404C7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00465271847CE00404C7A /* Assets.xcassets */; };
 		3FF00469271847CE00404C7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00468271847CE00404C7A /* Preview Assets.xcassets */; };
@@ -20,7 +21,7 @@
 		3FF0047D27185DEE00404C7A /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FF0047A271853A800404C7A /* Oswald-Medium.ttf */; };
 		3FF0047E27185DF100404C7A /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00479271853A800404C7A /* Oswald-Regular.ttf */; };
 		3FF0047F27185DF500404C7A /* Gnuolane.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FF004782718539A00404C7A /* Gnuolane.ttf */; };
-		3FF004822718668F00404C7A /* SolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF004812718668F00404C7A /* SolidButton.swift */; };
+		3FF004822718668F00404C7A /* SolidButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF004812718668F00404C7A /* SolidButtonStyle.swift */; };
 		3FF00484271874C200404C7A /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF00483271874C200404C7A /* PromoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,8 @@
 		3F2A2F11271D6B52007276E1 /* PromoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewModel.swift; sourceTree = "<group>"; };
 		3F2A2F14271D7513007276E1 /* OnBoaringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoaringView.swift; sourceTree = "<group>"; };
 		3F2A2F17271D760F007276E1 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
+		3F2A2F1F271D7C98007276E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F2A2F21271D7C9A007276E1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF0045E271847CC00404C7A /* Flight Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF00461271847CC00404C7A /* Flight_RadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_RadarApp.swift; sourceTree = "<group>"; };
 		3FF00465271847CE00404C7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,7 +43,7 @@
 		3FF00479271853A800404C7A /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		3FF0047A271853A800404C7A /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
 		3FF0047B271853A800404C7A /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
-		3FF004812718668F00404C7A /* SolidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButton.swift; sourceTree = "<group>"; };
+		3FF004812718668F00404C7A /* SolidButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButtonStyle.swift; sourceTree = "<group>"; };
 		3FF00483271874C200404C7A /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +85,14 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		3F2A2F1B271D7C56007276E1 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				3F2A2F20271D7C98007276E1 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		3FF00455271847CC00404C7A = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +116,7 @@
 				3FF004802718666500404C7A /* Custom Views */,
 				3FF004742718532200404C7A /* Resources */,
 				3FF0047027184B6000404C7A /* Launch Screen.storyboard */,
+				3F2A2F1B271D7C56007276E1 /* Localization */,
 				3FF0046F27184AB400404C7A /* Flight-Radar-Info.plist */,
 				3FF00461271847CC00404C7A /* Flight_RadarApp.swift */,
 				3FF00467271847CE00404C7A /* Preview Content */,
@@ -145,7 +157,7 @@
 		3FF004802718666500404C7A /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				3FF004812718668F00404C7A /* SolidButton.swift */,
+				3FF004812718668F00404C7A /* SolidButtonStyle.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -192,6 +204,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 3FF00455271847CC00404C7A;
 			productRefGroup = 3FF0045F271847CC00404C7A /* Products */;
@@ -213,6 +226,7 @@
 				3FF0047F27185DF500404C7A /* Gnuolane.ttf in Resources */,
 				3FF00469271847CE00404C7A /* Preview Assets.xcassets in Resources */,
 				3FF0047D27185DEE00404C7A /* Oswald-Medium.ttf in Resources */,
+				3F2A2F1E271D7C98007276E1 /* Localizable.strings in Resources */,
 				3FF00466271847CE00404C7A /* Assets.xcassets in Resources */,
 				3FF0047C27185DE800404C7A /* Oswald-Light.ttf in Resources */,
 			);
@@ -231,12 +245,24 @@
 				3F2A2F18271D760F007276E1 /* OnBoardingViewModel.swift in Sources */,
 				3F2A2F12271D6B52007276E1 /* PromoViewModel.swift in Sources */,
 				3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */,
-				3FF004822718668F00404C7A /* SolidButton.swift in Sources */,
+				3FF004822718668F00404C7A /* SolidButtonStyle.swift in Sources */,
 				3FF004732718513A00404C7A /* Color + CustomColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3F2A2F20271D7C98007276E1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F2A2F1F271D7C98007276E1 /* en */,
+				3F2A2F21271D7C9A007276E1 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3FF0046A271847CE00404C7A /* Debug */ = {
@@ -290,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -345,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
