@@ -10,7 +10,7 @@ import SwiftUI
 struct PromoViewModel: Identifiable {
     var id: Int
     
-    let headerText: String
+    let headerText: LocalizedStringKey
     let image: Image
-    let bottomText: String
+    let bottomText: LocalizedStringKey
 }

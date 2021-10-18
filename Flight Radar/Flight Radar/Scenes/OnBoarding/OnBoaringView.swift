@@ -29,9 +29,8 @@ struct OnBoaringView: View {
                     Text(Constants.continueMessage)
                 }
                 .buttonStyle(SolidButtonStyle())
-                Spacer(minLength: 10)
-                
             }
+            .padding(10)
         }
     }
 }
@@ -48,5 +47,6 @@ extension OnBoaringView {
 struct OnBoaringView_Previews: PreviewProvider {
     static var previews: some View {
         OnBoaringView(viewModel: OnBoardingViewModel())
+            
     }
 }

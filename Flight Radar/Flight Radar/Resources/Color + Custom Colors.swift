@@ -1,5 +1,5 @@
 //
-//  Color + CustomColors.swift
+//  Color + Custom Colors.swift
 //  Flight Radar
 //
 //  Created by Ivan Budovich on 10/14/21.

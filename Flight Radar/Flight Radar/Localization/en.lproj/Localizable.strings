@@ -6,5 +6,10 @@
   
 */
 
+
+// MARK: Onboarding
 "continue_title" = "Continue";
 "get_started_title" = "Get started!";
+
+"welcome_msg" = "Welcome to Flight Radar!";
+"provider_msg" = "Your provider to current flights all over the world.";

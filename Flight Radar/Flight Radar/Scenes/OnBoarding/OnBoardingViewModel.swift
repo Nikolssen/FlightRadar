@@ -10,9 +10,8 @@ import SwiftUI
 struct OnBoardingViewModel {
     
     let promoViewModels = [
-        PromoViewModel(id: 0, headerText: "Welcome to Flight Radar!", image: Image("logo"), bottomText: "Your provider to current flights all over the world."),
-        PromoViewModel(id: 1, headerText: "Welcome to Flight Radar!", image: Image("logo"), bottomText: "Your provider to current flights all over the world."),
-        PromoViewModel(id: 2, headerText: "Welcome to Flight Radar!", image: Image("logo"), bottomText: "Your provider to current flights all over the world.")]
-    
+        PromoViewModel(id: 0, headerText: "welcome_msg", image: .logo, bottomText: "provider_msg"),
+        PromoViewModel(id: 1, headerText: "welcome_msg", image: .logo, bottomText: "provider_msg"),
+        PromoViewModel(id: 2, headerText: "welcome_msg", image: .logo, bottomText: "provider_msg")]
     
 }

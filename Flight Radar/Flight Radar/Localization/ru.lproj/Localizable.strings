@@ -7,3 +7,6 @@
 */
 "continue_title" = "Продолжить";
 "get_started_title" = "Начать работу!";
+
+"welcome_msg" = "Приветствуем в Flight Radar!";
+"provider_msg" = "Ваш проводник по текущим авиарейсам по всему миру.";
