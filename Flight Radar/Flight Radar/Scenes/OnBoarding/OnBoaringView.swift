@@ -10,31 +10,38 @@ import SwiftUI
 struct OnBoaringView: View {
     
     @State private var selectedIndex: Int = 0
+    @State private var transitionIndex: Int? = 0
     
     var viewModel: OnBoardingViewModel
     
     var body: some View {
-        ZStack {
-            Color.whiteLiliac
-                .ignoresSafeArea()
-            VStack {
-                TabView(selection: $selectedIndex) {
-                    ForEach(viewModel.promoViewModels) {
-                        PromoView(viewModel: $0)
-                            .tag($0.id)
+        NavigationView {
+            ZStack {
+                NavigationLink(destination: MainView(), tag: 1, selection: $transitionIndex) {
+                    EmptyView()
+                }
+                Color.whiteLiliac
+                    .ignoresSafeArea()
+                VStack {
+                    TabView(selection: $selectedIndex) {
+                        ForEach(viewModel.promoViewModels) {
+                            PromoView(viewModel: $0)
+                                .tag($0.id)
+                        }
                     }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                    Button(action: { transitionIndex = 1 }) {
+                        Text(Constants.continueMessage)
+                    }
+                    .buttonStyle(SolidButtonStyle())
+                    
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                Button(action: {}) {
-                    Text(Constants.continueMessage)
-                }
-                .buttonStyle(SolidButtonStyle())
+                .padding(10)
             }
-            .padding(10)
+            .navigationBarHidden(true)
         }
     }
 }
-
 
 extension OnBoaringView {
     enum Constants {
@@ -47,6 +54,6 @@ extension OnBoaringView {
 struct OnBoaringView_Previews: PreviewProvider {
     static var previews: some View {
         OnBoaringView(viewModel: OnBoardingViewModel())
-            
+        
     }
 }
