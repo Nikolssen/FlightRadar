@@ -19,10 +19,7 @@ struct OnBoaringView: View {
             ZStack {
                 NavigationLink(destination:
                                 MainView()
-                                .navigationBarTitle("", displayMode: .inline)
-                                .navigationBarBackButtonHidden(true)
-                                .navigationBarHidden(true)
-                                .edgesIgnoringSafeArea([.top, .bottom]),
+                                .modifier(NavigationBarHidden()),
                                tag: 1,
                                selection: $transitionIndex) {
                     EmptyView()

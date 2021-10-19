@@ -14,6 +14,7 @@
 		3F2A2F25271D89DE007276E1 /* Image + Custom Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F24271D89DE007276E1 /* Image + Custom Images.swift */; };
 		3F2A2F29271D9360007276E1 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F28271D9360007276E1 /* TabBarView.swift */; };
 		3F2A2F2B271DA164007276E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F2A271DA164007276E1 /* MainView.swift */; };
+		3F6CFA60271EA310006A6134 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CFA5F271EA310006A6134 /* Navigation.swift */; };
 		3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF00461271847CC00404C7A /* Flight_RadarApp.swift */; };
 		3FF00466271847CE00404C7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00465271847CE00404C7A /* Assets.xcassets */; };
 		3FF00469271847CE00404C7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00468271847CE00404C7A /* Preview Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		3F2A2F24271D89DE007276E1 /* Image + Custom Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image + Custom Images.swift"; sourceTree = "<group>"; };
 		3F2A2F28271D9360007276E1 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		3F2A2F2A271DA164007276E1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3F6CFA5F271EA310006A6134 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		3FF0045E271847CC00404C7A /* Flight Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF00461271847CC00404C7A /* Flight_RadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_RadarApp.swift; sourceTree = "<group>"; };
 		3FF00465271847CE00404C7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		3F6CFA5E271EA2B2006A6134 /* Extension + Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				3F6CFA5F271EA310006A6134 /* Navigation.swift */,
+			);
+			path = "Extension + Modifier";
+			sourceTree = "<group>";
+		};
 		3FF00455271847CC00404C7A = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 		3FF00460271847CC00404C7A /* Flight Radar */ = {
 			isa = PBXGroup;
 			children = (
+				3F6CFA5E271EA2B2006A6134 /* Extension + Modifier */,
 				3F2A2F19271D77C3007276E1 /* Scenes */,
 				3FF004802718666500404C7A /* Custom Views */,
 				3FF004742718532200404C7A /* Resources */,
@@ -253,6 +264,7 @@
 				3FF004762718535E00404C7A /* Fonts.swift in Sources */,
 				3F2A2F18271D760F007276E1 /* OnBoardingViewModel.swift in Sources */,
 				3F2A2F12271D6B52007276E1 /* PromoViewModel.swift in Sources */,
+				3F6CFA60271EA310006A6134 /* Navigation.swift in Sources */,
 				3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */,
 				3FF004822718668F00404C7A /* SolidButtonStyle.swift in Sources */,
 				3F2A2F2B271DA164007276E1 /* MainView.swift in Sources */,

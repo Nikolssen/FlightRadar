@@ -12,14 +12,13 @@ struct MainView: View {
         TabView {
             Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 50), latitudinalMeters: 30000, longitudinalMeters: 30000)))
                 .tabItem{Image(systemName: "map")}
-                .edgesIgnoringSafeArea([.top])
-                .navigationBarHidden(true)
+                .modifier(NavigationBarInTabBarHidden())
             Color.sanMarino
                 .tabItem{Image(systemName: "clock")}
-                
+                .modifier(NavigationBarInTabBarHidden())
             Color.manhattan
                 .tabItem{Image(systemName: "airplane")}
-                
+                .modifier(NavigationBarInTabBarHidden())
         }
         .ignoresSafeArea()
     }
