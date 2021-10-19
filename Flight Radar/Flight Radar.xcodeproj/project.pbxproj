@@ -15,6 +15,9 @@
 		3F2A2F29271D9360007276E1 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F28271D9360007276E1 /* TabBarView.swift */; };
 		3F2A2F2B271DA164007276E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F2A271DA164007276E1 /* MainView.swift */; };
 		3F6CFA60271EA310006A6134 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CFA5F271EA310006A6134 /* Navigation.swift */; };
+		3F6CFA63271EB008006A6134 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6CFA62271EB008006A6134 /* Lottie */; };
+		3F6CFA66271EB034006A6134 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6CFA65271EB034006A6134 /* CombineExt */; };
+		3F6CFA69271EB0D9006A6134 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6CFA68271EB0D9006A6134 /* Alamofire */; };
 		3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF00461271847CC00404C7A /* Flight_RadarApp.swift */; };
 		3FF00466271847CE00404C7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00465271847CE00404C7A /* Assets.xcassets */; };
 		3FF00469271847CE00404C7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00468271847CE00404C7A /* Preview Assets.xcassets */; };
@@ -60,6 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6CFA69271EB0D9006A6134 /* Alamofire in Frameworks */,
+				3F6CFA66271EB034006A6134 /* CombineExt in Frameworks */,
+				3F6CFA63271EB008006A6134 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +204,11 @@
 			dependencies = (
 			);
 			name = "Flight Radar";
+			packageProductDependencies = (
+				3F6CFA62271EB008006A6134 /* Lottie */,
+				3F6CFA65271EB034006A6134 /* CombineExt */,
+				3F6CFA68271EB0D9006A6134 /* Alamofire */,
+			);
 			productName = "Flight Radar";
 			productReference = 3FF0045E271847CC00404C7A /* Flight Radar.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +238,11 @@
 				ru,
 			);
 			mainGroup = 3FF00455271847CC00404C7A;
+			packageReferences = (
+				3F6CFA61271EB008006A6134 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				3F6CFA64271EB034006A6134 /* XCRemoteSwiftPackageReference "CombineExt" */,
+				3F6CFA67271EB0D9006A6134 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3FF0045F271847CC00404C7A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -491,6 +507,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F6CFA61271EB008006A6134 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		3F6CFA64271EB034006A6134 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		3F6CFA67271EB0D9006A6134 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F6CFA62271EB008006A6134 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F6CFA61271EB008006A6134 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		3F6CFA65271EB034006A6134 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F6CFA64271EB034006A6134 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+		3F6CFA68271EB0D9006A6134 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F6CFA67271EB0D9006A6134 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3FF00456271847CC00404C7A /* Project object */;
 }
