@@ -11,10 +11,10 @@ struct MainView: View {
     var body: some View {
         TabView {
             Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 50), latitudinalMeters: 30000, longitudinalMeters: 30000)))
-                .tabItem{Image(systemName: "map")}
+                .tabItem{Image("map")}
                 .modifier(NavigationBarInTabBarHidden())
             Color.sanMarino
-                .tabItem{Image(systemName: "clock")}
+                .tabItem{Image("compass")}
                 .modifier(NavigationBarInTabBarHidden())
             Color.manhattan
                 .tabItem{Image(systemName: "airplane")}
