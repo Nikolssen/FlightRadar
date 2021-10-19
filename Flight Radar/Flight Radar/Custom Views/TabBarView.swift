@@ -61,17 +61,17 @@ struct TabBarButton: View {
                             .shadow(color: .white, radius: 2, x: -1, y: -1)
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                     )
-                    
                     .isHidden(selectedTab != index)
                 
                 Button(action: { selectedTab = index }) {
                     image
                         .renderingMode(.original)
                         .resizable()
-                        .frame(width: 25, height:25, alignment: .center)
+                        .frame(width: selectedTab != index ? 25 : 23, height:selectedTab != index ? 25 : 23, alignment: .center)
 
                     
                 }
+                .buttonStyle(OpaqueButtonStyle())
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .frame(height: 30, alignment: .center)
