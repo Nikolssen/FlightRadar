@@ -15,9 +15,9 @@
 		3F2A2F29271D9360007276E1 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F28271D9360007276E1 /* TabBarView.swift */; };
 		3F2A2F2B271DA164007276E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A2F2A271DA164007276E1 /* MainView.swift */; };
 		3F6CFA60271EA310006A6134 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CFA5F271EA310006A6134 /* Navigation.swift */; };
-		3F6CFA63271EB008006A6134 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6CFA62271EB008006A6134 /* Lottie */; };
 		3F6CFA66271EB034006A6134 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6CFA65271EB034006A6134 /* CombineExt */; };
 		3F6CFA69271EB0D9006A6134 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6CFA68271EB0D9006A6134 /* Alamofire */; };
+		3FB03990271EC7CF00276FB3 /* View + isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB0398F271EC7CF00276FB3 /* View + isHidden.swift */; };
 		3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF00461271847CC00404C7A /* Flight_RadarApp.swift */; };
 		3FF00466271847CE00404C7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00465271847CE00404C7A /* Assets.xcassets */; };
 		3FF00469271847CE00404C7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF00468271847CE00404C7A /* Preview Assets.xcassets */; };
@@ -42,6 +42,7 @@
 		3F2A2F28271D9360007276E1 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		3F2A2F2A271DA164007276E1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F6CFA5F271EA310006A6134 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		3FB0398F271EC7CF00276FB3 /* View + isHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + isHidden.swift"; sourceTree = "<group>"; };
 		3FF0045E271847CC00404C7A /* Flight Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flight Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF00461271847CC00404C7A /* Flight_RadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight_RadarApp.swift; sourceTree = "<group>"; };
 		3FF00465271847CE00404C7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 			files = (
 				3F6CFA69271EB0D9006A6134 /* Alamofire in Frameworks */,
 				3F6CFA66271EB034006A6134 /* CombineExt in Frameworks */,
-				3F6CFA63271EB008006A6134 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				3F6CFA5F271EA310006A6134 /* Navigation.swift */,
+				3FB0398F271EC7CF00276FB3 /* View + isHidden.swift */,
 			);
 			path = "Extension + Modifier";
 			sourceTree = "<group>";
@@ -205,7 +206,6 @@
 			);
 			name = "Flight Radar";
 			packageProductDependencies = (
-				3F6CFA62271EB008006A6134 /* Lottie */,
 				3F6CFA65271EB034006A6134 /* CombineExt */,
 				3F6CFA68271EB0D9006A6134 /* Alamofire */,
 			);
@@ -239,7 +239,6 @@
 			);
 			mainGroup = 3FF00455271847CC00404C7A;
 			packageReferences = (
-				3F6CFA61271EB008006A6134 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				3F6CFA64271EB034006A6134 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				3F6CFA67271EB0D9006A6134 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
@@ -284,6 +283,7 @@
 				3FF00462271847CC00404C7A /* Flight_RadarApp.swift in Sources */,
 				3FF004822718668F00404C7A /* SolidButtonStyle.swift in Sources */,
 				3F2A2F2B271DA164007276E1 /* MainView.swift in Sources */,
+				3FB03990271EC7CF00276FB3 /* View + isHidden.swift in Sources */,
 				3F2A2F25271D89DE007276E1 /* Image + Custom Images.swift in Sources */,
 				3F2A2F29271D9360007276E1 /* TabBarView.swift in Sources */,
 				3FF004732718513A00404C7A /* Color + Custom Colors.swift in Sources */,
@@ -509,14 +509,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3F6CFA61271EB008006A6134 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		3F6CFA64271EB034006A6134 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
@@ -536,11 +528,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3F6CFA62271EB008006A6134 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F6CFA61271EB008006A6134 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
 		3F6CFA65271EB034006A6134 /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3F6CFA64271EB034006A6134 /* XCRemoteSwiftPackageReference "CombineExt" */;
