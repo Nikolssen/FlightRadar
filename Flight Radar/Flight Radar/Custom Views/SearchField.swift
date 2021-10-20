@@ -13,16 +13,20 @@ struct SearchField: View {
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
-                .foregroundColor(.sanMarino.opacity(0.5))
+                .font(.system(size: 26).bold())
+                .foregroundColor(.sanMarino)
+                .modifier(NeomorhicShadow())
             PackedTextField(text: $text, placeholder: $placeholder)
                 .foregroundColor(.sanMarino)
                 .font(.gnuolane(size: 26))
                 .modifier(AccentColor(color: .sanMarino))
+                .modifier(NeomorhicShadow())
         }
             .padding()
             .background(Color.whiteLiliac)
             .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                        .padding()
+            .modifier(NeomorhicShadow())
+            .padding()
 
 
     }
