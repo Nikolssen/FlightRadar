@@ -10,26 +10,28 @@ import SwiftUI
 struct TabBarView: View {
     @Binding var selectedTab: Int
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: .zero) {
             TabBarButton(image: Image("map"), index: 0, selectedTab: $selectedTab)
             TabBarButton(image: Image("compass"), index: 1, selectedTab: $selectedTab)
             TabBarButton(image: Image("plane"), index: 2, selectedTab: $selectedTab)
             TabBarButton(image: Image("airport"), index: 3, selectedTab: $selectedTab)
         }
-        .padding(10)
+        .padding(Constants.paddingValue)
         .background(Color.whiteLiliac)
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
         .padding(.horizontal)
-        .shadow(color: .charcoal.opacity(0.2), radius: 4, x: 5, y: 5)
-        .shadow(color: .white.opacity(0.8), radius: 4, x: -5, y: -5)
-        
+    }
+    
+    private enum Constants {
+        static let paddingValue: CGFloat = 10.0
+        static let cornerRadius = 20.0
     }
 }
 
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(selectedTab: .constant(0))
+        TabBarView(selectedTab: .constant(.zero))
     }
 }
 
@@ -43,39 +45,45 @@ struct TabBarButton: View {
             reader in
             ZStack {
                 Color.whiteLiliac
-                    
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                    .frame(width: 35, height: 35, alignment: .center)
-                    .shadow(color: .charcoal.opacity(0.4), radius: 4, x: 5, y: 5)
-                    .shadow(color: .white.opacity(0.8), radius: 4, x: -5, y: -5)
-                    .isHidden(selectedTab == index)
+                
+                    .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
+                    .frame(width: Constants.externalShadowSize, height: Constants.externalShadowSize, alignment: .center)
+                    .modifier(NeomorhicShadow())
+                    .opacity(selectedTab == index ? Constants.zeroOpacity : Constants.fullOpacity)
+                
                 
                 Color.whiteLiliac
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                    .frame(width: 40, height: 40, alignment: .center)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .stroke(Color.whiteLiliac, lineWidth: 4)
-                            .shadow(color: Color.charcoal.opacity(0.4), radius: 3, x: 2, y: 2)
-                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(color: .white, radius: 2, x: -1, y: -1)
-                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                    )
-                    .isHidden(selectedTab != index)
+                    .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
+                    .frame(width: Constants.innerShadowSide, height: Constants.innerShadowSide, alignment: .center)
+                    .modifier(NeomorphicInnerShadow(shape: RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)))
+                    .opacity(selectedTab != index ? Constants.zeroOpacity : Constants.fullOpacity)
                 
-                Button(action: { selectedTab = index }) {
+                
+                Button(action: { withAnimation(.easeInOut(duration: Constants.animationDuration)) { selectedTab = index } }) {
                     image
                         .renderingMode(.original)
                         .resizable()
-                        .frame(width: selectedTab != index ? 25 : 23, height:selectedTab != index ? 25 : 23, alignment: .center)
-
+                        .frame(width: selectedTab != index ? Constants.deselectedSide : Constants.selectedSide, height:selectedTab != index ? Constants.deselectedSide : Constants.selectedSide, alignment: .center)
+                    
                     
                 }
                 .buttonStyle(OpaqueButtonStyle())
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .frame(height: 30, alignment: .center)
+            .frame(height: Constants.side, alignment: .center)
         }
-        .frame(height: 30)
+        .frame(height: Constants.side)
+    }
+    
+    private enum Constants {
+        static let selectedSide: CGFloat = 23
+        static let deselectedSide: CGFloat = 25
+        static let animationDuration: CGFloat = 0.5
+        static let externalShadowSize: CGFloat = 25
+        static let innerShadowSide: CGFloat = 40
+        static let cornerRadius: CGFloat = 10
+        static let side: CGFloat = 30
+        static let zeroOpacity: CGFloat = 0.0
+        static let fullOpacity: CGFloat = 1.0
     }
 }
