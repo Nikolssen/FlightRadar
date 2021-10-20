@@ -13,7 +13,7 @@ struct TabBarView: View {
         HStack(spacing: .zero) {
             TabBarButton(image: Image("map"), index: 0, selectedTab: $selectedTab)
             TabBarButton(image: Image("compass"), index: 1, selectedTab: $selectedTab)
-            TabBarButton(image: Image("plane"), index: 2, selectedTab: $selectedTab)
+            TabBarButton(image: Image("hourglass"), index: 2, selectedTab: $selectedTab)
             TabBarButton(image: Image("airport"), index: 3, selectedTab: $selectedTab)
         }
         .padding(Constants.paddingValue)
@@ -79,7 +79,7 @@ struct TabBarButton: View {
         static let selectedSide: CGFloat = 23
         static let deselectedSide: CGFloat = 25
         static let animationDuration: CGFloat = 0.5
-        static let externalShadowSize: CGFloat = 25
+        static let externalShadowSize: CGFloat = 35
         static let innerShadowSide: CGFloat = 40
         static let cornerRadius: CGFloat = 10
         static let side: CGFloat = 30
