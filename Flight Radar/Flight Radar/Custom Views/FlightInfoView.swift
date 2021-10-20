@@ -9,7 +9,16 @@ import SwiftUI
 
 struct FlightInfoView: View {
     
-    let viewModel: FlightInfoViewModel
+    struct ViewModel {
+        let destination: String
+        let destinationCode: String
+        let origin: String
+        let originCode: String
+        let status: String
+        let flightTime: String
+    }
+
+    let viewModel: FlightInfoView.ViewModel
     
     var body: some View {
         HStack {
@@ -21,9 +30,13 @@ struct FlightInfoView: View {
             }
             .padding(5)
             .modifier(NeomorhicShadow())
+            
+            Spacer()
+            
             Text(viewModel.flightTime)
                 .font(.oswaldMedium(size: 18))
                 .modifier(NeomorhicShadow())
+            Spacer()
             VStack {
                 Text(viewModel.destinationCode)
                     .font(.oswaldRegular(size: 36))
@@ -37,6 +50,7 @@ struct FlightInfoView: View {
         .foregroundColor(.charcoal)
         .padding(.horizontal, 30)
         .padding(.vertical, 10)
+        .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.whiteLiliac)
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .modifier(NeomorhicShadow())
@@ -45,6 +59,6 @@ struct FlightInfoView: View {
 
 struct FlightInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        FlightInfoView(viewModel: FlightInfoViewModel(destination: "Kyiv", destinationCode: "BPO", origin: "Minsk", originCode: "MSQ", status: "Active", flightTime: "2h 30m"))
+        FlightInfoView(viewModel: FlightInfoView.ViewModel(destination: "Kyiv", destinationCode: "BPO", origin: "Minsk", originCode: "MSQ", status: "Active", flightTime: "2h 30m"))
     }
 }

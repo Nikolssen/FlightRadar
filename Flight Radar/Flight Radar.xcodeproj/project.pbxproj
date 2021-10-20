@@ -17,7 +17,6 @@
 		3F6A18B9271FF7A600A673D6 /* AccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18B8271FF7A600A673D6 /* AccentColor.swift */; };
 		3F6A18BB271FFDDC00A673D6 /* NeomorphicShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18BA271FFDDB00A673D6 /* NeomorphicShadow.swift */; };
 		3F6A18BD2720261400A673D6 /* FlightInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18BC2720261400A673D6 /* FlightInfoView.swift */; };
-		3F6A18BF272028E800A673D6 /* FlightInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18BE272028E800A673D6 /* FlightInfoViewModel.swift */; };
 		3F6A18C12720303C00A673D6 /* ModalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18C02720303C00A673D6 /* ModalInfoView.swift */; };
 		3F6A18C32720394600A673D6 /* CorneredRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18C22720394600A673D6 /* CorneredRectangle.swift */; };
 		3F6CFA60271EA310006A6134 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CFA5F271EA310006A6134 /* Navigation.swift */; };
@@ -55,7 +54,6 @@
 		3F6A18B8271FF7A600A673D6 /* AccentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColor.swift; sourceTree = "<group>"; };
 		3F6A18BA271FFDDB00A673D6 /* NeomorphicShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeomorphicShadow.swift; sourceTree = "<group>"; };
 		3F6A18BC2720261400A673D6 /* FlightInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoView.swift; sourceTree = "<group>"; };
-		3F6A18BE272028E800A673D6 /* FlightInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoViewModel.swift; sourceTree = "<group>"; };
 		3F6A18C02720303C00A673D6 /* ModalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfoView.swift; sourceTree = "<group>"; };
 		3F6A18C22720394600A673D6 /* CorneredRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorneredRectangle.swift; sourceTree = "<group>"; };
 		3F6CFA5F271EA310006A6134 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				3F2A2F13271D6BF6007276E1 /* OnBoarding */,
 				3F2A2F2A271DA164007276E1 /* MainView.swift */,
 				3FB03999271EFE6B00276FB3 /* SearchView.swift */,
-				3F6A18BE272028E800A673D6 /* FlightInfoViewModel.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 				3F2A2F18271D760F007276E1 /* OnBoardingViewModel.swift in Sources */,
 				3FB03996271EE6B600276FB3 /* APIKey.swift in Sources */,
 				3F2A2F12271D6B52007276E1 /* PromoViewModel.swift in Sources */,
-				3F6A18BF272028E800A673D6 /* FlightInfoViewModel.swift in Sources */,
 				3F6A18C32720394600A673D6 /* CorneredRectangle.swift in Sources */,
 				3F6A18BB271FFDDC00A673D6 /* NeomorphicShadow.swift in Sources */,
 				3FB0399A271EFE6B00276FB3 /* SearchView.swift in Sources */,

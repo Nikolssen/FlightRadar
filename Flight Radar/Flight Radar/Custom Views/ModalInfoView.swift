@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct ModalInfoView: View {
+    
+//    struct ViewModel {
+//
+//    }
+//
+//    let viewModel: ModalInfoView.ViewModel
+    
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 15) {
             RoundedRectangle(cornerRadius: 1, style: .continuous)
-                .frame(width: 50, height: 3, alignment: .center)
+                .frame(width: 80, height: 3, alignment: .center)
                 .foregroundColor(.charcoal.opacity(0.5))
-            FlightInfoView(viewModel: FlightInfoViewModel(destination: "Kyiv", destinationCode: "BPO", origin: "Minsk", originCode: "MSQ", status: "Active", flightTime: "2h 30m"))
+                .offset(y: 5)
+            FlightInfoView(viewModel: .init(destination: "Kyiv", destinationCode: "BPO", origin: "Minsk", originCode: "MSQ", status: "Active", flightTime: "2h 30m"))
             HStack(spacing: 20) {
                 Text("Company")
-                    .frame(alignment: .leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Text("Belavia")
-                    .frame(alignment: .trailing)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
             }
             .modifier(NeomorhicShadow())
             .font(.oswaldMedium(size: 18))
@@ -26,27 +34,27 @@ struct ModalInfoView: View {
             
             HStack(spacing: 20) {
                 Text("Departure")
-                    .frame(alignment: .leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Text("Belavia")
-                    .frame(alignment: .trailing)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
             }
             .modifier(NeomorhicShadow())
             .font(.oswaldMedium(size: 18))
             .foregroundColor(.charcoal)
             HStack(spacing: 20) {
                 Text("Arrival")
-                    .frame(alignment: .leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Text("Belavia")
-                    .frame(alignment: .trailing)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
             }
             .modifier(NeomorhicShadow())
             .font(.oswaldMedium(size: 18))
             .foregroundColor(.charcoal)
         }
+        .padding(.horizontal, 50)
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.athensGray)
-        .clipShape(CornerRectangle(cornerRadius: 30, byRoundingCorners: [.topLeft, .topRight]))
-        .padding()
+        .clipShape(CornerRectangle(cornerRadius: 40, byRoundingCorners: [.topLeft, .topRight]))
 
             
     }
