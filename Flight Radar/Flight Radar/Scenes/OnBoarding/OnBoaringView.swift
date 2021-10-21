@@ -35,10 +35,11 @@ struct OnBoaringView: View {
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                     Button(action: { transitionIndex = 1 }) {
-                        Text(Constants.continueMessage)
+                        Text(Constants.getStartedMessage)
                     }
                     .buttonStyle(SolidButtonStyle())
                     .padding(.horizontal, 10)
+                    .isHidden(selectedIndex != viewModel.promoViewModels.count - 1)
                     
                 }
                 .padding(10)
@@ -50,8 +51,8 @@ struct OnBoaringView: View {
 
 extension OnBoaringView {
     enum Constants {
-        static let continueMessage: LocalizedStringKey = "continue_title"
-        static let getStartedMessage: LocalizedStringKey = "get_started_title"
+        static let continueMessage: LocalizedStringKey = "onboard_continue"
+        static let getStartedMessage: LocalizedStringKey = "onboard_get_started"
     }
 }
 

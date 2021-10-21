@@ -5,8 +5,22 @@
   Created by Ivan Budovich on 10/18/21.
   
 */
-"continue_title" = "Продолжить";
-"get_started_title" = "Начать работу!";
 
-"welcome_msg" = "Приветствуем в Flight Radar!";
-"provider_msg" = "Ваш проводник по текущим авиарейсам по всему миру.";
+// MARK: Onboarding
+"onboard_continue" = "Продолжить";
+"onboard_get_started" = "Начать работу!";
+"onboard_welcome" = "Приветствуем в Flight Radar!";
+"onboard_provider" = "Ваш проводник по текущим авиарейсам по всему миру.";
+"onboard_airports" = "Получите информацию об аэропортах рядом с Вами и в других частях мира";
+
+// MARK: Flight Info
+
+"flightinfo_company" = "Авиакомпания";
+"flightinfo_departure" = "Отправление";
+"flightinfo_arrival" = "Прибытие";
+
+
+// MARK: Airport Search
+"airportsearch_placeholder" = "Название аэропорта или код IATA";
+"airportsearch_nearest" = "Искать поблизости";
+"airportsearch_search" = "Искать";

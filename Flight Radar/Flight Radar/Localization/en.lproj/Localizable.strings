@@ -8,8 +8,21 @@
 
 
 // MARK: Onboarding
-"continue_title" = "Continue";
-"get_started_title" = "Get started!";
+"onboard_continue" = "Continue";
+"onboard_get_started" = "Get started!";
+"onboard_welcome" = "Welcome to Flight Radar!";
+"onboard_provider" = "Your provider to current flights all over the world.";
+"onboard_airports" = "Get information about airports nearby and far-far away.";
 
-"welcome_msg" = "Welcome to Flight Radar!";
-"provider_msg" = "Your provider to current flights all over the world.";
+// MARK: Flight Info
+
+"flightinfo_company" = "Company";
+"flightinfo_departure" = "Departure";
+"flightinfo_arrival" = "Arrival";
+
+
+// MARK: Airport Search
+"airportsearch_placeholder" = "Airport name or IATA code";
+"airportsearch_nearest" = "Search nearest";
+"airportsearch_search" = "Search";
+
