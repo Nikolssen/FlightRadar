@@ -9,4 +9,5 @@ import Foundation
 
 enum APIKey {
     static let aviationStackKey = ""
+    static let rapidApiKey = ""
 }
