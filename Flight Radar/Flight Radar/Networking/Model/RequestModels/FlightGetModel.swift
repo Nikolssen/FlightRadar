@@ -8,11 +8,9 @@
 import Foundation
 
 struct RealFlightGetModel: Encodable {
-    let accessKey = APIKey.aviationStackKey
-}
-
-extension RealFlightGetModel {
     enum CodingKeys: String, CodingKey {
         case accessKey = "access_key"
     }
+    
+    let accessKey = APIKey.aviationStackKey
 }

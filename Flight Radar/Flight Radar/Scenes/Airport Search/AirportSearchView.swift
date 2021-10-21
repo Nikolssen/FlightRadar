@@ -23,7 +23,8 @@ struct AirportSearchView: View {
                         .padding(.top)
                     HStack {
                         Spacer()
-                        Button(viewModel.buttonTitle, action: {viewModel.buttonAction = Void()})
+                        Button(viewModel.buttonTitle) {
+                        viewModel.buttonAction.send(Void()) }
                             .padding(.trailing, 15)
                             .font(.gnuolane(size: 20))
                             .foregroundColor(.sanMarino)
@@ -33,13 +34,20 @@ struct AirportSearchView: View {
                 
                 ScrollView{
                     LazyVGrid(columns: column, alignment: .center, spacing: 20) {
-                        
+                        AirportView()
+                        AirportView()
+                        AirportView()
+                        AirportView()
+                        AirportView()
+                        AirportView()
+                        AirportView()
+                        AirportView()
+                        AirportView()
                     }
                     .padding()
                 }
             }
             .modifier(HidesKeyboardOnTap())
-            
         }
         
     }

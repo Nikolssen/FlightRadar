@@ -12,18 +12,18 @@ class AirportSearchViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     @Published var buttonTitle: LocalizedStringKey = Constants.searchNearestTitle
-    @Published var buttonAction: Void = Void()
+    let buttonAction: PassthroughSubject<Void, Never> = .init()
     
     
     init() {
         $searchText
+            .removeDuplicates()
             .map { $0.isEmpty ? Constants.searchNearestTitle : Constants.searchTitle }
             .removeDuplicates()
             .assign(to: &$buttonTitle)
         
     }
-    
-    
+
 }
 
 private extension AirportSearchViewModel {

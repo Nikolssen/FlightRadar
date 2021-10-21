@@ -16,20 +16,17 @@ class APIRepository {
 
 enum APIRequest {
     case allFlights
-    case airport
-    case nearestAirport
-    case company
+    case airportByFreeText
+    case airportByLocation
     
-//    var path: String {
-//        switch self {
-//        case .allFlights:
-//            <#code#>
-//        case .airport:
-//            <#code#>
-//        case .nearestAirport:
-//            <#code#>
-//        case .company:
-//            <#code#>
-//        }
-//    }
+    var path: String {
+        switch self {
+        case .allFlights:
+            return "http://api.aviationstack.com/v1/flights"
+        case .airportByFreeText:
+            return "https://aerodatabox.p.rapidapi.com/airports/search/term"
+        case .airportByLocation:
+            return "https://aerodatabox.p.rapidapi.com/airports/search/location"
+        }
+    }
 }

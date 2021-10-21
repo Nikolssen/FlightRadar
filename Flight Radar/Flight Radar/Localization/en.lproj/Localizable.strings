@@ -8,7 +8,6 @@
 
 
 // MARK: Onboarding
-"onboard_continue" = "Continue";
 "onboard_get_started" = "Get started!";
 "onboard_welcome" = "Welcome to Flight Radar!";
 "onboard_provider" = "Your provider to current flights all over the world.";

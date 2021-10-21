@@ -15,11 +15,6 @@ struct PromoView: View {
         
         VStack(alignment: .center, spacing: 20) {
             
-            Text(viewModel.headerText)
-                .font(.oswaldMedium(size: 36))
-                .lineLimit(2)
-                .foregroundColor(.charcoal)
-                .modifier(NeomorhicShadow())
             
             viewModel.image
                 .resizable()

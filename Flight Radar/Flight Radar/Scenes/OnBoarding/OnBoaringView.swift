@@ -27,6 +27,12 @@ struct OnBoaringView: View {
                 Color.whiteLiliac
                     .ignoresSafeArea()
                 VStack {
+                    Text(Constants.welcomeMessage)
+                        .font(.oswaldMedium(size: 36))
+                        .lineLimit(2)
+                        .foregroundColor(.charcoal)
+                        .modifier(NeomorhicShadow())
+                    
                     TabView(selection: $selectedIndex) {
                         ForEach(viewModel.promoViewModels) {
                             PromoView(viewModel: $0)
@@ -51,7 +57,7 @@ struct OnBoaringView: View {
 
 extension OnBoaringView {
     enum Constants {
-        static let continueMessage: LocalizedStringKey = "onboard_continue"
+        static let welcomeMessage: LocalizedStringKey = "onboard_welcome"
         static let getStartedMessage: LocalizedStringKey = "onboard_get_started"
     }
 }

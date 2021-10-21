@@ -7,8 +7,7 @@
 */
 
 // MARK: Onboarding
-"onboard_continue" = "Продолжить";
-"onboard_get_started" = "Начать работу!";
+"onboard_get_started" = "Вперед!";
 "onboard_welcome" = "Приветствуем в Flight Radar!";
 "onboard_provider" = "Ваш проводник по текущим авиарейсам по всему миру.";
 "onboard_airports" = "Получите информацию об аэропортах рядом с Вами и в других частях мира";
