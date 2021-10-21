@@ -17,7 +17,7 @@ struct AirportSearchView: View {
             
             Color.athensGray
                 .ignoresSafeArea()
-            VStack {
+            VStack(spacing: 0) {
                 VStack(spacing: 0) {
                     SearchField(text: $viewModel.searchText, placeholder: Constants.placeholder)
                         .padding(.top)
@@ -28,10 +28,9 @@ struct AirportSearchView: View {
                             .padding(.trailing, 15)
                             .font(.gnuolane(size: 20))
                             .foregroundColor(.sanMarino)
-                            .padding(.top, -10)
                     }
                 }
-                
+                Divider()
                 ScrollView{
                     LazyVGrid(columns: column, alignment: .center, spacing: 20) {
                         AirportView()

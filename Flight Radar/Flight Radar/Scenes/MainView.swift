@@ -16,11 +16,14 @@ struct MainView: View {
             //                .edgesIgnoringSafeArea([.all])
             
             VStack {
+                VStack(spacing: 0) {
                 AirportSearchView(viewModel: AirportSearchViewModel())
                     .padding(.top, 20)
-                
-                TabBarView(selectedTab: $selectedTab)
-                    .padding(.bottom, 30)
+                    Divider()
+                }
+                    TabBarView(selectedTab: $selectedTab)
+                        .padding(.bottom, 30)
+
                 
             }
             
