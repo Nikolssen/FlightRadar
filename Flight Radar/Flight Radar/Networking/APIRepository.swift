@@ -18,6 +18,7 @@ enum APIRequest {
     case allFlights
     case airportByFreeText
     case airportByLocation
+    case company
     
     var path: String {
         switch self {
@@ -27,6 +28,8 @@ enum APIRequest {
             return "https://aerodatabox.p.rapidapi.com/airports/search/term"
         case .airportByLocation:
             return "https://aerodatabox.p.rapidapi.com/airports/search/location"
+        case .company:
+            return "https://iata-and-icao-codes.p.rapidapi.com/airline"   
         }
     }
 }
