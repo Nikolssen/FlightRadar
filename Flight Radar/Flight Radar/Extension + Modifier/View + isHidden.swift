@@ -25,10 +25,13 @@ extension View {
     @ViewBuilder func isHidden(_ hidden: Bool, remove: Bool = false) -> some View {
         if hidden {
             if !remove {
-                self.hidden()
+                self.opacity(0.0)
+            }
+            else {
+                EmptyView()
             }
         } else {
-            self
+            self.opacity(1.0)
         }
     }
 }

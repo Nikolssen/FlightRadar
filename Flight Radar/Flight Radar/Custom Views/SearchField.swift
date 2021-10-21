@@ -19,7 +19,7 @@ struct SearchField: View {
             PackedTextField(text: $text, placeholder: $placeholder)
                 .foregroundColor(.sanMarino)
                 .font(.gnuolane(size: 26))
-                .modifier(AccentColor(color: .sanMarino))
+                .accentColor(.sanMarino)
                 .modifier(NeomorhicShadow())
         }
             .padding()

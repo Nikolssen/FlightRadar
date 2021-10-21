@@ -13,23 +13,27 @@ struct PromoView: View {
     
     var body: some View {
         
-        VStack {
-            Spacer()
+        VStack(alignment: .center, spacing: 20) {
+            
             Text(viewModel.headerText)
                 .font(.oswaldMedium(size: 36))
                 .lineLimit(2)
                 .foregroundColor(.charcoal)
-            Spacer()
+                .modifier(NeomorhicShadow())
+            
             viewModel.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 80, style: .continuous))
+                .modifier(NeomorhicShadow())
                 .padding()
-            Spacer()
+            
             Text(viewModel.bottomText)
                 .font(.oswaldLight(size: 24))
                 .foregroundColor(.charcoal)
-            Spacer()
+            
+            
         }
+        
     }
 }

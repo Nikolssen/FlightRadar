@@ -19,6 +19,7 @@ struct TabBarView: View {
         .padding(Constants.paddingValue)
         .background(Color.whiteLiliac)
         .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
+        .modifier(NeomorhicShadow())
         .padding(.horizontal)
     }
     
@@ -76,8 +77,8 @@ struct TabBarButton: View {
     }
     
     private enum Constants {
-        static let selectedSide: CGFloat = 23
-        static let deselectedSide: CGFloat = 25
+        static let selectedSide: CGFloat = 25
+        static let deselectedSide: CGFloat = 28
         static let animationDuration: CGFloat = 0.5
         static let externalShadowSize: CGFloat = 35
         static let innerShadowSide: CGFloat = 40

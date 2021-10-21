@@ -38,6 +38,7 @@ struct OnBoaringView: View {
                         Text(Constants.continueMessage)
                     }
                     .buttonStyle(SolidButtonStyle())
+                    .padding(.horizontal, 10)
                     
                 }
                 .padding(10)

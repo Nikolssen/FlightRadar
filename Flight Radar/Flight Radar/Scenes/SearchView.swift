@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State private var text: String = ""
+    @State private var placeholder: String = "Airport code or name"
+    let column = [GridItem(.flexible(maximum: .infinity))]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+            Color.athensGray
+                .ignoresSafeArea()
+            VStack {
+                SearchField(text: $text, placeholder: $placeholder)
+                    .padding(.top)
+                ScrollView{
+                    LazyVGrid(columns: column, alignment: .center, spacing: 20) {
+                        
+                    }
+                    .padding()
+                }
+            }
+            .modifier(HidesKeyboardOnTap())
+            
+        }
+        
+        
     }
 }
 
