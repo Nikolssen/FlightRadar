@@ -9,7 +9,10 @@ import SwiftUI
 
 extension Font {
     static func gnuolane(size: CGFloat) -> Font {
-        Font.custom("Gnuolane", size: size)
+        if Locale.current.identifier.starts(with: "ru")  {
+            return Font.custom("Oswald-Regular", size: size)
+        }
+        return Font.custom("Gnuolane", size: size)
     }
     
     static func oswaldLight(size: CGFloat) -> Font {
