@@ -31,20 +31,28 @@ struct AirportSearchView: View {
                     }
                 }
                 Divider()
-                ScrollView{
-                    LazyVGrid(columns: column, alignment: .center, spacing: 20) {
-                        AirportView()
-                        AirportView()
-                        AirportView()
-                        AirportView()
-                        AirportView()
-                        AirportView()
-                        AirportView()
-                        AirportView()
-                        AirportView()
-                    }
-                    .padding()
+                if viewModel.shouldShowSpinner {
+                    Spacer()
+                    ActivityView()
+                    Spacer()
                 }
+                else {
+                    ScrollView{
+                        LazyVGrid(columns: column, alignment: .center, spacing: 20) {
+                            AirportView()
+                            AirportView()
+                            AirportView()
+                            AirportView()
+                            AirportView()
+                            AirportView()
+                            AirportView()
+                            AirportView()
+                            AirportView()
+                        }
+                        .padding()
+                    }
+                }
+
             }
             .modifier(HidesKeyboardOnTap())
         }
