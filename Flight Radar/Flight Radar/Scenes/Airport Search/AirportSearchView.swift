@@ -24,10 +24,10 @@ struct AirportSearchView: View {
                     HStack {
                         Spacer()
                         Button(viewModel.buttonTitle) {
-                        viewModel.buttonAction.send(Void()) }
-                            .padding(.trailing, 15)
-                            .font(.gnuolane(size: 20))
-                            .foregroundColor(.sanMarino)
+                            viewModel.buttonAction.send(Void()) }
+                        .padding(.trailing, 15)
+                        .font(.gnuolane(size: 20))
+                        .foregroundColor(.sanMarino)
                     }
                 }
                 Divider()
@@ -39,20 +39,14 @@ struct AirportSearchView: View {
                 else {
                     ScrollView{
                         LazyVGrid(columns: column, alignment: .center, spacing: 20) {
-                            AirportView()
-                            AirportView()
-                            AirportView()
-                            AirportView()
-                            AirportView()
-                            AirportView()
-                            AirportView()
-                            AirportView()
-                            AirportView()
+                            ForEach(viewModel.airportViewModels, id: \.index) {
+                                AirportView(viewModel: $0, allowFadedAppearence: true)
+                            }
                         }
                         .padding()
                     }
                 }
-
+                
             }
             .modifier(HidesKeyboardOnTap())
         }
@@ -66,8 +60,8 @@ private extension AirportSearchView {
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        AirportSearchView(viewModel: AirportSearchViewModel())
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AirportSearchView(viewModel: )
+//    }
+//}

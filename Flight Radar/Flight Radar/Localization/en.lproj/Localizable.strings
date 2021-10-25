@@ -24,4 +24,7 @@
 "airportsearch_placeholder" = "Airport name or IATA code";
 "airportsearch_nearest" = "Search nearest";
 "airportsearch_search" = "Search";
+"airportsearch_unnamed_airport" = "Unnamed Airport";
 
+// MARK: Distance
+"km" = "km";

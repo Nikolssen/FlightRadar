@@ -13,8 +13,8 @@ struct AirportDetailsView: View {
     
     var body: some View {
         VStack {
-            AirportView()
-                .padding()
+//            AirportView()
+//                .padding()
             Divider()
             Spacer()
             

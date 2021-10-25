@@ -23,3 +23,7 @@
 "airportsearch_placeholder" = "Название аэропорта или код IATA";
 "airportsearch_nearest" = "Искать поблизости";
 "airportsearch_search" = "Искать";
+"airportsearch_unnamed_airport" = "Неизвестный аэропорт";
+
+// MARK: Distance
+"km" = "км";
