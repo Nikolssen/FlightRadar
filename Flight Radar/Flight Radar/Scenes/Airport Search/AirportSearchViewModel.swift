@@ -13,29 +13,84 @@ class AirportSearchViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     @Published var buttonTitle: LocalizedStringKey = Constants.searchNearestTitle
-    @Published var airportInfo: [AirportSearchViewModel] = []
+    @Published var airportInfo: [AirportDetailsViewModel] = []
     @Published var shouldShowSpinner: Bool = false
     let buttonAction: PassthroughSubject<Void, Never> = .init()
+    
+    var subscriptions: Set<AnyCancellable> = .init()
+    
     let repo: APIRepository = .init()
-    var disposeBag: Set<AnyCancellable> = .init()
+    let locationManager: LocationManager = .init()
+    
     init() {
-        $searchText
+        
+        
+        let isTextEmptyPublisher = $searchText
             .removeDuplicates()
-            .map { $0.isEmpty ? Constants.searchNearestTitle : Constants.searchTitle }
+            .map { $0.isEmpty }
+            .share()
+        
+        isTextEmptyPublisher
+            .map { $0 ? Constants.searchNearestTitle : Constants.searchTitle }
             .removeDuplicates()
             .assign(to: &$buttonTitle)
         
-        buttonAction
-//            .throttle(for: 0.5, scheduler: RunLoop.main, latest: false)
-//            .flatMapLatest { [repo]  () -> AnyPublisher<DataResponsePublisher<[CompanyModel]>.Output, DataResponsePublisher<[CompanyModel]>.Failure> in
-//                repo.genericRequest(request: .company(CompanyGetModel(iataCode: "FR")))
-//            }
-            .sink { [weak self] in
-                
-                self?.shouldShowSpinner.toggle()
+        
+        let searchAction = buttonAction
+            .throttle(for: 0.5, scheduler: RunLoop.main, latest: false)
+            .setFailureType(to: Never.self)
+            .withLatestFrom(isTextEmptyPublisher)
+            .share()
+        
+        searchAction
+            .filter { !$0 }
+            .withLatestFrom($searchText)
+        
+            .flatMapLatest{ [repo] (query) -> AnyPublisher<DataResponsePublisher<[AirportModel]>.Output, DataResponsePublisher<[AirportModel]>.Failure> in
+                repo.genericRequest(request: .airportByFreeText(AirportTextGetModel(q: query)))
+            }
+            .sink {
+                [weak self] in
+                switch $0.result {
+                case .failure(let error):
+                    break
+                case .success(let value):
+                    //self?.airportInfo = value
+                    break
+                }
+            }
+            .store(in: &subscriptions)
+        
+        let locationSearchAction = searchAction
+            .filter { $0 }
+            .map { [locationManager] _ in locationManager.currentLocation}
+            .share()
+        
+        locationSearchAction
+            .compactMap { $0 }
+            .flatMapLatest { [repo] location -> AnyPublisher<DataResponsePublisher<[AirportModel]>.Output, DataResponsePublisher<[AirportModel]>.Failure> in
+                repo.genericRequest(request: .airportByLocation(AirportLocationGetModel(lat: location.latitude, lon: location.longitude)))
+            }
+            .sink {
+                [weak self] in
+                switch $0.result {
+                case .failure(let error):
+                    break
+                case .success(let value):
+                    //self?.airportInfo = value
+                    break
+                }
+            }
+            .store(in: &subscriptions)
+        
+        locationSearchAction
+            .filter { $0 == nil }
+            .sink { _ in
                 
             }
-            .store(in: &disposeBag)
+            .store(in: &subscriptions)
+        
+        
         
     }
     

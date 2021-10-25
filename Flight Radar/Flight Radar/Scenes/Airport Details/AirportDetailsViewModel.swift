@@ -1,0 +1,26 @@
+//
+//  AirportDetailsViewModel.swift
+//  Flight Radar
+//
+//  Created by Ivan Budovich on 10/22/21.
+//
+
+import Foundation
+import Combine
+import CoreLocation
+import MapKit
+
+class AirportDetailsViewModel: ObservableObject {
+    private let airport: AirportModel
+    @Published var region: MKCoordinateRegion?
+    
+    
+    init(airport: AirportModel) {
+        self.airport = airport
+        if let location = airport.location{
+            let coordinates = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lon)
+            region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 200_000, longitudinalMeters: 200_000)
+        }
+    }
+    
+}
