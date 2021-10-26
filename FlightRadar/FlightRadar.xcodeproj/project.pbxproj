@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7C82727FA17006C476F /* AppDelegate.swift */; };
+		3FEBA7CB2727FA17006C476F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7CA2727FA17006C476F /* SceneDelegate.swift */; };
+		3FEBA7D32727FA17006C476F /* FlightRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7D12727FA17006C476F /* FlightRadar.xcdatamodeld */; };
+		3FEBA7D52727FA18006C476F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA7D42727FA18006C476F /* Assets.xcassets */; };
+		3FEBA7D82727FA18006C476F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA7D62727FA18006C476F /* LaunchScreen.storyboard */; };
+		3FEBA7E32727FA18006C476F /* FlightRadarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7E22727FA18006C476F /* FlightRadarTests.swift */; };
+		3FEBA8022727FCF2006C476F /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */; };
+		3FEBA8032727FCF2006C476F /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */; };
+		3FEBA8042727FCF2006C476F /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */; };
+		3FEBA8052727FCF2006C476F /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */; };
+		3FEBA8062727FCF2006C476F /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */; };
+		3FEBA8072727FCF2006C476F /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */; };
+		3FEBA8092727FCFD006C476F /* Gnuolane.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8082727FCFD006C476F /* Gnuolane.ttf */; };
+		3FEBA80A2727FCFD006C476F /* Gnuolane.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8082727FCFD006C476F /* Gnuolane.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3FEBA7DF2727FA18006C476F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FEBA7BD2727FA17006C476F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FEBA7C42727FA17006C476F;
+			remoteInfo = FlightRadar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3FEBA7C52727FA17006C476F /* FlightRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FEBA7C82727FA17006C476F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3FEBA7CA2727FA17006C476F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3FEBA7D22727FA17006C476F /* FlightRadar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightRadar.xcdatamodel; sourceTree = "<group>"; };
+		3FEBA7D42727FA18006C476F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FEBA7D72727FA18006C476F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3FEBA7D92727FA18006C476F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FEBA7DE2727FA18006C476F /* FlightRadarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightRadarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FEBA7E22727FA18006C476F /* FlightRadarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRadarTests.swift; sourceTree = "<group>"; };
+		3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
+		3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
+		3FEBA8082727FCFD006C476F /* Gnuolane.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gnuolane.ttf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FEBA7C22727FA17006C476F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FEBA7DB2727FA18006C476F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FEBA7BC2727FA17006C476F = {
+			isa = PBXGroup;
+			children = (
+				3FEBA7C72727FA17006C476F /* FlightRadar */,
+				3FEBA7E12727FA18006C476F /* FlightRadarTests */,
+				3FEBA7C62727FA17006C476F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FEBA7C62727FA17006C476F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FEBA7C52727FA17006C476F /* FlightRadar.app */,
+				3FEBA7DE2727FA18006C476F /* FlightRadarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FEBA7C72727FA17006C476F /* FlightRadar */ = {
+			isa = PBXGroup;
+			children = (
+				3FEBA7FD2727FB61006C476F /* CoreData */,
+				3FEBA7FC2727FB4A006C476F /* Assets */,
+				3FEBA7FB2727FB2F006C476F /* AppDelegate */,
+			);
+			path = FlightRadar;
+			sourceTree = "<group>";
+		};
+		3FEBA7E12727FA18006C476F /* FlightRadarTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FEBA7E22727FA18006C476F /* FlightRadarTests.swift */,
+			);
+			path = FlightRadarTests;
+			sourceTree = "<group>";
+		};
+		3FEBA7FB2727FB2F006C476F /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3FEBA7D92727FA18006C476F /* Info.plist */,
+				3FEBA7C82727FA17006C476F /* AppDelegate.swift */,
+				3FEBA7CA2727FA17006C476F /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3FEBA7FC2727FB4A006C476F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3FEBA7FE2727FCB7006C476F /* Fonts */,
+				3FEBA7D62727FA18006C476F /* LaunchScreen.storyboard */,
+				3FEBA7D42727FA18006C476F /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		3FEBA7FD2727FB61006C476F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3FEBA7D12727FA17006C476F /* FlightRadar.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3FEBA7FE2727FCB7006C476F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3FEBA8082727FCFD006C476F /* Gnuolane.ttf */,
+				3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */,
+				3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */,
+				3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FEBA7C42727FA17006C476F /* FlightRadar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FEBA7F22727FA18006C476F /* Build configuration list for PBXNativeTarget "FlightRadar" */;
+			buildPhases = (
+				3FEBA7C12727FA17006C476F /* Sources */,
+				3FEBA7C22727FA17006C476F /* Frameworks */,
+				3FEBA7C32727FA17006C476F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlightRadar;
+			productName = FlightRadar;
+			productReference = 3FEBA7C52727FA17006C476F /* FlightRadar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3FEBA7DD2727FA18006C476F /* FlightRadarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FEBA7F52727FA18006C476F /* Build configuration list for PBXNativeTarget "FlightRadarTests" */;
+			buildPhases = (
+				3FEBA7DA2727FA18006C476F /* Sources */,
+				3FEBA7DB2727FA18006C476F /* Frameworks */,
+				3FEBA7DC2727FA18006C476F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FEBA7E02727FA18006C476F /* PBXTargetDependency */,
+			);
+			name = FlightRadarTests;
+			productName = FlightRadarTests;
+			productReference = 3FEBA7DE2727FA18006C476F /* FlightRadarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FEBA7BD2727FA17006C476F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					3FEBA7C42727FA17006C476F = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					3FEBA7DD2727FA18006C476F = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 3FEBA7C42727FA17006C476F;
+					};
+				};
+			};
+			buildConfigurationList = 3FEBA7C02727FA17006C476F /* Build configuration list for PBXProject "FlightRadar" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3FEBA7BC2727FA17006C476F;
+			productRefGroup = 3FEBA7C62727FA17006C476F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FEBA7C42727FA17006C476F /* FlightRadar */,
+				3FEBA7DD2727FA18006C476F /* FlightRadarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FEBA7C32727FA17006C476F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FEBA8022727FCF2006C476F /* Oswald-Medium.ttf in Resources */,
+				3FEBA8062727FCF2006C476F /* Oswald-Light.ttf in Resources */,
+				3FEBA7D82727FA18006C476F /* LaunchScreen.storyboard in Resources */,
+				3FEBA8092727FCFD006C476F /* Gnuolane.ttf in Resources */,
+				3FEBA7D52727FA18006C476F /* Assets.xcassets in Resources */,
+				3FEBA8042727FCF2006C476F /* Oswald-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FEBA7DC2727FA18006C476F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FEBA8072727FCF2006C476F /* Oswald-Light.ttf in Resources */,
+				3FEBA80A2727FCFD006C476F /* Gnuolane.ttf in Resources */,
+				3FEBA8032727FCF2006C476F /* Oswald-Medium.ttf in Resources */,
+				3FEBA8052727FCF2006C476F /* Oswald-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FEBA7C12727FA17006C476F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FEBA7D32727FA17006C476F /* FlightRadar.xcdatamodeld in Sources */,
+				3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */,
+				3FEBA7CB2727FA17006C476F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FEBA7DA2727FA18006C476F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FEBA7E32727FA18006C476F /* FlightRadarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3FEBA7E02727FA18006C476F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FEBA7C42727FA17006C476F /* FlightRadar */;
+			targetProxy = 3FEBA7DF2727FA18006C476F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3FEBA7D62727FA18006C476F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FEBA7D72727FA18006C476F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3FEBA7F02727FA18006C476F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3FEBA7F12727FA18006C476F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FEBA7F32727FA18006C476F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9G6V47L895;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlightRadar/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Budovich.Ivan.FlightRadar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FEBA7F42727FA18006C476F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9G6V47L895;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlightRadar/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Budovich.Ivan.FlightRadar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3FEBA7F62727FA18006C476F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9G6V47L895;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Budovich.Ivan.FlightRadarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightRadar.app/FlightRadar";
+			};
+			name = Debug;
+		};
+		3FEBA7F72727FA18006C476F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9G6V47L895;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Budovich.Ivan.FlightRadarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightRadar.app/FlightRadar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FEBA7C02727FA17006C476F /* Build configuration list for PBXProject "FlightRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FEBA7F02727FA18006C476F /* Debug */,
+				3FEBA7F12727FA18006C476F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FEBA7F22727FA18006C476F /* Build configuration list for PBXNativeTarget "FlightRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FEBA7F32727FA18006C476F /* Debug */,
+				3FEBA7F42727FA18006C476F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FEBA7F52727FA18006C476F /* Build configuration list for PBXNativeTarget "FlightRadarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FEBA7F62727FA18006C476F /* Debug */,
+				3FEBA7F72727FA18006C476F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3FEBA7D12727FA17006C476F /* FlightRadar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3FEBA7D22727FA17006C476F /* FlightRadar.xcdatamodel */,
+			);
+			currentVersion = 3FEBA7D22727FA17006C476F /* FlightRadar.xcdatamodel */;
+			path = FlightRadar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3FEBA7BD2727FA17006C476F /* Project object */;
+}
