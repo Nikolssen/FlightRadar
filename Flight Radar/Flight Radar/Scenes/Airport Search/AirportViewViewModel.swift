@@ -10,6 +10,8 @@ import CoreLocation
 import SwiftUI
 
 struct AirportViewViewModel {
+
+    
     let distance: String
     let name: String
     let abbreviations: String
@@ -27,6 +29,14 @@ struct AirportViewViewModel {
         }
         self.index = index
     }
+    
+    init(distance: String, name: String, abbreviations: String, index: Int) {
+        self.distance = distance
+        self.name = name
+        self.abbreviations = abbreviations
+        self.index = index
+    }
+
     
     private enum Constants {
         static let unnamedAirport: LocalizedStringKey = "airportsearch_unnamed_airport"

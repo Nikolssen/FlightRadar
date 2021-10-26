@@ -16,17 +16,17 @@ struct AirportView: View {
             
             VStack {
                 HStack {
-                    Text("25 km")
+                    Text(viewModel.distance)
                         .font(.oswaldMedium(size: 16))
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.horizontal, 15)
                 }
                 HStack {
-                    Text("Minsk International Airport of Saint")
+                    Text(viewModel.name)
                         .font(.gnuolane(size: 24))
                         .lineLimit(4)
                     Spacer()
-                    Text("msq")
+                    Text(viewModel.abbreviations)
                         .textCase(.uppercase)
                         .font(.oswaldMedium(size: 20))
                         .frame(alignment: .top)
@@ -66,10 +66,10 @@ struct AirportView: View {
     }
 }
 
-//struct AirportView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AirportView(viewModel: Ai)
-//            .padding(20)
-//            .background(Color.athensGray)
-//    }
-//}
+struct AirportView_Previews: PreviewProvider {
+    static var previews: some View {
+        AirportView(viewModel: AirportViewViewModel(distance: "25 km", name: "Minsk International", abbreviations: "MSQ", index: 0), allowFadedAppearence: false)
+            .padding(20)
+            .background(Color.athensGray)
+    }
+}

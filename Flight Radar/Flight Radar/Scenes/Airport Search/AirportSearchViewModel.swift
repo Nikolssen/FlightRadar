@@ -51,7 +51,7 @@ class AirportSearchViewModel: ObservableObject {
             .withLatestFrom($searchText)
             .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMapLatest{ [repo] (query) -> AnyPublisher<DataResponsePublisher<[AirportModel]>.Output, DataResponsePublisher<[AirportModel]>.Failure> in
+            .flatMapLatest{ [repo] (query) -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, DataResponsePublisher<AirportResponseModel>.Failure> in
                 repo.genericRequest(request: .airportByFreeText(AirportTextGetModel(q: query)))
             }
             .receive(on: DispatchQueue.main)
@@ -69,7 +69,7 @@ class AirportSearchViewModel: ObservableObject {
         locationSearchAction
             .compactMap { $0 }
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMapLatest { [repo] location -> AnyPublisher<DataResponsePublisher<[AirportModel]>.Output, DataResponsePublisher<[AirportModel]>.Failure> in
+            .flatMapLatest { [repo] location -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, DataResponsePublisher<AirportResponseModel>.Failure> in
                 repo.genericRequest(request: .airportByLocation(AirportLocationGetModel(lat: location.latitude, lon: location.longitude)))
             }
             .receive(on: DispatchQueue.main)
@@ -89,15 +89,15 @@ class AirportSearchViewModel: ObservableObject {
     }
     
     
-    func process(result: Result<[AirportModel], AFError>){
+    func process(result: Result<AirportResponseModel, AFError>){
         switch result {
         case .failure(let error):
             alertViewModel = AlertViewModel(id: 0, title: "Error", description: error.localizedDescription)
             break
         case .success(let values):
-            self.airports = values
+            self.airports = values.items
             var airportViewModels = Array<AirportViewViewModel>()
-            for (index, value) in values.enumerated() {
+            for (index, value) in values.items.enumerated() {
                 airportViewModels.append(AirportViewViewModel(model: value, using: locationManager, index: index))
             }
             self.airportViewModels = airportViewModels

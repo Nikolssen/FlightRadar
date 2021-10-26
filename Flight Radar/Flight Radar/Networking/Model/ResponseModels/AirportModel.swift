@@ -19,3 +19,7 @@ struct AirportModel: Decodable {
     let municipalityName: String?
     let location: AirportModel.Location?
 }
+
+struct AirportResponseModel: Decodable {
+    let items: [AirportModel]
+}
