@@ -10,4 +10,6 @@ extension UIImage {
     static var logo = UIImage(named: "logo")
     static var plane = UIImage(named: "plane")
     static var airport = UIImage(named: "airport")
+    
+    static let magnifyingGlass = UIImage(systemName: "magnifyingglass")
 }

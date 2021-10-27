@@ -23,7 +23,7 @@ final class NeomorphicView : UIView
 
     private var shadowColor2: UIColor = UIColor.white
     
-    @IBInspectable var innerShadow: Bool = true{
+    @IBInspectable var innerShadow: Bool = false {
         didSet{
             if innerShadow{
                 setInnerShadow()
