@@ -50,7 +50,13 @@ class NeomorphicButton: SanMarinoButton {
     }
     
     
+    override var intrinsicContentSize: CGSize {
+        let superSize = super.intrinsicContentSize
+        return CGSize(width: superSize.width + Constants.insets.left + Constants.insets.right, height: superSize.height + Constants.insets.top + Constants.insets.bottom)
+    }
     
-    
+    private enum Constants {
+        static let insets: UIEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
     
 }
