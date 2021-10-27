@@ -24,8 +24,8 @@ final class NeomorphicView : UIView
     private var shadowColor2: UIColor = UIColor.white
     
     @IBInspectable var innerShadow: Bool = false {
-        didSet{
-            if innerShadow{
+        willSet{
+            if newValue {
                 setInnerShadow()
             }
             else {
@@ -74,7 +74,10 @@ final class NeomorphicView : UIView
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        updateShadow()
+    }
+    
+    private func updateShadow() {
         layer.cornerRadius = cornerRadius
         containerView.layer.cornerRadius = cornerRadius
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
@@ -84,9 +87,6 @@ final class NeomorphicView : UIView
         let shadowPath1 = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         containerView.layer.shadowColor = shadowColor2.cgColor
         containerView.layer.shadowPath = shadowPath1.cgPath
-    
-        
-       
     }
     
     private func configureLayout() {
@@ -103,13 +103,13 @@ final class NeomorphicView : UIView
    private func setInnerShadow(){
        shadowColor2 = Constants.lightShadowColor
        shadowColor1 = Constants.darkShadowColor
-       self.layoutIfNeeded()
+       updateShadow()
     }
     
     private func setOuterShadow(){
         shadowColor1 = Constants.lightShadowColor
         shadowColor2 = Constants.darkShadowColor
-        self.layoutIfNeeded()
+        updateShadow()
     }
     
     private enum Constants {
