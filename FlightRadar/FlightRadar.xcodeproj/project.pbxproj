@@ -12,6 +12,9 @@
 		3F8F403D27296868002CABBC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8F403B27296868002CABBC /* ViewController.xib */; };
 		3F8F403F27297426002CABBC /* SanMarinoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F403E27297426002CABBC /* SanMarinoButton.swift */; };
 		3F8F4041272975C5002CABBC /* NeomorphicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4040272975C5002CABBC /* NeomorphicButton.swift */; };
+		3F8F40442729846B002CABBC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F40432729846B002CABBC /* TabBarController.swift */; };
+		3F8F4046272985D9002CABBC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4045272985D9002CABBC /* TabBar.swift */; };
+		3F8F4048272995EA002CABBC /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4047272995EA002CABBC /* TabBarItem.swift */; };
 		3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7C82727FA17006C476F /* AppDelegate.swift */; };
 		3FEBA7CB2727FA17006C476F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7CA2727FA17006C476F /* SceneDelegate.swift */; };
 		3FEBA7D32727FA17006C476F /* FlightRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7D12727FA17006C476F /* FlightRadar.xcdatamodeld */; };
@@ -54,6 +57,9 @@
 		3F8F403B27296868002CABBC /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		3F8F403E27297426002CABBC /* SanMarinoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanMarinoButton.swift; sourceTree = "<group>"; };
 		3F8F4040272975C5002CABBC /* NeomorphicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeomorphicButton.swift; sourceTree = "<group>"; };
+		3F8F40432729846B002CABBC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3F8F4045272985D9002CABBC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		3F8F4047272995EA002CABBC /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		3FEBA7C52727FA17006C476F /* FlightRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEBA7C82727FA17006C476F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FEBA7CA2727FA17006C476F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F8F40422729844D002CABBC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3F8F40432729846B002CABBC /* TabBarController.swift */,
+				3F8F4045272985D9002CABBC /* TabBar.swift */,
+				3F8F4047272995EA002CABBC /* TabBarItem.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		3FEBA7BC2727FA17006C476F = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +195,7 @@
 		3FEBA82027280548006C476F /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F8F40422729844D002CABBC /* TabBar */,
 				3FEBA8212728058C006C476F /* NeomorphicView.swift */,
 				3F8F40382729680F002CABBC /* SearchField.swift */,
 				3F8F403A27296868002CABBC /* ViewController.swift */,
@@ -317,10 +334,13 @@
 				3F8F4041272975C5002CABBC /* NeomorphicButton.swift in Sources */,
 				3FEBA8102727FF50006C476F /* UIFont + Custom Fonts.swift in Sources */,
 				3FEBA80E2727FF38006C476F /* UIImage + Custom Images.swift in Sources */,
+				3F8F4048272995EA002CABBC /* TabBarItem.swift in Sources */,
+				3F8F40442729846B002CABBC /* TabBarController.swift in Sources */,
 				3F8F403C27296868002CABBC /* ViewController.swift in Sources */,
 				3FEBA7D32727FA17006C476F /* FlightRadar.xcdatamodeld in Sources */,
 				3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */,
 				3FEBA8222728058C006C476F /* NeomorphicView.swift in Sources */,
+				3F8F4046272985D9002CABBC /* TabBar.swift in Sources */,
 				3F8F40392729680F002CABBC /* SearchField.swift in Sources */,
 				3F8F403F27297426002CABBC /* SanMarinoButton.swift in Sources */,
 				3FEBA7CB2727FA17006C476F /* SceneDelegate.swift in Sources */,
