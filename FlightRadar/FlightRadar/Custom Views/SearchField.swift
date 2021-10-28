@@ -25,7 +25,7 @@ class SearchField: UITextField {
     
     private func commonInit() {
         tintColor = .charcoal
-        
+        borderStyle = .none
         let image = UIImage.magnifyingGlass?.applyingSymbolConfiguration(.init(pointSize: 26, weight: .bold))
         
         let imageView = UIImageView(image: image)

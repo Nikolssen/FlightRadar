@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //let coordinator = Coordinator(window: window)
         //self.coordinator = coordinator
         //coordinator.start()
-        window.rootViewController = ViewController(nibName: "ViewController", bundle: nil)
+        window.rootViewController = AirportSearchController(nibName: "AirportSearchController", bundle: nil)
         window.makeKeyAndVisible()
     }
 

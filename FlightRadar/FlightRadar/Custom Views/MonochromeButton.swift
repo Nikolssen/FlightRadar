@@ -8,7 +8,7 @@
 import UIKit
 
 class MonochromeButton: UIButton {
-
+    
     override var isHighlighted: Bool {
         willSet {
             contentView.backgroundColor = newValue ? .whiteLiliac : .athensGray
@@ -52,6 +52,18 @@ class MonochromeButton: UIButton {
         setAttributedTitle(NSAttributedString(string: title(for: .highlighted) ?? "", attributes: TextStyles.highlightedButtonAttributed), for: .highlighted)
     }
     
+    override func setTitle(_ title: String?, for state: UIControl.State) {
+        switch state {
+        case .normal:
+            setAttributedTitle(NSAttributedString(string: title ?? "", attributes: TextStyles.buttonAttributes), for: .normal)
+            
+        case .highlighted:
+            setAttributedTitle(NSAttributedString(string: title ?? "", attributes: TextStyles.highlightedButtonAttributed), for: .highlighted)
+        default:
+            super.setTitle(title, for: state)
+        }
+        
+    }
     
     override var intrinsicContentSize: CGSize {
         let superSize = super.intrinsicContentSize
