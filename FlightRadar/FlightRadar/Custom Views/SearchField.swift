@@ -46,7 +46,7 @@ class SearchField: UITextField {
         ])
         contentView.cornerRadius = Constants.cornerRadius
         
-        defaultTextAttributes = TextStyles.textFieldAttributes
+        defaultTextAttributes = TextAttributes.textFieldAttributes
         
     }
     

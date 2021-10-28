@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F317C00272AD51700642C39 /* AirportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317BFF272AD51700642C39 /* AirportView.swift */; };
+		3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C01272AD86000642C39 /* MonochromeLabel.swift */; };
+		3F317C04272ADDAA00642C39 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C03272ADDAA00642C39 /* Spacer.swift */; };
 		3F853229272A83FA00C81509 /* FlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F853228272A83FA00C81509 /* FlightView.swift */; };
 		3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85322A272AADEA00C81509 /* BackgroundView.swift */; };
-		3F85322D272AB53000C81509 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85322C272AB53000C81509 /* TextStyles.swift */; };
+		3F85322D272AB53000C81509 /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85322C272AB53000C81509 /* TextAttributes.swift */; };
 		3F85322F272ABCBD00C81509 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85322E272ABCBD00C81509 /* ActivityIndicator.swift */; };
 		3F853238272AC8C300C81509 /* AirportSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F853236272AC8C300C81509 /* AirportSearchController.swift */; };
 		3F853239272AC8C300C81509 /* AirportSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F853237272AC8C300C81509 /* AirportSearchController.xib */; };
 		3F85323B272ACA2500C81509 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85323A272ACA2500C81509 /* Divider.swift */; };
 		3F85323D272AD04E00C81509 /* AirportSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85323C272AD04E00C81509 /* AirportSearchViewModel.swift */; };
+		3F853240272AD1AA00C81509 /* AirportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85323F272AD1AA00C81509 /* AirportCell.swift */; };
 		3F8F40392729680F002CABBC /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F40382729680F002CABBC /* SearchField.swift */; };
 		3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4040272975C5002CABBC /* MonochromeButton.swift */; };
 		3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7C82727FA17006C476F /* AppDelegate.swift */; };
@@ -53,14 +57,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F317BFF272AD51700642C39 /* AirportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportView.swift; sourceTree = "<group>"; };
+		3F317C01272AD86000642C39 /* MonochromeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeLabel.swift; sourceTree = "<group>"; };
+		3F317C03272ADDAA00642C39 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		3F853228272A83FA00C81509 /* FlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightView.swift; sourceTree = "<group>"; };
 		3F85322A272AADEA00C81509 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		3F85322C272AB53000C81509 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
+		3F85322C272AB53000C81509 /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
 		3F85322E272ABCBD00C81509 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3F853236272AC8C300C81509 /* AirportSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchController.swift; sourceTree = "<group>"; };
 		3F853237272AC8C300C81509 /* AirportSearchController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirportSearchController.xib; sourceTree = "<group>"; };
 		3F85323A272ACA2500C81509 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		3F85323C272AD04E00C81509 /* AirportSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchViewModel.swift; sourceTree = "<group>"; };
+		3F85323F272AD1AA00C81509 /* AirportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportCell.swift; sourceTree = "<group>"; };
 		3F8F40382729680F002CABBC /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		3F8F4040272975C5002CABBC /* MonochromeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeButton.swift; sourceTree = "<group>"; };
 		3FEBA7C52727FA17006C476F /* FlightRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,11 +124,20 @@
 		3F853231272AC7A400C81509 /* Airports */ = {
 			isa = PBXGroup;
 			children = (
+				3F85323E272AD13500C81509 /* Cell */,
 				3F853236272AC8C300C81509 /* AirportSearchController.swift */,
 				3F853237272AC8C300C81509 /* AirportSearchController.xib */,
 				3F85323C272AD04E00C81509 /* AirportSearchViewModel.swift */,
 			);
 			path = Airports;
+			sourceTree = "<group>";
+		};
+		3F85323E272AD13500C81509 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3F85323F272AD1AA00C81509 /* AirportCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3FEBA7BC2727FA17006C476F = {
@@ -210,9 +227,12 @@
 				3F8F40382729680F002CABBC /* SearchField.swift */,
 				3F8F4040272975C5002CABBC /* MonochromeButton.swift */,
 				3F85322A272AADEA00C81509 /* BackgroundView.swift */,
-				3F85322C272AB53000C81509 /* TextStyles.swift */,
+				3F85322C272AB53000C81509 /* TextAttributes.swift */,
 				3F85322E272ABCBD00C81509 /* ActivityIndicator.swift */,
 				3F85323A272ACA2500C81509 /* Divider.swift */,
+				3F317BFF272AD51700642C39 /* AirportView.swift */,
+				3F317C01272AD86000642C39 /* MonochromeLabel.swift */,
+				3F317C03272ADDAA00642C39 /* Spacer.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -342,18 +362,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */,
+				3F317C04272ADDAA00642C39 /* Spacer.swift in Sources */,
 				3FEBA80C2727FF1B006C476F /* UIColor + Custom Colors.swift in Sources */,
 				3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */,
 				3F85323B272ACA2500C81509 /* Divider.swift in Sources */,
 				3FEBA8102727FF50006C476F /* UIFont + Custom Fonts.swift in Sources */,
 				3F85322F272ABCBD00C81509 /* ActivityIndicator.swift in Sources */,
-				3F85322D272AB53000C81509 /* TextStyles.swift in Sources */,
+				3F85322D272AB53000C81509 /* TextAttributes.swift in Sources */,
+				3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */,
 				3FEBA80E2727FF38006C476F /* UIImage + Custom Images.swift in Sources */,
+				3F317C00272AD51700642C39 /* AirportView.swift in Sources */,
 				3FEBA7D32727FA17006C476F /* FlightRadar.xcdatamodeld in Sources */,
 				3F853238272AC8C300C81509 /* AirportSearchController.swift in Sources */,
 				3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */,
 				3F85323D272AD04E00C81509 /* AirportSearchViewModel.swift in Sources */,
 				3F8F40392729680F002CABBC /* SearchField.swift in Sources */,
+				3F853240272AD1AA00C81509 /* AirportCell.swift in Sources */,
 				3F853229272A83FA00C81509 /* FlightView.swift in Sources */,
 				3FEBA7CB2727FA17006C476F /* SceneDelegate.swift in Sources */,
 			);
