@@ -24,19 +24,17 @@ class SearchField: UITextField {
     }
     
     private func commonInit() {
-        tintColor = .manhattan
-        textColor = .sanMarino
-        font = .gnuolane(size: 26)
+        tintColor = .charcoal
         
         let image = UIImage.magnifyingGlass?.applyingSymbolConfiguration(.init(pointSize: 26, weight: .bold))
+        
         let imageView = UIImageView(image: image)
-        imageView.tintColor = .sanMarino
+        imageView.tintColor = .charcoal
         imageView.contentMode = .center
         leftView = imageView
         leftViewMode = .always
         
-        let contentView = NeomorphicView(frame: bounds)
-        contentView.innerShadow = false
+        let contentView = BackgroundView()
         insertSubview(contentView, at: 0)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.isUserInteractionEnabled = false
@@ -46,6 +44,9 @@ class SearchField: UITextField {
             contentView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
         ])
+        contentView.cornerRadius = Constants.cornerRadius
+        
+        defaultTextAttributes = TextStyles.textFieldAttributes
         
     }
     
@@ -75,7 +76,8 @@ class SearchField: UITextField {
         static let leftViewVerticalInset: CGFloat = 5
         static let leftViewLeftInset: CGFloat = 5
         static let leftViewWidth: CGFloat = 40
+        static let cornerRadius: CGFloat = 10
     }
     
-
+    
 }

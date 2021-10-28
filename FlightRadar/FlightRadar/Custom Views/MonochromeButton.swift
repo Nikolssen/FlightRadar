@@ -1,5 +1,5 @@
 //
-//  NeomorphicButton.swift
+//  MonochromeButton.swift
 //  FlightRadar
 //
 //  Created by Ivan Budovich on 10/27/21.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class NeomorphicButton: SanMarinoButton {
+class MonochromeButton: UIButton {
 
     override var isHighlighted: Bool {
         willSet {
-            contentView.innerShadow = newValue
+            contentView.backgroundColor = newValue ? .whiteLiliac : .athensGray
         }
     }
     
-    private lazy var contentView: NeomorphicView = {
-        let view = NeomorphicView()
+    private lazy var contentView: BackgroundView = {
+        let view = BackgroundView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -36,7 +36,7 @@ class NeomorphicButton: SanMarinoButton {
     }
     
     private func commonInit() {
-        contentView.innerShadow = false
+        
         insertSubview(contentView, at: 0)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.isUserInteractionEnabled = false
@@ -46,7 +46,10 @@ class NeomorphicButton: SanMarinoButton {
             contentView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
         ])
-        titleEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        titleEdgeInsets = Constants.insets
+        
+        setAttributedTitle(NSAttributedString(string: title(for: .normal) ?? "", attributes: TextStyles.buttonAttributes), for: .normal)
+        setAttributedTitle(NSAttributedString(string: title(for: .highlighted) ?? "", attributes: TextStyles.highlightedButtonAttributed), for: .highlighted)
     }
     
     

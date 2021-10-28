@@ -8,13 +8,6 @@
 import UIKit
 
 extension UIColor {
-    static var sanMarino: UIColor {
-        UIColor(named: "San Marino")!
-    }
-    
-    static var manhattan: UIColor {
-        UIColor(named: "Manhattan")!
-    }
     
     static var charcoal: UIColor {
         UIColor(named: "Charcoal")!

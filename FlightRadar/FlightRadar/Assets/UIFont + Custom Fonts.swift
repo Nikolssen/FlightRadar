@@ -8,12 +8,6 @@
 import UIKit
 
 extension UIFont {
-    static func gnuolane(size: CGFloat) -> UIFont {
-        if Locale.current.identifier.starts(with: "ru")  {
-            return UIFont(name: "Oswald-Regular", size: size)!
-        }
-        return UIFont(name: "Gnuolane", size: size)!
-    }
     
     static func oswaldLight(size: CGFloat) -> UIFont {
         UIFont(name: "Oswald-Light", size: size)!
