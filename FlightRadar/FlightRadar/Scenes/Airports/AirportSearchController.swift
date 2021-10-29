@@ -11,7 +11,7 @@ import RxCocoa
 
 class AirportSearchController: UIViewController {
     
-    @IBOutlet var serchField: SearchField!
+    @IBOutlet var searchField: SearchField!
     @IBOutlet var searchButton: MonochromeButton!
     @IBOutlet var collectionView: UICollectionView!
     

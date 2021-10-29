@@ -40,6 +40,16 @@ final class AirportView: BackgroundView {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fill
+        return stackView
+    }()
+    
+    private lazy var secondLevelStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.spacing = 30
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
     }()
     
     override init(frame: CGRect) {
@@ -62,5 +72,17 @@ final class AirportView: BackgroundView {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fill
+        stackView.spacing = 5
+        
+        addSubview(stackView)
+        
+        stackView.addArrangedSubview(firstLevelStackView)
+        stackView.addArrangedSubview(secondLevelStackView)
+        
+        firstLevelStackView.addArrangedSubview(Spacer())
+        firstLevelStackView.addArrangedSubview(distanceLabel)
+        
+        secondLevelStackView.addArrangedSubview(nameLabel)
+        secondLevelStackView.addArrangedSubview(codeLabel)
     }
 }

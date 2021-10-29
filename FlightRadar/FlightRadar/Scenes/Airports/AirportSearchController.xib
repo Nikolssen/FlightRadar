@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="collectionView" destination="FoG-a7-imn" id="M0D-dY-s5c"/>
                 <outlet property="searchButton" destination="5pY-yE-dLA" id="ZW1-1l-gvu"/>
-                <outlet property="serchField" destination="Nz3-91-S59" id="KWj-HM-b2X"/>
+                <outlet property="searchField" destination="Nz3-91-S59" id="KWj-HM-b2X"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

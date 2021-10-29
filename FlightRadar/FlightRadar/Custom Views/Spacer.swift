@@ -22,7 +22,7 @@ class Spacer: UIView {
     private func commonInit() {
         backgroundColor = .clear
         translatesAutoresizingMaskIntoConstraints = false
-        let widthConstraint = widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude)
+        let widthConstraint = widthAnchor.constraint(lessThanOrEqualToConstant: 1000)
         widthConstraint.priority = .defaultLow
         widthConstraint.isActive = true
     }
