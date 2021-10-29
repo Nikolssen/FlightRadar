@@ -24,7 +24,7 @@ class Divider: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = .charcoal.withAlphaComponent(0.5)
+        backgroundColor = .charcoal
     }
     
     override var intrinsicContentSize: CGSize {

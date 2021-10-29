@@ -48,17 +48,18 @@ final class MonochromeButton: UIButton {
         ])
         titleEdgeInsets = Constants.insets
         
-        setAttributedTitle(NSAttributedString(string: title(for: .normal) ?? "", attributes: TextAttributes.buttonAttributes), for: .normal)
-        setAttributedTitle(NSAttributedString(string: title(for: .highlighted) ?? "", attributes: TextAttributes.highlightedButtonAttributed), for: .highlighted)
+        setAttributedTitle(NSAttributedString(string: title(for: .normal) ?? "", attributes: TextAttributes.smallRegularAttributes), for: .normal)
+        setAttributedTitle(NSAttributedString(string: title(for: .highlighted) ?? "", attributes: TextAttributes.buttonAttributes), for: .highlighted)
     }
     
     override func setTitle(_ title: String?, for state: UIControl.State) {
         switch state {
         case .normal:
             setAttributedTitle(NSAttributedString(string: title ?? "", attributes: TextAttributes.buttonAttributes), for: .normal)
+            setAttributedTitle(NSAttributedString(string: title ?? "", attributes: TextAttributes.buttonAttributes), for: .highlighted)
             
         case .highlighted:
-            setAttributedTitle(NSAttributedString(string: title ?? "", attributes: TextAttributes.highlightedButtonAttributed), for: .highlighted)
+            setAttributedTitle(NSAttributedString(string: title ?? "", attributes: TextAttributes.buttonAttributes), for: .highlighted)
         default:
             super.setTitle(title, for: state)
         }
