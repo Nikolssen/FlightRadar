@@ -13,7 +13,6 @@
 		3F2C78FD272BD0FF00DA042B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C78FC272BD0FF00DA042B /* NetworkService.swift */; };
 		3F317C00272AD51700642C39 /* AirportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317BFF272AD51700642C39 /* AirportView.swift */; };
 		3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C01272AD86000642C39 /* MonochromeLabel.swift */; };
-		3F317C04272ADDAA00642C39 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C03272ADDAA00642C39 /* Spacer.swift */; };
 		3F853229272A83FA00C81509 /* FlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F853228272A83FA00C81509 /* FlightView.swift */; };
 		3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85322A272AADEA00C81509 /* BackgroundView.swift */; };
 		3F85322D272AB53000C81509 /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85322C272AB53000C81509 /* TextAttributes.swift */; };
@@ -67,7 +66,6 @@
 		3F2C78FC272BD0FF00DA042B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3F317BFF272AD51700642C39 /* AirportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportView.swift; sourceTree = "<group>"; };
 		3F317C01272AD86000642C39 /* MonochromeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeLabel.swift; sourceTree = "<group>"; };
-		3F317C03272ADDAA00642C39 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		3F853228272A83FA00C81509 /* FlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightView.swift; sourceTree = "<group>"; };
 		3F85322A272AADEA00C81509 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		3F85322C272AB53000C81509 /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 				3F85323A272ACA2500C81509 /* Divider.swift */,
 				3F317BFF272AD51700642C39 /* AirportView.swift */,
 				3F317C01272AD86000642C39 /* MonochromeLabel.swift */,
-				3F317C03272ADDAA00642C39 /* Spacer.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */,
-				3F317C04272ADDAA00642C39 /* Spacer.swift in Sources */,
 				3F2C78FD272BD0FF00DA042B /* NetworkService.swift in Sources */,
 				3FEBA80C2727FF1B006C476F /* UIColor + Custom Colors.swift in Sources */,
 				3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */,

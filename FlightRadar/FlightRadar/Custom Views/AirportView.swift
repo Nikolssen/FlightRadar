@@ -14,6 +14,7 @@ final class AirportView: BackgroundView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.attributes = TextAttributes.smallMediumAttributes
         label.numberOfLines = 1
+        label.textAlignment = .right
         return label
     }()
     
@@ -22,7 +23,8 @@ final class AirportView: BackgroundView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.attributes = TextAttributes.averageMediumAttributes
         label.numberOfLines = 1
-        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        label.textAlignment = .right
         return label
     }()
     
@@ -34,21 +36,13 @@ final class AirportView: BackgroundView {
         return label
     }()
     
-    private lazy var firstLevelStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.spacing = 10
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        return stackView
-    }()
     
     private lazy var secondLevelStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 30
+        stackView.spacing = 15
         stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.distribution = .equalCentering
         return stackView
     }()
     
@@ -70,19 +64,22 @@ final class AirportView: BackgroundView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.distribution = .equalCentering
         stackView.spacing = 5
         
         addSubview(stackView)
         
-        stackView.addArrangedSubview(firstLevelStackView)
+        stackView.addArrangedSubview(distanceLabel)
         stackView.addArrangedSubview(secondLevelStackView)
-        
-        firstLevelStackView.addArrangedSubview(Spacer())
-        firstLevelStackView.addArrangedSubview(distanceLabel)
         
         secondLevelStackView.addArrangedSubview(nameLabel)
         secondLevelStackView.addArrangedSubview(codeLabel)
+        NSLayoutConstraint.activate([
+            stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+        ])
     }
 }
