@@ -21,6 +21,7 @@
 		3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C01272AD86000642C39 /* MonochromeLabel.swift */; };
 		3F502556272C43140029F0D0 /* AirportCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F502555272C43140029F0D0 /* AirportCellViewModel.swift */; };
 		3F502559272C44010029F0D0 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F502558272C44010029F0D0 /* LocationService.swift */; };
+		3F50255B272C49420029F0D0 /* AirportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50255A272C49420029F0D0 /* AirportCoordinator.swift */; };
 		3F853229272A83FA00C81509 /* FlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F853228272A83FA00C81509 /* FlightView.swift */; };
 		3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85322A272AADEA00C81509 /* BackgroundView.swift */; };
 		3F85322D272AB53000C81509 /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85322C272AB53000C81509 /* TextAttributes.swift */; };
@@ -82,6 +83,7 @@
 		3F317C01272AD86000642C39 /* MonochromeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeLabel.swift; sourceTree = "<group>"; };
 		3F502555272C43140029F0D0 /* AirportCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportCellViewModel.swift; sourceTree = "<group>"; };
 		3F502558272C44010029F0D0 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		3F50255A272C49420029F0D0 /* AirportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportCoordinator.swift; sourceTree = "<group>"; };
 		3F853228272A83FA00C81509 /* FlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightView.swift; sourceTree = "<group>"; };
 		3F85322A272AADEA00C81509 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		3F85322C272AB53000C81509 /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
@@ -183,11 +185,19 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		3F50255C272C4A700029F0D0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3F2C78F3272BCF8800DA042B /* Coordinator.swift */,
+				3F50255A272C49420029F0D0 /* AirportCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		3F853230272AC79900C81509 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				3F853231272AC7A400C81509 /* Airports */,
-				3F2C78F3272BCF8800DA042B /* Coordinator.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -233,6 +243,7 @@
 		3FEBA7C72727FA17006C476F /* FlightRadar */ = {
 			isa = PBXGroup;
 			children = (
+				3F50255C272C4A700029F0D0 /* Coordinator */,
 				3F2C78F5272BCFFB00DA042B /* Services */,
 				3F853230272AC79900C81509 /* Scenes */,
 				3FEBA82027280548006C476F /* Custom Views */,
@@ -460,6 +471,7 @@
 				3F85323D272AD04E00C81509 /* AirportSearchViewModel.swift in Sources */,
 				3F8F40392729680F002CABBC /* SearchField.swift in Sources */,
 				3F2C790B272BEAAC00DA042B /* CompanyModel.swift in Sources */,
+				3F50255B272C49420029F0D0 /* AirportCoordinator.swift in Sources */,
 				3F853240272AD1AA00C81509 /* AirportCell.swift in Sources */,
 				3F853229272A83FA00C81509 /* FlightView.swift in Sources */,
 				3FEBA7CB2727FA17006C476F /* SceneDelegate.swift in Sources */,

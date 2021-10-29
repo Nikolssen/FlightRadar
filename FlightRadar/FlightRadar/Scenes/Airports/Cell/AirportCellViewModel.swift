@@ -6,6 +6,16 @@
 //
 
 import Foundation
+protocol AirportCellViewModelling {
+    
+    var distance: String { get }
+    var name: String { get }
+    var abbreviations: String { get }
+    var index: Int { get }
+    
+    init(model: AirportModel, using service: LocationService, index: Int)
+}
+
 struct AirportCellViewModel {
     
     let distance: String

@@ -13,7 +13,7 @@ protocol AirportSearchViewModelling {
     var searchTextRelay: BehaviorRelay<String> { get }
     var searchActionRelay: PublishRelay<Void> { get }
     var selectedCellRelay: PublishRelay<Int> { get }
-    //var dataSource: BehaviorRelay<AirportCellViewModelling>
+    var dataSourceRelay: BehaviorRelay<[AirportCellViewModelling]> { get }
 }
 
 protocol AirportSearchCoordinator {
@@ -25,6 +25,9 @@ struct AirportSearchViewModel: AirportSearchViewModelling {
     let searchTextRelay: BehaviorRelay<String> = .init(value: "")
     let searchActionRelay: PublishRelay<Void> = .init()
     let selectedCellRelay: PublishRelay<Int> = .init()
+    let dataSourceRelay: BehaviorRelay<[AirportCellViewModelling]> = .init(value: [])
+    let airportModelRelay: BehaviorRelay<[AirportResponseModel]> = .init(value: [])
+    
     let coordinator: AirportSearchCoordinator
     let service: Services
     

@@ -8,9 +8,18 @@
 import UIKit
 import RxSwift
 
-class Coordinator {
+protocol Coordinator {
+    func start()
+}
+
+
+class ApplicationCoordinator: Coordinator {
     private let window: UIWindow
-    private let services: Services = Service()
+    private let service: Services = Service()
+    
+    func start() {
+        
+    }
     
     init(window: UIWindow) {
         self.window = window
