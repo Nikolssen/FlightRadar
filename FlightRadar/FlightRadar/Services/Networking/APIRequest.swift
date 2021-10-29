@@ -22,7 +22,7 @@ enum APIRequest {
             return "https://aerodatabox.p.rapidapi.com/airports/search/term"
         case .airportByLocation:
             return "https://aerodatabox.p.rapidapi.com/airports/search/location"
-        case .company(_):
+        case .company:
             return "https://iata-and-icao-codes.p.rapidapi.com/airline"
         }
     }
