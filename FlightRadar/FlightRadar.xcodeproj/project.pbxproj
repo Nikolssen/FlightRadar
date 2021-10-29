@@ -13,6 +13,10 @@
 		3F2C78FD272BD0FF00DA042B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C78FC272BD0FF00DA042B /* NetworkService.swift */; };
 		3F2C7901272BE50D00DA042B /* Rx + ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C7900272BE50D00DA042B /* Rx + ActivityIndicator.swift */; };
 		3F2C7903272BE9EF00DA042B /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C7902272BE9EF00DA042B /* APIKey.swift */; };
+		3F2C7905272BEA4000DA042B /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C7904272BEA4000DA042B /* APIRequest.swift */; };
+		3F2C790A272BEAAC00DA042B /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C7908272BEAAC00DA042B /* AirportModel.swift */; };
+		3F2C790B272BEAAC00DA042B /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C7909272BEAAC00DA042B /* CompanyModel.swift */; };
+		3F2C790D272BEABA00DA042B /* RequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C790C272BEABA00DA042B /* RequestModels.swift */; };
 		3F317C00272AD51700642C39 /* AirportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317BFF272AD51700642C39 /* AirportView.swift */; };
 		3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C01272AD86000642C39 /* MonochromeLabel.swift */; };
 		3F853229272A83FA00C81509 /* FlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F853228272A83FA00C81509 /* FlightView.swift */; };
@@ -68,6 +72,10 @@
 		3F2C78FC272BD0FF00DA042B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3F2C7900272BE50D00DA042B /* Rx + ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx + ActivityIndicator.swift"; sourceTree = "<group>"; };
 		3F2C7902272BE9EF00DA042B /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		3F2C7904272BEA4000DA042B /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		3F2C7908272BEAAC00DA042B /* AirportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportModel.swift; sourceTree = "<group>"; };
+		3F2C7909272BEAAC00DA042B /* CompanyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
+		3F2C790C272BEABA00DA042B /* RequestModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModels.swift; sourceTree = "<group>"; };
 		3F317BFF272AD51700642C39 /* AirportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportView.swift; sourceTree = "<group>"; };
 		3F317C01272AD86000642C39 /* MonochromeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeLabel.swift; sourceTree = "<group>"; };
 		3F853228272A83FA00C81509 /* FlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightView.swift; sourceTree = "<group>"; };
@@ -136,10 +144,30 @@
 		3F2C78FA272BD0DE00DA042B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3F2C7907272BEA7200DA042B /* Response Models */,
+				3F2C7906272BEA6700DA042B /* Request Models */,
 				3F2C78FC272BD0FF00DA042B /* NetworkService.swift */,
 				3F2C7902272BE9EF00DA042B /* APIKey.swift */,
+				3F2C7904272BEA4000DA042B /* APIRequest.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		3F2C7906272BEA6700DA042B /* Request Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F2C790C272BEABA00DA042B /* RequestModels.swift */,
+			);
+			path = "Request Models";
+			sourceTree = "<group>";
+		};
+		3F2C7907272BEA7200DA042B /* Response Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F2C7908272BEAAC00DA042B /* AirportModel.swift */,
+				3F2C7909272BEAAC00DA042B /* CompanyModel.swift */,
+			);
+			path = "Response Models";
 			sourceTree = "<group>";
 		};
 		3F853230272AC79900C81509 /* Scenes */ = {
@@ -395,6 +423,7 @@
 				3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */,
 				3F2C78FD272BD0FF00DA042B /* NetworkService.swift in Sources */,
 				3F2C7901272BE50D00DA042B /* Rx + ActivityIndicator.swift in Sources */,
+				3F2C7905272BEA4000DA042B /* APIRequest.swift in Sources */,
 				3FEBA80C2727FF1B006C476F /* UIColor + Custom Colors.swift in Sources */,
 				3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */,
 				3F85323B272ACA2500C81509 /* Divider.swift in Sources */,
@@ -402,6 +431,7 @@
 				3FEBA8102727FF50006C476F /* UIFont + Custom Fonts.swift in Sources */,
 				3F85322F272ABCBD00C81509 /* ActivityIndicator.swift in Sources */,
 				3F85322D272AB53000C81509 /* TextAttributes.swift in Sources */,
+				3F2C790A272BEAAC00DA042B /* AirportModel.swift in Sources */,
 				3F2C7903272BE9EF00DA042B /* APIKey.swift in Sources */,
 				3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */,
 				3FEBA80E2727FF38006C476F /* UIImage + Custom Images.swift in Sources */,
@@ -413,9 +443,11 @@
 				3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */,
 				3F85323D272AD04E00C81509 /* AirportSearchViewModel.swift in Sources */,
 				3F8F40392729680F002CABBC /* SearchField.swift in Sources */,
+				3F2C790B272BEAAC00DA042B /* CompanyModel.swift in Sources */,
 				3F853240272AD1AA00C81509 /* AirportCell.swift in Sources */,
 				3F853229272A83FA00C81509 /* FlightView.swift in Sources */,
 				3FEBA7CB2727FA17006C476F /* SceneDelegate.swift in Sources */,
+				3F2C790D272BEABA00DA042B /* RequestModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
