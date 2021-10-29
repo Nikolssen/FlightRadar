@@ -16,7 +16,7 @@ class AirportSearchController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     var disposeBag: DisposeBag!
-    var viewModel: AirportSearchViewModelling! = AirportSearchViewModel()
+    var viewModel: AirportSearchViewModelling!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +28,14 @@ class AirportSearchController: UIViewController {
         
         self.disposeBag = DisposeBag()
         
-        let textObservable = searchField.rx
+        let textObservable =
+        searchField.rx
             .text
             .orEmpty
             .share()
         
         textObservable
             .map { $0.isEmpty ? Constants.searchNearestMessage : Constants.searchMessage }
-            .debug()
             .subscribe(onNext: {[weak self] in self?.searchButton.setTitle($0, for: .normal) })
             .disposed(by: disposeBag)
         
@@ -46,6 +46,12 @@ class AirportSearchController: UIViewController {
         searchButton.rx
             .tap
             .bind(to: viewModel.searchActionRelay)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx
+            .itemSelected
+            .map { $0.item }
+            .bind(to: viewModel.selectedCellRelay)
             .disposed(by: disposeBag)
         
     }

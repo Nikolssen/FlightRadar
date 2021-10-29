@@ -9,9 +9,11 @@ import Foundation
 protocol Services {
     var persistanceService: PersistanceService { get }
     var networkService: NetworkService { get }
+    var locationService: LocationService { get }
 }
 
 class Service: Services {
-    var persistanceService: PersistanceService = CoreDataService()
+    let persistanceService: PersistanceService = CoreDataService()
     let networkService: NetworkService = APIService()
+    let locationService: LocationService = LocationManager()
 }

@@ -48,7 +48,7 @@ final class MonochromeButton: UIButton {
         ])
         titleEdgeInsets = Constants.insets
         
-        setAttributedTitle(NSAttributedString(string: title(for: .normal) ?? "", attributes: TextAttributes.smallRegularAttributes), for: .normal)
+        setAttributedTitle(NSAttributedString(string: title(for: .normal) ?? "", attributes: TextAttributes.buttonAttributes), for: .normal)
         setAttributedTitle(NSAttributedString(string: title(for: .highlighted) ?? "", attributes: TextAttributes.buttonAttributes), for: .highlighted)
     }
     
