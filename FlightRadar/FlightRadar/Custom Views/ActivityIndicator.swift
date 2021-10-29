@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ActivityIndicator: BackgroundView {
+final class ActivityIndicator: BackgroundView {
 
     private lazy var spinnerLayer: CAShapeLayer = {
         let shapeLayer = CAShapeLayer()
@@ -51,9 +51,9 @@ class ActivityIndicator: BackgroundView {
     
         spinnerLayer.removeAnimation(forKey: Constants.animationName)
         let animation = CABasicAnimation(keyPath: Constants.keypath)
-        animation.fromValue = 0
-        animation.toValue =  2 * Float.pi
-        animation.duration = 2
+        animation.fromValue = Constants.startValue
+        animation.toValue =  Constants.endValue
+        animation.duration = Constants.animationDuration
         animation.repeatDuration = .infinity
         spinnerLayer.add(animation, forKey: Constants.animationName)
     }
@@ -65,6 +65,9 @@ class ActivityIndicator: BackgroundView {
     private enum Constants {
         static let animationName = "Spinner"
         static let keypath = "transform.rotation.z"
+        static let animationDuration: CFTimeInterval = 2
+        static let startValue: CGFloat = 0
+        static let endValue: CGFloat = CGFloat(2 * Float.pi)
     }
 
 }

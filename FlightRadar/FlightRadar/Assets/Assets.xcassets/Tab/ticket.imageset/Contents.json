@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "map1.pdf",
+      "filename" : "ticket1.pdf",
       "idiom" : "universal"
     },
     {
-      "filename" : "map2.pdf",
+      "filename" : "ticket2.pdf",
       "height-class" : "compact",
       "idiom" : "universal"
     }

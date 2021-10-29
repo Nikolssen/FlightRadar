@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2C78F4272BCF8800DA042B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C78F3272BCF8800DA042B /* Coordinator.swift */; };
+		3F2C78F7272BD01500DA042B /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C78F6272BD01500DA042B /* Services.swift */; };
+		3F2C78F9272BD07400DA042B /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C78F8272BD07400DA042B /* PersistanceService.swift */; };
+		3F2C78FD272BD0FF00DA042B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C78FC272BD0FF00DA042B /* NetworkService.swift */; };
 		3F317C00272AD51700642C39 /* AirportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317BFF272AD51700642C39 /* AirportView.swift */; };
 		3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C01272AD86000642C39 /* MonochromeLabel.swift */; };
 		3F317C04272ADDAA00642C39 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C03272ADDAA00642C39 /* Spacer.swift */; };
@@ -57,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F2C78F3272BCF8800DA042B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3F2C78F6272BD01500DA042B /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		3F2C78F8272BD07400DA042B /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
+		3F2C78FC272BD0FF00DA042B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3F317BFF272AD51700642C39 /* AirportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportView.swift; sourceTree = "<group>"; };
 		3F317C01272AD86000642C39 /* MonochromeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeLabel.swift; sourceTree = "<group>"; };
 		3F317C03272ADDAA00642C39 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
@@ -113,10 +121,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F2C78F5272BCFFB00DA042B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3F2C78FA272BD0DE00DA042B /* Networking */,
+				3F2C78F6272BD01500DA042B /* Services.swift */,
+				3FEBA7FD2727FB61006C476F /* CoreData */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3F2C78FA272BD0DE00DA042B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3F2C78FC272BD0FF00DA042B /* NetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		3F853230272AC79900C81509 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				3F853231272AC7A400C81509 /* Airports */,
+				3F2C78F3272BCF8800DA042B /* Coordinator.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -161,9 +188,9 @@
 		3FEBA7C72727FA17006C476F /* FlightRadar */ = {
 			isa = PBXGroup;
 			children = (
+				3F2C78F5272BCFFB00DA042B /* Services */,
 				3F853230272AC79900C81509 /* Scenes */,
 				3FEBA82027280548006C476F /* Custom Views */,
-				3FEBA7FD2727FB61006C476F /* CoreData */,
 				3FEBA7FC2727FB4A006C476F /* Assets */,
 				3FEBA7FB2727FB2F006C476F /* AppDelegate */,
 			);
@@ -205,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				3FEBA7D12727FA17006C476F /* FlightRadar.xcdatamodeld */,
+				3F2C78F8272BD07400DA042B /* PersistanceService.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -363,16 +391,20 @@
 			files = (
 				3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */,
 				3F317C04272ADDAA00642C39 /* Spacer.swift in Sources */,
+				3F2C78FD272BD0FF00DA042B /* NetworkService.swift in Sources */,
 				3FEBA80C2727FF1B006C476F /* UIColor + Custom Colors.swift in Sources */,
 				3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */,
 				3F85323B272ACA2500C81509 /* Divider.swift in Sources */,
+				3F2C78F9272BD07400DA042B /* PersistanceService.swift in Sources */,
 				3FEBA8102727FF50006C476F /* UIFont + Custom Fonts.swift in Sources */,
 				3F85322F272ABCBD00C81509 /* ActivityIndicator.swift in Sources */,
 				3F85322D272AB53000C81509 /* TextAttributes.swift in Sources */,
 				3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */,
 				3FEBA80E2727FF38006C476F /* UIImage + Custom Images.swift in Sources */,
+				3F2C78F7272BD01500DA042B /* Services.swift in Sources */,
 				3F317C00272AD51700642C39 /* AirportView.swift in Sources */,
 				3FEBA7D32727FA17006C476F /* FlightRadar.xcdatamodeld in Sources */,
+				3F2C78F4272BCF8800DA042B /* Coordinator.swift in Sources */,
 				3F853238272AC8C300C81509 /* AirportSearchController.swift in Sources */,
 				3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */,
 				3F85323D272AD04E00C81509 /* AirportSearchViewModel.swift in Sources */,

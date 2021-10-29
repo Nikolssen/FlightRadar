@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MonochromeButton: UIButton {
+final class MonochromeButton: UIButton {
     
     override var isHighlighted: Bool {
         willSet {
@@ -41,10 +41,10 @@ class MonochromeButton: UIButton {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.isUserInteractionEnabled = false
         NSLayoutConstraint.activate([
-            contentView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-            contentView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
-            contentView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            contentView.leftAnchor.constraint(equalTo: leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: rightAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
         titleEdgeInsets = Constants.insets
         

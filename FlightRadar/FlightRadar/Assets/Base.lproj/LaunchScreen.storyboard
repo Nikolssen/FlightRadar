@@ -25,7 +25,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="San Marino"/>
+                        <color key="backgroundColor" name="Athens Gray"/>
                         <constraints>
                             <constraint firstItem="CbB-vj-SSG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0CZ-Oi-XtX"/>
                             <constraint firstItem="CbB-vj-SSG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5Gy-g4-9Cg"/>
@@ -39,9 +39,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="600" height="600"/>
-        <namedColor name="San Marino">
-            <color red="0.31799998879432678" green="0.40400001406669617" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="logo" width="400" height="400"/>
+        <namedColor name="Athens Gray">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
