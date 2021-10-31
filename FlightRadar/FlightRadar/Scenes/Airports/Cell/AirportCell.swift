@@ -8,7 +8,7 @@
 import UIKit
 
 final class AirportCell: UICollectionViewCell {
-    let airportView: AirportView = AirportView()
+    private let airportView: AirportView = .init()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +37,19 @@ final class AirportCell: UICollectionViewCell {
             airportView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             airportView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
+    }
+    func configure(with viewModel: AirportCellViewModelling) {
+        
+        if let distance = viewModel.distance {
+            airportView.distanceLabel.text = distance
+            airportView.distanceLabel.isHidden = false
+        }
+        else {
+            airportView.distanceLabel.isHidden = true
+        }
+        
+        airportView.codeLabel.text = viewModel.abbreviations
+        airportView.nameLabel.text = viewModel.name
     }
     
 }

@@ -5,26 +5,29 @@
 //  Created by Ivan Budovich on 10/29/21.
 //
 
-import Foundation
 import RxSwift
 import RxRelay
 import UIKit
 
 class AirportCoordinator: Coordinator, AirportSearchCoordinator {
     
-    let airportDetailsRelay: PublishRelay<AirportResponseModel> = .init()
+    let airportDetailsRelay: PublishRelay<AirportModel> = .init()
+    
     let rootViewController: UINavigationController
-    let service: Service
+    let service: Services
+    let disposeBag: DisposeBag = .init()
     
-    func start() {
-        
-    }
-    
-    init(rootViewController: UINavigationController, service: Service) {
+    init(rootViewController: UINavigationController, service: Services) {
         self.rootViewController = rootViewController
         self.service = service
     }
-    
+
+    func start() {
+        let controller = self.airportSearchController
+        rootViewController.setNavigationBarHidden(true, animated: false)
+        rootViewController.setViewControllers([controller], animated: false)
+    }
+
     private var airportSearchController: AirportSearchController {
         let controller = AirportSearchController(nibName: "AirportSearchController", bundle: nil)
         let viewModel = AirportSearchViewModel(coordinator: self, service: service)
@@ -32,4 +35,7 @@ class AirportCoordinator: Coordinator, AirportSearchCoordinator {
         return controller
     }
     
+    private func airportDetailsController(model: AirportModel) -> UIViewController {
+        return UIViewController()
+    }
 }

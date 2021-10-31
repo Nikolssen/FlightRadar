@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AirportSearchController: UIViewController {
+final class AirportSearchController: UIViewController {
     
     @IBOutlet var searchField: SearchField!
     @IBOutlet var searchButton: MonochromeButton!
@@ -20,12 +20,15 @@ class AirportSearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.register(AirportCell.self, forCellWithReuseIdentifier: Constants.cellID)
         searchField.placeholder = Constants.placeholder
+        
+        bind()
+        configureCollectionViewLayout()
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    private func bind() {
         self.disposeBag = DisposeBag()
         
         let textObservable =
@@ -54,17 +57,30 @@ class AirportSearchController: UIViewController {
             .bind(to: viewModel.selectedCellRelay)
             .disposed(by: disposeBag)
         
+        viewModel
+            .dataSourceRelay
+            .bind(to: collectionView.rx.items) {
+                collectionView, index, viewModel in
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: IndexPath(item: index, section: 0)) as? AirportCell else { return UICollectionViewCell() }
+                cell.configure(with: viewModel)
+                return cell
+            }
+            .disposed(by: disposeBag)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    private func configureCollectionViewLayout() {
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = Constants.lineSpacing
+        layout.sectionInset = Constants.sectionInset
     }
-    
-    
     
     private enum Constants {
         static let searchMessage: String = "Search"
         static let searchNearestMessage: String = "Search nearest"
         static let placeholder: String = "City or airport code"
+        static let cellID: String = "AirportCell"
+        static let lineSpacing: CGFloat = 30.0
+        static let sectionInset: UIEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 20)
     }
 }

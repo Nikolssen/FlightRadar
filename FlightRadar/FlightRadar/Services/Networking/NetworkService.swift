@@ -11,7 +11,7 @@ import Alamofire
 import RxSwift
 
 protocol NetworkService {
-    
+    func request<ResponseModel: Decodable>(request: APIRequest) -> Observable<ResponseModel>
 }
 
 final class APIService: NetworkService {
