@@ -1,12 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "ticket1.pdf",
-      "idiom" : "universal"
-    },
-    {
-      "filename" : "ticket2.pdf",
-      "height-class" : "compact",
+      "filename" : "TICKET.pdf",
       "idiom" : "universal"
     }
   ],
