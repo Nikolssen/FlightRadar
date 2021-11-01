@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AirportDetailsController" customModule="FlightRadar" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-sf-aEz">
+                    <rect key="frame" x="26" y="64" width="362" height="100"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="1SX-7i-Y37"/>
+                    </constraints>
+                </view>
+                <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKg-dt-j4d">
+                    <rect key="frame" x="26" y="184" width="362" height="2"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="duM-pd-YHH"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UKL-jh-mHl">
+                    <rect key="frame" x="0.0" y="264" width="414" height="598"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8xT-1i-lEm">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EPE-vy-vI9">
+                    <rect key="frame" x="0.0" y="196" width="414" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="l98-nj-Lhf"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1z6-fE-IuR">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="Athens Gray"/>
+            <constraints>
+                <constraint firstItem="o6i-sf-aEz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="97A-nf-dH1"/>
+                <constraint firstItem="o6i-sf-aEz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="AxW-IK-rpp"/>
+                <constraint firstItem="UKL-jh-mHl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Bo7-ci-K64"/>
+                <constraint firstItem="rKg-dt-j4d" firstAttribute="top" secondItem="o6i-sf-aEz" secondAttribute="bottom" constant="20" id="Cfu-VX-Erx"/>
+                <constraint firstItem="EPE-vy-vI9" firstAttribute="top" secondItem="rKg-dt-j4d" secondAttribute="bottom" constant="10" id="FAh-1h-MSL"/>
+                <constraint firstItem="UKL-jh-mHl" firstAttribute="top" secondItem="EPE-vy-vI9" secondAttribute="bottom" constant="8" symbolic="YES" id="cM1-WF-dFY"/>
+                <constraint firstItem="EPE-vy-vI9" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fBv-28-bd8"/>
+                <constraint firstItem="EPE-vy-vI9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hAz-Bg-bs5"/>
+                <constraint firstItem="o6i-sf-aEz" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="sp7-6f-kdn"/>
+                <constraint firstItem="UKL-jh-mHl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="t4n-Eg-nZ9"/>
+                <constraint firstItem="rKg-dt-j4d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="uxE-et-iFt"/>
+                <constraint firstItem="rKg-dt-j4d" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="y8e-Ba-89a"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UKL-jh-mHl" secondAttribute="bottom" id="yWc-Gb-OgW"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="97.767857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Athens Gray">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -22,11 +22,11 @@ class AirportCoordinator: Coordinator, AirportSearchCoordinator {
         self.service = service
         rootViewController.tabBarItem.selectedImage = .airports?.withTintColor(.black).withRenderingMode(.alwaysOriginal)
         rootViewController.tabBarItem.image = .airports?.withTintColor(.charcoal).withRenderingMode(.alwaysOriginal)
+        rootViewController.setNavigationBarHidden(true, animated: false)
     }
 
     func start() {
         let controller = self.airportSearchController
-        rootViewController.setNavigationBarHidden(true, animated: false)
         rootViewController.setViewControllers([controller], animated: false)
     }
 

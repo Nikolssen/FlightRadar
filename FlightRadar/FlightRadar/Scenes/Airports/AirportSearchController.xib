@@ -24,12 +24,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nz3-91-S59" customClass="SearchField" customModule="FlightRadar" customModuleProvider="target">
-                    <rect key="frame" x="40" y="34" width="295" height="34"/>
+                    <rect key="frame" x="40" y="35" width="295" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pY-yE-dLA" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
-                    <rect key="frame" x="281" y="83" width="54" height="34"/>
+                    <rect key="frame" x="281" y="84" width="54" height="34"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="kd7-VB-g87"/>
                     </constraints>
@@ -57,7 +57,7 @@
                 <constraint firstItem="FoG-a7-imn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="4SN-vT-LGM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FoG-a7-imn" secondAttribute="bottom" id="BRL-3M-eCc"/>
                 <constraint firstItem="5pY-yE-dLA" firstAttribute="top" secondItem="Nz3-91-S59" secondAttribute="bottom" constant="15" id="Ggg-CF-pwf"/>
-                <constraint firstItem="Nz3-91-S59" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="34" id="GsN-um-LyX"/>
+                <constraint firstItem="Nz3-91-S59" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="35" id="GsN-um-LyX"/>
                 <constraint firstItem="UTw-LR-qie" firstAttribute="top" secondItem="5pY-yE-dLA" secondAttribute="bottom" constant="20" id="Ini-ot-Iuq"/>
                 <constraint firstItem="Nz3-91-S59" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="Oi6-Vg-zF0"/>
                 <constraint firstItem="Nz3-91-S59" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="bfu-Mj-K8r"/>

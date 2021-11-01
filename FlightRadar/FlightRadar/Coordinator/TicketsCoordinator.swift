@@ -13,7 +13,6 @@ class TicketsCoordinator: Coordinator {
     
     func start() {
         let controller = UIViewController()
-        rootViewController.setNavigationBarHidden(true, animated: false)
         rootViewController.setViewControllers([controller], animated: false)
     }
 
@@ -24,6 +23,7 @@ class TicketsCoordinator: Coordinator {
         self.service = service
         rootViewController.tabBarItem.selectedImage = .tickets?.withTintColor(.black).withRenderingMode(.alwaysOriginal)
         rootViewController.tabBarItem.image = .tickets?.withTintColor(.charcoal).withRenderingMode(.alwaysOriginal)
+        rootViewController.setNavigationBarHidden(true, animated: false)
     }
     
 }

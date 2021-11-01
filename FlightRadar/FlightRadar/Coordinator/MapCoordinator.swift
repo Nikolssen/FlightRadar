@@ -13,8 +13,7 @@ class MapCoordinator: Coordinator {
     let service: Services
     
     func start() {
-        let controller = UIViewController()
-        rootViewController.setNavigationBarHidden(true, animated: false)
+        let controller = MapController()
         rootViewController.setViewControllers([controller], animated: false)
     }
 
@@ -25,6 +24,7 @@ class MapCoordinator: Coordinator {
         self.service = service
         rootViewController.tabBarItem.selectedImage = .map?.withTintColor(.black).withRenderingMode(.alwaysOriginal)
         rootViewController.tabBarItem.image = .map?.withTintColor(.charcoal).withRenderingMode(.alwaysOriginal)
+        rootViewController.setNavigationBarHidden(true, animated: false)
     }
     
 }
