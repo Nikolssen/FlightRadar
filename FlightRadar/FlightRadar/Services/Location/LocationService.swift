@@ -14,7 +14,12 @@ protocol LocationService {
     func distance(from coordinates: CLLocationCoordinate2D) -> Double?
 }
 class LocationManager: LocationService {
+    
     private lazy var manager = CLLocationManager()
+    
+    init() {
+        manager.startUpdatingLocation()
+    }
     
     var currentLocation: CLLocationCoordinate2D? {
         manager.location?.coordinate
@@ -24,6 +29,12 @@ class LocationManager: LocationService {
         return distance(from: coordinate)
     }
     func distance(from coordinates: CLLocationCoordinate2D) -> Double? {
-        manager.location?.distance(from: CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude))
+        return coordinates.areCoordinatesValid ? manager.location?.distance(from: CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)) : nil
+    }
+}
+
+extension CLLocationCoordinate2D {
+    var areCoordinatesValid: Bool {
+        (-90...90).contains(Int(latitude)) && (-180...180).contains(Int(longitude))
     }
 }

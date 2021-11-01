@@ -20,12 +20,14 @@ final class AirportSearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(AirportCell.self, forCellWithReuseIdentifier: Constants.cellID)
-        searchField.placeholder = Constants.placeholder
-        
+        configureCollectionView()
+        configureSearchField()
         bind()
-        configureCollectionViewLayout()
-
+    }
+    
+    private func configureSearchField() {
+        searchField.placeholder = Constants.placeholder
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
     }
     
     private func bind() {
@@ -66,13 +68,24 @@ final class AirportSearchController: UIViewController {
                 return cell
             }
             .disposed(by: disposeBag)
+        
+        viewModel.activityIndicatorRelay
+            .bind(to: activityIndicatorBinding)
+            .disposed(by: disposeBag)
     }
     
-    private func configureCollectionViewLayout() {
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    private func configureCollectionView() {
+        collectionView.register(AirportCell.self, forCellWithReuseIdentifier: Constants.cellID)
+        
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = Constants.lineSpacing
         layout.sectionInset = Constants.sectionInset
+        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width - Constants.sectionInset.left - Constants.sectionInset.right, height: 160)
     }
     
     private enum Constants {

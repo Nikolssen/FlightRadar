@@ -25,11 +25,11 @@ struct AirportCellViewModel: AirportCellViewModelling {
     init(model: AirportModel, using service: LocationService) {
         self.name = model.name ?? Constants.unnamedAirport
         self.abbreviations = [model.iata, model.icao].compactMap{ $0 }.joined(separator: "/")
-        guard let location = model.location, let distance = service.distance(from: (latitude: location.lat, longitude: location.lon)) else {
+        guard let location = model.location, let distance = service.distance(from: (latitude: location.lat, longitude: location.lon)), let value = NumberFormatter.round(number: distance / 1000) else {
             self.distance = nil
             return
         }
-        self.distance = "\(distance / 1000)" + Constants.kilometers
+        self.distance = value + Constants.kilometers
         
     }
     

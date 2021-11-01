@@ -51,5 +51,4 @@ final class AirportCell: UICollectionViewCell {
         airportView.codeLabel.text = viewModel.abbreviations
         airportView.nameLabel.text = viewModel.name
     }
-    
 }

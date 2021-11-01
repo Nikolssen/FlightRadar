@@ -80,6 +80,8 @@ class AirportSearchViewModel: AirportSearchViewModelling {
                 [service] location -> Observable<AirportResponseModel> in
                 service.networkService.request(request: .airportByLocation(.init(lat: location.latitude, lon: location.latitude)))
             }
+            .do(onError: { error in } )
+            .retry()
             .observe(on: MainScheduler.asyncInstance)
             .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(false) })
             .subscribe(onNext: { [weak self] in
@@ -87,9 +89,17 @@ class AirportSearchViewModel: AirportSearchViewModelling {
             .disposed(by: disposeBag)
                 
         airportModelRelay
-                .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
-                .map { [service] in $0.map { AirportCellViewModel(model: $0, using: service.locationService)}}
-                .bind(to: dataSourceRelay)
-                .disposed(by: disposeBag)
+            .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
+            .map { [service] in $0.map { AirportCellViewModel(model: $0, using: service.locationService)}}
+            .bind(to: dataSourceRelay)
+            .disposed(by: disposeBag)
+        
+        locationSearchAction
+            .filter { $0 == nil}
+            .debug()
+            .subscribe()
+            .disposed(by: disposeBag)
     }
 }
+
+
