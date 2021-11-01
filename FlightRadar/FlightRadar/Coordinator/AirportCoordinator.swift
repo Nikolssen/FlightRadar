@@ -20,6 +20,8 @@ class AirportCoordinator: Coordinator, AirportSearchCoordinator {
     init(rootViewController: UINavigationController, service: Services) {
         self.rootViewController = rootViewController
         self.service = service
+        rootViewController.tabBarItem.selectedImage = .airports?.withTintColor(.black).withRenderingMode(.alwaysOriginal)
+        rootViewController.tabBarItem.image = .airports?.withTintColor(.charcoal).withRenderingMode(.alwaysOriginal)
     }
 
     func start() {

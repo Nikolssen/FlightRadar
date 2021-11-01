@@ -16,13 +16,27 @@ protocol Coordinator {
 class ApplicationCoordinator: Coordinator {
     private let window: UIWindow
     private let service: Services = Service()
-    private let rootViewController: UITabBarController = .init()
+    private let rootViewController: UITabBarController = TabBarController()
     
     func start() {
         let airportsController = UINavigationController()
         let airportsCoordinator = AirportCoordinator(rootViewController: airportsController, service: service)
+        
+        
+        let mapController = UINavigationController()
+        let mapCoordinator = MapCoordinator(rootViewController: mapController, service: service)
+        
+        let ticketsController = UINavigationController()
+        let ticketsCoordinator = TicketsCoordinator(rootViewController: ticketsController, service: service)
+        
         airportsCoordinator.start()
-        rootViewController.setViewControllers([airportsController], animated: true)
+        mapCoordinator.start()
+        ticketsCoordinator.start()
+        
+        
+        rootViewController.setViewControllers([airportsController, mapController, ticketsController], animated: true)
+        window.rootViewController = rootViewController
+        window.makeKeyAndVisible()
     }
     
     init(window: UIWindow) {
