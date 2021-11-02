@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-sf-aEz">
-                    <rect key="frame" x="26" y="64" width="362" height="100"/>
+                    <rect key="frame" x="20" y="64" width="374" height="100"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="1SX-7i-Y37"/>
@@ -60,7 +60,7 @@
             <color key="backgroundColor" name="Athens Gray"/>
             <constraints>
                 <constraint firstItem="o6i-sf-aEz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="97A-nf-dH1"/>
-                <constraint firstItem="o6i-sf-aEz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="AxW-IK-rpp"/>
+                <constraint firstItem="o6i-sf-aEz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="AxW-IK-rpp"/>
                 <constraint firstItem="UKL-jh-mHl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Bo7-ci-K64"/>
                 <constraint firstItem="rKg-dt-j4d" firstAttribute="top" secondItem="o6i-sf-aEz" secondAttribute="bottom" constant="20" id="Cfu-VX-Erx"/>
                 <constraint firstItem="EPE-vy-vI9" firstAttribute="top" secondItem="rKg-dt-j4d" secondAttribute="bottom" constant="10" id="FAh-1h-MSL"/>

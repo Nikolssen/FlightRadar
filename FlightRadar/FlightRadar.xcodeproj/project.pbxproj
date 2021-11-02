@@ -38,6 +38,8 @@
 		3F8F40392729680F002CABBC /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F40382729680F002CABBC /* SearchField.swift */; };
 		3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4040272975C5002CABBC /* MonochromeButton.swift */; };
 		3FBBFD99272F05B200AA93E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBBFD98272F05B200AA93E1 /* TabBarController.swift */; };
+		3FE0B3E02731258100722CBE /* AirportDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */; };
+		3FE0B3E227312BE100722CBE /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3E127312BE100722CBE /* FlightModel.swift */; };
 		3FE5E0F4272FCAE100CA056D /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5E0F3272FCAE100CA056D /* MapCoordinator.swift */; };
 		3FE5E0F6272FCB9200CA056D /* TicketsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5E0F5272FCB9200CA056D /* TicketsCoordinator.swift */; };
 		3FEBA7C92727FA17006C476F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7C82727FA17006C476F /* AppDelegate.swift */; };
@@ -109,6 +111,8 @@
 		3F8F40382729680F002CABBC /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		3F8F4040272975C5002CABBC /* MonochromeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeButton.swift; sourceTree = "<group>"; };
 		3FBBFD98272F05B200AA93E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsViewModel.swift; sourceTree = "<group>"; };
+		3FE0B3E127312BE100722CBE /* FlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModel.swift; sourceTree = "<group>"; };
 		3FE5E0F3272FCAE100CA056D /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		3FE5E0F5272FCB9200CA056D /* TicketsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsCoordinator.swift; sourceTree = "<group>"; };
 		3FEBA7C52727FA17006C476F /* FlightRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +195,7 @@
 			children = (
 				3F2C7908272BEAAC00DA042B /* AirportModel.swift */,
 				3F2C7909272BEAAC00DA042B /* CompanyModel.swift */,
+				3FE0B3E127312BE100722CBE /* FlightModel.swift */,
 			);
 			path = "Response Models";
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			children = (
 				3F4F34AC273000FA004E9EB3 /* AirportDetailsController.swift */,
 				3F4F34AD273000FA004E9EB3 /* AirportDetailsController.xib */,
+				3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */,
 			);
 			path = "Airport Details";
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE0B3E02731258100722CBE /* AirportDetailsViewModel.swift in Sources */,
 				3FBBFD99272F05B200AA93E1 /* TabBarController.swift in Sources */,
 				3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */,
 				3FE5E0F6272FCB9200CA056D /* TicketsCoordinator.swift in Sources */,
@@ -540,6 +547,7 @@
 				3F2C790B272BEAAC00DA042B /* CompanyModel.swift in Sources */,
 				3F4F34B22730040C004E9EB3 /* MapController.swift in Sources */,
 				3F50255B272C49420029F0D0 /* AirportCoordinator.swift in Sources */,
+				3FE0B3E227312BE100722CBE /* FlightModel.swift in Sources */,
 				3F853240272AD1AA00C81509 /* AirportCell.swift in Sources */,
 				3F853229272A83FA00C81509 /* FlightView.swift in Sources */,
 				3FEBA7CB2727FA17006C476F /* SceneDelegate.swift in Sources */,
