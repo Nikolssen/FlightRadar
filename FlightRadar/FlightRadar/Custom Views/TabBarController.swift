@@ -18,6 +18,7 @@ class TabBarController: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         var offset: CGFloat = 6.0
 
         if traitCollection.horizontalSizeClass == .regular {
