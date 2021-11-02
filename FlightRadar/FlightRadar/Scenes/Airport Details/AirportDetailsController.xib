@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AirportDetailsController" customModule="FlightRadar" customModuleProvider="target">
             <connections>
+                <outlet property="airportView" destination="o6i-sf-aEz" id="qDa-Nt-FRA"/>
+                <outlet property="flightsCollectionView" destination="UKL-jh-mHl" id="2zI-Dv-iFA"/>
+                <outlet property="optionsCollectionView" destination="EPE-vy-vI9" id="obc-or-oHF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

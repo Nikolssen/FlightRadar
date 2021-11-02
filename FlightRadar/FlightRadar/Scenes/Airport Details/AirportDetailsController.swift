@@ -6,10 +6,20 @@
 //
 
 import UIKit
+import MapKit
 
 final class AirportDetailsController: UIViewController {
 
+    @IBOutlet private var airportView: UIView!
     var viewModel: AirportDetailsViewModelling!
+    @IBOutlet private var optionsCollectionView: UICollectionView!
+    @IBOutlet private var flightsCollectionView: UICollectionView!
+    
+    private lazy var mapView: MKMapView = {
+        let mapView = MKMapView()
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        return mapView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
