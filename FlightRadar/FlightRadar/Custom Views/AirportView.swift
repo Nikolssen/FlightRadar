@@ -10,7 +10,7 @@ import UIKit
 final class AirportView: BackgroundView {
     
     lazy var distanceLabel: MonochromeLabel = {
-       let label = MonochromeLabel()
+        let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.attributes = TextAttributes.smallMediumAttributes
         label.numberOfLines = 1

@@ -41,5 +41,13 @@ class ApplicationCoordinator: Coordinator {
     
     init(window: UIWindow) {
         self.window = window
+        if #available(iOS 15.0, *) {
+           let appearance = UITabBarAppearance()
+           appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .athensGray
+           
+           self.rootViewController.tabBar.standardAppearance = appearance
+           self.rootViewController.tabBar.scrollEdgeAppearance = appearance
+        }
     }
 }
