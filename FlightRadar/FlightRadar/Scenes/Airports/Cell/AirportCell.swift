@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class AirportCell: UICollectionViewCell {
+final class AirportCell: UITableViewCell {
     private let airportView: AirportView = .init()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
     }
     
@@ -30,12 +30,12 @@ final class AirportCell: UICollectionViewCell {
     private func commonInit() {
         contentView.addSubview(airportView)
         airportView.translatesAutoresizingMaskIntoConstraints = false
-        
+        backgroundColor = .athensGray
         NSLayoutConstraint.activate([
-            airportView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            airportView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            airportView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            airportView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            airportView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            airportView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            airportView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            airportView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ])
     }
     func configure(with viewModel: AirportCellViewModelling) {

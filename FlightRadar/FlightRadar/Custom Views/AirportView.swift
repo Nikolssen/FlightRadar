@@ -39,7 +39,8 @@ final class AirportView: BackgroundView {
     
     private lazy var secondLevelStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 15
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 5
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .equalCentering

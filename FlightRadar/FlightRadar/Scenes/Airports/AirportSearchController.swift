@@ -13,14 +13,15 @@ final class AirportSearchController: UIViewController {
     
     @IBOutlet var searchField: SearchField!
     @IBOutlet var searchButton: MonochromeButton!
-    @IBOutlet var collectionView: UICollectionView!
+
+    @IBOutlet var tableView: UITableView!
     
     var disposeBag: DisposeBag!
     var viewModel: AirportSearchViewModelling!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionView()
+        configureTableView()
         configureSearchField()
         bind()
     }
@@ -53,7 +54,7 @@ final class AirportSearchController: UIViewController {
             .bind(to: viewModel.searchActionRelay)
             .disposed(by: disposeBag)
         
-        collectionView.rx
+        tableView.rx
             .itemSelected
             .map { $0.item }
             .bind(to: viewModel.selectedCellRelay)
@@ -61,9 +62,9 @@ final class AirportSearchController: UIViewController {
         
         viewModel
             .dataSourceRelay
-            .bind(to: collectionView.rx.items) {
-                collectionView, index, viewModel in
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: IndexPath(item: index, section: 0)) as? AirportCell else { return UICollectionViewCell() }
+            .bind(to: tableView.rx.items) {
+                tableView, index, viewModel in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellID, for: IndexPath(item: index, section: 0)) as? AirportCell else { return UITableViewCell() }
                 cell.configure(with: viewModel)
                 return cell
             }
@@ -78,14 +79,10 @@ final class AirportSearchController: UIViewController {
         view.endEditing(true)
     }
     
-    private func configureCollectionView() {
-        collectionView.register(AirportCell.self, forCellWithReuseIdentifier: Constants.cellID)
-        
-        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = Constants.lineSpacing
-        layout.sectionInset = Constants.sectionInset
-        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width - Constants.sectionInset.left - Constants.sectionInset.right, height: 160)
+    private func configureTableView() {
+        tableView.register(AirportCell.self, forCellReuseIdentifier: Constants.cellID)
+        tableView.separatorColor = .clear
+        tableView.estimatedRowHeight = UITableView.automaticDimension
     }
     
     private enum Constants {
@@ -94,6 +91,5 @@ final class AirportSearchController: UIViewController {
         static let placeholder: String = "City or airport code"
         static let cellID: String = "AirportCell"
         static let lineSpacing: CGFloat = 30.0
-        static let sectionInset: UIEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 20)
     }
 }

@@ -78,7 +78,7 @@ class AirportSearchViewModel: AirportSearchViewModelling {
             .observe(on: SerialDispatchQueueScheduler(qos: .utility))
             .flatMapLatest {
                 [service] location -> Observable<AirportResponseModel> in
-                service.networkService.request(request: .airportByLocation(.init(lat: location.latitude, lon: location.latitude)))
+                service.networkService.request(request: .airportByLocation(.init(lat: location.latitude, lon: location.longitude)))
             }
             .do(onError: { error in } )
             .retry()

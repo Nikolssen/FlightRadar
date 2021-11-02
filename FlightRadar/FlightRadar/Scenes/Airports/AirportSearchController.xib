@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AirportSearchController" customModule="FlightRadar" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="FoG-a7-imn" id="M0D-dY-s5c"/>
                 <outlet property="searchButton" destination="5pY-yE-dLA" id="ZW1-1l-gvu"/>
                 <outlet property="searchField" destination="Nz3-91-S59" id="KWj-HM-b2X"/>
+                <outlet property="tableView" destination="6q7-bd-KwN" id="Noa-NZ-tYB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,36 +36,33 @@
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Button"/>
                 </button>
-                <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTw-LR-qie" customClass="Divider" customModule="FlightRadar" customModuleProvider="target">
+                <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTw-LR-qie" customClass="Divider" customModule="FlightRadar" customModuleProvider="target">
                     <rect key="frame" x="40" y="138" width="295" height="2"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="GoY-nu-rsT"/>
+                    </constraints>
                 </view>
-                <collectionView verifyAmbiguity="ignoreSizes" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="FoG-a7-imn">
-                    <rect key="frame" x="0.0" y="161" width="375" height="506"/>
-                    <color key="backgroundColor" name="Athens Gray"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cmx-bQ-5tN">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6q7-bd-KwN">
+                    <rect key="frame" x="0.0" y="155" width="375" height="512"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Athens Gray"/>
             <constraints>
-                <constraint firstItem="FoG-a7-imn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="4SN-vT-LGM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FoG-a7-imn" secondAttribute="bottom" id="BRL-3M-eCc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6q7-bd-KwN" secondAttribute="bottom" id="DGp-Sq-6PW"/>
                 <constraint firstItem="5pY-yE-dLA" firstAttribute="top" secondItem="Nz3-91-S59" secondAttribute="bottom" constant="15" id="Ggg-CF-pwf"/>
+                <constraint firstItem="6q7-bd-KwN" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Gmh-TI-B9R"/>
                 <constraint firstItem="Nz3-91-S59" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="35" id="GsN-um-LyX"/>
                 <constraint firstItem="UTw-LR-qie" firstAttribute="top" secondItem="5pY-yE-dLA" secondAttribute="bottom" constant="20" id="Ini-ot-Iuq"/>
                 <constraint firstItem="Nz3-91-S59" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="Oi6-Vg-zF0"/>
                 <constraint firstItem="Nz3-91-S59" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="bfu-Mj-K8r"/>
-                <constraint firstItem="FoG-a7-imn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="btE-RO-kQM"/>
                 <constraint firstItem="UTw-LR-qie" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="hKi-Lj-3wG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5pY-yE-dLA" secondAttribute="trailing" constant="40" id="leq-gt-RS5"/>
-                <constraint firstItem="FoG-a7-imn" firstAttribute="top" secondItem="UTw-LR-qie" secondAttribute="bottom" constant="20" id="r5p-mi-bxr"/>
                 <constraint firstItem="UTw-LR-qie" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="rUU-wb-UdN"/>
+                <constraint firstItem="6q7-bd-KwN" firstAttribute="top" secondItem="UTw-LR-qie" secondAttribute="bottom" constant="15" id="ri7-Mp-uvJ"/>
+                <constraint firstItem="6q7-bd-KwN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uhm-lN-wNY"/>
             </constraints>
             <point key="canvasLocation" x="132" y="109.29535232383809"/>
         </view>
