@@ -20,8 +20,8 @@ enum APIRequest {
             return "http://api.aviationstack.com/v1/flights"
         case .airportByFreeText:
             return "https://aerodatabox.p.rapidapi.com/airports/search/term"
-        case .airportByLocation:
-            return "https://aerodatabox.p.rapidapi.com/airports/search/location"
+        case .airportByLocation(let model):
+            return "https://aerodatabox.p.rapidapi.com/airports/search/location/\(model.lat)/\(model.lon)/km/\(model.radiusKm)/\(model.limit)"
         case .company:
             return "https://iata-and-icao-codes.p.rapidapi.com/airline"
         }
@@ -38,14 +38,14 @@ enum APIRequest {
         }
     }
     
-    var parameters: [String: Any] {
+    var parameters: [String: Any]? {
         switch self {
         case .allFlights(let flightGetModel):
             return flightGetModel.dictionary ?? [:]
         case .airportByFreeText(let airportTextGetModel):
             return airportTextGetModel.dictionary ?? [:]
-        case .airportByLocation(let airportLocationGetModel):
-            return airportLocationGetModel.dictionary ?? [:]
+        case .airportByLocation:
+            return nil
         case .company(let companyGetModel):
             return companyGetModel.dictionary ?? [:]
         }

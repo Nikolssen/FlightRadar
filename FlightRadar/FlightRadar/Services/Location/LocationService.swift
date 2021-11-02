@@ -13,11 +13,12 @@ protocol LocationService {
     func distance(from coordinates: (latitude: Double, longitude: Double)) -> Double?
     func distance(from coordinates: CLLocationCoordinate2D) -> Double?
 }
-class LocationManager: LocationService {
+final class LocationManager: NSObject, LocationService, CLLocationManagerDelegate {
     
     private lazy var manager = CLLocationManager()
     
-    init() {
+    override init() {
+        super.init()
         manager.startUpdatingLocation()
     }
     

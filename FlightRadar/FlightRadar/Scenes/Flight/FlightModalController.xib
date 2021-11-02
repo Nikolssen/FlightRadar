@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FlightModalController" customModule="FlightRadar" customModuleProvider="target">
             <connections>
+                <outlet property="arrivalDateLabel" destination="Pi1-N7-vwb" id="ncO-SB-rrv"/>
+                <outlet property="arrivalLabel" destination="0z3-qo-60V" id="aoU-oJ-LYc"/>
+                <outlet property="companyLabel" destination="hlh-Qf-Lad" id="kcp-zc-iOR"/>
+                <outlet property="companyNameLabel" destination="4Af-zP-L8H" id="LEu-Ku-zh7"/>
+                <outlet property="departureDateLabel" destination="EdD-2s-WFg" id="1K2-yA-qid"/>
+                <outlet property="departureLabel" destination="BBf-mV-CjF" id="H7e-l7-XaH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,15 +25,105 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="385" height="390"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dO-B7-iVi">
+                    <rect key="frame" x="147" y="20" width="91" height="2"/>
+                    <color key="backgroundColor" systemColor="systemTealColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="BTZ-7Y-lvW"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3V-6p-Cxg">
+                    <rect key="frame" x="70" y="38" width="245" height="100"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="dNE-TW-Zmp"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-qf-ZnL">
+                    <rect key="frame" x="70" y="168" width="245" height="177"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xc7-ma-idS">
+                            <rect key="frame" x="0.0" y="0.0" width="245" height="59"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-Qf-Lad" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="59"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Af-zP-L8H" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="59"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-Dy-D0f">
+                            <rect key="frame" x="0.0" y="59" width="245" height="59"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBf-mV-CjF" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="59"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdD-2s-WFg" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="59"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pZY-l2-A0v">
+                            <rect key="frame" x="0.0" y="118" width="245" height="59"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z3-qo-60V" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="59"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-N7-vwb" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="59"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="Athens Gray"/>
+            <constraints>
+                <constraint firstItem="3dO-B7-iVi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="147" id="8AD-pt-EjJ"/>
+                <constraint firstItem="bKi-qf-ZnL" firstAttribute="top" secondItem="e3V-6p-Cxg" secondAttribute="bottom" constant="30" id="Gvu-5j-UU3"/>
+                <constraint firstItem="3dO-B7-iVi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Lgi-PS-jol"/>
+                <constraint firstItem="bKi-qf-ZnL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="a5Q-Cl-jrj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bKi-qf-ZnL" secondAttribute="bottom" constant="45" id="bxM-R7-K0j"/>
+                <constraint firstItem="3dO-B7-iVi" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fhu-yg-cxp"/>
+                <constraint firstItem="bKi-qf-ZnL" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="mF4-Qs-RKj"/>
+                <constraint firstItem="e3V-6p-Cxg" firstAttribute="top" secondItem="3dO-B7-iVi" secondAttribute="bottom" constant="16" id="v5f-bI-hHy"/>
+                <constraint firstItem="e3V-6p-Cxg" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="wTU-QE-H5B"/>
+                <constraint firstItem="e3V-6p-Cxg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="zKa-Ru-s5h"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="109.59999999999999" y="262.66866566716647"/>
+            <point key="canvasLocation" x="114" y="263"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="Athens Gray">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
