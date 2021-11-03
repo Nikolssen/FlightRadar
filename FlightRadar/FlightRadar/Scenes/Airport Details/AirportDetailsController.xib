@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AirportDetailsController" customModule="FlightRadar" customModuleProvider="target">
             <connections>
-                <outlet property="airportView" destination="o6i-sf-aEz" id="qDa-Nt-FRA"/>
+                <outlet property="airportView" destination="o6i-sf-aEz" id="C4q-qc-xcB"/>
                 <outlet property="flightsCollectionView" destination="UKL-jh-mHl" id="2zI-Dv-iFA"/>
                 <outlet property="optionsCollectionView" destination="EPE-vy-vI9" id="obc-or-oHF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-sf-aEz" customClass="FlightView" customModule="FlightRadar" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-sf-aEz" customClass="AirportView" customModule="FlightRadar" customModuleProvider="target">
                     <rect key="frame" x="20" y="64" width="374" height="100"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 final class AirportDetailsController: UIViewController {
-
+    
     @IBOutlet private var airportView: AirportView!
     var viewModel: AirportDetailsViewModelling!
     @IBOutlet private var optionsCollectionView: UICollectionView!
@@ -30,7 +30,7 @@ final class AirportDetailsController: UIViewController {
         mapView.isZoomEnabled = false
         NSLayoutConstraint.activate([
             mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mapView.topAnchor.constraint(equalTo: optionsCollectionView.topAnchor, constant: 20),
+            mapView.topAnchor.constraint(equalTo: optionsCollectionView.bottomAnchor, constant: 20),
             mapView.heightAnchor.constraint(equalTo: mapView.widthAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
         ])
@@ -76,6 +76,29 @@ final class AirportDetailsController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        let selectedIndexObservable =
+        optionsCollectionView
+            .rx
+            .itemSelected
+            .map { $0.item }
+        
+        selectedIndexObservable
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                switch $0 {
+                case 0:
+                    if self.isMapLoaded  {
+                        self.flightsCollectionView.isHidden = true
+                        self.mapView.isHidden = false
+                    }
+                    else {
+                        fallthrough
+                    }
+                default:
+                    self.flightsCollectionView.isHidden = false
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     private func configureCollectionViews() {
@@ -92,7 +115,7 @@ final class AirportDetailsController: UIViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
     private enum Constants {
         static let map: String = "Map"
         static let departures: String = "Departures"
@@ -101,4 +124,12 @@ final class AirportDetailsController: UIViewController {
         static let flightsID: String = "FlightsID"
     }
     
+}
+
+extension AirportDetailsController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView()
+        annotationView.image = .airport
+        return annotationView
+    }
 }
