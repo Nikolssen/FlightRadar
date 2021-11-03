@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MapCoordinator: Coordinator {
+final class MapCoordinator: Coordinator {
     
     let rootViewController: UINavigationController
     let service: Services

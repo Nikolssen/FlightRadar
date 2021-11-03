@@ -1,12 +1,12 @@
 //
-//  AirportCellViewModel.swift
+//  AirportViewViewModel.swift
 //  FlightRadar
 //
 //  Created by Ivan Budovich on 10/29/21.
 //
 
 import Foundation
-protocol AirportCellViewModelling {
+protocol AirportViewViewModelling {
     
     var distance: String? { get }
     var name: String { get }
@@ -15,7 +15,7 @@ protocol AirportCellViewModelling {
     init(model: AirportModel, using service: LocationService)
 }
 
-struct AirportCellViewModel: AirportCellViewModelling {
+struct AirportViewViewModel: AirportViewViewModelling {
     
     let distance: String?
     let name: String

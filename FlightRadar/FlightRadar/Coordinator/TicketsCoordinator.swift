@@ -6,7 +6,7 @@
 //
 
 import UIKit
-class TicketsCoordinator: Coordinator {
+final class TicketsCoordinator: Coordinator {
     
     let rootViewController: UINavigationController
     let service: Services

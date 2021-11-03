@@ -38,7 +38,7 @@ final class AirportCell: UITableViewCell {
             airportView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ])
     }
-    func configure(with viewModel: AirportCellViewModelling) {
+    func configure(with viewModel: AirportViewViewModelling) {
         
         if let distance = viewModel.distance {
             airportView.distanceLabel.text = distance

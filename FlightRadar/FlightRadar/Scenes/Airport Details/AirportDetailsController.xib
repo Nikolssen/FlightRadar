@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-sf-aEz">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-sf-aEz" customClass="FlightView" customModule="FlightRadar" customModuleProvider="target">
                     <rect key="frame" x="20" y="64" width="374" height="100"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -39,6 +39,7 @@
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UKL-jh-mHl">
                     <rect key="frame" x="0.0" y="264" width="414" height="598"/>
+                    <color key="backgroundColor" name="Athens Gray"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8xT-1i-lEm">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -48,6 +49,7 @@
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EPE-vy-vI9">
                     <rect key="frame" x="0.0" y="196" width="414" height="60"/>
+                    <color key="backgroundColor" name="Athens Gray"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="l98-nj-Lhf"/>
                     </constraints>

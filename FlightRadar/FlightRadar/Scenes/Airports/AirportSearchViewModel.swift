@@ -13,7 +13,7 @@ protocol AirportSearchViewModelling {
     var searchTextRelay: BehaviorRelay<String> { get }
     var searchActionRelay: PublishRelay<Void> { get }
     var selectedCellRelay: PublishRelay<Int> { get }
-    var dataSourceRelay: BehaviorRelay<[AirportCellViewModelling]> { get }
+    var dataSourceRelay: BehaviorRelay<[AirportViewViewModelling]> { get }
     var activityIndicatorRelay: PublishRelay<Bool> { get }
 //    var alertRelay: PublishRelay<Bool> { get }
 }
@@ -22,20 +22,18 @@ protocol AirportSearchCoordinator {
     var airportDetailsRelay: PublishRelay<AirportModel> { get }
 }
 
-class AirportSearchViewModel: AirportSearchViewModelling {
+final class AirportSearchViewModel: AirportSearchViewModelling {
     
     let searchTextRelay: BehaviorRelay<String> = .init(value: "")
     let searchActionRelay: PublishRelay<Void> = .init()
     let selectedCellRelay: PublishRelay<Int> = .init()
-    let dataSourceRelay: BehaviorRelay<[AirportCellViewModelling]> = .init(value: [])
-    let airportModelRelay: BehaviorRelay<[AirportModel]> = .init(value: [])
-    
+    let dataSourceRelay: BehaviorRelay<[AirportViewViewModelling]> = .init(value: [])
     let activityIndicatorRelay: PublishRelay<Bool> = .init()
     
-    let coordinator: AirportSearchCoordinator
-    let service: Services
-    
-    let disposeBag: DisposeBag = DisposeBag()
+    private let airportModelRelay: BehaviorRelay<[AirportModel]> = .init(value: [])
+    private let coordinator: AirportSearchCoordinator
+    private let service: Services
+    private let disposeBag: DisposeBag = DisposeBag()
     
     init(coordinator: AirportSearchCoordinator, service: Services) {
         self.coordinator = coordinator
@@ -90,7 +88,8 @@ class AirportSearchViewModel: AirportSearchViewModelling {
                 
         airportModelRelay
             .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
-            .map { [service] in $0.map { AirportCellViewModel(model: $0, using: service.locationService)}}
+            .map { [service] in $0.map { AirportViewViewModel(model: $0, using: service.locationService)}}
+            .observe(on: MainScheduler.asyncInstance)
             .bind(to: dataSourceRelay)
             .disposed(by: disposeBag)
         
@@ -98,6 +97,15 @@ class AirportSearchViewModel: AirportSearchViewModelling {
             .filter { $0 == nil}
             .debug()
             .subscribe()
+            .disposed(by: disposeBag)
+        
+        selectedCellRelay
+            .debug()
+            .withLatestFrom(airportModelRelay) {
+                $1[$0]
+            }
+            .debug()
+            .bind(to: coordinator.airportDetailsRelay)
             .disposed(by: disposeBag)
     }
 }

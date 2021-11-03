@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class AirportSearchController: UIViewController {
+final class AirportSearchController: UIViewController, UITableViewDelegate {
     
     @IBOutlet var searchField: SearchField!
     @IBOutlet var searchButton: MonochromeButton!
@@ -55,8 +55,10 @@ final class AirportSearchController: UIViewController {
             .disposed(by: disposeBag)
         
         tableView.rx
-            .itemSelected
+            .itemHighlighted
+            .debug()
             .map { $0.item }
+            .debug()
             .bind(to: viewModel.selectedCellRelay)
             .disposed(by: disposeBag)
         
@@ -75,7 +77,7 @@ final class AirportSearchController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    @objc func hideKeyboard() {
+    @objc private func hideKeyboard() {
         view.endEditing(true)
     }
     
@@ -83,6 +85,7 @@ final class AirportSearchController: UIViewController {
         tableView.register(AirportCell.self, forCellReuseIdentifier: Constants.cellID)
         tableView.separatorColor = .clear
         tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = true
     }
     
     private enum Constants {

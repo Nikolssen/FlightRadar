@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlightCell: UICollectionViewCell {
+final class FlightCell: UICollectionViewCell {
     
     lazy private var flightView: FlightView = {
         let view = FlightView()

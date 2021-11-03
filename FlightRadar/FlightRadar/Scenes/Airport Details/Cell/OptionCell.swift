@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OptionCell: UICollectionViewCell {
+final class OptionCell: UICollectionViewCell {
     
     @IBOutlet var label: MonochromeLabel!
     
