@@ -83,4 +83,17 @@ final class AirportView: BackgroundView {
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
     }
+    
+    func configure(with viewModel: AirportViewViewModelling) {
+        if let distance = viewModel.distance {
+            distanceLabel.text = distance
+            distanceLabel.isHidden = false
+        }
+        else {
+            distanceLabel.isHidden = true
+        }
+        
+        codeLabel.text = viewModel.abbreviations
+        nameLabel.text = viewModel.name
+    }
 }

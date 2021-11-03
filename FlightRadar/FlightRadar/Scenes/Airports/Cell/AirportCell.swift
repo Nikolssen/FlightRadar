@@ -40,15 +40,6 @@ final class AirportCell: UITableViewCell {
     }
     func configure(with viewModel: AirportViewViewModelling) {
         
-        if let distance = viewModel.distance {
-            airportView.distanceLabel.text = distance
-            airportView.distanceLabel.isHidden = false
-        }
-        else {
-            airportView.distanceLabel.isHidden = true
-        }
-        
-        airportView.codeLabel.text = viewModel.abbreviations
-        airportView.nameLabel.text = viewModel.name
+        airportView.configure(with: viewModel)
     }
 }
