@@ -81,6 +81,7 @@ final class AirportDetailsController: UIViewController {
             .rx
             .itemSelected
             .map { $0.item }
+            .debug()
         
         selectedIndexObservable
             .subscribe(onNext: { [weak self] in
@@ -88,6 +89,7 @@ final class AirportDetailsController: UIViewController {
                 switch $0 {
                 case 0:
                     if self.isMapLoaded  {
+                        self.mapView.delegate = self
                         self.flightsCollectionView.isHidden = true
                         self.mapView.isHidden = false
                     }
@@ -95,6 +97,9 @@ final class AirportDetailsController: UIViewController {
                         fallthrough
                     }
                 default:
+                    if self.isMapLoaded  {
+                        self.mapView.isHidden = true
+                    }
                     self.flightsCollectionView.isHidden = false
                 }
             })
@@ -102,8 +107,13 @@ final class AirportDetailsController: UIViewController {
     }
     
     private func configureCollectionViews() {
-        optionsCollectionView.register(UINib(nibName: "OptionCell", bundle: nil), forCellWithReuseIdentifier: Constants.optionsID)
+        optionsCollectionView.register(OptionCell.self, forCellWithReuseIdentifier: Constants.optionsID)
         flightsCollectionView.register(FlightCell.self, forCellWithReuseIdentifier: Constants.flightsID)
+        optionsCollectionView.showsHorizontalScrollIndicator = false
+        optionsCollectionView.delegate = self
+        flightsCollectionView.delegate = self
+        optionsCollectionView.allowsSelection = true
+        flightsCollectionView.allowsSelection = true
         
     }
     
@@ -130,6 +140,21 @@ extension AirportDetailsController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKAnnotationView()
         annotationView.image = .airport
+        annotationView.annotation = annotation
         return annotationView
+    }
+}
+
+extension AirportDetailsController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView === optionsCollectionView {
+            let text = isMapLoaded ? [Constants.map, Constants.departures, Constants.arrivals][indexPath.item] : [Constants.departures, Constants.arrivals][indexPath.item]
+            return OptionCell.size(for: text)
+        }
+        
+        else {
+            return CGSize(width: 270, height: 100)
+        }
     }
 }

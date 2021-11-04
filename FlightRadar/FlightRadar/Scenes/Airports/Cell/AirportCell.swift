@@ -8,6 +8,12 @@
 import UIKit
 
 final class AirportCell: UITableViewCell {
+    override var isSelected: Bool {
+        willSet {
+            backgroundColor = .athensGray
+        }
+    }
+    
     private let airportView: AirportView = .init()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

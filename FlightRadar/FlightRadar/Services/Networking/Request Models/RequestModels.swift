@@ -10,9 +10,13 @@ import Foundation
 struct FlightGetModel: Encodable {
     enum CodingKeys: String, CodingKey {
         case accessKey = "access_key"
+        case departureCode = "dep_iata"
+        case arrivalCode = "arr_iata"
     }
     
     let accessKey = APIKey.aviationStackKey
+    let departureCode: String?
+    let arrivalCode: String?
 }
 
 struct AirportTextGetModel: Encodable {

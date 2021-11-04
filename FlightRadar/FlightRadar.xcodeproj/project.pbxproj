@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,6 @@
 		3F317C00272AD51700642C39 /* AirportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317BFF272AD51700642C39 /* AirportView.swift */; };
 		3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C01272AD86000642C39 /* MonochromeLabel.swift */; };
 		3F3A775427315D6D007853ED /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A775227315D6D007853ED /* OptionCell.swift */; };
-		3F3A775527315D6D007853ED /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3A775327315D6D007853ED /* OptionCell.xib */; };
 		3F3A775727315F87007853ED /* FlightViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A775627315F87007853ED /* FlightViewViewModel.swift */; };
 		3F3A775927316097007853ED /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A775827316097007853ED /* DateFormatter.swift */; };
 		3F4F34AA272FE9B1004E9EB3 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F34A9272FE9B1004E9EB3 /* NumberFormatter.swift */; };
@@ -60,8 +59,6 @@
 		3FEBA8052727FCF2006C476F /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */; };
 		3FEBA8062727FCF2006C476F /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */; };
 		3FEBA8072727FCF2006C476F /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */; };
-		3FEBA8092727FCFD006C476F /* Gnuolane.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8082727FCFD006C476F /* Gnuolane.ttf */; };
-		3FEBA80A2727FCFD006C476F /* Gnuolane.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8082727FCFD006C476F /* Gnuolane.ttf */; };
 		3FEBA80C2727FF1B006C476F /* UIColor + Custom Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA80B2727FF1B006C476F /* UIColor + Custom Colors.swift */; };
 		3FEBA80E2727FF38006C476F /* UIImage + Custom Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA80D2727FF38006C476F /* UIImage + Custom Images.swift */; };
 		3FEBA8102727FF50006C476F /* UIFont + Custom Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA80F2727FF50006C476F /* UIFont + Custom Fonts.swift */; };
@@ -99,7 +96,6 @@
 		3F317BFF272AD51700642C39 /* AirportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportView.swift; sourceTree = "<group>"; };
 		3F317C01272AD86000642C39 /* MonochromeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeLabel.swift; sourceTree = "<group>"; };
 		3F3A775227315D6D007853ED /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
-		3F3A775327315D6D007853ED /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		3F3A775627315F87007853ED /* FlightViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewViewModel.swift; sourceTree = "<group>"; };
 		3F3A775827316097007853ED /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		3F4F34A9272FE9B1004E9EB3 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
@@ -139,7 +135,6 @@
 		3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
 		3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
-		3FEBA8082727FCFD006C476F /* Gnuolane.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gnuolane.ttf; sourceTree = "<group>"; };
 		3FEBA80B2727FF1B006C476F /* UIColor + Custom Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Custom Colors.swift"; sourceTree = "<group>"; };
 		3FEBA80D2727FF38006C476F /* UIImage + Custom Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Custom Images.swift"; sourceTree = "<group>"; };
 		3FEBA80F2727FF50006C476F /* UIFont + Custom Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Custom Fonts.swift"; sourceTree = "<group>"; };
@@ -304,7 +299,6 @@
 			children = (
 				3FE0B3E32731421B00722CBE /* FlightCell.swift */,
 				3F3A775227315D6D007853ED /* OptionCell.swift */,
-				3F3A775327315D6D007853ED /* OptionCell.xib */,
 				3F3A775627315F87007853ED /* FlightViewViewModel.swift */,
 			);
 			path = Cell;
@@ -385,7 +379,6 @@
 		3FEBA7FE2727FCB7006C476F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				3FEBA8082727FCFD006C476F /* Gnuolane.ttf */,
 				3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */,
 				3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */,
 				3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */,
@@ -480,7 +473,7 @@
 				};
 			};
 			buildConfigurationList = 3FEBA7C02727FA17006C476F /* Build configuration list for PBXProject "FlightRadar" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -510,12 +503,10 @@
 			files = (
 				3FF9C1D127300B84001B7745 /* FlightModalController.xib in Resources */,
 				3F4F34AF273000FA004E9EB3 /* AirportDetailsController.xib in Resources */,
-				3F3A775527315D6D007853ED /* OptionCell.xib in Resources */,
 				3FEBA8022727FCF2006C476F /* Oswald-Medium.ttf in Resources */,
 				3FEBA8062727FCF2006C476F /* Oswald-Light.ttf in Resources */,
 				3F853239272AC8C300C81509 /* AirportSearchController.xib in Resources */,
 				3FEBA7D82727FA18006C476F /* LaunchScreen.storyboard in Resources */,
-				3FEBA8092727FCFD006C476F /* Gnuolane.ttf in Resources */,
 				3FEBA7D52727FA18006C476F /* Assets.xcassets in Resources */,
 				3FEBA8042727FCF2006C476F /* Oswald-Regular.ttf in Resources */,
 			);
@@ -526,7 +517,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEBA8072727FCF2006C476F /* Oswald-Light.ttf in Resources */,
-				3FEBA80A2727FCFD006C476F /* Gnuolane.ttf in Resources */,
 				3FEBA8032727FCF2006C476F /* Oswald-Medium.ttf in Resources */,
 				3FEBA8052727FCF2006C476F /* Oswald-Regular.ttf in Resources */,
 			);

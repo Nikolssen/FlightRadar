@@ -9,7 +9,13 @@ import UIKit
 
 class MonochromeLabel: UILabel {
     
-    var attributes: [NSAttributedString.Key : Any] = [:]
+    var attributes: [NSAttributedString.Key : Any] = [:] {
+        didSet {
+            let text = text
+            self.text = text
+            attributedText = NSAttributedString(string: text ?? "", attributes: attributes)
+        }
+    }
     override var text: String? {
         willSet {
             if let value = newValue {

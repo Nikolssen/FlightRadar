@@ -28,7 +28,9 @@ final class AirportSearchController: UIViewController, UITableViewDelegate {
     
     private func configureSearchField() {
         searchField.placeholder = Constants.placeholder
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        recognizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(recognizer)
     }
     
     private func bind() {
@@ -55,7 +57,7 @@ final class AirportSearchController: UIViewController, UITableViewDelegate {
             .disposed(by: disposeBag)
         
         tableView.rx
-            .itemHighlighted
+            .itemSelected
             .debug()
             .map { $0.item }
             .debug()

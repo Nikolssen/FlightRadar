@@ -23,6 +23,5 @@ struct FlightViewViewModel: FlightViewViewModelling {
     let arrivalName: String?
     let time: String?
     
-    
 }
 

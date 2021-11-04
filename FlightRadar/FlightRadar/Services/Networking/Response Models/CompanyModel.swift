@@ -8,7 +8,7 @@
 import Foundation
 
 struct CompanyModel: Decodable {
-    
+
     enum CodingKeys: String, CodingKey {
         case iata = "iata_code"
         case icao = "icao_code"
@@ -17,7 +17,7 @@ struct CompanyModel: Decodable {
         case website
         
     }
-    
+
     let isLowCostCarrier: Bool
     let name: String
     let website: String?

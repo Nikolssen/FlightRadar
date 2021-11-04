@@ -31,7 +31,7 @@ struct FlightResponseModel: Decodable {
             case live
         }
     }
-    
+
     struct Location: Decodable {
         let airport: String?
         let iata: String?
@@ -43,7 +43,7 @@ struct FlightResponseModel: Decodable {
             case iata
         }
     }
-    
+
     struct Airline: Decodable {
         let name: String
         let iata: String
@@ -59,13 +59,13 @@ struct FlightResponseModel: Decodable {
         let iata: String
         let icao24: String
     }
-    
+
     struct Live: Decodable {
         let latitude: Double
         let longitude: Double
         let altitude: Double
         let direction: Double
     }
-    
+
 
 }

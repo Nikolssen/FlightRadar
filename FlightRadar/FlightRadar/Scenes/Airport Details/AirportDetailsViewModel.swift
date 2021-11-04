@@ -12,7 +12,7 @@ import RxRelay
 
 protocol AirportDetailsViewModelling {
     var mapPointRelay: BehaviorRelay<CLLocationCoordinate2D?> { get }
-    var dataSourceRelay: PublishRelay<Void> { get }
+    var dataSourceRelay: PublishRelay<[FlightViewViewModelling]> { get }
     var airportInfoRelay: PublishRelay<AirportViewViewModelling> { get }
     var selectedItemRelay: BehaviorRelay<Int> { get }
 }
@@ -24,13 +24,13 @@ protocol AirportDetailsCoordinator {
 final class AirportDetailsViewModel: AirportDetailsViewModelling {
     
     let mapPointRelay: BehaviorRelay<CLLocationCoordinate2D?> = .init(value: nil)
-    let dataSourceRelay: PublishRelay<Void> = .init()
+    let dataSourceRelay: PublishRelay<[FlightViewViewModelling]> = .init()
     let airportInfoRelay: PublishRelay<AirportViewViewModelling> = .init()
     let selectedItemRelay: BehaviorRelay<Int> = .init(value: 0)
     
     
-    private let arrivalRelay: BehaviorRelay<[FlightResponseModel.Data]> = .init(value: [])
-    private let departureRelay: BehaviorRelay<[FlightResponseModel.Data]> = .init(value: [])
+    private let arrivalRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
+    private let departureRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
     private let modelRelay: BehaviorRelay<AirportModel>
     private let coordinator: AirportDetailsCoordinator
     private let service: Services
@@ -65,20 +65,24 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
         
         Observable.combineLatest(selectedIndexObservable, departureRelay)
             .filter { $0.0 == 1}
-            //.map { $1}
-
-//        selectedIndexObservable
-//            .subscribe(onNext: { [weak self] in
-//                switch $0 {
-//                case 1:
-//                    self?.loadDepartures()
-//                case 2:
-//                    self?.loadArrivals()
-//                default:
-//                    break
-//                }})
-//            .disposed(by: disposeBag)
+            .compactMap { $1 }
+            .map { $0.map { FlightViewViewModel(originCode: $0.departure?.iata, arrivalCode: $0.arrival?.iata, originName: $0.departure?.airport, arrivalName: $0.arrival?.airport, time: DateFormatter.substract($0.departure?.time, d2: $0.arrival?.time)) }}
+            .bind(to: dataSourceRelay)
+            .disposed(by: disposeBag)
+            
+        Observable.combineLatest(selectedIndexObservable, arrivalRelay)
+            .filter { $0.0 == 2}
+            .compactMap { $1 }
+            .map { $0.map { FlightViewViewModel(originCode: $0.departure?.iata, arrivalCode: $0.arrival?.iata, originName: $0.departure?.airport, arrivalName: $0.arrival?.airport, time: DateFormatter.substract($0.departure?.time, d2: $0.arrival?.time)) }}
+            .bind(to: dataSourceRelay)
+            .disposed(by: disposeBag)
         
+        selectedIndexObservable
+            .withLatestFrom(departureRelay){ ($0, $1) }
+            .filter { $0 == 1 && $1 == nil}
+            .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
+//            .flatMapLatest { [service] in service.networkService.request(request: APIRequest.allFlights(FlightGetModel(departureCode: <#T##String?#>, arrivalCode: <#T##String?#>)))}
+//        
 
         
     }
