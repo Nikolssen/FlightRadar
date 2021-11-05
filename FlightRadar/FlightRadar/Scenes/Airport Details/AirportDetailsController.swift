@@ -106,7 +106,7 @@ final class AirportDetailsController: UIViewController {
             .disposed(by: disposeBag)
         
         selectedIndexObservable
-            .bind(to: viewModel.selectedItemRelay)
+            .bind(to: viewModel.selectedOptionRelay)
             .disposed(by: disposeBag)
         
         viewModel
@@ -116,6 +116,10 @@ final class AirportDetailsController: UIViewController {
                 cell.configure(with: viewModel)
             }
             .disposed(by: disposeBag)
+        
+        flightsCollectionView.rx
+            .itemSelected
+            .map { $0 }
     }
     
     private func configureCollectionViews() {

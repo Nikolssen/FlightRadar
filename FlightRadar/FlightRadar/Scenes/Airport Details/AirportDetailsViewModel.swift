@@ -14,7 +14,8 @@ protocol AirportDetailsViewModelling {
     var mapPointRelay: BehaviorRelay<CLLocationCoordinate2D?> { get }
     var dataSourceRelay: PublishRelay<[FlightViewViewModelling]> { get }
     var airportInfoRelay: PublishRelay<AirportViewViewModelling> { get }
-    var selectedItemRelay: BehaviorRelay<Int> { get }
+    var selectedOptionRelay: BehaviorRelay<Int> { get }
+    var selectedFlightRelay: PublishRelay<Int> { get }
 }
 
 protocol AirportDetailsCoordinator {
@@ -26,8 +27,8 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
     let mapPointRelay: BehaviorRelay<CLLocationCoordinate2D?> = .init(value: nil)
     let dataSourceRelay: PublishRelay<[FlightViewViewModelling]> = .init()
     let airportInfoRelay: PublishRelay<AirportViewViewModelling> = .init()
-    let selectedItemRelay: BehaviorRelay<Int> = .init(value: 0)
-    
+    let selectedOptionRelay: BehaviorRelay<Int> = .init(value: 0)
+    let selectedFlightRelay: PublishRelay<Int> = .init()
     
     private let arrivalRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
     private let departureRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
@@ -55,7 +56,7 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
             .disposed(by: disposeBag)
         
         let selectedIndexObservable =
-        selectedItemRelay
+        selectedOptionRelay
             .withLatestFrom(mapPointRelay) { (index, coordinates) -> (Int) in
                 if coordinates == nil { return index + 1}
                 if index == 0 && coordinates != nil { return 0 }
@@ -111,6 +112,32 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
             .bind(to: arrivalRelay)
             .disposed(by: disposeBag)
         
+        let selectedFlightObservable =
+        selectedFlightRelay
+            .withLatestFrom(selectedIndexObservable) { ($0, $1)}
+            .share()
+        
+        selectedFlightObservable
+            .filter { $1 == 1}
+            .map { $0.0 }
+            .withLatestFrom(departureRelay) { (index, values) -> FlightResponseModel.Data? in
+                guard let values = values, values.count < index else { return nil }
+                return values[index]
+            }
+            .compactMap { $0 }
+            .bind(to: coodinator.flightOnMapRelay)
+            .disposed(by: disposeBag)
+        
+        selectedFlightObservable
+            .filter { $1 == 2}
+            .map { $0.0 }
+            .withLatestFrom(arrivalRelay) { (index, values) -> FlightResponseModel.Data? in
+                guard let values = values, values.count < index else { return nil }
+                return values[index]
+            }
+            .compactMap { $0 }
+            .bind(to: coodinator.flightOnMapRelay)
+            .disposed(by: disposeBag)
     }
     
 }
