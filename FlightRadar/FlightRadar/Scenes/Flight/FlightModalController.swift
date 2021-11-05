@@ -15,6 +15,8 @@ class FlightModalController: UIViewController {
     @IBOutlet private var arrivalLabel: MonochromeLabel!
     @IBOutlet private var arrivalDateLabel: MonochromeLabel!
     
+    var viewModel: FlightDetailsViewModelling!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAttributes()

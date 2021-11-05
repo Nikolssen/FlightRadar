@@ -17,6 +17,8 @@ class MapController: UIViewController {
         return view
     }()
     
+    var viewModel: MapViewModelling!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
