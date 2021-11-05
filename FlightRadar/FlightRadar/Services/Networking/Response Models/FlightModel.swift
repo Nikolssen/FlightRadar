@@ -67,5 +67,7 @@ struct FlightResponseModel: Decodable {
         let direction: Double
     }
 
+    let pagination: Pagination
+    let data: [FlightResponseModel.Data]
 
 }

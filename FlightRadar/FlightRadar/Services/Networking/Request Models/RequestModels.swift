@@ -8,6 +8,12 @@
 import Foundation
 
 struct FlightGetModel: Encodable {
+    
+    init(departureCode: String? = nil, arrivalCode: String? = nil) {
+        self.departureCode = departureCode
+        self.arrivalCode = arrivalCode
+    }
+    
     enum CodingKeys: String, CodingKey {
         case accessKey = "access_key"
         case departureCode = "dep_iata"

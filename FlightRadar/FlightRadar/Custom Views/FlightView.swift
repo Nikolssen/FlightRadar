@@ -28,7 +28,7 @@ final class FlightView: BackgroundView {
         return stackView
     }()
     
-    private lazy var destinationStackView: UIStackView = {
+    private lazy var arrivalStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -38,7 +38,7 @@ final class FlightView: BackgroundView {
         return stackView
     }()
     
-    lazy var originCodeLabel: UILabel = {
+    lazy var departureCodeLabel: UILabel = {
         let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -46,7 +46,7 @@ final class FlightView: BackgroundView {
         return label
     }()
     
-    lazy var destinationCodeLabel: UILabel = {
+    lazy var arrivalCodeLabel: UILabel = {
         let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -54,7 +54,7 @@ final class FlightView: BackgroundView {
         return label
     }()
     
-    lazy var originLabel: UILabel = {
+    lazy var departureLabel: UILabel = {
         let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.attributes = TextAttributes.smallLightAttributes
@@ -62,7 +62,7 @@ final class FlightView: BackgroundView {
         return label
     }()
     
-    lazy var destinationLabel: UILabel = {
+    lazy var arrivalLabel: UILabel = {
         let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.attributes = TextAttributes.smallLightAttributes
@@ -90,11 +90,11 @@ final class FlightView: BackgroundView {
         addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(originStackView)
         horizontalStackView.addArrangedSubview(timeLabel)
-        horizontalStackView.addArrangedSubview(destinationStackView)
-        originStackView.addArrangedSubview(originCodeLabel)
-        originStackView.addArrangedSubview(originLabel)
-        destinationStackView.addArrangedSubview(destinationCodeLabel)
-        destinationStackView.addArrangedSubview(destinationLabel)
+        horizontalStackView.addArrangedSubview(arrivalStackView)
+        originStackView.addArrangedSubview(departureCodeLabel)
+        originStackView.addArrangedSubview(departureLabel)
+        arrivalStackView.addArrangedSubview(arrivalCodeLabel)
+        arrivalStackView.addArrangedSubview(arrivalLabel)
         
         NSLayoutConstraint.activate([
             horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -102,5 +102,14 @@ final class FlightView: BackgroundView {
             horizontalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
+    }
+    
+    func configure(with viewModel: FlightViewViewModelling) {
+        timeLabel.text = viewModel.time
+        departureLabel.text = viewModel.departureName
+        departureCodeLabel.text = viewModel.departureCode
+        arrivalLabel.text = viewModel.arrivalName
+        arrivalCodeLabel.text = viewModel.arrivalCode
+        
     }
 }

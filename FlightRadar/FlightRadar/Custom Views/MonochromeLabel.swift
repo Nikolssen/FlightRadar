@@ -12,13 +12,14 @@ class MonochromeLabel: UILabel {
     var attributes: [NSAttributedString.Key : Any] = [:] {
         didSet {
             let text = text
+            self.text = nil
             self.text = text
-            attributedText = NSAttributedString(string: text ?? "", attributes: attributes)
         }
     }
     override var text: String? {
-        willSet {
-            if let value = newValue {
+        didSet {
+            if let value = text {
+                attributedText = nil
                 attributedText = NSAttributedString(string: value, attributes: attributes)
             }
             else {

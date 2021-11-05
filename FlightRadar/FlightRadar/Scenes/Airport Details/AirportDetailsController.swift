@@ -28,6 +28,7 @@ final class AirportDetailsController: UIViewController {
         mapView.layer.borderColor = UIColor.charcoal.cgColor
         mapView.layer.cornerCurve = .continuous
         mapView.isZoomEnabled = false
+        mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: Constants.mapAnotationID)
         NSLayoutConstraint.activate([
             mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mapView.topAnchor.constraint(equalTo: optionsCollectionView.bottomAnchor, constant: 20),
@@ -42,6 +43,7 @@ final class AirportDetailsController: UIViewController {
         super.viewDidLoad()
         configureCollectionViews()
         bind()
+
     }
     
     private func bind() {
@@ -58,9 +60,9 @@ final class AirportDetailsController: UIViewController {
             .map {
                 $0 != nil ? [Constants.map, Constants.departures, Constants.arrivals] : [Constants.departures, Constants.arrivals]
             }
-            .bind(to: optionsCollectionView.rx.items(cellIdentifier: Constants.optionsID)) {
+            .bind(to: optionsCollectionView.rx.items(cellIdentifier: Constants.optionsID, cellType: OptionCell.self)) {
                 _, text, cell in
-                (cell as? OptionCell)?.label.text = text
+                cell.label.text = text
             }
             .disposed(by: disposeBag)
         
@@ -70,8 +72,7 @@ final class AirportDetailsController: UIViewController {
             .subscribe(onNext: {[weak self] in self?.mapView.region = MKCoordinateRegion(center: $0, latitudinalMeters: 100_000, longitudinalMeters: 100_00)
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = $0
-                
-                self?.mapView.addAnnotations([])
+                self?.mapView.addAnnotations([annotation])
                 
             })
             .disposed(by: disposeBag)
@@ -81,7 +82,6 @@ final class AirportDetailsController: UIViewController {
             .rx
             .itemSelected
             .map { $0.item }
-            .debug()
         
         selectedIndexObservable
             .subscribe(onNext: { [weak self] in
@@ -104,6 +104,18 @@ final class AirportDetailsController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        selectedIndexObservable
+            .bind(to: viewModel.selectedItemRelay)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .dataSourceRelay
+            .bind(to: flightsCollectionView.rx.items(cellIdentifier: Constants.flightsID, cellType: FlightCell.self)) {
+                _, viewModel, cell in
+                cell.configure(with: viewModel)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func configureCollectionViews() {
@@ -114,7 +126,7 @@ final class AirportDetailsController: UIViewController {
         flightsCollectionView.delegate = self
         optionsCollectionView.allowsSelection = true
         flightsCollectionView.allowsSelection = true
-        
+        optionsCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: [])
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -132,15 +144,16 @@ final class AirportDetailsController: UIViewController {
         static let arrivals: String = "Arrivals"
         static let optionsID: String = "OptionsID"
         static let flightsID: String = "FlightsID"
+        static let mapAnotationID: String = "MapID"
     }
     
 }
 
 extension AirportDetailsController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKAnnotationView()
-        annotationView.image = .airport
-        annotationView.annotation = annotation
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.mapAnotationID)
+        annotationView?.image = .airport
+        annotationView?.annotation = annotation
         return annotationView
     }
 }

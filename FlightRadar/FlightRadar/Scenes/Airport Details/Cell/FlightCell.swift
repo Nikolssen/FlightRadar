@@ -25,6 +25,17 @@ final class FlightCell: UICollectionViewCell {
         ])
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
     
+    func configure(with viewModel: FlightViewViewModelling) {
+        flightView.configure(with: viewModel)
+    }
     
 }
