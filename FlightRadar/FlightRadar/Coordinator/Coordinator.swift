@@ -17,7 +17,7 @@ class ApplicationCoordinator: Coordinator {
     private let window: UIWindow
     private let service: Services = Service()
     private let rootViewController: UITabBarController = TabBarController()
-    
+    private let disposeBag: DisposeBag = .init()
     func start() {
         let airportsController = UINavigationController()
         let airportsCoordinator = AirportCoordinator(rootViewController: airportsController, service: service)
@@ -25,6 +25,11 @@ class ApplicationCoordinator: Coordinator {
         
         let mapController = UINavigationController()
         let mapCoordinator = MapCoordinator(rootViewController: mapController, service: service)
+        
+        airportsCoordinator.flightOnMapRelay
+            .do(onNext: { [weak self] _ in self?.rootViewController.selectedIndex = 1 })
+            .bind(to: mapCoordinator.showModalRelay)
+            .disposed(by: disposeBag)
         
         let ticketsController = UINavigationController()
         let ticketsCoordinator = TicketsCoordinator(rootViewController: ticketsController, service: service)

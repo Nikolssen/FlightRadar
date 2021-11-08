@@ -58,3 +58,4 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
         static let airportDetailsNibName: String = "AirportDetailsController"
     }
 }
+
