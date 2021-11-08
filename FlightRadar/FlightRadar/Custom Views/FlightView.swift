@@ -18,31 +18,11 @@ final class FlightView: BackgroundView {
         return stackView
     }()
     
-    private lazy var originStackView: UIStackView = {
-       let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .center
-        stackView.spacing = 10
-        return stackView
-    }()
-    
-    private lazy var arrivalStackView: UIStackView = {
-       let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .center
-        stackView.spacing = 10
-        return stackView
-    }()
-    
     lazy var departureCodeLabel: UILabel = {
         let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
-        label.attributes = TextAttributes.largeRegularAttributes
+        label.attributes = TextAttributes.largeMediumAttributes
         return label
     }()
     
@@ -50,26 +30,10 @@ final class FlightView: BackgroundView {
         let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
-        label.attributes = TextAttributes.largeRegularAttributes
+        label.attributes = TextAttributes.largeMediumAttributes
         return label
     }()
-    
-    lazy var departureLabel: UILabel = {
-        let label = MonochromeLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.attributes = TextAttributes.smallLightAttributes
-        label.numberOfLines = 2
-        return label
-    }()
-    
-    lazy var arrivalLabel: UILabel = {
-        let label = MonochromeLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.attributes = TextAttributes.smallLightAttributes
-        label.numberOfLines = 2
-        return label
-    }()
-    
+
     lazy var timeLabel: UILabel = {
         let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -90,13 +54,10 @@ final class FlightView: BackgroundView {
     
     private func commonInit() {
         addSubview(horizontalStackView)
-        horizontalStackView.addArrangedSubview(originStackView)
+        horizontalStackView.addArrangedSubview(departureCodeLabel)
         horizontalStackView.addArrangedSubview(timeLabel)
-        horizontalStackView.addArrangedSubview(arrivalStackView)
-        originStackView.addArrangedSubview(departureCodeLabel)
-        originStackView.addArrangedSubview(departureLabel)
-        arrivalStackView.addArrangedSubview(arrivalCodeLabel)
-        arrivalStackView.addArrangedSubview(arrivalLabel)
+        horizontalStackView.addArrangedSubview(arrivalCodeLabel)
+
         
         NSLayoutConstraint.activate([
             horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -108,9 +69,7 @@ final class FlightView: BackgroundView {
     
     func configure(with viewModel: FlightViewViewModelling) {
         timeLabel.text = viewModel.time
-        departureLabel.text = viewModel.departureName
         departureCodeLabel.text = viewModel.departureCode
-        arrivalLabel.text = viewModel.arrivalName
         arrivalCodeLabel.text = viewModel.arrivalCode
         
     }

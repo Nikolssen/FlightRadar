@@ -56,7 +56,7 @@ final class MapCoordinator: Coordinator {
         controller.viewModel = viewModel
         guard let topController = rootViewController.topViewController, rootViewController.viewControllers.count == 1 else { return }
         topController.addChild(controller)
-        controller.view.frame = CGRect(x: 0, y: topController.view.frame.height / 3 * 2, width: topController.view.frame.width, height: topController.view.frame.height / 3)
+        controller.view.frame = CGRect(x: 2, y: topController.view.frame.height / 2, width: topController.view.frame.width - 4, height: topController.view.frame.height / 2 - 2)
         topController.view.addSubview(controller.view)
         controller.didMove(toParent: topController)
     }

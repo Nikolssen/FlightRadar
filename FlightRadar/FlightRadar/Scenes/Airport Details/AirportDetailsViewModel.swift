@@ -67,14 +67,14 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
         Observable.combineLatest(selectedIndexObservable, departureRelay)
             .filter { $0.0 == 1}
             .compactMap { $1 }
-            .map { $0.map { FlightViewViewModel(departureCode: $0.departure?.iata, arrivalCode: $0.arrival?.iata, departureName: $0.departure?.airport, arrivalName: $0.arrival?.airport, time: DateFormatter.substract($0.departure?.time, d2: $0.arrival?.time)) }}
+            .map { $0.map { FlightViewViewModel(departureCode: $0.departure?.iata, arrivalCode: $0.arrival?.iata, time: DateFormatter.substract($0.departure?.time, d2: $0.arrival?.time)) }}
             .bind(to: dataSourceRelay)
             .disposed(by: disposeBag)
         
         Observable.combineLatest(selectedIndexObservable, arrivalRelay)
             .filter { $0.0 == 2}
             .compactMap { $1 }
-            .map { $0.map { FlightViewViewModel(departureCode: $0.departure?.iata, arrivalCode: $0.arrival?.iata, departureName: $0.departure?.airport, arrivalName: $0.arrival?.airport, time: DateFormatter.substract($0.departure?.time, d2: $0.arrival?.time)) }}
+            .map { $0.map { FlightViewViewModel(departureCode: $0.departure?.iata, arrivalCode: $0.arrival?.iata, time: DateFormatter.substract($0.departure?.time, d2: $0.arrival?.time)) }}
             .bind(to: dataSourceRelay)
             .disposed(by: disposeBag)
         
@@ -117,7 +117,7 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
             .filter { $1 == 1}
             .map { $0.0 }
             .withLatestFrom(departureRelay) { (index, values) -> FlightResponseModel.Data? in
-                guard let values = values, values.count < index else { return nil }
+                guard let values = values, values.count > index else { return nil }
                 return values[index]
             }
             .compactMap { $0 }
@@ -128,7 +128,7 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
             .filter { $1 == 2}
             .map { $0.0 }
             .withLatestFrom(arrivalRelay) { (index, values) -> FlightResponseModel.Data? in
-                guard let values = values, values.count < index else { return nil }
+                guard let values = values, values.count > index else { return nil }
                 return values[index]
             }
             .compactMap { $0 }

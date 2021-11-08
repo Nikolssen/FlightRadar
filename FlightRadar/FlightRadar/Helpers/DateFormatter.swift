@@ -14,6 +14,12 @@ extension DateFormatter {
         return formatter
     }()
     
+    static var extendedDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMM, HH:mm"
+        return formatter
+    }()
+    
     static func substract(_ d1: String?, d2: String?) -> String? {
         guard let d1 = d1, let d2 = d2,
               let date1 = DateFormatter.decodingFormatter.date(from: d1),
@@ -24,5 +30,10 @@ extension DateFormatter {
         let hours =  Int(interval) / 3600
         let minutes = Int(interval) % 3600 / 60
         return "\(hours)h \(minutes)m"
+    }
+    
+    static func extendedDate(from: String?) -> String? {
+        guard let string = from, let date = decodingFormatter.date(from: string) else { return nil }
+        return extendedDateFormatter.string(from: date)
     }
 }
