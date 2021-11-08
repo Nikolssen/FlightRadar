@@ -58,9 +58,9 @@ final class AirportSearchController: UIViewController, UITableViewDelegate {
         
         tableView.rx
             .itemSelected
-            .debug()
+            .do(onNext: { [weak self] in self?.tableView.deselectRow(at: $0, animated: true)})
             .map { $0.item }
-            .debug()
+
             .bind(to: viewModel.selectedCellRelay)
             .disposed(by: disposeBag)
         

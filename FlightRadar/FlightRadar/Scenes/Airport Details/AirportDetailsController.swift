@@ -10,7 +10,7 @@ import MapKit
 import RxSwift
 import RxCocoa
 
-final class AirportDetailsController: UIViewController {
+final class AirportDetailsController: BaseViewController {
     
     @IBOutlet private var airportView: AirportView!
     var viewModel: AirportDetailsViewModelling!
@@ -119,7 +119,9 @@ final class AirportDetailsController: UIViewController {
         
         flightsCollectionView.rx
             .itemSelected
-            .map { $0 }
+            .map { $0.item }
+            .bind(to: viewModel.selectedFlightRelay)
+            .disposed(by: disposeBag)
     }
     
     private func configureCollectionViews() {
@@ -133,14 +135,6 @@ final class AirportDetailsController: UIViewController {
         optionsCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: [])
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        hidesBottomBarWhenPushed = true
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
     
     private enum Constants {
         static let map: String = "Map"

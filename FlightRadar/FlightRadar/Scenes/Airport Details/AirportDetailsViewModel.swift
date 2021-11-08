@@ -79,14 +79,10 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
             .disposed(by: disposeBag)
         
         selectedIndexObservable
-            .debug()
             .withLatestFrom(departureRelay){ ($0, $1) }
-            .debug()
             .filter { $0 == 1 && $1 == nil}
             .withLatestFrom(modelRelay)
-            .debug()
             .compactMap { $0.iata }
-            .debug()
             .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
             .flatMapLatest { [service] code -> Observable<FlightResponseModel> in
                 service.networkService.request(request: APIRequest.allFlights(.init(departureCode: code)))

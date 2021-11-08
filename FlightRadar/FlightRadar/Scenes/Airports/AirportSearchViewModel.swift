@@ -95,16 +95,13 @@ final class AirportSearchViewModel: AirportSearchViewModelling {
         
         locationSearchAction
             .filter { $0 == nil}
-            .debug()
             .subscribe()
             .disposed(by: disposeBag)
         
         selectedCellRelay
-            .debug()
             .withLatestFrom(airportModelRelay) {
                 $1[$0]
             }
-            .debug()
             .bind(to: coordinator.airportDetailsRelay)
             .disposed(by: disposeBag)
     }

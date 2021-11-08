@@ -8,11 +8,6 @@
 import UIKit
 
 final class AirportCell: UITableViewCell {
-    override var isSelected: Bool {
-        willSet {
-            backgroundColor = .athensGray
-        }
-    }
     
     private let airportView: AirportView = .init()
     
@@ -34,6 +29,7 @@ final class AirportCell: UITableViewCell {
     
     
     private func commonInit() {
+        selectionStyle = .none
         contentView.addSubview(airportView)
         airportView.translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .athensGray
