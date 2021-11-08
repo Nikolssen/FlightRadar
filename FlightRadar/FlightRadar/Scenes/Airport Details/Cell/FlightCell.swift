@@ -38,4 +38,7 @@ final class FlightCell: UICollectionViewCell {
         flightView.configure(with: viewModel)
     }
     
+    enum Constants {
+        static let size = CGSize(width: 270, height: 70)
+    }
 }

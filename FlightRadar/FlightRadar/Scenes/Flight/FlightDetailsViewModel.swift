@@ -7,7 +7,7 @@
 
 import Foundation
 import RxRelay
-import RxCocoa
+import RxSwift
 
 protocol FlightDetailsViewModelling {
     init(flightInfo: FlightResponseModel.Data)
@@ -16,25 +16,33 @@ protocol FlightDetailsViewModelling {
     var departure: String? { get }
     var arrival: String? { get }
     var hideRelay: PublishRelay<Void> { get }
+    var showFullMode: PublishRelay<Void>  { get }
 }
 
 final class FlightDetailsViewModel: FlightDetailsViewModelling {
 
     let hideRelay: PublishRelay<Void> = .init()
+    let showFullMode: PublishRelay<Void> = .init()
+    private let flightInfo: FlightResponseModel.Data
     
-    private let flightInfoRelay: FlightResponseModel.Data
-    let flightViewViewModel: FlightViewViewModel
+    let disposeBag: DisposeBag = .init()
+    
+    var flightViewViewModel: FlightViewViewModel {
+        FlightViewViewModel(departureCode: flightInfo.departure?.iata, arrivalCode: flightInfo.arrival?.iata, time: DateFormatter.substract(flightInfo.departure?.time, d2: flightInfo.arrival?.time))
+    }
 
-    var company: String?
-    var departure: String?
-    var arrival: String?
+    var company: String? {
+        flightInfo.airline?.name
+    }
+    var departure: String? {
+        DateFormatter.extendedDate(from: flightInfo.departure?.time)
+    }
+    var arrival: String? {
+        DateFormatter.extendedDate(from: flightInfo.arrival?.time)
+    }
     
     init(flightInfo: FlightResponseModel.Data) {
-        
-        flightInfoRelay = flightInfo
-        flightViewViewModel = FlightViewViewModel(departureCode: flightInfo.departure?.iata, arrivalCode: flightInfo.arrival?.iata, time: DateFormatter.substract(flightInfo.departure?.time, d2: flightInfo.arrival?.time))
-        company = flightInfo.airline?.name
-        departure = DateFormatter.extendedDate(from: flightInfo.departure?.time)
-        arrival = DateFormatter.extendedDate(from: flightInfo.arrival?.time)
+        self.flightInfo = flightInfo
     }
+    
 }

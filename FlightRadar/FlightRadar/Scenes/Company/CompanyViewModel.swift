@@ -12,5 +12,5 @@ protocol CompanyViewModelling {
 }
 
 struct CompanyViewModel: CompanyViewModelling {
-    
+    //UIApplication.shared.open(url)
 }

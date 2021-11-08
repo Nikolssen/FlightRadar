@@ -165,7 +165,7 @@ extension AirportDetailsController: UICollectionViewDelegateFlowLayout {
         }
         
         else {
-            return CGSize(width: 270, height: 100)
+            return FlightCell.Constants.size
         }
     }
 }

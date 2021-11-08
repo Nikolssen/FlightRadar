@@ -18,6 +18,8 @@
                 <outlet property="companyNameLabel" destination="4Af-zP-L8H" id="LEu-Ku-zh7"/>
                 <outlet property="departureDateLabel" destination="EdD-2s-WFg" id="1K2-yA-qid"/>
                 <outlet property="departureLabel" destination="BBf-mV-CjF" id="H7e-l7-XaH"/>
+                <outlet property="flightView" destination="e3V-6p-Cxg" id="gEI-GN-AKo"/>
+                <outlet property="fullModeView" destination="3dO-B7-iVi" id="mbG-ob-wu4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,26 +36,26 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3V-6p-Cxg" customClass="FlightView" customModule="FlightRadar" customModuleProvider="target">
-                    <rect key="frame" x="70" y="39" width="245" height="100"/>
+                    <rect key="frame" x="70" y="39" width="245" height="70"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="dNE-TW-Zmp"/>
+                        <constraint firstAttribute="height" constant="70" id="dNE-TW-Zmp"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-qf-ZnL">
-                    <rect key="frame" x="70" y="169" width="245" height="174"/>
+                    <rect key="frame" x="70" y="139" width="245" height="204"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xc7-ma-idS">
-                            <rect key="frame" x="0.0" y="0.0" width="245" height="58"/>
+                            <rect key="frame" x="0.0" y="0.0" width="245" height="68"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-Qf-Lad" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="58"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Af-zP-L8H" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="58"/>
+                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -61,16 +63,16 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-Dy-D0f">
-                            <rect key="frame" x="0.0" y="58" width="245" height="58"/>
+                            <rect key="frame" x="0.0" y="68" width="245" height="68"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBf-mV-CjF" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="58"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdD-2s-WFg" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="58"/>
+                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -78,22 +80,39 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pZY-l2-A0v">
-                            <rect key="frame" x="0.0" y="116" width="245" height="58"/>
+                            <rect key="frame" x="0.0" y="136" width="245" height="68"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z3-qo-60V" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="58"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-N7-vwb" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="58"/>
+                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="L4B-OH-eCF">
+                    <rect key="frame" x="-100" y="247" width="83" height="20.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0W-a6-u7I" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAh-Ss-zIP" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                            <rect key="frame" x="41.5" y="0.0" width="41.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                 </stackView>
             </subviews>

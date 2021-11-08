@@ -44,7 +44,11 @@ class AltitudeLegend: UIView {
     }
     
     private func commonInit() {
-
+        
+        layer.cornerRadius = 5
+        layer.cornerCurve = .continuous
+        layer.masksToBounds = true
+        
         layer.addSublayer(gradientLayer)
         addSubview(topLabel)
         addSubview(bottomLabel)

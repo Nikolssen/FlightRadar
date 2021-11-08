@@ -14,6 +14,8 @@ class FlightModalController: UIViewController {
     @IBOutlet private var departureDateLabel: MonochromeLabel!
     @IBOutlet private var arrivalLabel: MonochromeLabel!
     @IBOutlet private var arrivalDateLabel: MonochromeLabel!
+    @IBOutlet private var flightView: FlightView!
+    @IBOutlet var fullModeView: UIView!
     
     var viewModel: FlightDetailsViewModelling!
     
@@ -21,6 +23,53 @@ class FlightModalController: UIViewController {
         super.viewDidLoad()
         configureAttributes()
         setupBorders()
+        configure()
+    }
+    
+    @objc private func showFullMode() {
+        viewModel.showFullMode.accept(Void())
+    }
+
+    @objc private func hide() {
+        viewModel.hideRelay.accept(Void())
+    }
+    
+    private func configure() {
+        
+        companyLabel.text = Constants.companyDescription
+        departureLabel.text = Constants.departureDescription
+        arrivalLabel.text = Constants.arrivalDescription
+        
+        if let company = viewModel.company  {
+            companyNameLabel.text = company
+        }
+        else {
+            companyNameLabel.isHidden = true
+            companyLabel.isHidden = true
+        }
+        
+        if let arrival = viewModel.arrival {
+            arrivalDateLabel.text = arrival
+        }
+        else {
+            arrivalLabel.isHidden = true
+            arrivalDateLabel.isHidden = true
+        }
+        
+        if let departure = viewModel.departure {
+            departureDateLabel.text = departure
+        }
+        else {
+            departureDateLabel.isHidden = true
+            departureLabel.isHidden = true
+        }
+        
+        flightView.configure(with: viewModel.flightViewViewModel)
+        
+        fullModeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showFullMode)))
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(hide))
+        swipeGesture.direction = .down
+        view.addGestureRecognizer(swipeGesture)
     }
     
     private func setupBorders() {
@@ -48,4 +97,9 @@ class FlightModalController: UIViewController {
         arrivalDateLabel.attributes = TextAttributes.smallMediumAttributes
     }
 
+    enum Constants {
+        static let companyDescription: String = "Company"
+        static let departureDescription: String = "Departure"
+        static let arrivalDescription: String = "Arrival"
+    }
 }
