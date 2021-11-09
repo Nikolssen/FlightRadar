@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "472a03c15f39592007d94f25abe554350bc8aa2b",
+          "version": "10.5.1"
+        }
+      },
+      {
         "package": "OHHTTPStubs",
         "repositoryURL": "https://github.com/AliSoftware/OHHTTPStubs.git",
         "state": {
@@ -26,6 +35,15 @@
           "branch": null,
           "revision": "9535b58695b91fb67f56d58d6fd0c76462d7743a",
           "version": "6.1.2"
+        }
+      },
+      {
+        "package": "RxNuke",
+        "repositoryURL": "git@github.com:kean/RxNuke.git",
+        "state": {
+          "branch": null,
+          "revision": "806b92cfcc170cf6f881d07d3ea959651911ba8d",
+          "version": "3.0.0"
         }
       },
       {

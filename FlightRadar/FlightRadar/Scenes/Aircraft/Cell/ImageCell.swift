@@ -6,11 +6,13 @@
 //
 
 import UIKit
-
+import RxNuke
+import RxSwift
+import Nuke
 class ImageCell: UICollectionViewCell {
 
-    @IBOutlet var imageView: UIImageView!
-    
+    @IBOutlet private var imageView: UIImageView!
+    private var disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerCurve = .continuous
@@ -23,9 +25,12 @@ class ImageCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
+        disposeBag = DisposeBag()
     }
     
     func configure(with url: URL) {
-        
+        ImagePipeline.shared.rx.loadImage(with: url)
+            .subscribe(onSuccess: {[weak self] in self?.imageView.image = $0.image})
+            .disposed(by: disposeBag)
     }
 }

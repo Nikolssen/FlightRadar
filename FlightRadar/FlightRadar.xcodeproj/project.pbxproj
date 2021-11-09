@@ -48,6 +48,7 @@
 		3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4040272975C5002CABBC /* MonochromeButton.swift */; };
 		3F98A3DE273552A100FC14B5 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98A3DD273552A100FC14B5 /* MapViewModel.swift */; };
 		3F98A3E02735532000FC14B5 /* FlightDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98A3DF2735532000FC14B5 /* FlightDetailsViewModel.swift */; };
+		3F99DFCB273A4F63009A838C /* RxNuke in Frameworks */ = {isa = PBXBuildFile; productRef = 3F99DFCA273A4F63009A838C /* RxNuke */; };
 		3FA400482732BE970008A1FB /* AltitudeLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA400472732BE970008A1FB /* AltitudeLegend.swift */; };
 		3FBBFD99272F05B200AA93E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBBFD98272F05B200AA93E1 /* TabBarController.swift */; };
 		3FC061B6273824C500CCB2BB /* CompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061B4273824C500CCB2BB /* CompanyController.swift */; };
@@ -56,10 +57,6 @@
 		3FC061BB273824DD00CCB2BB /* AircraftController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FC061B9273824DD00CCB2BB /* AircraftController.xib */; };
 		3FC061BE2738252D00CCB2BB /* TicketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061BC2738252D00CCB2BB /* TicketsController.swift */; };
 		3FC061BF2738252D00CCB2BB /* TicketsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FC061BD2738252D00CCB2BB /* TicketsController.xib */; };
-		3FC061C4273828D200CCB2BB /* Favorites+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061C0273828D200CCB2BB /* Favorites+CoreDataClass.swift */; };
-		3FC061C5273828D200CCB2BB /* Favorites+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061C1273828D200CCB2BB /* Favorites+CoreDataProperties.swift */; };
-		3FC061C6273828D200CCB2BB /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061C2273828D200CCB2BB /* Airport+CoreDataClass.swift */; };
-		3FC061C7273828D200CCB2BB /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061C3273828D200CCB2BB /* Airport+CoreDataProperties.swift */; };
 		3FC3225F273914750090E001 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3225E273914750090E001 /* BaseViewController.swift */; };
 		3FE0B3E02731258100722CBE /* AirportDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */; };
 		3FE0B3E227312BE100722CBE /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3E127312BE100722CBE /* FlightModel.swift */; };
@@ -151,10 +148,6 @@
 		3FC061B9273824DD00CCB2BB /* AircraftController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AircraftController.xib; sourceTree = "<group>"; };
 		3FC061BC2738252D00CCB2BB /* TicketsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsController.swift; sourceTree = "<group>"; };
 		3FC061BD2738252D00CCB2BB /* TicketsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketsController.xib; sourceTree = "<group>"; };
-		3FC061C0273828D200CCB2BB /* Favorites+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3FC061C1273828D200CCB2BB /* Favorites+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3FC061C2273828D200CCB2BB /* Airport+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3FC061C3273828D200CCB2BB /* Airport+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3FC3225E273914750090E001 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsViewModel.swift; sourceTree = "<group>"; };
 		3FE0B3E127312BE100722CBE /* FlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModel.swift; sourceTree = "<group>"; };
@@ -186,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEBA819272801CB006C476F /* RxSwift in Frameworks */,
+				3F99DFCB273A4F63009A838C /* RxNuke in Frameworks */,
 				3FEBA81C272801E8006C476F /* Alamofire in Frameworks */,
 				3FEBA817272801CB006C476F /* RxRelay in Frameworks */,
 				3FEBA81F27280234006C476F /* RxAlamofire in Frameworks */,
@@ -305,6 +299,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		3F5227F427396D3F008C6ED6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3F5227EE273957E0008C6ED6 /* ImageCell.swift */,
+				3F5227EF273957E0008C6ED6 /* ImageCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3F853230272AC79900C81509 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,24 +364,12 @@
 		3FC061B3273824A700CCB2BB /* Aircraft */ = {
 			isa = PBXGroup;
 			children = (
+				3F5227F427396D3F008C6ED6 /* Cell */,
 				3FC061B8273824DD00CCB2BB /* AircraftController.swift */,
 				3FC061B9273824DD00CCB2BB /* AircraftController.xib */,
-				3F5227EE273957E0008C6ED6 /* ImageCell.swift */,
-				3F5227EF273957E0008C6ED6 /* ImageCell.xib */,
 				3F5227F227395A92008C6ED6 /* AircraftViewModel.swift */,
 			);
 			path = Aircraft;
-			sourceTree = "<group>";
-		};
-		3FC061C82738294D00CCB2BB /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				3FC061C0273828D200CCB2BB /* Favorites+CoreDataClass.swift */,
-				3FC061C1273828D200CCB2BB /* Favorites+CoreDataProperties.swift */,
-				3FC061C2273828D200CCB2BB /* Airport+CoreDataClass.swift */,
-				3FC061C3273828D200CCB2BB /* Airport+CoreDataProperties.swift */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		3FE0B3E5273143FD00722CBE /* Cell */ = {
@@ -457,7 +448,6 @@
 		3FEBA7FD2727FB61006C476F /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				3FC061C82738294D00CCB2BB /* Entity */,
 				3FEBA7D12727FA17006C476F /* FlightRadar.xcdatamodeld */,
 				3F2C78F8272BD07400DA042B /* PersistanceService.swift */,
 			);
@@ -516,6 +506,7 @@
 				3FEBA818272801CB006C476F /* RxSwift */,
 				3FEBA81B272801E8006C476F /* Alamofire */,
 				3FEBA81E27280234006C476F /* RxAlamofire */,
+				3F99DFCA273A4F63009A838C /* RxNuke */,
 			);
 			productName = FlightRadar;
 			productReference = 3FEBA7C52727FA17006C476F /* FlightRadar.app */;
@@ -574,6 +565,7 @@
 				3FEBA811272801CB006C476F /* XCRemoteSwiftPackageReference "RxSwift" */,
 				3FEBA81A272801E8006C476F /* XCRemoteSwiftPackageReference "Alamofire" */,
 				3FEBA81D27280234006C476F /* XCRemoteSwiftPackageReference "RxAlamofire" */,
+				3F99DFC9273A4F63009A838C /* XCRemoteSwiftPackageReference "RxNuke" */,
 			);
 			productRefGroup = 3FEBA7C62727FA17006C476F /* Products */;
 			projectDirPath = "";
@@ -633,14 +625,12 @@
 				3FC061BE2738252D00CCB2BB /* TicketsController.swift in Sources */,
 				3FF9C1D027300B84001B7745 /* FlightModalController.swift in Sources */,
 				3F2C78FD272BD0FF00DA042B /* NetworkService.swift in Sources */,
-				3FC061C6273828D200CCB2BB /* Airport+CoreDataClass.swift in Sources */,
 				3F2C7901272BE50D00DA042B /* Rx + ActivityIndicator.swift in Sources */,
 				3F2C7905272BEA4000DA042B /* APIRequest.swift in Sources */,
 				3F98A3DE273552A100FC14B5 /* MapViewModel.swift in Sources */,
 				3FEBA80C2727FF1B006C476F /* UIColor + Custom Colors.swift in Sources */,
 				3F5227F0273957E0008C6ED6 /* ImageCell.swift in Sources */,
 				3FC061B6273824C500CCB2BB /* CompanyController.swift in Sources */,
-				3FC061C5273828D200CCB2BB /* Favorites+CoreDataProperties.swift in Sources */,
 				3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */,
 				3F85323B272ACA2500C81509 /* Divider.swift in Sources */,
 				3F2C78F9272BD07400DA042B /* PersistanceService.swift in Sources */,
@@ -648,7 +638,6 @@
 				3F5227F327395A92008C6ED6 /* AircraftViewModel.swift in Sources */,
 				3FEBA8102727FF50006C476F /* UIFont + Custom Fonts.swift in Sources */,
 				3F85322F272ABCBD00C81509 /* ActivityIndicator.swift in Sources */,
-				3FC061C4273828D200CCB2BB /* Favorites+CoreDataClass.swift in Sources */,
 				3F3A775927316097007853ED /* DateFormatter.swift in Sources */,
 				3F4F34AE273000FA004E9EB3 /* AirportDetailsController.swift in Sources */,
 				3F85322D272AB53000C81509 /* TextAttributes.swift in Sources */,
@@ -672,7 +661,6 @@
 				3F4F34AA272FE9B1004E9EB3 /* NumberFormatter.swift in Sources */,
 				3F85323D272AD04E00C81509 /* AirportSearchViewModel.swift in Sources */,
 				3F8F40392729680F002CABBC /* SearchField.swift in Sources */,
-				3FC061C7273828D200CCB2BB /* Airport+CoreDataProperties.swift in Sources */,
 				3F2C790B272BEAAC00DA042B /* CompanyModel.swift in Sources */,
 				3F4F34B22730040C004E9EB3 /* MapController.swift in Sources */,
 				3F50255B272C49420029F0D0 /* AirportCoordinator.swift in Sources */,
@@ -972,6 +960,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F99DFC9273A4F63009A838C /* XCRemoteSwiftPackageReference "RxNuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:kean/RxNuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		3FEBA811272801CB006C476F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -999,6 +995,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F99DFCA273A4F63009A838C /* RxNuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F99DFC9273A4F63009A838C /* XCRemoteSwiftPackageReference "RxNuke" */;
+			productName = RxNuke;
+		};
 		3FEBA812272801CB006C476F /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3FEBA811272801CB006C476F /* XCRemoteSwiftPackageReference "RxSwift" */;
