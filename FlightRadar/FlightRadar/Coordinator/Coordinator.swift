@@ -7,11 +7,15 @@
 
 import UIKit
 import RxSwift
+import RxRelay
 
 protocol Coordinator {
     func start()
 }
 
+protocol ErrorHandler {
+    var errorHandlerRelay: PublishRelay<Error> { get }
+}
 
 class ApplicationCoordinator: Coordinator {
     private let window: UIWindow

@@ -17,7 +17,7 @@ class FlightModalController: UIViewController {
     @IBOutlet private var flightView: FlightView!
     @IBOutlet var fullModeView: UIView!
     
-    var viewModel: FlightDetailsViewModelling!
+    var viewModel: FlightModalViewModelling!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +97,7 @@ class FlightModalController: UIViewController {
         arrivalDateLabel.attributes = TextAttributes.smallMediumAttributes
     }
 
-    enum Constants {
+    private enum Constants {
         static let companyDescription: String = "Company"
         static let departureDescription: String = "Departure"
         static let arrivalDescription: String = "Arrival"

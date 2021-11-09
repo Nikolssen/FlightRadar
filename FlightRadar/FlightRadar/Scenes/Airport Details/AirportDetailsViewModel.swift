@@ -16,10 +16,12 @@ protocol AirportDetailsViewModelling {
     var airportInfoRelay: PublishRelay<AirportViewViewModelling> { get }
     var selectedOptionRelay: BehaviorRelay<Int> { get }
     var selectedFlightRelay: PublishRelay<Int> { get }
+    var activityIndicatorRelay: PublishRelay<Bool> { get }
 }
 
-protocol AirportDetailsCoordinator {
+protocol AirportDetailsCoordinator: ErrorHandler {
     var flightOnMapRelay: PublishRelay<FlightResponseModel.Data> { get }
+    var flightDetailsRelay: PublishRelay<FlightResponseModel.Data> { get }
 }
 
 final class AirportDetailsViewModel: AirportDetailsViewModelling {
@@ -29,7 +31,9 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
     let airportInfoRelay: PublishRelay<AirportViewViewModelling> = .init()
     let selectedOptionRelay: BehaviorRelay<Int> = .init(value: 0)
     let selectedFlightRelay: PublishRelay<Int> = .init()
+    let activityIndicatorRelay: PublishRelay<Bool> = .init()
     
+    private let selectionRelay: PublishRelay<FlightResponseModel.Data> = .init()
     private let arrivalRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
     private let departureRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
     private let modelRelay: BehaviorRelay<AirportModel>
@@ -83,11 +87,16 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
             .filter { $0 == 1 && $1 == nil}
             .withLatestFrom(modelRelay)
             .compactMap { $0.iata }
+            .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(true) })
             .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
             .flatMapLatest { [service] code -> Observable<FlightResponseModel> in
                 service.networkService.request(request: APIRequest.allFlights(.init(departureCode: code)))
             }
-            .do(onError: { _ in })
+            .observe(on: MainScheduler.instance)
+            .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(false) }, onError: { [weak self]  in
+                self?.activityIndicatorRelay.accept(false)
+                self?.coordinator.errorHandlerRelay.accept($0)
+            })
             .retry()
             .map { $0.data }
             .bind(to: departureRelay)
@@ -98,11 +107,16 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
             .filter { $0 == 2 && $1 == nil}
             .withLatestFrom(modelRelay)
             .compactMap { $0.iata }
+            .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(true) })
             .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
             .flatMapLatest { [service] code -> Observable<FlightResponseModel> in
                 service.networkService.request(request: APIRequest.allFlights(.init(arrivalCode: code)))
             }
-            .do(onError: { _ in })
+            .observe(on: MainScheduler.instance)
+            .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(false) }, onError: { [weak self]  in
+                self?.activityIndicatorRelay.accept(false)
+                self?.coordinator.errorHandlerRelay.accept($0)
+            })
             .retry()
             .map { $0.data }
             .bind(to: arrivalRelay)
@@ -121,7 +135,7 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
                 return values[index]
             }
             .compactMap { $0 }
-            .bind(to: coodinator.flightOnMapRelay)
+            .bind(to: selectionRelay)
             .disposed(by: disposeBag)
         
         selectedFlightObservable
@@ -132,6 +146,11 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
                 return values[index]
             }
             .compactMap { $0 }
+            .bind(to: selectionRelay)
+            .disposed(by: disposeBag)
+        
+        selectionRelay
+            .filter { $0.live != nil }
             .bind(to: coodinator.flightOnMapRelay)
             .disposed(by: disposeBag)
     }

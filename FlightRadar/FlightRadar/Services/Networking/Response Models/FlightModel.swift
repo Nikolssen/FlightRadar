@@ -8,12 +8,12 @@
 import Foundation
 
 struct FlightResponseModel: Decodable {
-    struct Pagination: Decodable {
-        let limit: Int
-        let offset: Int
-        let count: Int
-        let total: Int
-    }
+//    struct Pagination: Decodable {
+//        let limit: Int
+//        let offset: Int
+//        let count: Int
+//        let total: Int
+//    }
     struct Data: Decodable {
         let flightStatus: String?
         let departure: Location?
@@ -35,7 +35,7 @@ struct FlightResponseModel: Decodable {
     struct Location: Decodable {
         let airport: String?
         let iata: String?
-        let time: String
+        let time: String?
         
         enum CodingKeys: String, CodingKey {
             case time = "estimated"
@@ -45,19 +45,19 @@ struct FlightResponseModel: Decodable {
     }
 
     struct Airline: Decodable {
-        let name: String
-        let iata: String
-        let icao: String
+        let name: String?
+        let iata: String?
+        let icao: String?
     }
     
     struct Flight: Decodable {
-        let number: String
+        let number: String?
     }
     
     struct Aircraft: Decodable {
-        let registration: String
-        let iata: String
-        let icao24: String
+        let registration: String?
+        let iata: String?
+        let icao24: String?
     }
 
     struct Live: Decodable {
@@ -67,7 +67,7 @@ struct FlightResponseModel: Decodable {
         let direction: Double
     }
 
-    let pagination: Pagination
+//    let pagination: Pagination
     let data: [FlightResponseModel.Data]
 
 }

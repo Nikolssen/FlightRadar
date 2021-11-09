@@ -1,5 +1,5 @@
 //
-//  FlightDetailsViewModel.swift
+//  FlightModalViewModel.swift
 //  FlightRadar
 //
 //  Created by Ivan Budovich on 11/5/21.
@@ -9,7 +9,7 @@ import Foundation
 import RxRelay
 import RxSwift
 
-protocol FlightDetailsViewModelling {
+protocol FlightModalViewModelling {
     init(flightInfo: FlightResponseModel.Data)
     var flightViewViewModel: FlightViewViewModel { get }
     var company: String? { get }
@@ -19,7 +19,7 @@ protocol FlightDetailsViewModelling {
     var showFullMode: PublishRelay<Void>  { get }
 }
 
-final class FlightDetailsViewModel: FlightDetailsViewModelling {
+final class FlightModalViewModel: FlightModalViewModelling {
 
     let hideRelay: PublishRelay<Void> = .init()
     let showFullMode: PublishRelay<Void> = .init()

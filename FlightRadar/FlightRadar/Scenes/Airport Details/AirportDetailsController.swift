@@ -70,6 +70,7 @@ final class AirportDetailsController: BaseViewController {
             .mapPointRelay
             .compactMap { $0 }
             .subscribe(onNext: {[weak self] in self?.mapView.region = MKCoordinateRegion(center: $0, latitudinalMeters: 100_000, longitudinalMeters: 100_00)
+                self?.mapView.delegate = self
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = $0
                 self?.mapView.addAnnotations([annotation])
@@ -89,7 +90,6 @@ final class AirportDetailsController: BaseViewController {
                 switch $0 {
                 case 0:
                     if self.isMapLoaded  {
-                        self.mapView.delegate = self
                         self.flightsCollectionView.isHidden = true
                         self.mapView.isHidden = false
                     }
@@ -121,6 +121,10 @@ final class AirportDetailsController: BaseViewController {
             .itemSelected
             .map { $0.item }
             .bind(to: viewModel.selectedFlightRelay)
+            .disposed(by: disposeBag)
+        
+        viewModel.activityIndicatorRelay
+            .bind(to: activityIndicatorBinding)
             .disposed(by: disposeBag)
     }
     

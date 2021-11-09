@@ -15,10 +15,9 @@ protocol AirportSearchViewModelling {
     var selectedCellRelay: PublishRelay<Int> { get }
     var dataSourceRelay: BehaviorRelay<[AirportViewViewModelling]> { get }
     var activityIndicatorRelay: PublishRelay<Bool> { get }
-//    var alertRelay: PublishRelay<Bool> { get }
 }
 
-protocol AirportSearchCoordinator {
+protocol AirportSearchCoordinator: ErrorHandler {
     var airportDetailsRelay: PublishRelay<AirportModel> { get }
 }
 
@@ -78,9 +77,11 @@ final class AirportSearchViewModel: AirportSearchViewModelling {
                 [service] location -> Observable<AirportResponseModel> in
                 service.networkService.request(request: .airportByLocation(.init(lat: location.latitude, lon: location.longitude)))
             }
-            .do(onError: { error in } )
-            .retry()
             .observe(on: MainScheduler.asyncInstance)
+            .do(onError: { [weak self] in
+                self?.activityIndicatorRelay.accept(false)
+                self?.coordinator.errorHandlerRelay.accept($0)} )
+            .retry()
             .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(false) })
             .subscribe(onNext: { [weak self] in
                 self?.airportModelRelay.accept($0.items) } )
@@ -95,7 +96,13 @@ final class AirportSearchViewModel: AirportSearchViewModelling {
         
         locationSearchAction
             .filter { $0 == nil}
-            .subscribe()
+            .subscribe(onNext: {[weak self] _ in self?.coordinator.errorHandlerRelay.accept(AirportSearchError.noLocationAvailable)})
+            .disposed(by: disposeBag)
+        
+        airportModelRelay
+            .skip(1)
+            .filter { $0.isEmpty }
+            .subscribe(onNext: {[weak self] _ in self?.coordinator.errorHandlerRelay.accept(AirportSearchError.empty)})
             .disposed(by: disposeBag)
         
         selectedCellRelay
@@ -107,4 +114,8 @@ final class AirportSearchViewModel: AirportSearchViewModelling {
     }
 }
 
+enum AirportSearchError: Error {
+    case empty
+    case noLocationAvailable
+}
 

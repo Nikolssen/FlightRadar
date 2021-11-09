@@ -6,10 +6,15 @@
 //
 
 import UIKit
-final class TicketsCoordinator: Coordinator {
+import RxSwift
+import RxRelay
+
+final class TicketsCoordinator: Coordinator, ErrorHandler {
     
     let rootViewController: UINavigationController
     let service: Services
+    
+    let errorHandlerRelay: PublishRelay<Error> = .init()
     
     func start() {
         let controller = UIViewController()

@@ -9,13 +9,14 @@ import UIKit
 import RxRelay
 import RxSwift
 
-final class MapCoordinator: Coordinator {
+final class MapCoordinator: Coordinator, ErrorHandler {
     
     private let rootViewController: UINavigationController
     private let service: Services
     private weak var modalController: FlightModalController?
     let showModalRelay: PublishRelay<FlightResponseModel.Data> = .init()
     let hideModalRelay: PublishRelay<Void> = .init()
+    let errorHandlerRelay: PublishRelay<Error> = .init()
     
     private let disposeBag: DisposeBag = .init()
     func start() {
@@ -52,7 +53,7 @@ final class MapCoordinator: Coordinator {
     
     private func showModalController(with data: FlightResponseModel.Data) {
         let controller = FlightModalController(nibName: "FlightModalController", bundle: nil)
-        let viewModel = FlightDetailsViewModel(flightInfo: data)
+        let viewModel = FlightModalViewModel(flightInfo: data)
         controller.viewModel = viewModel
         guard let topController = rootViewController.topViewController, rootViewController.viewControllers.count == 1 else { return }
         topController.addChild(controller)

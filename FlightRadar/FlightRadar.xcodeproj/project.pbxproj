@@ -47,8 +47,9 @@
 		3F8F40392729680F002CABBC /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F40382729680F002CABBC /* SearchField.swift */; };
 		3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4040272975C5002CABBC /* MonochromeButton.swift */; };
 		3F98A3DE273552A100FC14B5 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98A3DD273552A100FC14B5 /* MapViewModel.swift */; };
-		3F98A3E02735532000FC14B5 /* FlightDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98A3DF2735532000FC14B5 /* FlightDetailsViewModel.swift */; };
+		3F98A3E02735532000FC14B5 /* FlightModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98A3DF2735532000FC14B5 /* FlightModalViewModel.swift */; };
 		3F99DFCB273A4F63009A838C /* RxNuke in Frameworks */ = {isa = PBXBuildFile; productRef = 3F99DFCA273A4F63009A838C /* RxNuke */; };
+		3F99DFCD273A5A2E009A838C /* Rx+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99DFCC273A5A2E009A838C /* Rx+AlertController.swift */; };
 		3FA400482732BE970008A1FB /* AltitudeLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA400472732BE970008A1FB /* AltitudeLegend.swift */; };
 		3FBBFD99272F05B200AA93E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBBFD98272F05B200AA93E1 /* TabBarController.swift */; };
 		3FC061B6273824C500CCB2BB /* CompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061B4273824C500CCB2BB /* CompanyController.swift */; };
@@ -58,6 +59,7 @@
 		3FC061BE2738252D00CCB2BB /* TicketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061BC2738252D00CCB2BB /* TicketsController.swift */; };
 		3FC061BF2738252D00CCB2BB /* TicketsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FC061BD2738252D00CCB2BB /* TicketsController.xib */; };
 		3FC3225F273914750090E001 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3225E273914750090E001 /* BaseViewController.swift */; };
+		3FD2D75F273A85E20096B5AB /* FlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2D75E273A85E20096B5AB /* FlightViewModel.swift */; };
 		3FE0B3E02731258100722CBE /* AirportDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */; };
 		3FE0B3E227312BE100722CBE /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3E127312BE100722CBE /* FlightModel.swift */; };
 		3FE0B3E42731421B00722CBE /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3E32731421B00722CBE /* FlightCell.swift */; };
@@ -139,7 +141,8 @@
 		3F8F40382729680F002CABBC /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		3F8F4040272975C5002CABBC /* MonochromeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeButton.swift; sourceTree = "<group>"; };
 		3F98A3DD273552A100FC14B5 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		3F98A3DF2735532000FC14B5 /* FlightDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsViewModel.swift; sourceTree = "<group>"; };
+		3F98A3DF2735532000FC14B5 /* FlightModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModalViewModel.swift; sourceTree = "<group>"; };
+		3F99DFCC273A5A2E009A838C /* Rx+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+AlertController.swift"; sourceTree = "<group>"; };
 		3FA400472732BE970008A1FB /* AltitudeLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltitudeLegend.swift; sourceTree = "<group>"; };
 		3FBBFD98272F05B200AA93E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3FC061B4273824C500CCB2BB /* CompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyController.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		3FC061BC2738252D00CCB2BB /* TicketsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsController.swift; sourceTree = "<group>"; };
 		3FC061BD2738252D00CCB2BB /* TicketsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketsController.xib; sourceTree = "<group>"; };
 		3FC3225E273914750090E001 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3FD2D75E273A85E20096B5AB /* FlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewModel.swift; sourceTree = "<group>"; };
 		3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsViewModel.swift; sourceTree = "<group>"; };
 		3FE0B3E127312BE100722CBE /* FlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModel.swift; sourceTree = "<group>"; };
 		3FE0B3E32731421B00722CBE /* FlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
@@ -273,9 +277,10 @@
 			children = (
 				3FF9C1CE27300B84001B7745 /* FlightModalController.swift */,
 				3FF9C1CF27300B84001B7745 /* FlightModalController.xib */,
-				3F98A3DF2735532000FC14B5 /* FlightDetailsViewModel.swift */,
+				3F98A3DF2735532000FC14B5 /* FlightModalViewModel.swift */,
 				3F5227EA27395645008C6ED6 /* FlightController.swift */,
 				3F5227EB27395645008C6ED6 /* FlightController.xib */,
+				3FD2D75E273A85E20096B5AB /* FlightViewModel.swift */,
 			);
 			path = Flight;
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 				3FBBFD98272F05B200AA93E1 /* TabBarController.swift */,
 				3FA400472732BE970008A1FB /* AltitudeLegend.swift */,
 				3FC3225E273914750090E001 /* BaseViewController.swift */,
+				3F99DFCC273A5A2E009A838C /* Rx+AlertController.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 				3FE0B3E02731258100722CBE /* AirportDetailsViewModel.swift in Sources */,
 				3FA400482732BE970008A1FB /* AltitudeLegend.swift in Sources */,
 				3FBBFD99272F05B200AA93E1 /* TabBarController.swift in Sources */,
+				3F99DFCD273A5A2E009A838C /* Rx+AlertController.swift in Sources */,
 				3F3A775427315D6D007853ED /* OptionCell.swift in Sources */,
 				3F85322B272AADEA00C81509 /* BackgroundView.swift in Sources */,
 				3FE5E0F6272FCB9200CA056D /* TicketsCoordinator.swift in Sources */,
@@ -629,6 +636,7 @@
 				3F2C7905272BEA4000DA042B /* APIRequest.swift in Sources */,
 				3F98A3DE273552A100FC14B5 /* MapViewModel.swift in Sources */,
 				3FEBA80C2727FF1B006C476F /* UIColor + Custom Colors.swift in Sources */,
+				3FD2D75F273A85E20096B5AB /* FlightViewModel.swift in Sources */,
 				3F5227F0273957E0008C6ED6 /* ImageCell.swift in Sources */,
 				3FC061B6273824C500CCB2BB /* CompanyController.swift in Sources */,
 				3F8F4041272975C5002CABBC /* MonochromeButton.swift in Sources */,
@@ -649,7 +657,7 @@
 				3F317C00272AD51700642C39 /* AirportView.swift in Sources */,
 				3FEBA7D32727FA17006C476F /* FlightRadar.xcdatamodeld in Sources */,
 				3FE0B3E42731421B00722CBE /* FlightCell.swift in Sources */,
-				3F98A3E02735532000FC14B5 /* FlightDetailsViewModel.swift in Sources */,
+				3F98A3E02735532000FC14B5 /* FlightModalViewModel.swift in Sources */,
 				3FC3225F273914750090E001 /* BaseViewController.swift in Sources */,
 				3F2C78F4272BCF8800DA042B /* Coordinator.swift in Sources */,
 				3F5227EC27395645008C6ED6 /* FlightController.swift in Sources */,
