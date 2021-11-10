@@ -20,6 +20,18 @@ extension DateFormatter {
         return formatter
     }()
     
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd:mm:yyyy"
+        return formatter
+    }()
+    
+    static var aircraftDecodingFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return formatter
+    }()
+    
     static func substract(_ d1: String?, d2: String?) -> String? {
         guard let d1 = d1, let d2 = d2,
               let date1 = DateFormatter.decodingFormatter.date(from: d1),
@@ -35,5 +47,10 @@ extension DateFormatter {
     static func extendedDate(from: String?) -> String? {
         guard let string = from, let date = decodingFormatter.date(from: string) else { return nil }
         return extendedDateFormatter.string(from: date)
+    }
+    
+    static func date(from: String?) -> String? {
+        guard let string = from, let date = dateFormatter.date(from: string) else { return nil }
+        return aircraftDecodingFormatter.string(from: date)
     }
 }

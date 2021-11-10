@@ -14,35 +14,61 @@ protocol AircraftViewModelling {
     var urlDataSource: BehaviorRelay<[URL]> { get }
     var registrationNumber: String? { get }
     var icaoNumber: String? { get }
-    var company: String? { get }
     var numberOfEngines: String? { get }
     var age: String? { get }
     var firstFlightDate: String? { get }
     var numberOfSeats: String? { get }
+    var updateRelay: PublishRelay<Void> { get }
 }
 
 class AircraftViewModel: AircraftViewModelling {
     
-    var registrationNumber: String?
+    var registrationNumber: String? {
+        modelRelay.value?.registration
+    }
     
-    var icaoNumber: String?
+    var icaoNumber: String? {
+        modelRelay.value?.icao
+    }
     
-    var company: String?
+    var numberOfEngines: String? {
+        guard let number = modelRelay.value?.numberOfEngines else { return nil }
+        return "\(number)"
+    }
     
-    var numberOfEngines: String?
+    var age: String? {
+        guard let age = modelRelay.value?.age else { return nil }
+        return NumberFormatter.round(number: age)
+    }
     
-    var age: String?
+    var firstFlightDate: String? {
+        DateFormatter.date(from: modelRelay.value?.firstFlight)
+    }
     
-    var firstFlightDate: String?
-    
-    var numberOfSeats: String?
-    
-    let service: Services
-    
+    var numberOfSeats: String? {
+        guard let number = modelRelay.value?.numberOfSeats else { return nil }
+        return "\(number)"
+    }
     let urlDataSource: BehaviorRelay<[URL]> = .init(value: [])
+    let updateRelay: PublishRelay<Void> = .init()
     
-    init(service: Services) {
+    private let service: Services
+    private var modelRelay: BehaviorRelay<Aircraft?> = .init(value: nil)
+    private let disposeBag: DisposeBag = .init()
+
+    
+    init(service: Services, icao24: String) {
         self.service = service
+        service.networkService.request(request: .aircraft(icao24: icao24))
+            .subscribe(onNext: {[weak self] in
+                self?.modelRelay.accept($0)
+            }, onError: {error in })
+            .disposed(by: disposeBag)
         
+        modelRelay
+            .skip(1)
+            .map {_ in Void() }
+            .bind(to: updateRelay)
+            .disposed(by: disposeBag)
     }
 }

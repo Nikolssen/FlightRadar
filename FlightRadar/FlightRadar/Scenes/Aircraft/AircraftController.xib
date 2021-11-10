@@ -16,8 +16,6 @@
                 <outlet property="aircraftRegistrationDescriptionLabel" destination="DL7-Df-Jpf" id="WoT-Go-rRF"/>
                 <outlet property="aircraftRegistrationLabel" destination="dWh-eS-gmM" id="kSa-yf-ot1"/>
                 <outlet property="collectionView" destination="rgo-5s-hDe" id="sof-7x-2LO"/>
-                <outlet property="companyDescriptionLabel" destination="EGg-LU-mNQ" id="9Tq-hZ-b6U"/>
-                <outlet property="companyLabel" destination="88g-Qo-Yrf" id="C1c-6i-tqf"/>
                 <outlet property="enginesDescriptionLabel" destination="l2S-S8-9Tt" id="zSe-Df-aHu"/>
                 <outlet property="firstFlightDescriptionLabel" destination="eHX-n9-uN5" id="GN7-Jw-KeE"/>
                 <outlet property="firstFlightLabel" destination="Fry-rM-8gK" id="v78-xY-nVx"/>
@@ -35,7 +33,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rgo-5s-hDe">
-                    <rect key="frame" x="0.0" y="465" width="414" height="150"/>
+                    <rect key="frame" x="0.0" y="424.5" width="414" height="150"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="eSW-s8-SxQ"/>
@@ -54,7 +52,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AqR-oh-kc9">
-                    <rect key="frame" x="30" y="137" width="354" height="263.5"/>
+                    <rect key="frame" x="30" y="137" width="354" height="223"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EL7-io-Xft">
                             <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
@@ -90,25 +88,8 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="dZB-o2-hVu">
-                            <rect key="frame" x="0.0" y="81" width="354" height="20.5"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGg-LU-mNQ" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="177" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88g-Qo-Yrf" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="177" y="0.0" width="177" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UwF-LT-ANs">
-                            <rect key="frame" x="0.0" y="121.5" width="354" height="20.5"/>
+                            <rect key="frame" x="0.0" y="81" width="354" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2S-S8-9Tt" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="177" height="20.5"/>
@@ -125,7 +106,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mlq-eJ-slv">
-                            <rect key="frame" x="0.0" y="162" width="354" height="20.5"/>
+                            <rect key="frame" x="0.0" y="121.5" width="354" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdM-uF-Yuy" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="177" height="20.5"/>
@@ -142,7 +123,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1bh-IW-JlH">
-                            <rect key="frame" x="0.0" y="202.5" width="354" height="20.5"/>
+                            <rect key="frame" x="0.0" y="162" width="354" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHX-n9-uN5" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="177" height="20.5"/>
@@ -159,7 +140,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vyo-jk-Vcd">
-                            <rect key="frame" x="0.0" y="243" width="354" height="20.5"/>
+                            <rect key="frame" x="0.0" y="202.5" width="354" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDi-3C-4z5" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="177" height="20.5"/>

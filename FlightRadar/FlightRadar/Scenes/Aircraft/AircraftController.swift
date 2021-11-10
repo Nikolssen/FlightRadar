@@ -9,12 +9,11 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class AircraftController: UIViewController {
+class AircraftController: BaseViewController {
     @IBOutlet private var collectionView: UICollectionView!
     
     @IBOutlet private var aircraftRegistrationDescriptionLabel: MonochromeLabel!
     @IBOutlet private var icaoDescriptionLabel: MonochromeLabel!
-    @IBOutlet private var companyDescriptionLabel: MonochromeLabel!
     @IBOutlet private var enginesDescriptionLabel: MonochromeLabel!
     @IBOutlet private var ageDescriptionLabel: MonochromeLabel!
     @IBOutlet private var firstFlightDescriptionLabel: MonochromeLabel!
@@ -22,7 +21,6 @@ class AircraftController: UIViewController {
     
     @IBOutlet private var aircraftRegistrationLabel: MonochromeLabel!
     @IBOutlet private var icaoLabel: MonochromeLabel!
-    @IBOutlet private var companyLabel: MonochromeLabel!
     @IBOutlet private var numberOfEnginesLabel: MonochromeLabel!
     @IBOutlet private var ageLabel: MonochromeLabel!
     @IBOutlet private var firstFlightLabel: MonochromeLabel!
@@ -32,12 +30,10 @@ class AircraftController: UIViewController {
     private let disposeBag: DisposeBag = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
         configureAttributes()
-    }
-    
-    private func bind() {
-        guard let viewModel = viewModel else { return }
+        viewModel.updateRelay
+            .bind(onNext: bind)
+            .disposed(by: disposeBag)
         
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: Constants.cellID)
         
@@ -47,16 +43,23 @@ class AircraftController: UIViewController {
                 cell.configure(with: url)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func bind() {
+        guard let viewModel = viewModel else { return }
         
-        
-        
+        aircraftRegistrationLabel.text = viewModel.registrationNumber
+        icaoLabel.text = viewModel.icaoNumber
+        numberOfEnginesLabel.text = viewModel.numberOfEngines
+        numberOfSeatsLabel.text = viewModel.numberOfSeats
+        firstFlightLabel.text = viewModel.firstFlightDate
+        ageLabel.text = viewModel.age
     }
     
     private func configureAttributes() {
         
         aircraftRegistrationDescriptionLabel.text = Constants.aircraftRegistrationDescription
         icaoDescriptionLabel.text = Constants.aircraftIcaoDescription
-        companyDescriptionLabel.text = Constants.companyDescription
         enginesDescriptionLabel.text = Constants.numberOfEnginesDescription
         ageDescriptionLabel.text = Constants.ageDescription
         firstFlightDescriptionLabel.text = Constants.firstFlightDescription
@@ -64,7 +67,6 @@ class AircraftController: UIViewController {
         
         aircraftRegistrationDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
         icaoDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        companyDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
         enginesDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
         ageDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
         firstFlightDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
@@ -73,7 +75,6 @@ class AircraftController: UIViewController {
     
         aircraftRegistrationLabel.attributes = TextAttributes.smallMediumAttributes
         icaoLabel.attributes = TextAttributes.smallMediumAttributes
-        companyLabel.attributes = TextAttributes.smallMediumAttributes
         numberOfEnginesLabel.attributes = TextAttributes.smallMediumAttributes
         ageLabel.attributes = TextAttributes.smallMediumAttributes
         firstFlightLabel.attributes = TextAttributes.smallMediumAttributes
@@ -85,7 +86,6 @@ class AircraftController: UIViewController {
     private enum Constants {
         static let aircraftRegistrationDescription: String = "Aircraft registration number"
         static let aircraftIcaoDescription: String = "Aircraft ICAO number"
-        static let companyDescription: String = "Company"
         static let numberOfEnginesDescription: String = "Number of Engines"
         static let ageDescription: String = "Age"
         static let firstFlightDescription: String = "First flight"
