@@ -16,9 +16,10 @@ final class CompanyController: BaseViewController {
     @IBOutlet var lowcosterLabel: MonochromeLabel!
     @IBOutlet var pageLabel: MonochromeButton!
     
+    @IBOutlet var linkButton: MonochromeButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configure()
     }
 
     
@@ -32,6 +33,8 @@ final class CompanyController: BaseViewController {
         
         icaoLabel.text = Constants.icaoDescription
         iataLabel.text = Constants.iataDescription
+        lowcosterLabel.text = Constants.lowcostDescription
+        
     }
 
     private enum Constants {

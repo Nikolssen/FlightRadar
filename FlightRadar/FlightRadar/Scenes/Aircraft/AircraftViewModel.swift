@@ -18,10 +18,14 @@ protocol AircraftViewModelling {
     var age: String? { get }
     var firstFlightDate: String? { get }
     var numberOfSeats: String? { get }
+    var title: String? { get }
     var updateRelay: PublishRelay<Void> { get }
 }
 
 class AircraftViewModel: AircraftViewModelling {
+    var title: String? {
+        modelRelay.value?.productionLine
+    }
     
     var registrationNumber: String? {
         modelRelay.value?.registration
@@ -62,6 +66,15 @@ class AircraftViewModel: AircraftViewModelling {
         service.networkService.request(request: .aircraft(icao24: icao24))
             .subscribe(onNext: {[weak self] in
                 self?.modelRelay.accept($0)
+            }, onError: {error in })
+            .disposed(by: disposeBag)
+        
+        service.networkService.request(request: .aircraftImage(icao24: icao24))
+            .compactMap { (imageModel: AircraftImage) -> URL? in
+                URL(string: imageModel.url)
+            }
+            .subscribe(onNext: {[weak self] in
+                self?.urlDataSource.accept([$0])
             }, onError: {error in })
             .disposed(by: disposeBag)
         

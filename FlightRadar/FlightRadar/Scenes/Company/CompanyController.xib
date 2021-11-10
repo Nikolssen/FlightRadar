@@ -15,8 +15,10 @@
                 <outlet property="iataLabel" destination="iPK-WO-tcg" id="bPa-sa-VMn"/>
                 <outlet property="icaoCodeLabel" destination="SXr-Ap-kGX" id="rPe-Vc-JcG"/>
                 <outlet property="icaoLabel" destination="4W6-wM-Fy8" id="NTA-GU-uhh"/>
+                <outlet property="linkButton" destination="dcy-Ph-YYh" id="mNM-VF-rlK"/>
                 <outlet property="lowcosterLabel" destination="JgX-st-Ypn" id="M0o-FZ-tfW"/>
                 <outlet property="pageLabel" destination="dcy-Ph-YYh" id="KEE-Jl-DAo"/>
+                <outlet property="titleLabel" destination="dEi-db-bmf" id="9Ig-o9-7gA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

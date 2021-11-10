@@ -153,6 +153,11 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
             .filter { $0.live != nil }
             .bind(to: coodinator.flightOnMapRelay)
             .disposed(by: disposeBag)
+        
+        selectionRelay
+            .filter { $0.live == nil }
+            .bind(to: coodinator.flightDetailsRelay)
+            .disposed(by: disposeBag)
     }
     
 }

@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 class AircraftController: BaseViewController {
+    @IBOutlet private var titleLabel: MonochromeLabel!
     @IBOutlet private var collectionView: UICollectionView!
     
     @IBOutlet private var aircraftRegistrationDescriptionLabel: MonochromeLabel!
@@ -47,17 +48,24 @@ class AircraftController: BaseViewController {
     
     private func bind() {
         guard let viewModel = viewModel else { return }
-        
-        aircraftRegistrationLabel.text = viewModel.registrationNumber
+        if let registrationNumber = viewModel.registrationNumber {
+            aircraftRegistrationLabel.text = registrationNumber
+        }
+        else {
+            aircraftRegistrationLabel.isHidden = true
+            aircraftRegistrationDescriptionLabel.isHidden = true
+        }
+
         icaoLabel.text = viewModel.icaoNumber
         numberOfEnginesLabel.text = viewModel.numberOfEngines
         numberOfSeatsLabel.text = viewModel.numberOfSeats
         firstFlightLabel.text = viewModel.firstFlightDate
         ageLabel.text = viewModel.age
+        titleLabel.text = viewModel.title
     }
     
     private func configureAttributes() {
-        
+        titleLabel.attributes = TextAttributes.largeMediumAttributes
         aircraftRegistrationDescriptionLabel.text = Constants.aircraftRegistrationDescription
         icaoDescriptionLabel.text = Constants.aircraftIcaoDescription
         enginesDescriptionLabel.text = Constants.numberOfEnginesDescription
