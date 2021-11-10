@@ -13,7 +13,7 @@ protocol Services {
 }
 
 class Service: Services {
-    let persistanceService: PersistanceService = CoreDataService()
+    let persistanceService: PersistanceService = CoreDataService(containerName: "RSFlightRadar")
     let networkService: NetworkService = APIService()
     let locationService: LocationService = LocationManager()
 }

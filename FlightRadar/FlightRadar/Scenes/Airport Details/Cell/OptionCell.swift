@@ -13,6 +13,7 @@ final class OptionCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             label.attributes = isSelected ? TextAttributes.buttonAttributes : TextAttributes.smallRegularAttributes
+            setNeedsDisplay()
         }
     }
 

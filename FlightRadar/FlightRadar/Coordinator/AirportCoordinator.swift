@@ -63,8 +63,11 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
     
     private func flightDetailsController(model: FlightResponseModel.Data) -> FlightController {
         let controller = FlightController(nibName: Constants.flightControllerNibName, bundle: nil)
+
         return controller
     }
+    
+    
     
     
     private enum Constants {

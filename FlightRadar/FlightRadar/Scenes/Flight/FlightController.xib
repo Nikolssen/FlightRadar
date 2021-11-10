@@ -11,6 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FlightController" customModule="FlightRadar" customModuleProvider="target">
             <connections>
+                <outlet property="aircraftButton" destination="6G1-4A-CRD" id="sqQ-V4-Mlv"/>
+                <outlet property="arrivalAirportDescriptionLabel" destination="dZ7-vA-oG3" id="3ug-vW-Jkz"/>
+                <outlet property="arrivalAirportLabel" destination="1cO-4L-brc" id="MbS-uW-Vjs"/>
+                <outlet property="arrivalDescriptionLabel" destination="FFa-vR-yr2" id="EgU-in-UC7"/>
+                <outlet property="arrivalLabel" destination="qoC-iX-uYt" id="ypo-gC-Pwc"/>
+                <outlet property="companyButton" destination="7wn-Ir-ewj" id="FyJ-Mr-LJf"/>
+                <outlet property="companyDescriptionLabel" destination="AyK-mC-5mU" id="ARk-ub-mEF"/>
+                <outlet property="companyLabel" destination="1UD-pr-1Gm" id="dIN-Qn-nvg"/>
+                <outlet property="departureAirportDescriptionLabel" destination="9hC-WH-XCn" id="QLF-D5-PIo"/>
+                <outlet property="departureAirportLabel" destination="Ibp-r2-jRc" id="KT7-AV-Odb"/>
+                <outlet property="departureDescriptionLabel" destination="vWN-HN-NUc" id="x4l-kL-tXr"/>
+                <outlet property="departureLabel" destination="ozf-og-El0" id="x9Z-bS-E9W"/>
                 <outlet property="flightView" destination="i2z-k8-3ab" id="A8q-1E-cXk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,18 +40,8 @@
                         <constraint firstAttribute="height" constant="70" id="t9Q-GU-yKa"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wn-Ir-ewj" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
-                    <rect key="frame" x="85" y="537.5" width="108.5" height="34"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="Button"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6G1-4A-CRD" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
-                    <rect key="frame" x="220.5" y="537.5" width="108.5" height="34"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="Button"/>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="d44-3W-Gdy">
-                    <rect key="frame" x="40" y="180" width="334" height="308"/>
+                    <rect key="frame" x="40" y="180" width="334" height="250.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zu6-Tf-wnN">
                             <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -109,25 +111,8 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-l6-gQ8">
-                            <rect key="frame" x="0.0" y="230" width="334" height="20.5"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syu-OG-6Wj" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZb-As-Qev" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="167" y="0.0" width="167" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-tY-7V9">
-                            <rect key="frame" x="0.0" y="287.5" width="334" height="20.5"/>
+                            <rect key="frame" x="0.0" y="230" width="334" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ7-vA-oG3" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
@@ -145,18 +130,33 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="XDZ-2F-h4g">
+                    <rect key="frame" x="128" y="477" width="158" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wn-Ir-ewj" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="54" height="60"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6G1-4A-CRD" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
+                            <rect key="frame" x="104" y="0.0" width="54" height="60"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="FJw-DU-osw"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="6G1-4A-CRD" firstAttribute="width" secondItem="7wn-Ir-ewj" secondAttribute="width" id="97L-la-Tvr"/>
+                <constraint firstItem="XDZ-2F-h4g" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="C9w-eJ-8JI"/>
+                <constraint firstItem="XDZ-2F-h4g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="ILK-0Y-G9Z"/>
                 <constraint firstItem="i2z-k8-3ab" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="37" id="KUh-13-0ue"/>
-                <constraint firstItem="7wn-Ir-ewj" firstAttribute="top" secondItem="d44-3W-Gdy" secondAttribute="bottom" constant="49.5" id="Ll9-lf-0Zq"/>
+                <constraint firstItem="XDZ-2F-h4g" firstAttribute="top" secondItem="d44-3W-Gdy" secondAttribute="bottom" constant="46.5" id="MWn-Zp-SjT"/>
                 <constraint firstItem="d44-3W-Gdy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="W4m-td-J07"/>
-                <constraint firstItem="6G1-4A-CRD" firstAttribute="top" secondItem="d44-3W-Gdy" secondAttribute="bottom" constant="49.5" id="WzL-HV-Qb7"/>
-                <constraint firstItem="7wn-Ir-ewj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="85" id="cbw-kE-FwG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6G1-4A-CRD" secondAttribute="trailing" constant="85" id="d3C-63-okY"/>
-                <constraint firstItem="6G1-4A-CRD" firstAttribute="leading" secondItem="7wn-Ir-ewj" secondAttribute="trailing" constant="27" id="ns5-Ok-Uj0"/>
                 <constraint firstItem="d44-3W-Gdy" firstAttribute="top" secondItem="i2z-k8-3ab" secondAttribute="bottom" constant="29" id="rUY-hh-xfg"/>
                 <constraint firstItem="i2z-k8-3ab" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="tHf-pi-WQG"/>
                 <constraint firstItem="d44-3W-Gdy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="v1V-tO-PV7"/>

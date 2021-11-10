@@ -57,5 +57,4 @@ class CompanyViewModel: CompanyViewModelling {
             .disposed(by: disposeBag)
     }
     
-    //UIApplication.shared.open(url)
 }

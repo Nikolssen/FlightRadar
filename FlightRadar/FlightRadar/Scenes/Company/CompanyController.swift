@@ -18,6 +18,11 @@ final class CompanyController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+
+    
+    private func configure() {
         titleLabel.attributes = TextAttributes.largeMediumAttributes
         icaoLabel.attributes = TextAttributes.smallMediumAttributes
         iataLabel.attributes = TextAttributes.smallMediumAttributes
@@ -28,7 +33,6 @@ final class CompanyController: BaseViewController {
         icaoLabel.text = Constants.icaoDescription
         iataLabel.text = Constants.iataDescription
     }
-
 
     private enum Constants {
         static let icaoDescription: String = "ICAO Code"

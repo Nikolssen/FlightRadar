@@ -11,6 +11,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AircraftController" customModule="FlightRadar" customModuleProvider="target">
             <connections>
+                <outlet property="ageDescriptionLabel" destination="wdM-uF-Yuy" id="LWI-58-0Rl"/>
+                <outlet property="ageLabel" destination="UQc-IM-nfc" id="RdP-tU-ynb"/>
+                <outlet property="aircraftRegistrationDescriptionLabel" destination="DL7-Df-Jpf" id="WoT-Go-rRF"/>
+                <outlet property="aircraftRegistrationLabel" destination="dWh-eS-gmM" id="kSa-yf-ot1"/>
+                <outlet property="collectionView" destination="rgo-5s-hDe" id="sof-7x-2LO"/>
+                <outlet property="companyDescriptionLabel" destination="EGg-LU-mNQ" id="9Tq-hZ-b6U"/>
+                <outlet property="companyLabel" destination="88g-Qo-Yrf" id="C1c-6i-tqf"/>
+                <outlet property="enginesDescriptionLabel" destination="l2S-S8-9Tt" id="zSe-Df-aHu"/>
+                <outlet property="firstFlightDescriptionLabel" destination="eHX-n9-uN5" id="GN7-Jw-KeE"/>
+                <outlet property="firstFlightLabel" destination="Fry-rM-8gK" id="v78-xY-nVx"/>
+                <outlet property="icaoDescriptionLabel" destination="Bit-uw-nPu" id="oue-GK-sL0"/>
+                <outlet property="icaoLabel" destination="nFL-jR-ViP" id="nkB-4o-ctj"/>
+                <outlet property="numberOfEnginesLabel" destination="cnd-4C-pZ9" id="VWQ-lA-cgA"/>
+                <outlet property="numberOfSeatsDescriptionLabel" destination="uDi-3C-4z5" id="LGi-u0-tCZ"/>
+                <outlet property="numberOfSeatsLabel" destination="ORC-bX-Qk6" id="d3p-4B-h27"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
