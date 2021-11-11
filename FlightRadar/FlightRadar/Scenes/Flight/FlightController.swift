@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class FlightController: UIViewController {
     @IBOutlet private var flightView: FlightView!
@@ -24,7 +26,8 @@ final class FlightController: UIViewController {
     @IBOutlet private var companyButton: MonochromeButton!
     @IBOutlet private var aircraftButton: MonochromeButton!
     
-    private var viewModel: FlightViewModelling!
+    private let disposeBag = DisposeBag()
+    var viewModel: FlightViewModelling!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,7 @@ final class FlightController: UIViewController {
         flightView.configure(with: viewModel.flightViewViewModel)
         
         if let company = viewModel.company  {
-            companyDescriptionLabel.text = company
+            companyLabel.text = company
         }
         else {
             companyDescriptionLabel.isHidden = true
@@ -60,8 +63,35 @@ final class FlightController: UIViewController {
             departureDescriptionLabel.isHidden = true
         }
         
+        if let departureAirport = viewModel.departureAirport  {
+            departureAirportLabel.text = departureAirport
+        }
+        else {
+            departureAirportLabel.isHidden = true
+            departureAirportDescriptionLabel.isHidden = true
+        }
+        
+        if let arrivalAirport = viewModel.arrivalAirport  {
+            arrivalAirportLabel.text = arrivalAirport
+        }
+        else {
+            arrivalAirportLabel.isHidden = true
+            arrivalAirportDescriptionLabel.isHidden = true
+        }
+        
         aircraftButton.isHidden = !viewModel.isAircraftAvailable
         companyButton.isHidden = !viewModel.isCompanyAvailable
+        
+        aircraftButton.rx
+            .tap
+            .bind(to: viewModel.aircraftSelectionRelay)
+            .disposed(by: disposeBag)
+        
+        companyButton.rx
+            .tap
+            .debug()
+            .bind(to: viewModel.aircraftSelectionRelay)
+            .disposed(by: disposeBag)
     }
     
     private func configureAttributes() {
@@ -74,16 +104,16 @@ final class FlightController: UIViewController {
         companyButton.setTitle(Constants.companyButtonDescription, for: .normal)
         aircraftButton.setTitle(Constants.aircraftButtonDescription, for: .normal)
         
-        companyDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        companyLabel.attributes = TextAttributes.smallMediumAttributes
-        departureDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        departureAirportDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        departureLabel.attributes = TextAttributes.smallMediumAttributes
-        departureAirportLabel.attributes = TextAttributes.smallMediumAttributes
-        arrivalDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        arrivalAirportDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        arrivalLabel.attributes = TextAttributes.smallMediumAttributes
-        arrivalAirportLabel.attributes = TextAttributes.smallMediumAttributes
+        companyDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        companyLabel.attributes = TextAttributes.averageMediumAttributes
+        departureDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        departureAirportDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        departureLabel.attributes = TextAttributes.averageMediumAttributes
+        departureAirportLabel.attributes = TextAttributes.averageMediumAttributes
+        arrivalDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        arrivalAirportDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        arrivalLabel.attributes = TextAttributes.averageMediumAttributes
+        arrivalAirportLabel.attributes = TextAttributes.averageMediumAttributes
     }
     
 
@@ -93,7 +123,7 @@ final class FlightController: UIViewController {
         static let arrivalDescription: String = "Arrival"
         static let departureAirportDescription: String = "Departure Airport"
         static let arrivalAirportDescription: String = "Arrival Airport"
-        static let companyButtonDescription: String = "More about \nthis company"
-        static let aircraftButtonDescription: String = "More about \nthis aircraft"
+        static let companyButtonDescription: String = "More about this company"
+        static let aircraftButtonDescription: String = "More about this aircraft"
     }
 }

@@ -11,7 +11,6 @@ import RxSwift
 
 protocol AircraftViewModelling {
 
-    var urlDataSource: BehaviorRelay<[URL]> { get }
     var registrationNumber: String? { get }
     var icaoNumber: String? { get }
     var numberOfEngines: String? { get }
@@ -19,7 +18,15 @@ protocol AircraftViewModelling {
     var firstFlightDate: String? { get }
     var numberOfSeats: String? { get }
     var title: String? { get }
+    
     var updateRelay: PublishRelay<Void> { get }
+    var startRelay: PublishRelay<Bool> { get }
+    var urlDataSource: BehaviorRelay<[URL]> { get }
+    var activityIndicatorRelay: PublishRelay<Bool> { get }
+}
+
+protocol AircraftCoordinator {
+    var popRelay: PublishRelay<Void> { get }
 }
 
 class AircraftViewModel: AircraftViewModelling {
@@ -55,33 +62,42 @@ class AircraftViewModel: AircraftViewModelling {
     }
     let urlDataSource: BehaviorRelay<[URL]> = .init(value: [])
     let updateRelay: PublishRelay<Void> = .init()
+    let startRelay: PublishRelay<Bool> = .init()
+    let activityIndicatorRelay: PublishRelay<Bool> = .init()
+    private var modelRelay: BehaviorRelay<Aircraft?> = .init(value: nil)
     
     private let service: Services
-    private var modelRelay: BehaviorRelay<Aircraft?> = .init(value: nil)
-    private let disposeBag: DisposeBag = .init()
-
+    private let coordinator: AircraftCoordinator
     
-    init(service: Services, icao24: String) {
+    private let disposeBag: DisposeBag = .init()
+    
+    init(coordinator: AircraftCoordinator, service: Services, icao24: String) {
         self.service = service
-        service.networkService.request(request: .aircraft(icao24: icao24))
+        self.coordinator = coordinator
+        
+        startRelay
+            .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(true) })
+            .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
+            .flatMap { [service] _ -> Observable<Aircraft> in
+                    service.networkService.request(request: .aircraft(icao24: icao24))
+                }
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: {[weak self] in
                 self?.modelRelay.accept($0)
-            }, onError: {error in })
+                self?.updateRelay.accept(Void())
+            }, onError: { [weak self] _ in self?.coordinator.popRelay.accept(Void())})
             .disposed(by: disposeBag)
         
-        service.networkService.request(request: .aircraftImage(icao24: icao24))
+        startRelay
+            .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
+            .flatMap { [service] _ -> Observable<AircraftImage> in
+                service.networkService.request(request: .aircraftImage(icao24: icao24))}
             .compactMap { (imageModel: AircraftImage) -> URL? in
                 URL(string: imageModel.url)
             }
             .subscribe(onNext: {[weak self] in
                 self?.urlDataSource.accept([$0])
             }, onError: {error in })
-            .disposed(by: disposeBag)
-        
-        modelRelay
-            .skip(1)
-            .map {_ in Void() }
-            .bind(to: updateRelay)
             .disposed(by: disposeBag)
     }
 }

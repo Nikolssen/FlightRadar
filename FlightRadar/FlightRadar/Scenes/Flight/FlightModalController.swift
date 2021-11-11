@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlightModalController: UIViewController {
+final class FlightModalController: UIViewController {
     @IBOutlet private var companyLabel: MonochromeLabel!
     @IBOutlet private var companyNameLabel: MonochromeLabel!
     @IBOutlet private var departureLabel: MonochromeLabel!

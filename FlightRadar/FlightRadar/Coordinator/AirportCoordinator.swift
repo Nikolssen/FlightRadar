@@ -9,12 +9,15 @@ import RxSwift
 import RxRelay
 import UIKit
 
-final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDetailsCoordinator, ErrorHandler {
+final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDetailsCoordinator, FlightCoordinator, CompanyCoordinator, AircraftCoordinator, ErrorHandler {
     
     let flightOnMapRelay: PublishRelay<FlightResponseModel.Data> = .init()
     let airportDetailsRelay: PublishRelay<AirportModel> = .init()
     let flightDetailsRelay: PublishRelay<FlightResponseModel.Data> = .init()
     let errorHandlerRelay: PublishRelay<Error> = .init()
+    let companySelectionRelay: PublishRelay<String> = .init()
+    let aircraftSelectionRelay: PublishRelay<String> = .init()
+    let popRelay: PublishRelay<Void> = .init()
     
     private let rootViewController: UINavigationController
     private let service: Services
@@ -45,6 +48,17 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
                 self.rootViewController.pushViewController(self.flightDetailsController(model: $0), animated: true)
             })
             .disposed(by: disposeBag)
+        
+        companySelectionRelay
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.rootViewController.pushViewController(self.companyDetailsController(code: $0), animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        popRelay
+            .subscribe(onNext: {[weak self] in self?.rootViewController.popViewController(animated: true)})
+            .disposed(by: disposeBag)
     }
     
     private var airportSearchController: AirportSearchController {
@@ -63,10 +77,24 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
     
     private func flightDetailsController(model: FlightResponseModel.Data) -> FlightController {
         let controller = FlightController(nibName: Constants.flightControllerNibName, bundle: nil)
-
+        let viewModel = FlightViewModel(coordinator: self, flightInfo: model)
+        controller.viewModel = viewModel
         return controller
     }
     
+    private func companyDetailsController(code: String) -> CompanyController {
+        let controller = CompanyController(nibName: Constants.companyControllerNibName, bundle: nil)
+        let viewModel = CompanyViewModel(coordinator: self, service: service, iataCode: code)
+        controller.viewModel = viewModel
+        return controller
+    }
+    
+    private func aircraftDetailsController(code: String) -> AircraftController {
+        let controller = AircraftController(nibName: Constants.aircraftControllerNibName, bundle: nil)
+        let viewModel = AircraftViewModel(coordinator: self, service: service, icao24: code)
+        controller.viewModel = viewModel
+        return controller
+    }
     
     
     
@@ -74,6 +102,8 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
         static let airportSearchNibName: String = "AirportSearchController"
         static let airportDetailsNibName: String = "AirportDetailsController"
         static let flightControllerNibName: String = "FlightController"
+        static let companyControllerNibName: String = "CompanyController"
+        static let aircraftControllerNibName: String = "AircraftController"
     }
 }
 

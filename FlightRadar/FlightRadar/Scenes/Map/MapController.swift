@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class MapController: UIViewController {
+final class MapController: UIViewController {
 
     lazy var mapView: MKMapView = {
        let view = MKMapView()

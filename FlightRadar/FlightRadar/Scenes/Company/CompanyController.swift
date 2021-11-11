@@ -6,35 +6,87 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 final class CompanyController: BaseViewController {
-    @IBOutlet var titleLabel: MonochromeLabel!
-    @IBOutlet var icaoLabel: MonochromeLabel!
-    @IBOutlet var iataLabel: MonochromeLabel!
-    @IBOutlet var iataCodeLabel: MonochromeLabel!
-    @IBOutlet var icaoCodeLabel: MonochromeLabel!
-    @IBOutlet var lowcosterLabel: MonochromeLabel!
-    @IBOutlet var pageLabel: MonochromeButton!
+    @IBOutlet private var titleLabel: MonochromeLabel!
+    @IBOutlet private var icaoDescriptionLabel: MonochromeLabel!
+    @IBOutlet private var iataDescriptionLabel: MonochromeLabel!
+    @IBOutlet private var iataCodeLabel: MonochromeLabel!
+    @IBOutlet private var icaoCodeLabel: MonochromeLabel!
+    @IBOutlet private var lowcosterLabel: MonochromeLabel!
+    @IBOutlet private var pageLabel: MonochromeButton!
+    @IBOutlet private var linkButton: MonochromeButton!
     
-    @IBOutlet var linkButton: MonochromeButton!
+    var viewModel: CompanyViewModelling!
+    private let disposeBag: DisposeBag = .init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configureAttributes()
+        hideAll()
+        viewModel
+            .activityIndicatorRelay
+            .bind(to: activityIndicatorBinding)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .updateRelay
+            .bind(onNext: configure)
+            .disposed(by: disposeBag)
+        
+        linkButton.rx
+            .tap
+            .bind(to: viewModel.openLinkRelay)
+            .disposed(by: disposeBag)
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.startRelay.accept(true)
+    }
+    
+    private func hideAll() {
+        titleLabel.isHidden = true
+        icaoDescriptionLabel.isHidden = true
+        iataDescriptionLabel.isHidden = true
+        iataCodeLabel.isHidden = true
+        icaoCodeLabel.isHidden = true
+        lowcosterLabel.isHidden = true
+    }
     
     private func configure() {
+        linkButton.isHidden = viewModel.hasLink
+        lowcosterLabel.isHidden = !viewModel.isLowcostCarrier
+        
+        if let name = viewModel.name {
+            titleLabel.isHidden = false
+            titleLabel.text = name
+        }
+        
+        if let icao = viewModel.icaoCode {
+            icaoDescriptionLabel.isHidden = false
+            icaoCodeLabel.isHidden = false
+            icaoCodeLabel.text = icao
+        }
+        
+        if let iata = viewModel.iataCode {
+            iataDescriptionLabel.isHidden = false
+            iataCodeLabel.isHidden = false
+            iataCodeLabel.text = iata
+        }
+        
+    }
+    
+    private func configureAttributes() {
         titleLabel.attributes = TextAttributes.largeMediumAttributes
-        icaoLabel.attributes = TextAttributes.smallMediumAttributes
-        iataLabel.attributes = TextAttributes.smallMediumAttributes
-        iataCodeLabel.attributes = TextAttributes.smallMediumAttributes
-        icaoCodeLabel.attributes = TextAttributes.smallMediumAttributes
-        lowcosterLabel.attributes = TextAttributes.smallMediumAttributes
+        icaoDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        iataDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        iataCodeLabel.attributes = TextAttributes.averageMediumAttributes
+        icaoCodeLabel.attributes = TextAttributes.averageMediumAttributes
+        lowcosterLabel.attributes = TextAttributes.averageMediumAttributes
         
-        icaoLabel.text = Constants.icaoDescription
-        iataLabel.text = Constants.iataDescription
+        icaoDescriptionLabel.text = Constants.icaoDescription
+        iataDescriptionLabel.text = Constants.iataDescription
         lowcosterLabel.text = Constants.lowcostDescription
-        
     }
 
     private enum Constants {

@@ -11,24 +11,31 @@ import RxSwift
 import UIKit
 
 protocol CompanyViewModelling {
-    var isLowcostCarrier: Bool? { get }
-    var hasLink: Bool? { get }
+    var isLowcostCarrier: Bool { get }
+    var hasLink: Bool { get }
     var iataCode: String? { get }
     var icaoCode: String? { get }
     var name: String? { get }
     var openLinkRelay: PublishRelay<Void> { get }
+    var activityIndicatorRelay: PublishRelay<Bool> { get }
+    var startRelay: PublishRelay<Bool> { get }
+    var updateRelay: PublishRelay<Void> { get }
 }
 
-class CompanyViewModel: CompanyViewModelling {
+protocol CompanyCoordinator: ErrorHandler {
+    var popRelay: PublishRelay<Void> { get }
+}
+
+final class CompanyViewModel: CompanyViewModelling {
     var name: String? {
         dataRelay.value?.name
     }
 
-    var isLowcostCarrier: Bool? {
-        dataRelay.value?.isLowCostCarrier
+    var isLowcostCarrier: Bool {
+        dataRelay.value?.isLowCostCarrier ?? false
     }
 
-    var hasLink: Bool? {
+    var hasLink: Bool {
         dataRelay.value?.website != nil
     }
 
@@ -39,14 +46,33 @@ class CompanyViewModel: CompanyViewModelling {
     var icaoCode: String? {
         dataRelay.value?.icao
     }
-
-    var openLinkRelay: PublishRelay<Void> = .init()
-    let disposeBag: DisposeBag = .init()
-    private let dataRelay: BehaviorRelay<CompanyModel?> = .init(value: nil)
     
-    init(service: Services, iataCode: String) {
-        service.networkService.request(request: .company(.init(iataCode: iataCode)))
-            .subscribe(onNext: {[weak self] in self?.dataRelay.accept($0)}, onError: {error in })
+    private let coordinator: CompanyCoordinator
+    private let service: Services
+    private let disposeBag: DisposeBag = .init()
+    
+    private let dataRelay: BehaviorRelay<CompanyModel?> = .init(value: nil)
+    let activityIndicatorRelay: PublishRelay<Bool> = .init()
+    let startRelay: PublishRelay<Bool> = .init()
+    let updateRelay: PublishRelay<Void> = .init()
+    var openLinkRelay: PublishRelay<Void> = .init()
+    
+    init(coordinator: CompanyCoordinator, service: Services, iataCode: String) {
+        self.coordinator = coordinator
+        self.service = service
+        
+        startRelay
+            .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(true) })
+            .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
+            .flatMap{ [service] _ -> Observable<CompanyModel> in service.networkService.request(request: .company(.init(iataCode: iataCode))) }
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: {[weak self] in
+                self?.activityIndicatorRelay.accept(false)
+                self?.dataRelay.accept($0)
+                self?.updateRelay.accept(Void())
+            }, onError: {[weak self] _ in
+                guard let self = self else { return }
+                self.coordinator.popRelay.accept(Void())})
             .disposed(by: disposeBag)
         
         openLinkRelay

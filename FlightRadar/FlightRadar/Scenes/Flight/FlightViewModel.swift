@@ -26,8 +26,8 @@ protocol FlightViewModelling {
 }
 
 protocol FlightCoordinator {
-    var companySelectionRelay: PublishRelay<Void> { get }
-    var aircraftSelectionRelay: PublishRelay<Void> { get }
+    var companySelectionRelay: PublishRelay<String> { get }
+    var aircraftSelectionRelay: PublishRelay<String> { get }
 }
 
 final class FlightViewModel: FlightViewModelling {
@@ -71,9 +71,14 @@ final class FlightViewModel: FlightViewModelling {
         self.coordinator = coordinator
         self.flightInfo = flightInfo
         companySelectionRelay
+            .debug()
+            .compactMap {
+                [weak self] in self?.flightInfo.airline?.iata}
             .bind(to: coordinator.companySelectionRelay)
             .disposed(by: disposeBag)
+        
         aircraftSelectionRelay
+            .compactMap { [weak self] in self?.flightInfo.aircraft?.icao24}
             .bind(to: coordinator.aircraftSelectionRelay)
             .disposed(by: disposeBag)
     }

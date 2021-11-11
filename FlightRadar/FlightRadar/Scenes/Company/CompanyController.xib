@@ -12,9 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompanyController" customModule="FlightRadar" customModuleProvider="target">
             <connections>
                 <outlet property="iataCodeLabel" destination="aOo-NH-Tim" id="LeM-r5-IK5"/>
-                <outlet property="iataLabel" destination="iPK-WO-tcg" id="bPa-sa-VMn"/>
+                <outlet property="iataDescriptionLabel" destination="iPK-WO-tcg" id="bPa-sa-VMn"/>
                 <outlet property="icaoCodeLabel" destination="SXr-Ap-kGX" id="rPe-Vc-JcG"/>
-                <outlet property="icaoLabel" destination="4W6-wM-Fy8" id="NTA-GU-uhh"/>
+                <outlet property="icaoDescriptionLabel" destination="4W6-wM-Fy8" id="NTA-GU-uhh"/>
                 <outlet property="linkButton" destination="dcy-Ph-YYh" id="mNM-VF-rlK"/>
                 <outlet property="lowcosterLabel" destination="JgX-st-Ypn" id="M0o-FZ-tfW"/>
                 <outlet property="pageLabel" destination="dcy-Ph-YYh" id="KEE-Jl-DAo"/>
@@ -32,7 +32,7 @@
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Button"/>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7tg-u0-fAM">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7tg-u0-fAM">
                     <rect key="frame" x="30" y="109.5" width="354" height="101.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="apX-zY-6ya">
