@@ -17,6 +17,7 @@
 		3F2C790A272BEAAC00DA042B /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C7908272BEAAC00DA042B /* AirportModel.swift */; };
 		3F2C790B272BEAAC00DA042B /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C7909272BEAAC00DA042B /* CompanyModel.swift */; };
 		3F2C790D272BEABA00DA042B /* RequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C790C272BEABA00DA042B /* RequestModels.swift */; };
+		3F3140BD273EB49D0020F1F2 /* TicketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3140BC273EB49D0020F1F2 /* TicketCellViewModel.swift */; };
 		3F317C00272AD51700642C39 /* AirportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317BFF272AD51700642C39 /* AirportView.swift */; };
 		3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C01272AD86000642C39 /* MonochromeLabel.swift */; };
 		3F3A775427315D6D007853ED /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A775227315D6D007853ED /* OptionCell.swift */; };
@@ -116,6 +117,7 @@
 		3F2C7908272BEAAC00DA042B /* AirportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportModel.swift; sourceTree = "<group>"; };
 		3F2C7909272BEAAC00DA042B /* CompanyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 		3F2C790C272BEABA00DA042B /* RequestModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModels.swift; sourceTree = "<group>"; };
+		3F3140BC273EB49D0020F1F2 /* TicketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCellViewModel.swift; sourceTree = "<group>"; };
 		3F317BFF272AD51700642C39 /* AirportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportView.swift; sourceTree = "<group>"; };
 		3F317C01272AD86000642C39 /* MonochromeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeLabel.swift; sourceTree = "<group>"; };
 		3F3A775227315D6D007853ED /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			children = (
 				3F905C43273D1D9300A009E9 /* TicketCell.swift */,
 				3F905C44273D1D9300A009E9 /* TicketCell.xib */,
+				3F3140BC273EB49D0020F1F2 /* TicketCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				3F8F40392729680F002CABBC /* SearchField.swift in Sources */,
 				3F2C790B272BEAAC00DA042B /* CompanyModel.swift in Sources */,
 				3F4F34B22730040C004E9EB3 /* MapController.swift in Sources */,
+				3F3140BD273EB49D0020F1F2 /* TicketCellViewModel.swift in Sources */,
 				3F50255B272C49420029F0D0 /* AirportCoordinator.swift in Sources */,
 				3FC061BA273824DD00CCB2BB /* AircraftController.swift in Sources */,
 				3FE0B3E227312BE100722CBE /* FlightModel.swift in Sources */,

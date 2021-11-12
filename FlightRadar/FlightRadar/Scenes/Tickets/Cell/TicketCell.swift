@@ -9,15 +9,27 @@ import UIKit
 
 class TicketCell: UITableViewCell {
 
+    @IBOutlet var priceLabel: MonochromeLabel!
+    @IBOutlet var dateLabel: MonochromeLabel!
+    @IBOutlet var companyLabel: MonochromeLabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        priceLabel.attributes = TextAttributes.smallRegularAttributes
+        companyLabel.attributes = TextAttributes.averageMediumAttributes
+        dateLabel.attributes = TextAttributes.averageRegularAttributes
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        priceLabel.text = nil
+        dateLabel.text = nil
+        companyLabel.text = nil
+    }
+    
+    func configure(with viewModel: TicketCellViewModelling) {
+        priceLabel.text = viewModel.price
+        companyLabel.text = viewModel.company
+        
+    }
 }
