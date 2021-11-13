@@ -5,15 +5,9 @@
         <attribute name="icao" optional="YES" attributeType="String"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="municipality" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="favorites" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorites" inverseName="airports" inverseEntity="Favorites"/>
-    </entity>
-    <entity name="Favorites" representedClassName="Favorites" syncable="YES" codeGenerationType="class">
-        <relationship name="airports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Airport" inverseName="favorites" inverseEntity="Airport"/>
     </entity>
     <elements>
-        <element name="Airport" positionX="-63" positionY="-18" width="128" height="134"/>
-        <element name="Favorites" positionX="-54" positionY="36" width="128" height="44"/>
+        <element name="Airport" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>

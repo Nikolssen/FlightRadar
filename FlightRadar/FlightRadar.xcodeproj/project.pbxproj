@@ -18,6 +18,9 @@
 		3F2C790B272BEAAC00DA042B /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C7909272BEAAC00DA042B /* CompanyModel.swift */; };
 		3F2C790D272BEABA00DA042B /* RequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C790C272BEABA00DA042B /* RequestModels.swift */; };
 		3F3140BD273EB49D0020F1F2 /* TicketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3140BC273EB49D0020F1F2 /* TicketCellViewModel.swift */; };
+		3F3140C2273EB8680020F1F2 /* AirportSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3140C0273EB8680020F1F2 /* AirportSelectionController.swift */; };
+		3F3140C3273EB8680020F1F2 /* AirportSelectionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3140C1273EB8680020F1F2 /* AirportSelectionController.xib */; };
+		3F3140C5273EBAA40020F1F2 /* AirportSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3140C4273EBAA40020F1F2 /* AirportSelectionViewModel.swift */; };
 		3F317C00272AD51700642C39 /* AirportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317BFF272AD51700642C39 /* AirportView.swift */; };
 		3F317C02272AD86000642C39 /* MonochromeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F317C01272AD86000642C39 /* MonochromeLabel.swift */; };
 		3F3A775427315D6D007853ED /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A775227315D6D007853ED /* OptionCell.swift */; };
@@ -118,6 +121,9 @@
 		3F2C7909272BEAAC00DA042B /* CompanyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 		3F2C790C272BEABA00DA042B /* RequestModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModels.swift; sourceTree = "<group>"; };
 		3F3140BC273EB49D0020F1F2 /* TicketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCellViewModel.swift; sourceTree = "<group>"; };
+		3F3140C0273EB8680020F1F2 /* AirportSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSelectionController.swift; sourceTree = "<group>"; };
+		3F3140C1273EB8680020F1F2 /* AirportSelectionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirportSelectionController.xib; sourceTree = "<group>"; };
+		3F3140C4273EBAA40020F1F2 /* AirportSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSelectionViewModel.swift; sourceTree = "<group>"; };
 		3F317BFF272AD51700642C39 /* AirportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportView.swift; sourceTree = "<group>"; };
 		3F317C01272AD86000642C39 /* MonochromeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeLabel.swift; sourceTree = "<group>"; };
 		3F3A775227315D6D007853ED /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
@@ -257,6 +263,26 @@
 			path = "Response Models";
 			sourceTree = "<group>";
 		};
+		3F3140BE273EB81C0020F1F2 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				3FF9C1CE27300B84001B7745 /* FlightModalController.swift */,
+				3FF9C1CF27300B84001B7745 /* FlightModalController.xib */,
+				3F98A3DF2735532000FC14B5 /* FlightModalViewModel.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		3F3140BF273EB82F0020F1F2 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				3F3140C0273EB8680020F1F2 /* AirportSelectionController.swift */,
+				3F3140C1273EB8680020F1F2 /* AirportSelectionController.xib */,
+				3F3140C4273EBAA40020F1F2 /* AirportSelectionViewModel.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		3F4F34A8272FE99C004E9EB3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,9 +315,7 @@
 		3F4F34B327300429004E9EB3 /* Flight */ = {
 			isa = PBXGroup;
 			children = (
-				3FF9C1CE27300B84001B7745 /* FlightModalController.swift */,
-				3FF9C1CF27300B84001B7745 /* FlightModalController.xib */,
-				3F98A3DF2735532000FC14B5 /* FlightModalViewModel.swift */,
+				3F3140BE273EB81C0020F1F2 /* Modal */,
 				3F5227EA27395645008C6ED6 /* FlightController.swift */,
 				3F5227EB27395645008C6ED6 /* FlightController.xib */,
 				3FD2D75E273A85E20096B5AB /* FlightViewModel.swift */,
@@ -374,6 +398,7 @@
 		3FC061B12738248900CCB2BB /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
+				3F3140BF273EB82F0020F1F2 /* Modal */,
 				3F905C42273D1D6C00A009E9 /* Cell */,
 				3FC061BC2738252D00CCB2BB /* TicketsController.swift */,
 				3FC061BD2738252D00CCB2BB /* TicketsController.xib */,
@@ -620,6 +645,7 @@
 				3F905C46273D1D9300A009E9 /* TicketCell.xib in Resources */,
 				3FEBA8022727FCF2006C476F /* Oswald-Medium.ttf in Resources */,
 				3F5227ED27395645008C6ED6 /* FlightController.xib in Resources */,
+				3F3140C3273EB8680020F1F2 /* AirportSelectionController.xib in Resources */,
 				3FC061BF2738252D00CCB2BB /* TicketsController.xib in Resources */,
 				3FEBA8062727FCF2006C476F /* Oswald-Light.ttf in Resources */,
 				3FC061B7273824C500CCB2BB /* CompanyController.xib in Resources */,
@@ -661,9 +687,11 @@
 				3FC061BE2738252D00CCB2BB /* TicketsController.swift in Sources */,
 				3FF9C1D027300B84001B7745 /* FlightModalController.swift in Sources */,
 				3F2C78FD272BD0FF00DA042B /* NetworkService.swift in Sources */,
+				3F3140C5273EBAA40020F1F2 /* AirportSelectionViewModel.swift in Sources */,
 				3F2C7901272BE50D00DA042B /* Rx + ActivityIndicator.swift in Sources */,
 				3F2C7905272BEA4000DA042B /* APIRequest.swift in Sources */,
 				3F98A3DE273552A100FC14B5 /* MapViewModel.swift in Sources */,
+				3F3140C2273EB8680020F1F2 /* AirportSelectionController.swift in Sources */,
 				3FEBA80C2727FF1B006C476F /* UIColor + Custom Colors.swift in Sources */,
 				3FD2D75F273A85E20096B5AB /* FlightViewModel.swift in Sources */,
 				3F5227F0273957E0008C6ED6 /* ImageCell.swift in Sources */,

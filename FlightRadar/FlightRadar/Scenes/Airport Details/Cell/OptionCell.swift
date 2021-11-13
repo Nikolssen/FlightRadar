@@ -20,6 +20,7 @@ final class OptionCell: UICollectionViewCell {
     lazy var label: MonochromeLabel = {
         let label = MonochromeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         label.attributes = isSelected ? TextAttributes.buttonAttributes : TextAttributes.smallRegularAttributes
         return label
     }()

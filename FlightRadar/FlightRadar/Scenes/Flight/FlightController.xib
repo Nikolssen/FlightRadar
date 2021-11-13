@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,15 +34,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2z-k8-3ab" customClass="FlightView" customModule="FlightRadar" customModuleProvider="target">
-                    <rect key="frame" x="84.5" y="81" width="245" height="70"/>
+                    <rect key="frame" x="77" y="81" width="260" height="70"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="245" id="nGt-zO-hot"/>
+                        <constraint firstAttribute="width" constant="260" id="nGt-zO-hot"/>
                         <constraint firstAttribute="height" constant="70" id="t9Q-GU-yKa"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="d44-3W-Gdy">
-                    <rect key="frame" x="40" y="180" width="334" height="182.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="d44-3W-Gdy">
+                    <rect key="frame" x="40" y="180" width="334" height="202.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zu6-Tf-wnN">
                             <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -61,7 +62,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="45t-cb-dbB">
-                            <rect key="frame" x="0.0" y="40.5" width="334" height="20.5"/>
+                            <rect key="frame" x="0.0" y="45.5" width="334" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWN-HN-NUc" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
@@ -78,7 +79,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K5K-bB-VqA">
-                            <rect key="frame" x="0.0" y="81" width="334" height="20.5"/>
+                            <rect key="frame" x="0.0" y="91" width="334" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFa-vR-yr2" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
@@ -95,7 +96,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2an-nJ-jK0">
-                            <rect key="frame" x="0.0" y="121.5" width="334" height="20.5"/>
+                            <rect key="frame" x="0.0" y="136.5" width="334" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hC-WH-XCn" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
@@ -112,7 +113,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g8J-tY-7V9">
-                            <rect key="frame" x="0.0" y="162" width="334" height="20.5"/>
+                            <rect key="frame" x="0.0" y="182" width="334" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ7-vA-oG3" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="167" height="20.5"/>
@@ -131,7 +132,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="XDZ-2F-h4g">
-                    <rect key="frame" x="80" y="409" width="254" height="93"/>
+                    <rect key="frame" x="80" y="429" width="254" height="93"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wn-Ir-ewj" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="254" height="34"/>
@@ -147,7 +148,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="Athens Gray"/>
             <constraints>
                 <constraint firstItem="XDZ-2F-h4g" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="C9w-eJ-8JI"/>
                 <constraint firstItem="XDZ-2F-h4g" firstAttribute="leading" relation="lessThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="ILK-0Y-G9Z"/>
@@ -163,6 +164,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="Athens Gray">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

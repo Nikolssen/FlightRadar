@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -51,7 +51,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AqR-oh-kc9">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AqR-oh-kc9">
                     <rect key="frame" x="30" y="137" width="354" height="223"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EL7-io-Xft">
@@ -160,13 +160,14 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="Athens Gray"/>
             <constraints>
                 <constraint firstItem="rgo-5s-hDe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="32w-gp-fOk"/>
                 <constraint firstItem="AqR-oh-kc9" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="92i-Un-VvS"/>
                 <constraint firstItem="rgo-5s-hDe" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="DdY-EB-lnj"/>
                 <constraint firstItem="vEi-yF-2F5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="JmO-mu-zeq"/>
                 <constraint firstItem="AqR-oh-kc9" firstAttribute="top" secondItem="vEi-yF-2F5" secondAttribute="bottom" constant="52.5" id="RYd-XA-zLl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rgo-5s-hDe" secondAttribute="bottom" constant="20" id="UVq-nb-yFh"/>
                 <constraint firstItem="vEi-yF-2F5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="fUn-fU-EfF"/>
                 <constraint firstItem="rgo-5s-hDe" firstAttribute="top" secondItem="AqR-oh-kc9" secondAttribute="bottom" constant="64.5" id="gX3-VH-hM2"/>
                 <constraint firstItem="AqR-oh-kc9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="mWO-Ro-9P9"/>
@@ -175,8 +176,8 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Athens Gray">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -9,9 +9,9 @@ import UIKit
 
 class TicketCell: UITableViewCell {
 
-    @IBOutlet var priceLabel: MonochromeLabel!
-    @IBOutlet var dateLabel: MonochromeLabel!
-    @IBOutlet var companyLabel: MonochromeLabel!
+    @IBOutlet private var priceLabel: MonochromeLabel!
+    @IBOutlet private var dateLabel: MonochromeLabel!
+    @IBOutlet private var companyLabel: MonochromeLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

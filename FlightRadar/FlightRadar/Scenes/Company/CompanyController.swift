@@ -51,6 +51,7 @@ final class CompanyController: BaseViewController {
         iataCodeLabel.isHidden = true
         icaoCodeLabel.isHidden = true
         lowcosterLabel.isHidden = true
+        linkButton.isHidden = true
     }
     
     private func configure() {

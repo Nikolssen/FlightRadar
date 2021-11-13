@@ -85,7 +85,8 @@ class AircraftViewModel: AircraftViewModelling {
             .subscribe(onNext: {[weak self] in
                 self?.modelRelay.accept($0)
                 self?.updateRelay.accept(Void())
-            }, onError: { [weak self] _ in self?.coordinator.popRelay.accept(Void())})
+            }, onError: { [weak self] _ in
+                self?.coordinator.popRelay.accept(Void())})
             .disposed(by: disposeBag)
         
         startRelay

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class FlightController: UIViewController {
+final class FlightController: BaseViewController {
     @IBOutlet private var flightView: FlightView!
     @IBOutlet private var companyDescriptionLabel: MonochromeLabel!
     @IBOutlet private var departureDescriptionLabel: MonochromeLabel!
@@ -90,7 +90,7 @@ final class FlightController: UIViewController {
         companyButton.rx
             .tap
             .debug()
-            .bind(to: viewModel.aircraftSelectionRelay)
+            .bind(to: viewModel.companySelectionRelay)
             .disposed(by: disposeBag)
     }
     

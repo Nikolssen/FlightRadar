@@ -56,6 +56,13 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
             })
             .disposed(by: disposeBag)
         
+        aircraftSelectionRelay
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.rootViewController.pushViewController(self.aircraftDetailsController(code: $0), animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         popRelay
             .subscribe(onNext: {[weak self] in self?.rootViewController.popViewController(animated: true)})
             .disposed(by: disposeBag)

@@ -70,15 +70,20 @@ final class FlightViewModel: FlightViewModelling {
     init(coordinator: FlightCoordinator, flightInfo: FlightResponseModel.Data) {
         self.coordinator = coordinator
         self.flightInfo = flightInfo
+        print(flightInfo)
+        
         companySelectionRelay
             .debug()
             .compactMap {
-                [weak self] in self?.flightInfo.airline?.iata}
+                [weak self] in
+                self?.flightInfo.airline?.iata}
             .bind(to: coordinator.companySelectionRelay)
             .disposed(by: disposeBag)
         
         aircraftSelectionRelay
-            .compactMap { [weak self] in self?.flightInfo.aircraft?.icao24}
+            .debug()
+            .compactMap { [weak self] in
+                self?.flightInfo.aircraft?.icao24}
             .bind(to: coordinator.aircraftSelectionRelay)
             .disposed(by: disposeBag)
     }
