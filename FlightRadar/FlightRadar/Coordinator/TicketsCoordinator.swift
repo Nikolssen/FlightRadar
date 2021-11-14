@@ -10,32 +10,34 @@ import RxSwift
 import RxRelay
 
 final class TicketsCoordinator: Coordinator, ErrorHandler {
-    
-    let rootViewController: UINavigationController
+    let viewController: TicketsController
     let service: Services
+    
+    let showArrivalsRelay:PublishRelay<Void> = .init()
+    let showDeparturesRelay: PublishRelay<Void> = .init()
     
     let errorHandlerRelay: PublishRelay<Error> = .init()
     
-    func start() {
-        
-        rootViewController.setViewControllers([ticketsController], animated: false)
-    }
-
-
+    func start() { }
     
-    init(rootViewController: UINavigationController, service: Services) {
-        self.rootViewController = rootViewController
-        self.service = service
-        rootViewController.tabBarItem.selectedImage = .tickets?.withTintColor(.label).withRenderingMode(.alwaysOriginal)
-        rootViewController.tabBarItem.image = .tickets?.withTintColor(.charcoal).withRenderingMode(.alwaysOriginal)
-        rootViewController.setNavigationBarHidden(true, animated: false)
-    }
-    
-    var ticketsController: TicketsController {
+    init(service: Services) {
         let controller = TicketsController(nibName: Constants.ticketControllerNibName, bundle: nil)
+        controller.tabBarItem.selectedImage = .tickets?.withTintColor(.label).withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.image = .tickets?.withTintColor(.charcoal).withRenderingMode(.alwaysOriginal)
+        
+
+        self.viewController = controller
+        self.service = service
+        
         let viewModel = TicketsViewModel(coordinator: self, service: service)
         controller.viewModel = viewModel
-        return controller
+    }
+    
+    
+    private func removeModal(controller: UIViewController) {
+        controller.willMove(toParent: nil)
+        controller.view.removeFromSuperview()
+        controller.removeFromParent()
     }
     
     private enum Constants {

@@ -32,4 +32,25 @@ class TabBarController: UITabBarController {
             }
         }
     }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        configure()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        configure()
+    }
+    
+    private func configure() {
+        if #available(iOS 15.0, *) {
+           let appearance = UITabBarAppearance()
+           appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .athensGray
+           
+           self.tabBar.standardAppearance = appearance
+           self.tabBar.scrollEdgeAppearance = appearance
+        }
+    }
 }

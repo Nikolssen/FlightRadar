@@ -14,13 +14,14 @@ protocol TicketsViewModelling: AnyObject {
     var arrivalSelectionRelay: PublishRelay<Void> { get }
     var departureSelectionRelay: PublishRelay<Void> { get }
     var dateSelectionRelay: BehaviorRelay<Date?> { get }
+    var dataSourceRelay: PublishRelay<[TicketCellViewModelling]> { get }
 }
 
 
 
 final class TicketsViewModel: TicketsViewModelling {
     var airportSelectionViewModel: AirportSelectionViewModel?
-    
+    let dataSourceRelay: PublishRelay<[TicketCellViewModelling]> = .init()
     let activityIndicatorRelay: PublishRelay<Bool> = .init()
     let arrivalSelectionRelay: PublishRelay<Void> = .init()
     let departureSelectionRelay: PublishRelay<Void> = .init()
@@ -28,6 +29,7 @@ final class TicketsViewModel: TicketsViewModelling {
     
     private let service: Services
     private let coordinator: TicketsCoordinator
+    private let disposeBag: DisposeBag = .init()
     
     init(coordinator: TicketsCoordinator, service: Services) {
         self.coordinator = coordinator

@@ -35,9 +35,10 @@ class ApplicationCoordinator: Coordinator {
             .bind(to: mapCoordinator.showModalRelay)
             .disposed(by: disposeBag)
         
-        let ticketsController = UINavigationController()
-        let ticketsCoordinator = TicketsCoordinator(rootViewController: ticketsController, service: service)
         
+        let ticketsCoordinator = TicketsCoordinator(service: service)
+        let ticketsController = ticketsCoordinator.viewController
+                
         airportsCoordinator.start()
         mapCoordinator.start()
         ticketsCoordinator.start()
@@ -50,13 +51,5 @@ class ApplicationCoordinator: Coordinator {
     
     init(window: UIWindow) {
         self.window = window
-        if #available(iOS 15.0, *) {
-           let appearance = UITabBarAppearance()
-           appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .athensGray
-           
-           self.rootViewController.tabBar.standardAppearance = appearance
-           self.rootViewController.tabBar.scrollEdgeAppearance = appearance
-        }
     }
 }

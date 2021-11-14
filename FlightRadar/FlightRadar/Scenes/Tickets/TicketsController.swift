@@ -34,17 +34,23 @@ final class TicketsController: UIViewController {
     private func configureTableView() {
         tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellID)
         
+        viewModel.dataSourceRelay
+            .bind(to: tableView.rx.items(cellIdentifier: Constants.cellID, cellType: TicketCell.self)) {
+                _, viewModel, cell in
+                cell.configure(with: viewModel)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bind() {
         viewModel.activityIndicatorRelay
             .bind(to: activityIndicatorBinding)
             .disposed(by: disposeBag)
-        
+
         datePicker.rx.date
             .bind(to: viewModel.dateSelectionRelay)
             .disposed(by: disposeBag)
-        
+
         arrivalButton.rx
             .tap
             .bind(to: viewModel.arrivalSelectionRelay)
