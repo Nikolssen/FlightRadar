@@ -12,6 +12,8 @@ import RxCocoa
 final class AirportSelectionController: UIViewController {
     @IBOutlet private var dismissalView: UIView!
     @IBOutlet private var tableView: UITableView!
+    private let strokeLayer: CAShapeLayer = .init()
+    private let shapeLayer: CAShapeLayer = .init()
     
     private let disposeBag: DisposeBag = .init()
     
@@ -23,6 +25,23 @@ final class AirportSelectionController: UIViewController {
         configureDismissal()
         configureTableView()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupBorders()
+    }
+    
+    private func setupBorders() {
+        shapeLayer.path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 40, height: 40)).cgPath
+        strokeLayer.path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 40, height: 40)).cgPath
+        strokeLayer.lineWidth = 1
+        strokeLayer.strokeColor = UIColor.charcoal.cgColor
+        strokeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.frame = view.layer.bounds
+        
+        view.layer.mask = shapeLayer
+        view.layer.addSublayer(strokeLayer)
+        strokeLayer.frame = view.layer.bounds
     }
     
     private func configureDismissal() {

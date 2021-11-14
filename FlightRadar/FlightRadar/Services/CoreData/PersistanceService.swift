@@ -13,6 +13,8 @@ protocol PersistanceService {
     func add(airport: AirportModel)
     func fetchAirports() -> Single<[AirportModel]>
     init(containerName: String)
+    func isFavorite(airport: AirportModel) -> Bool
+    func remove(airport: AirportModel)
 }
 
 final class CoreDataService: NSObject, PersistanceService {

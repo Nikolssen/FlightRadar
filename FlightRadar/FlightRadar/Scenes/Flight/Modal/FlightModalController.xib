@@ -98,23 +98,6 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="L4B-OH-eCF">
-                    <rect key="frame" x="-100" y="247" width="83" height="20.5"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0W-a6-u7I" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAh-Ss-zIP" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                            <rect key="frame" x="41.5" y="0.0" width="41.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Athens Gray"/>

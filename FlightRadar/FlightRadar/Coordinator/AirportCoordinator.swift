@@ -26,7 +26,7 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
     init(rootViewController: UINavigationController, service: Services) {
         self.rootViewController = rootViewController
         self.service = service
-        rootViewController.tabBarItem.selectedImage = .airports?.withTintColor(.black).withRenderingMode(.alwaysOriginal)
+        rootViewController.tabBarItem.selectedImage = .airports?.withTintColor(.label).withRenderingMode(.alwaysOriginal)
         rootViewController.tabBarItem.image = .airports?.withTintColor(.charcoal).withRenderingMode(.alwaysOriginal)
         rootViewController.setNavigationBarHidden(true, animated: false)
     }

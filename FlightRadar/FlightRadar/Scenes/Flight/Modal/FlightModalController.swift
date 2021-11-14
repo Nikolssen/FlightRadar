@@ -16,13 +16,14 @@ final class FlightModalController: UIViewController {
     @IBOutlet private var arrivalDateLabel: MonochromeLabel!
     @IBOutlet private var flightView: FlightView!
     @IBOutlet var fullModeView: UIView!
-    
+    private let strokeLayer: CAShapeLayer = .init()
+    private let shapeLayer: CAShapeLayer = .init()
     var viewModel: FlightModalViewModelling!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAttributes()
-        setupBorders()
+
         configure()
     }
     
@@ -32,6 +33,10 @@ final class FlightModalController: UIViewController {
 
     @objc private func hide() {
         viewModel.hideRelay.accept(Void())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupBorders()
     }
     
     private func configure() {
@@ -73,9 +78,7 @@ final class FlightModalController: UIViewController {
     }
     
     private func setupBorders() {
-        let shapeLayer = CAShapeLayer()
         shapeLayer.path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 40, height: 40)).cgPath
-        let strokeLayer = CAShapeLayer()
         strokeLayer.path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 40, height: 40)).cgPath
         strokeLayer.lineWidth = 1
         strokeLayer.strokeColor = UIColor.charcoal.cgColor

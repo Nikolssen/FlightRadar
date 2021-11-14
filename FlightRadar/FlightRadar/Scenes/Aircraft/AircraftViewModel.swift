@@ -31,7 +31,7 @@ protocol AircraftCoordinator {
 
 class AircraftViewModel: AircraftViewModelling {
     var title: String? {
-        modelRelay.value?.productionLine
+        modelRelay.value?.productionLine ?? Constants.defaultTitle
     }
     
     var registrationNumber: String? {
@@ -83,6 +83,7 @@ class AircraftViewModel: AircraftViewModelling {
                 }
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: {[weak self] in
+                self?.activityIndicatorRelay.accept(false)
                 self?.modelRelay.accept($0)
                 self?.updateRelay.accept(Void())
             }, onError: { [weak self] _ in
@@ -100,5 +101,9 @@ class AircraftViewModel: AircraftViewModelling {
                 self?.urlDataSource.accept([$0])
             }, onError: {error in })
             .disposed(by: disposeBag)
+    }
+    
+    private enum Constants {
+        static let defaultTitle: String = "Unknown model"
     }
 }

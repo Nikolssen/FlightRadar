@@ -32,6 +32,7 @@ final class AirportSelectionViewModel {
         service
             .persistanceService
             .fetchAirports()
+            .observe(on: MainScheduler.instance)
             .subscribe(onSuccess: {[valuesRelay] in valuesRelay.accept($0) },
                        onFailure: {[dismissalRelay] _ in dismissalRelay.accept(Void())  })
             .disposed(by: disposeBag)

@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 final class AirportDetailsController: BaseViewController {
+    @IBOutlet private var favoriteButton: UIButton!
     
     @IBOutlet private var airportView: AirportView!
     var viewModel: AirportDetailsViewModelling!
@@ -43,6 +44,7 @@ final class AirportDetailsController: BaseViewController {
         super.viewDidLoad()
         configureCollectionViews()
         bind()
+        favoriteButton.isHidden = true
 
     }
     
@@ -125,6 +127,15 @@ final class AirportDetailsController: BaseViewController {
         
         viewModel.activityIndicatorRelay
             .bind(to: activityIndicatorBinding)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .isFavoriteRelay
+            .skip(1)
+            .subscribe(onNext: { [favoriteButton] in
+                favoriteButton?.isHidden = true
+                favoriteButton?.setImage($0 ? .filledStar : .star, for: .normal)
+            })
             .disposed(by: disposeBag)
     }
     

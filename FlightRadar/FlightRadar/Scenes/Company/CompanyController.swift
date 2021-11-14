@@ -55,7 +55,7 @@ final class CompanyController: BaseViewController {
     }
     
     private func configure() {
-        linkButton.isHidden = viewModel.hasLink
+        linkButton.isHidden = !viewModel.hasLink
         lowcosterLabel.isHidden = !viewModel.isLowcostCarrier
         
         if let name = viewModel.name {
@@ -88,6 +88,7 @@ final class CompanyController: BaseViewController {
         icaoDescriptionLabel.text = Constants.icaoDescription
         iataDescriptionLabel.text = Constants.iataDescription
         lowcosterLabel.text = Constants.lowcostDescription
+        linkButton.setTitle(Constants.pageDescription, for: .normal)
     }
 
     private enum Constants {

@@ -64,12 +64,17 @@ final class CompanyViewModel: CompanyViewModelling {
         startRelay
             .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(true) })
             .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
-            .flatMap{ [service] _ -> Observable<CompanyModel> in service.networkService.request(request: .company(.init(iataCode: iataCode))) }
+            .flatMap{ [service] _ -> Observable<[CompanyModel]> in service.networkService.request(request: .company(.init(iataCode: iataCode))) }
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: {[weak self] in
-                self?.activityIndicatorRelay.accept(false)
-                self?.dataRelay.accept($0)
-                self?.updateRelay.accept(Void())
+                guard let self = self else { return }
+                guard let company = $0.first else {
+                    self.coordinator.popRelay.accept(Void())
+                    return
+                }
+                self.activityIndicatorRelay.accept(false)
+                self.dataRelay.accept(company)
+                self.updateRelay.accept(Void())
             }, onError: {[weak self] _ in
                 guard let self = self else { return }
                 self.coordinator.popRelay.accept(Void())})

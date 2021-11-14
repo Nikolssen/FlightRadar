@@ -17,6 +17,7 @@ protocol AirportDetailsViewModelling {
     var selectedOptionRelay: BehaviorRelay<Int> { get }
     var selectedFlightRelay: PublishRelay<Int> { get }
     var activityIndicatorRelay: PublishRelay<Bool> { get }
+    var isFavoriteRelay: BehaviorRelay<Bool> { get }
 }
 
 protocol AirportDetailsCoordinator: ErrorHandler {
@@ -32,7 +33,8 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
     let selectedOptionRelay: BehaviorRelay<Int> = .init(value: 0)
     let selectedFlightRelay: PublishRelay<Int> = .init()
     let activityIndicatorRelay: PublishRelay<Bool> = .init()
-    
+    let isFavoriteRelay: BehaviorRelay<Bool> = .init(value: false)
+    let favoriteActionRelay: PublishRelay<Void> = .init()
     private let selectionRelay: PublishRelay<FlightResponseModel.Data> = .init()
     private let arrivalRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
     private let departureRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
@@ -46,6 +48,26 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
         self.service = service
         self.modelRelay = .init(value: model)
         
+        if model.iata != nil {
+            isFavoriteRelay.accept(service.persistanceService
+                .isFavorite(airport: model))
+        }
+        
+        favoriteActionRelay
+            .withLatestFrom(Observable.combineLatest(isFavoriteRelay, modelRelay))
+            .subscribe(onNext: {[service, weak self] (isFavorite, model) in
+                
+                if isFavorite {
+                    service.persistanceService.remove(airport: model)
+                    self?.isFavoriteRelay.accept(false)
+                }
+                else {
+                    service.persistanceService.add(airport: model)
+                    self?.isFavoriteRelay.accept(true)
+                }
+                
+            })
+            .disposed(by: disposeBag)
         modelRelay
             .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
             .map { [service] in AirportViewViewModel(model: $0, using: service.locationService)}

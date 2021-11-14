@@ -46,7 +46,7 @@ final class MapCoordinator: Coordinator, ErrorHandler {
     init(rootViewController: UINavigationController, service: Services) {
         self.rootViewController = rootViewController
         self.service = service
-        rootViewController.tabBarItem.selectedImage = .map?.withTintColor(.black).withRenderingMode(.alwaysOriginal)
+        rootViewController.tabBarItem.selectedImage = .map?.withTintColor(.label).withRenderingMode(.alwaysOriginal)
         rootViewController.tabBarItem.image = .map?.withTintColor(.charcoal).withRenderingMode(.alwaysOriginal)
         rootViewController.setNavigationBarHidden(true, animated: false)
     }

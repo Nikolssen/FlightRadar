@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,8 +14,8 @@
             <connections>
                 <outlet property="arrivalButton" destination="LEB-AX-1WM" id="xwj-c6-lxd"/>
                 <outlet property="arrivalLabel" destination="Ypb-B6-x1X" id="dAQ-9a-3y6"/>
-                <outlet property="dateButton" destination="Ur4-wu-2PO" id="0wV-bU-aRf"/>
                 <outlet property="dateLabel" destination="iGu-jm-qUP" id="Jyy-UZ-g4J"/>
+                <outlet property="datePicker" destination="43O-le-tY8" id="X2w-Tx-vGt"/>
                 <outlet property="departureButton" destination="cMR-dW-kvA" id="5e2-sI-TiR"/>
                 <outlet property="departureLabel" destination="JU2-qE-hP8" id="CW4-tY-Sp6"/>
                 <outlet property="tableView" destination="rtj-Yk-o5F" id="0Fd-9Q-Soj"/>
@@ -28,8 +29,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rtj-Yk-o5F">
-                    <rect key="frame" x="0.0" y="200" width="414" height="662"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <rect key="frame" x="0.0" y="198" width="414" height="664"/>
+                    <color key="backgroundColor" name="Charcoal"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-X1-jWl" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
                     <rect key="frame" x="186.5" y="64" width="41.5" height="20.5"/>
@@ -38,14 +39,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUi-Yv-IzZ" customClass="Divider" customModule="FlightRadar" customModuleProvider="target">
-                    <rect key="frame" x="40" y="196" width="334" height="2"/>
+                    <rect key="frame" x="40" y="194" width="334" height="2"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="Znt-MZ-I1A"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Rs-BvN">
-                    <rect key="frame" x="40" y="92" width="334" height="94"/>
+                    <rect key="frame" x="40" y="92" width="334" height="62"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QTB-D5-TiZ">
                             <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -79,32 +80,27 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gyh-ma-Y2Z">
-                            <rect key="frame" x="0.0" y="64" width="334" height="30"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ur4-wu-2PO" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="Button"/>
-                                </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGu-jm-qUP" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="292.5" y="5" width="41.5" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
                     </subviews>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGu-jm-qUP" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                    <rect key="frame" x="40" y="165" width="41.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="43O-le-tY8">
+                    <rect key="frame" x="40" y="158" width="334" height="31"/>
+                </datePicker>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="Athens Gray"/>
             <constraints>
                 <constraint firstItem="DUi-Yv-IzZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="1x4-i7-xvN"/>
-                <constraint firstItem="DUi-Yv-IzZ" firstAttribute="top" secondItem="xBn-Rs-BvN" secondAttribute="bottom" constant="10" id="2Bx-42-z80"/>
+                <constraint firstItem="DUi-Yv-IzZ" firstAttribute="top" secondItem="xBn-Rs-BvN" secondAttribute="bottom" constant="40" id="2Bx-42-z80"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rtj-Yk-o5F" secondAttribute="bottom" id="3qa-aR-Stj"/>
                 <constraint firstItem="WCt-X1-jWl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="A4V-NR-Huo"/>
+                <constraint firstItem="43O-le-tY8" firstAttribute="baseline" secondItem="iGu-jm-qUP" secondAttribute="baseline" constant="8" id="CZp-qa-0lW"/>
+                <constraint firstItem="DUi-Yv-IzZ" firstAttribute="top" secondItem="iGu-jm-qUP" secondAttribute="bottom" constant="8.5" id="FVh-Nf-d1y"/>
                 <constraint firstItem="xBn-Rs-BvN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="KFg-Fp-deK"/>
                 <constraint firstItem="rtj-Yk-o5F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NEk-g7-lju"/>
                 <constraint firstItem="xBn-Rs-BvN" firstAttribute="top" secondItem="WCt-X1-jWl" secondAttribute="bottom" constant="7.5" id="OWd-SX-Vd2"/>
@@ -112,15 +108,22 @@
                 <constraint firstItem="WCt-X1-jWl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Wpd-uW-CUc"/>
                 <constraint firstItem="rtj-Yk-o5F" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="YWD-0I-eSa"/>
                 <constraint firstItem="xBn-Rs-BvN" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="e01-03-6rt"/>
+                <constraint firstItem="iGu-jm-qUP" firstAttribute="top" secondItem="DTZ-Rr-sFS" secondAttribute="bottom" constant="11" id="kma-qq-d6s"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="43O-le-tY8" secondAttribute="trailing" constant="40" id="pq5-fD-AnV"/>
                 <constraint firstItem="rtj-Yk-o5F" firstAttribute="top" secondItem="DUi-Yv-IzZ" secondAttribute="bottom" constant="2" id="sME-w7-7EI"/>
+                <constraint firstItem="43O-le-tY8" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="uvd-eV-bOS"/>
+                <constraint firstItem="iGu-jm-qUP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="zoP-XQ-Rda"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Athens Gray">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Charcoal">
+            <color red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

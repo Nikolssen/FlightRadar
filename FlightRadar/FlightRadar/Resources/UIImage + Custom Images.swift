@@ -16,4 +16,6 @@ extension UIImage {
     static let map = UIImage(named: "map")
     
     static let magnifyingGlass = UIImage(systemName: "magnifyingglass")
+    static let star = UIImage(systemName: "star")
+    static let filledStar = UIImage(systemName: "star.fill")
 }

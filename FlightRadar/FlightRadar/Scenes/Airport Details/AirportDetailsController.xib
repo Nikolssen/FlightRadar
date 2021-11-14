@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AirportDetailsController" customModule="FlightRadar" customModuleProvider="target">
             <connections>
                 <outlet property="airportView" destination="o6i-sf-aEz" id="C4q-qc-xcB"/>
+                <outlet property="favoriteButton" destination="Th3-3w-REr" id="G2o-HC-4gY"/>
                 <outlet property="flightsCollectionView" destination="UKL-jh-mHl" id="2zI-Dv-iFA"/>
                 <outlet property="optionsCollectionView" destination="EPE-vy-vI9" id="obc-or-oHF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,9 +26,19 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-sf-aEz" customClass="AirportView" customModule="FlightRadar" customModuleProvider="target">
                     <rect key="frame" x="20" y="64" width="374" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-3w-REr">
+                            <rect key="frame" x="8" y="0.0" width="22" height="22"/>
+                            <color key="tintColor" name="Charcoal"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="star" catalog="system"/>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="1SX-7i-Y37"/>
+                        <constraint firstItem="Th3-3w-REr" firstAttribute="top" secondItem="o6i-sf-aEz" secondAttribute="top" id="GN7-IC-fld"/>
+                        <constraint firstItem="Th3-3w-REr" firstAttribute="leading" secondItem="o6i-sf-aEz" secondAttribute="leading" constant="8" id="drb-YQ-Ew8"/>
                     </constraints>
                 </view>
                 <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKg-dt-j4d" customClass="Divider" customModule="FlightRadar" customModuleProvider="target">
@@ -82,8 +93,12 @@
         </view>
     </objects>
     <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="Athens Gray">
             <color red="0.95686274509803926" green="0.95686274509803926" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Charcoal">
+            <color red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
