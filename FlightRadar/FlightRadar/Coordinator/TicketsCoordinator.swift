@@ -53,6 +53,12 @@ final class TicketsCoordinator: Coordinator, ErrorHandler {
             })
             .disposed(by: disposeBag)
         
+        errorHandlerRelay
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewController.alertControllerBinder.onNext((Constants.warning, Constants.errorMessage))
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     private func createAndShowModal() -> AirportSelectionViewModelling? {
@@ -88,5 +94,7 @@ final class TicketsCoordinator: Coordinator, ErrorHandler {
     private enum Constants {
         static let ticketControllerNibName: String = "TicketsController"
         static let airportSelectionControllerNibName: String = "AirportSelectionController"
+        static let warning: String = "Warning!"
+        static let errorMessage: String = "Failed to perform operation"
     }
 }

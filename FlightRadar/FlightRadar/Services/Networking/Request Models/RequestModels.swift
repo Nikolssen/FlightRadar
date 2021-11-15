@@ -30,12 +30,16 @@ struct AirportTextGetModel: Encodable {
     
 }
 
-struct TicketGetModel {
-    let currency: String = "EUR"
-    let locale: String = Locale.current.identifier
+struct TicketGetModel: Encodable {
     let arrival: String
     let departure: String
-    let country: String = "BY"
+    let date: String
+    
+    enum CodingKeys: String, CodingKey {
+        case arrival = "arrival_airport_code"
+        case departure = "departure_airport_code"
+        case date = "departure_date"
+    }
     
 }
 

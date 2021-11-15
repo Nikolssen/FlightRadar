@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -60,6 +61,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="Athens Gray"/>
                 <constraints>
                     <constraint firstItem="JRg-qJ-4ul" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="3nh-cT-d70"/>
                     <constraint firstItem="JRg-qJ-4ul" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9gH-7f-KEx"/>
@@ -77,6 +79,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="Athens Gray">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

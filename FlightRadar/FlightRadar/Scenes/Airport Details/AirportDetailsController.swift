@@ -70,7 +70,7 @@ final class AirportDetailsController: BaseViewController {
         viewModel
             .mapPointRelay
             .compactMap { $0 }
-            .subscribe(onNext: {[weak self] in self?.mapView.region = MKCoordinateRegion(center: $0, latitudinalMeters: 100_000, longitudinalMeters: 100_00)
+            .subscribe(onNext: {[weak self] in self?.mapView.region = MKCoordinateRegion(center: $0, latitudinalMeters: Constants.mapDiameterInMeters, longitudinalMeters: Constants.mapDiameterInMeters)
                 self?.mapView.delegate = self
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = $0
@@ -169,6 +169,7 @@ final class AirportDetailsController: BaseViewController {
         static let optionsID: String = "OptionsID"
         static let flightsID: String = "FlightsID"
         static let mapAnnotationID: String = "MapID"
+        static let mapDiameterInMeters: CLLocationDistance = 100_000
     }
     
 }

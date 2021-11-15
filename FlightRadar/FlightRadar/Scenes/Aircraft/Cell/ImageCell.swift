@@ -16,9 +16,9 @@ class ImageCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerCurve = .continuous
-        layer.cornerRadius = 18
+        layer.cornerRadius = Constants.cornerRadius
         layer.borderColor = UIColor.charcoal.cgColor
-        layer.borderWidth = 1
+        layer.borderWidth = Constants.borderWidth
         layer.masksToBounds = true
     }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -36,5 +36,10 @@ class ImageCell: UICollectionViewCell {
         ImagePipeline.shared.rx.loadImage(with: url)
             .subscribe(onSuccess: {[weak self] in self?.imageView.image = $0.image})
             .disposed(by: disposeBag)
+    }
+    
+    private enum Constants {
+        static let cornerRadius: CGFloat = 18
+        static let borderWidth: CGFloat = 2
     }
 }

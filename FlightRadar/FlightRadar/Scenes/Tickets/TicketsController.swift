@@ -19,6 +19,7 @@ final class TicketsController: UIViewController {
     @IBOutlet private var dateLabel: MonochromeLabel!
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var datePicker: UIDatePicker!
+    @IBOutlet private var searchButton: MonochromeButton!
     
     var viewModel: TicketsViewModelling!
     let disposeBag: DisposeBag = .init()
@@ -28,17 +29,25 @@ final class TicketsController: UIViewController {
 
         configureUI()
         bind()
-
+        configureTableView()
     }
     
     private func configureTableView() {
         tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellID)
         
         viewModel.dataSourceRelay
+            .debug()
             .bind(to: tableView.rx.items(cellIdentifier: Constants.cellID, cellType: TicketCell.self)) {
                 _, viewModel, cell in
                 cell.configure(with: viewModel)
             }
+            .disposed(by: disposeBag)
+        
+        tableView
+            .rx
+            .itemSelected
+            .map { $0.row }
+            .bind(to: viewModel.selectedIndexRelay)
             .disposed(by: disposeBag)
     }
     
@@ -70,6 +79,17 @@ final class TicketsController: UIViewController {
             .map { $0 ?? " " }
             .bind(to: departureLabel.rx.text)
             .disposed(by: disposeBag)
+        
+        searchButton
+            .rx
+            .tap
+            .bind(to: viewModel.searchActionRelay)
+            .disposed(by: disposeBag)
+        
+        viewModel.canSearchRelay
+            .map { !$0 }
+            .bind(to: searchButton.rx.isHidden)
+            .disposed(by: disposeBag)
     }
     
     private func configureUI() {
@@ -89,6 +109,7 @@ final class TicketsController: UIViewController {
         dateLabel.text = Constants.date
         
         datePicker.tintColor = .charcoal
+        searchButton.setTitle(Constants.search, for: .normal)
     }
 
 
@@ -100,5 +121,6 @@ final class TicketsController: UIViewController {
         static let arrival: String = "Arrival"
         static let departure: String = "Departure"
         static let date: String = "Date"
+        static let search: String = "Search"
     }
 }

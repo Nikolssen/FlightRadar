@@ -15,6 +15,7 @@ enum APIRequest {
     case company(CompanyGetModel)
     case aircraft(icao24: String)
     case aircraftImage(icao24: String)
+    case tickets(TicketGetModel)
     
     var path: String {
         switch self {
@@ -30,6 +31,8 @@ enum APIRequest {
             return "https://aerodatabox.p.rapidapi.com/aircrafts/icao24/\(icao)"
         case .aircraftImage(icao24: let icao):
             return "https://aerodatabox.p.rapidapi.com/aircrafts/reg/\(icao)/image/beta"
+        case .tickets:
+            return "https://google-flights-search.p.rapidapi.com/search"
         }
     }
     
@@ -41,19 +44,23 @@ enum APIRequest {
             return HTTPHeaders(["x-rapidapi-host" : "aerodatabox.p.rapidapi.com", "x-rapidapi-key": APIKey.rapidApiKey])
         case .company:
             return HTTPHeaders(["x-rapidapi-host" : "iata-and-icao-codes.p.rapidapi.com", "x-rapidapi-key": APIKey.rapidApiKey])
+        case .tickets:
+            return HTTPHeaders(["x-rapidapi-host": "google-flights-search.p.rapidapi.com", "x-rapidapi-key": APIKey.rapidApiKey])
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
-        case .allFlights(let flightGetModel):
-            return flightGetModel.dictionary ?? [:]
-        case .airportByFreeText(let airportTextGetModel):
-            return airportTextGetModel.dictionary ?? [:]
+        case .allFlights(let model):
+            return model.dictionary ?? [:]
+        case .airportByFreeText(let model):
+            return model.dictionary ?? [:]
         case .airportByLocation, .aircraft, .aircraftImage:
             return nil
-        case .company(let companyGetModel):
-            return companyGetModel.dictionary ?? [:]
+        case .company(let model):
+            return model.dictionary ?? [:]
+        case .tickets(let model):
+            return model.dictionary ?? [:]
         }
     }
     

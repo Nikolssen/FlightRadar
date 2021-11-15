@@ -18,6 +18,7 @@
                 <outlet property="datePicker" destination="43O-le-tY8" id="X2w-Tx-vGt"/>
                 <outlet property="departureButton" destination="cMR-dW-kvA" id="5e2-sI-TiR"/>
                 <outlet property="departureLabel" destination="JU2-qE-hP8" id="CW4-tY-Sp6"/>
+                <outlet property="searchButton" destination="Qsg-a5-HQk" id="sPL-nc-EZP"/>
                 <outlet property="tableView" destination="rtj-Yk-o5F" id="0Fd-9Q-Soj"/>
                 <outlet property="titleLabel" destination="WCt-X1-jWl" id="5YU-b9-HRc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rtj-Yk-o5F">
-                    <rect key="frame" x="0.0" y="198" width="414" height="664"/>
+                    <rect key="frame" x="0.0" y="239.5" width="414" height="622.5"/>
                     <color key="backgroundColor" name="Athens Gray"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-X1-jWl" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
@@ -39,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUi-Yv-IzZ" customClass="Divider" customModule="FlightRadar" customModuleProvider="target">
-                    <rect key="frame" x="40" y="194" width="334" height="2"/>
+                    <rect key="frame" x="40" y="235.5" width="334" height="2"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="Znt-MZ-I1A"/>
@@ -91,16 +92,21 @@
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="43O-le-tY8">
                     <rect key="frame" x="40" y="158" width="334" height="31"/>
                 </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsg-a5-HQk" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
+                    <rect key="frame" x="328" y="197" width="46" height="31"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Athens Gray"/>
             <constraints>
                 <constraint firstItem="DUi-Yv-IzZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="1x4-i7-xvN"/>
-                <constraint firstItem="DUi-Yv-IzZ" firstAttribute="top" secondItem="xBn-Rs-BvN" secondAttribute="bottom" constant="40" id="2Bx-42-z80"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rtj-Yk-o5F" secondAttribute="bottom" id="3qa-aR-Stj"/>
                 <constraint firstItem="WCt-X1-jWl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="A4V-NR-Huo"/>
+                <constraint firstItem="DUi-Yv-IzZ" firstAttribute="top" secondItem="Qsg-a5-HQk" secondAttribute="bottom" constant="7.5" id="BRI-5c-PVv"/>
                 <constraint firstItem="43O-le-tY8" firstAttribute="baseline" secondItem="iGu-jm-qUP" secondAttribute="baseline" constant="8" id="CZp-qa-0lW"/>
-                <constraint firstItem="DUi-Yv-IzZ" firstAttribute="top" secondItem="iGu-jm-qUP" secondAttribute="bottom" constant="8.5" id="FVh-Nf-d1y"/>
+                <constraint firstItem="DUi-Yv-IzZ" firstAttribute="top" secondItem="iGu-jm-qUP" secondAttribute="bottom" constant="50" id="FVh-Nf-d1y"/>
                 <constraint firstItem="xBn-Rs-BvN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="KFg-Fp-deK"/>
                 <constraint firstItem="rtj-Yk-o5F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NEk-g7-lju"/>
                 <constraint firstItem="xBn-Rs-BvN" firstAttribute="top" secondItem="WCt-X1-jWl" secondAttribute="bottom" constant="7.5" id="OWd-SX-Vd2"/>
@@ -108,9 +114,11 @@
                 <constraint firstItem="WCt-X1-jWl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Wpd-uW-CUc"/>
                 <constraint firstItem="rtj-Yk-o5F" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="YWD-0I-eSa"/>
                 <constraint firstItem="xBn-Rs-BvN" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="e01-03-6rt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qsg-a5-HQk" secondAttribute="trailing" constant="40" id="eNy-6I-ygd"/>
                 <constraint firstItem="iGu-jm-qUP" firstAttribute="top" secondItem="DTZ-Rr-sFS" secondAttribute="bottom" constant="11" id="kma-qq-d6s"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="43O-le-tY8" secondAttribute="trailing" constant="40" id="pq5-fD-AnV"/>
                 <constraint firstItem="rtj-Yk-o5F" firstAttribute="top" secondItem="DUi-Yv-IzZ" secondAttribute="bottom" constant="2" id="sME-w7-7EI"/>
+                <constraint firstItem="Qsg-a5-HQk" firstAttribute="top" secondItem="43O-le-tY8" secondAttribute="bottom" constant="8" symbolic="YES" id="uM5-wL-d0M"/>
                 <constraint firstItem="43O-le-tY8" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="uvd-eV-bOS"/>
                 <constraint firstItem="iGu-jm-qUP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="zoP-XQ-Rda"/>
             </constraints>

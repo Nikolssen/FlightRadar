@@ -7,22 +7,20 @@
 
 import Foundation
 
-struct TicketModel {
-    struct Carrier {
-        let carrierId: Int
-        let name: String
-    }
+struct TicketModel: Decodable {
+    let airlines: String
+    let price: Int
+    let url: String
+    let departureDate: String
     
-    struct OutboundLeg {
-        let carrierIDs: [Int: Int]
-        let departureDate: String
+    enum CodingKeys: String, CodingKey {
+        case airlines
+        case price
+        case url = "detail_url"
+        case departureDate = "departure_date"
     }
-    
-    struct Quote {
-        let minPrice: Double
-        let outboundLeg: OutboundLeg
-    }
-    
-    let carrier: [Carrier]
-    let quote: [Quote]
+}
+
+struct TicketResponseModel: Decodable {
+    let flights: [TicketModel]
 }

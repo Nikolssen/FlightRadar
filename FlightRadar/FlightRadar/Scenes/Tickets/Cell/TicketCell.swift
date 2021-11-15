@@ -30,6 +30,6 @@ class TicketCell: UITableViewCell {
     func configure(with viewModel: TicketCellViewModelling) {
         priceLabel.text = viewModel.price
         companyLabel.text = viewModel.company
-        
+        dateLabel.text = viewModel.date
     }
 }
