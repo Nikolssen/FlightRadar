@@ -134,22 +134,22 @@ final class AircraftController: BaseViewController {
         enginesDescriptionLabel.text = Constants.numberOfEnginesDescription
         ageDescriptionLabel.text = Constants.ageDescription
         firstFlightDescriptionLabel.text = Constants.firstFlightDescription
-        numberOfSeatsLabel.text = Constants.numberOfSeatsDescription
+        numberOfSeatsDescriptionLabel.text = Constants.numberOfSeatsDescription
         
-        aircraftRegistrationDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        icaoDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        enginesDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        ageDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        firstFlightDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
-        numberOfSeatsDescriptionLabel.attributes = TextAttributes.smallMediumAttributes
+        aircraftRegistrationDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        icaoDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        enginesDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        ageDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        firstFlightDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        numberOfSeatsDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
         
     
-        aircraftRegistrationLabel.attributes = TextAttributes.smallMediumAttributes
-        icaoLabel.attributes = TextAttributes.smallMediumAttributes
-        numberOfEnginesLabel.attributes = TextAttributes.smallMediumAttributes
-        ageLabel.attributes = TextAttributes.smallMediumAttributes
-        firstFlightLabel.attributes = TextAttributes.smallMediumAttributes
-        numberOfSeatsLabel.attributes = TextAttributes.smallMediumAttributes
+        aircraftRegistrationLabel.attributes = TextAttributes.averageMediumAttributes
+        icaoLabel.attributes = TextAttributes.averageMediumAttributes
+        numberOfEnginesLabel.attributes = TextAttributes.averageMediumAttributes
+        ageLabel.attributes = TextAttributes.averageMediumAttributes
+        firstFlightLabel.attributes = TextAttributes.averageMediumAttributes
+        numberOfSeatsLabel.attributes = TextAttributes.averageMediumAttributes
         
     }
     
