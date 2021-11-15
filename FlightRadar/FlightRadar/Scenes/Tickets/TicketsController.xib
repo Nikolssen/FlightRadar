@@ -92,7 +92,7 @@
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="43O-le-tY8">
                     <rect key="frame" x="40" y="158" width="334" height="31"/>
                 </datePicker>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsg-a5-HQk" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsg-a5-HQk" customClass="MonochromeButton" customModule="FlightRadar" customModuleProvider="target">
                     <rect key="frame" x="328" y="197" width="46" height="31"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Button"/>

@@ -57,10 +57,10 @@ class HelperTests: XCTestCase {
         XCTAssertEqual(DateFormatter.substract(isoDate8, d2: isoDate7), "25h 39m")
     }
     
-//    func testAircraftFormat() {
-//        let initialDate = "15:15:2021"
-//        let result = DateFormatter.date(from: initialDate)
-//        XCTAssertEqual(result, <#T##expression2: Equatable##Equatable#>)
-//    }
+    func testAircraftFormat() {
+        let initialDate = "2021-11-15T14:29:30"
+        let result = DateFormatter.date(from: initialDate)
+        XCTAssertEqual(result, "15.11.2021")
+    }
 
 }

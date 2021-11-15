@@ -66,6 +66,13 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
         popRelay
             .subscribe(onNext: {[weak self] in self?.rootViewController.popViewController(animated: true)})
             .disposed(by: disposeBag)
+        
+        errorHandlerRelay
+            .subscribe(onNext: { [weak self] _ in
+                self?.rootViewController.topViewController?
+                    .alertControllerBinder.onNext((Constants.warning, Constants.errorMessage))
+            })
+            .disposed(by: disposeBag)
     }
     
     private var airportSearchController: AirportSearchController {
@@ -111,6 +118,8 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
         static let flightControllerNibName: String = "FlightController"
         static let companyControllerNibName: String = "CompanyController"
         static let aircraftControllerNibName: String = "AircraftController"
+        static let warning: String = "Warning!"
+        static let errorMessage: String = "Failed to perform operation"
     }
 }
 
