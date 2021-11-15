@@ -9,11 +9,11 @@ import Foundation
 import RxRelay
 
 protocol MapViewModelling {
-    var showModalRelay: PublishRelay<Bool> { get }
+    var flightRelay: BehaviorRelay<FlightResponseModel.Live?> { get }
     
 }
 
 final class MapViewModel: MapViewModelling {
-    let showModalRelay: PublishRelay<Bool>  = .init()
+    let flightRelay: BehaviorRelay<FlightResponseModel.Live?> = .init(value: nil)
 }
 

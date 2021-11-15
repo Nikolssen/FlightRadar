@@ -29,7 +29,7 @@ final class AirportDetailsController: BaseViewController {
         mapView.layer.borderColor = UIColor.charcoal.cgColor
         mapView.layer.cornerCurve = .continuous
         mapView.isZoomEnabled = false
-        mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: Constants.mapAnotationID)
+        mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: Constants.mapAnnotationID)
         NSLayoutConstraint.activate([
             mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mapView.topAnchor.constraint(equalTo: optionsCollectionView.bottomAnchor, constant: 20),
@@ -168,14 +168,14 @@ final class AirportDetailsController: BaseViewController {
         static let arrivals: String = "Arrivals"
         static let optionsID: String = "OptionsID"
         static let flightsID: String = "FlightsID"
-        static let mapAnotationID: String = "MapID"
+        static let mapAnnotationID: String = "MapID"
     }
     
 }
 
 extension AirportDetailsController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.mapAnotationID)
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.mapAnnotationID)
         annotationView?.image = .airport
         annotationView?.annotation = annotation
         return annotationView
