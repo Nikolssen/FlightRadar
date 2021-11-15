@@ -17,7 +17,8 @@ protocol AirportDetailsViewModelling {
     var selectedOptionRelay: BehaviorRelay<Int> { get }
     var selectedFlightRelay: PublishRelay<Int> { get }
     var activityIndicatorRelay: PublishRelay<Bool> { get }
-    var isFavoriteRelay: BehaviorRelay<Bool> { get }
+    var isFavoriteRelay: BehaviorRelay<Bool?> { get }
+    var favoriteActionRelay: PublishRelay<Void> { get }
 }
 
 protocol AirportDetailsCoordinator: ErrorHandler {
@@ -33,7 +34,7 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
     let selectedOptionRelay: BehaviorRelay<Int> = .init(value: 0)
     let selectedFlightRelay: PublishRelay<Int> = .init()
     let activityIndicatorRelay: PublishRelay<Bool> = .init()
-    let isFavoriteRelay: BehaviorRelay<Bool> = .init(value: false)
+    let isFavoriteRelay: BehaviorRelay<Bool?> = .init(value: nil)
     let favoriteActionRelay: PublishRelay<Void> = .init()
     private let selectionRelay: PublishRelay<FlightResponseModel.Data> = .init()
     private let arrivalRelay: BehaviorRelay<[FlightResponseModel.Data]?> = .init(value: nil)
@@ -55,8 +56,9 @@ final class AirportDetailsViewModel: AirportDetailsViewModelling {
         
         favoriteActionRelay
             .withLatestFrom(Observable.combineLatest(isFavoriteRelay, modelRelay))
+    
             .subscribe(onNext: {[service, weak self] (isFavorite, model) in
-                
+                guard let isFavorite = isFavorite else { return }
                 if isFavorite {
                     service.persistanceService.remove(airport: model)
                     self?.isFavoriteRelay.accept(false)

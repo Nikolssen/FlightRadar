@@ -47,7 +47,7 @@ final class CoreDataService: NSObject, PersistanceService {
     func isFavorite(airport: AirportModel) -> Bool {
         guard let iata = airport.iata else { return false }
         let fetchRequest = NSFetchRequest<Airport>(entityName: "Airport")
-        fetchRequest.predicate = NSPredicate(format: "iata", iata)
+        fetchRequest.predicate = NSPredicate(format: "iata == %@", iata)
         let result = try? managedObjectContext.fetch(fetchRequest)
         if let result = result, !result.isEmpty { return true }
         return false

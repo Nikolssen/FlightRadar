@@ -15,17 +15,22 @@ protocol TicketsViewModelling: AnyObject {
     var departureSelectionRelay: PublishRelay<Void> { get }
     var dateSelectionRelay: BehaviorRelay<Date?> { get }
     var dataSourceRelay: PublishRelay<[TicketCellViewModelling]> { get }
+    var arrivalRelay: BehaviorRelay<String?> { get }
+    var departureRelay: BehaviorRelay<String?> { get }
 }
 
 
 
 final class TicketsViewModel: TicketsViewModelling {
-    var airportSelectionViewModel: AirportSelectionViewModel?
     let dataSourceRelay: PublishRelay<[TicketCellViewModelling]> = .init()
     let activityIndicatorRelay: PublishRelay<Bool> = .init()
     let arrivalSelectionRelay: PublishRelay<Void> = .init()
     let departureSelectionRelay: PublishRelay<Void> = .init()
     let dateSelectionRelay: BehaviorRelay<Date?> = .init(value: nil)
+    
+    let arrivalRelay: BehaviorRelay<String?> = .init(value: nil)
+    let departureRelay: BehaviorRelay<String?> = .init(value: nil)
+    
     
     private let service: Services
     private let coordinator: TicketsCoordinator
@@ -35,6 +40,12 @@ final class TicketsViewModel: TicketsViewModelling {
         self.coordinator = coordinator
         self.service = service
         
+        departureSelectionRelay
+            .bind(to: coordinator.showDeparturesRelay)
+            .disposed(by: disposeBag)
         
+        arrivalSelectionRelay
+            .bind(to: coordinator.showArrivalsRelay)
+            .disposed(by: disposeBag)
     }
 }

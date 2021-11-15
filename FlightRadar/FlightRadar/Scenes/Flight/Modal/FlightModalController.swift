@@ -78,9 +78,9 @@ final class FlightModalController: UIViewController {
     }
     
     private func setupBorders() {
-        shapeLayer.path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 40, height: 40)).cgPath
-        strokeLayer.path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 40, height: 40)).cgPath
-        strokeLayer.lineWidth = 1
+        shapeLayer.path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: Constants.cornerRadius, height: Constants.cornerRadius)).cgPath
+        strokeLayer.path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: Constants.cornerRadius, height: Constants.cornerRadius)).cgPath
+        strokeLayer.lineWidth = Constants.lineWidth
         strokeLayer.strokeColor = UIColor.charcoal.cgColor
         strokeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.frame = view.layer.bounds
@@ -104,5 +104,7 @@ final class FlightModalController: UIViewController {
         static let companyDescription: String = "Company"
         static let departureDescription: String = "Departure"
         static let arrivalDescription: String = "Arrival"
+        static let cornerRadius: CGFloat = 40
+        static let lineWidth: CGFloat = 4
     }
 }

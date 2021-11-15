@@ -37,31 +37,31 @@ final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, 
             })
             .bind(onNext: showModalController(with:))
             .disposed(by: disposeBag)
-        
-                hideModalRelay
-                .subscribe(onNext: { [weak self] _ in
-                    guard let controller = self?.modalController else { return }
-                    self?.removeModal(controller: controller) })
-                .disposed(by: disposeBag)
                 
-                companySelectionRelay
-                .subscribe(onNext: {[weak self] in
-                    guard let self = self else { return }
-                    self.rootViewController.pushViewController(self.companyDetailsController(code: $0), animated: true)
+        hideModalRelay
+            .subscribe(onNext: { [weak self] _ in
+                guard let controller = self?.modalController else { return }
+                self?.removeModal(controller: controller) })
+            .disposed(by: disposeBag)
+                
+        companySelectionRelay
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.rootViewController.pushViewController(self.companyDetailsController(code: $0), animated: true)
                 })
-                .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
                 
-                aircraftSelectionRelay
-                .subscribe(onNext: {[weak self] in
-                    guard let self = self else { return }
-                    self.rootViewController.pushViewController(self.aircraftDetailsController(code: $0), animated: true)
+        aircraftSelectionRelay
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.rootViewController.pushViewController(self.aircraftDetailsController(code: $0), animated: true)
                 })
-                .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
                 
-                popRelay
-                .subscribe(onNext: {[weak self] in self?.rootViewController.popViewController(animated: true)})
-                .disposed(by: disposeBag)
-                }
+        popRelay
+            .subscribe(onNext: {[weak self] in self?.rootViewController.popViewController(animated: true)})
+            .disposed(by: disposeBag)
+        }
     
     
     

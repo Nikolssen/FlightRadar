@@ -13,13 +13,15 @@ protocol AirportSelectionViewModelling {
     var dismissalRelay: PublishRelay<Void> { get }
     var dataSourceRelay: PublishRelay<[AirportViewViewModelling]> { get }
     var selectedIndexRelay: PublishRelay<Int> { get }
+    var selectedAirportRelay: BehaviorRelay<String?> { get }
 }
 
 
-final class AirportSelectionViewModel {
+final class AirportSelectionViewModel: AirportSelectionViewModelling {
     let dismissalRelay: PublishRelay<Void> = .init()
     let dataSourceRelay: PublishRelay<[AirportViewViewModelling]> = .init()
     let selectedIndexRelay: PublishRelay<Int> = .init()
+    let selectedAirportRelay: BehaviorRelay<String?> = .init(value: nil)
     
     private let disposeBag: DisposeBag = .init()
     private let service: Services
@@ -42,6 +44,11 @@ final class AirportSelectionViewModel {
             .map { [service] in $0.map { AirportViewViewModel(model: $0, using: service.locationService)}}
             .observe(on: MainScheduler.asyncInstance)
             .bind(to: dataSourceRelay)
+            .disposed(by: disposeBag)
+        
+        selectedIndexRelay
+            .withLatestFrom(valuesRelay) { $1[$0].iata }
+            .bind(to: selectedAirportRelay)
             .disposed(by: disposeBag)
     }
 }

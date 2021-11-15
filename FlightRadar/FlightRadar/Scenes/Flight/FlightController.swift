@@ -89,7 +89,6 @@ final class FlightController: BaseViewController {
         
         companyButton.rx
             .tap
-            .debug()
             .bind(to: viewModel.companySelectionRelay)
             .disposed(by: disposeBag)
     }

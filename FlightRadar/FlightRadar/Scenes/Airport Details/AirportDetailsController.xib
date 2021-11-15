@@ -26,19 +26,9 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-sf-aEz" customClass="AirportView" customModule="FlightRadar" customModuleProvider="target">
                     <rect key="frame" x="20" y="64" width="374" height="100"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-3w-REr">
-                            <rect key="frame" x="8" y="0.0" width="22" height="22"/>
-                            <color key="tintColor" name="Charcoal"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="star" catalog="system"/>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="1SX-7i-Y37"/>
-                        <constraint firstItem="Th3-3w-REr" firstAttribute="top" secondItem="o6i-sf-aEz" secondAttribute="top" id="GN7-IC-fld"/>
-                        <constraint firstItem="Th3-3w-REr" firstAttribute="leading" secondItem="o6i-sf-aEz" secondAttribute="leading" constant="8" id="drb-YQ-Ew8"/>
                     </constraints>
                 </view>
                 <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKg-dt-j4d" customClass="Divider" customModule="FlightRadar" customModuleProvider="target">
@@ -59,7 +49,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EPE-vy-vI9">
-                    <rect key="frame" x="0.0" y="196" width="414" height="60"/>
+                    <rect key="frame" x="0.0" y="196" width="375" height="60"/>
                     <color key="backgroundColor" name="Athens Gray"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="l98-nj-Lhf"/>
@@ -71,17 +61,25 @@
                         <inset key="sectionInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-3w-REr">
+                    <rect key="frame" x="383" y="215" width="22" height="22"/>
+                    <color key="tintColor" name="Charcoal"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="star" catalog="system"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Athens Gray"/>
             <constraints>
                 <constraint firstItem="o6i-sf-aEz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="97A-nf-dH1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Th3-3w-REr" secondAttribute="trailing" constant="9" id="Asq-Ma-Z0l"/>
                 <constraint firstItem="o6i-sf-aEz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="AxW-IK-rpp"/>
                 <constraint firstItem="UKL-jh-mHl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Bo7-ci-K64"/>
                 <constraint firstItem="rKg-dt-j4d" firstAttribute="top" secondItem="o6i-sf-aEz" secondAttribute="bottom" constant="20" id="Cfu-VX-Erx"/>
                 <constraint firstItem="EPE-vy-vI9" firstAttribute="top" secondItem="rKg-dt-j4d" secondAttribute="bottom" constant="10" id="FAh-1h-MSL"/>
                 <constraint firstItem="UKL-jh-mHl" firstAttribute="top" secondItem="EPE-vy-vI9" secondAttribute="bottom" constant="8" symbolic="YES" id="cM1-WF-dFY"/>
-                <constraint firstItem="EPE-vy-vI9" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fBv-28-bd8"/>
+                <constraint firstItem="Th3-3w-REr" firstAttribute="centerY" secondItem="EPE-vy-vI9" secondAttribute="centerY" id="cYI-Rm-B2A"/>
+                <constraint firstItem="Th3-3w-REr" firstAttribute="leading" secondItem="EPE-vy-vI9" secondAttribute="trailing" constant="8" symbolic="YES" id="eet-tu-d58"/>
                 <constraint firstItem="EPE-vy-vI9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hAz-Bg-bs5"/>
                 <constraint firstItem="o6i-sf-aEz" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="sp7-6f-kdn"/>
                 <constraint firstItem="UKL-jh-mHl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="t4n-Eg-nZ9"/>

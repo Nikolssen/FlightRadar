@@ -73,7 +73,6 @@ final class FlightViewModel: FlightViewModelling {
         print(flightInfo)
         
         companySelectionRelay
-            .debug()
             .compactMap {
                 [weak self] in
                 self?.flightInfo.airline?.iata}
@@ -81,7 +80,6 @@ final class FlightViewModel: FlightViewModelling {
             .disposed(by: disposeBag)
         
         aircraftSelectionRelay
-            .debug()
             .compactMap { [weak self] in
                 self?.flightInfo.aircraft?.icao24}
             .bind(to: coordinator.aircraftSelectionRelay)

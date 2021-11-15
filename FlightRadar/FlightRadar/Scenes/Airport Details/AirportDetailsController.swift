@@ -43,9 +43,8 @@ final class AirportDetailsController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionViews()
-        bind()
         favoriteButton.isHidden = true
-
+        bind()
     }
     
     private func bind() {
@@ -131,11 +130,16 @@ final class AirportDetailsController: BaseViewController {
         
         viewModel
             .isFavoriteRelay
-            .skip(1)
+            .compactMap{ $0 }
             .subscribe(onNext: { [favoriteButton] in
-                favoriteButton?.isHidden = true
+                favoriteButton?.isHidden = false
                 favoriteButton?.setImage($0 ? .filledStar : .star, for: .normal)
             })
+            .disposed(by: disposeBag)
+        
+        favoriteButton.rx
+            .tap
+            .bind(to: viewModel.favoriteActionRelay)
             .disposed(by: disposeBag)
     }
     

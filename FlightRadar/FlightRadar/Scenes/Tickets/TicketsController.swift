@@ -60,6 +60,16 @@ final class TicketsController: UIViewController {
             .tap
             .bind(to: viewModel.departureSelectionRelay)
             .disposed(by: disposeBag)
+        
+        viewModel.arrivalRelay
+            .map { $0 ?? " " }
+            .bind(to: arrivalLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.departureRelay
+            .map { $0 ?? " " }
+            .bind(to: departureLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
     private func configureUI() {

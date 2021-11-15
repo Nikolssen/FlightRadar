@@ -10,7 +10,6 @@ import RxRelay
 import RxSwift
 
 protocol FlightModalViewModelling {
-    init(flightInfo: FlightResponseModel.Data)
     var flightViewViewModel: FlightViewViewModel { get }
     var company: String? { get }
     var departure: String? { get }
@@ -19,13 +18,18 @@ protocol FlightModalViewModelling {
     var showFullMode: PublishRelay<Void>  { get }
 }
 
+protocol FlightModalCoordinator {
+    var hideModalRelay: PublishRelay<Void> { get }
+    var flightDetailsRelay: PublishRelay<FlightResponseModel.Data> { get }
+}
+
 final class FlightModalViewModel: FlightModalViewModelling {
 
     let hideRelay: PublishRelay<Void> = .init()
     let showFullMode: PublishRelay<Void> = .init()
     private let flightInfo: FlightResponseModel.Data
-    
-    let disposeBag: DisposeBag = .init()
+    private let coordinator: FlightModalCoordinator
+    private let disposeBag: DisposeBag = .init()
     
     var flightViewViewModel: FlightViewViewModel {
         FlightViewViewModel(departureCode: flightInfo.departure?.iata, arrivalCode: flightInfo.arrival?.iata, time: DateFormatter.substract(flightInfo.departure?.time, d2: flightInfo.arrival?.time))
@@ -41,8 +45,20 @@ final class FlightModalViewModel: FlightModalViewModelling {
         DateFormatter.extendedDate(from: flightInfo.arrival?.time)
     }
     
-    init(flightInfo: FlightResponseModel.Data) {
+    init(coordinator: FlightModalCoordinator, flightInfo: FlightResponseModel.Data) {
         self.flightInfo = flightInfo
+        self.coordinator = coordinator
+        
+        hideRelay
+            .bind(to: coordinator.hideModalRelay)
+            .disposed(by: disposeBag)
+        
+        showFullMode
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.coordinator.flightDetailsRelay.accept(self.flightInfo)
+            })
+            .disposed(by: disposeBag)
     }
     
 }
