@@ -63,30 +63,24 @@ final class TicketsViewModel: TicketsViewModelling {
             .disposed(by: disposeBag)
        
         searchActionRelay
-            .debug()
             .do(onNext: {[weak self] in self?.activityIndicatorRelay.accept(true)})
             .observe(on: SerialDispatchQueueScheduler(qos: .utility))
             .withLatestFrom(Observable.combineLatest(arrivalRelay, departureRelay, dateSelectionRelay))
-                .debug()
             .filter { $0 != nil && $1 != nil && $2 != nil}
-            .debug()
             .flatMapLatest { [service] (arrival, departure, date) -> Observable<TicketResponseModel> in
                 service.networkService.request(request: .tickets(.init(arrival: arrival!, departure: departure!, date: DateFormatter.encodeDate(date: date!))))
             }
             .observe(on: MainScheduler.instance)
-            .debug()
             .do(onNext: {[weak self] _ in self?.activityIndicatorRelay.accept(false)}, onError: {[weak self] error in self?.activityIndicatorRelay.accept(false)
                 coordinator.errorHandlerRelay.accept(error)
             })
             .retry()
             .map { $0.flights}
-            .debug()
             .subscribe(onNext: {[weak self] in self?.responseRelay.accept($0)})
             .disposed(by: disposeBag)
         
         responseRelay
             .map { $0.map { TicketCellViewModel(date: $0.departureDate, company: $0.airlines, price: "\($0.price) USD")} }
-            .debug()
             .bind(to: dataSourceRelay)
             .disposed(by: disposeBag)
         

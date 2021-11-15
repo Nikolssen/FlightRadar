@@ -8,7 +8,7 @@
 import Foundation
 
 extension DateFormatter {
-    static var decodingFormatter: DateFormatter = {
+    static var flightFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+00:00"
         return formatter
@@ -40,8 +40,8 @@ extension DateFormatter {
     
     static func substract(_ d1: String?, d2: String?) -> String? {
         guard let d1 = d1, let d2 = d2,
-              let date1 = DateFormatter.decodingFormatter.date(from: d1),
-              let date2 = DateFormatter.decodingFormatter.date(from: d2)
+              let date1 = DateFormatter.flightFormatter.date(from: d1),
+              let date2 = DateFormatter.flightFormatter.date(from: d2)
         else { return nil}
         
         let interval = date2.timeIntervalSince(date1)
@@ -51,7 +51,7 @@ extension DateFormatter {
     }
     
     static func extendedDate(from: String?) -> String? {
-        guard let string = from, let date = decodingFormatter.date(from: string) else { return nil }
+        guard let string = from, let date = flightFormatter.date(from: string) else { return nil }
         return extendedDateFormatter.string(from: date)
     }
     

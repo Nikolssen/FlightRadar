@@ -10,7 +10,7 @@ import Foundation
 extension NumberFormatter {
     static var distanceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.roundingMode = .ceiling
+        formatter.roundingMode = .halfEven
         formatter.numberStyle = .decimal
         formatter.alwaysShowsDecimalSeparator = false
         formatter.maximumFractionDigits = 0

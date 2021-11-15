@@ -61,6 +61,7 @@
 		3F99DFCB273A4F63009A838C /* RxNuke in Frameworks */ = {isa = PBXBuildFile; productRef = 3F99DFCA273A4F63009A838C /* RxNuke */; };
 		3F99DFCD273A5A2E009A838C /* Rx+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99DFCC273A5A2E009A838C /* Rx+AlertController.swift */; };
 		3FA400482732BE970008A1FB /* AltitudeLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA400472732BE970008A1FB /* AltitudeLegend.swift */; };
+		3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8BDC12742964500BF669B /* HelperTests.swift */; };
 		3FBBFD99272F05B200AA93E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBBFD98272F05B200AA93E1 /* TabBarController.swift */; };
 		3FC061B6273824C500CCB2BB /* CompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061B4273824C500CCB2BB /* CompanyController.swift */; };
 		3FC061B7273824C500CCB2BB /* CompanyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FC061B5273824C500CCB2BB /* CompanyController.xib */; };
@@ -80,7 +81,6 @@
 		3FEBA7D32727FA17006C476F /* FlightRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7D12727FA17006C476F /* FlightRadar.xcdatamodeld */; };
 		3FEBA7D52727FA18006C476F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA7D42727FA18006C476F /* Assets.xcassets */; };
 		3FEBA7D82727FA18006C476F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA7D62727FA18006C476F /* LaunchScreen.storyboard */; };
-		3FEBA7E32727FA18006C476F /* FlightRadarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBA7E22727FA18006C476F /* FlightRadarTests.swift */; };
 		3FEBA8022727FCF2006C476F /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */; };
 		3FEBA8032727FCF2006C476F /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */; };
 		3FEBA8042727FCF2006C476F /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */; };
@@ -164,6 +164,7 @@
 		3F98A3DF2735532000FC14B5 /* FlightModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModalViewModel.swift; sourceTree = "<group>"; };
 		3F99DFCC273A5A2E009A838C /* Rx+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+AlertController.swift"; sourceTree = "<group>"; };
 		3FA400472732BE970008A1FB /* AltitudeLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltitudeLegend.swift; sourceTree = "<group>"; };
+		3FA8BDC12742964500BF669B /* HelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		3FBBFD98272F05B200AA93E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3FC061B4273824C500CCB2BB /* CompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyController.swift; sourceTree = "<group>"; };
 		3FC061B5273824C500CCB2BB /* CompanyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyController.xib; sourceTree = "<group>"; };
@@ -186,7 +187,6 @@
 		3FEBA7D72727FA18006C476F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FEBA7D92727FA18006C476F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FEBA7DE2727FA18006C476F /* FlightRadarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightRadarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FEBA7E22727FA18006C476F /* FlightRadarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRadarTests.swift; sourceTree = "<group>"; };
 		3FEBA7FF2727FCF2006C476F /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
 		3FEBA8002727FCF2006C476F /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		3FEBA8012727FCF2006C476F /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
@@ -476,7 +476,7 @@
 		3FEBA7E12727FA18006C476F /* FlightRadarTests */ = {
 			isa = PBXGroup;
 			children = (
-				3FEBA7E22727FA18006C476F /* FlightRadarTests.swift */,
+				3FA8BDC12742964500BF669B /* HelperTests.swift */,
 			);
 			path = FlightRadarTests;
 			sourceTree = "<group>";
@@ -749,7 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FEBA7E32727FA18006C476F /* FlightRadarTests.swift in Sources */,
+				3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,7 +36,6 @@ final class TicketsController: UIViewController {
         tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellID)
         
         viewModel.dataSourceRelay
-            .debug()
             .bind(to: tableView.rx.items(cellIdentifier: Constants.cellID, cellType: TicketCell.self)) {
                 _, viewModel, cell in
                 cell.configure(with: viewModel)
