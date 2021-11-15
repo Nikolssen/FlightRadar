@@ -90,6 +90,12 @@ final class FlightModalController: UIViewController {
         strokeLayer.frame = view.layer.bounds
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        strokeLayer.strokeColor = UIColor.charcoal.cgColor
+        strokeLayer.fillColor = UIColor.clear.cgColor
+    }
+    
     private func configureAttributes() {
         
         companyLabel.attributes = TextAttributes.smallMediumAttributes

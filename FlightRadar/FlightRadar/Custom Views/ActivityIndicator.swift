@@ -47,6 +47,11 @@ final class ActivityIndicator: BackgroundView {
         spinnerLayer.frame = layer.bounds
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        spinnerLayer.strokeColor = UIColor.charcoal.cgColor
+        spinnerLayer.fillColor = UIColor.clear.cgColor
+    }
+    
     func start() {
     
         spinnerLayer.removeAnimation(forKey: Constants.animationName)

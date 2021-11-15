@@ -37,6 +37,11 @@ class BackgroundView: UIView {
         layer.borderColor = UIColor.charcoal.cgColor
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        layer.borderColor = UIColor.charcoal.cgColor
+    }
+    
     private enum Constants {
         static let borderWidth: CGFloat = 2
         static let initialCornerRadius: CGFloat = 10

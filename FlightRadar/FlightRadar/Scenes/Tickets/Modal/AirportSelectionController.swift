@@ -44,6 +44,12 @@ final class AirportSelectionController: UIViewController {
         strokeLayer.frame = view.layer.bounds
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        strokeLayer.strokeColor = UIColor.charcoal.cgColor
+        strokeLayer.fillColor = UIColor.clear.cgColor
+    }
+    
     private func configureDismissal() {
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissAction))
         gesture.direction = .down

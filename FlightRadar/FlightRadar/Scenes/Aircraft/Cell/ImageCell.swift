@@ -21,6 +21,10 @@ class ImageCell: UICollectionViewCell {
         layer.borderWidth = 1
         layer.masksToBounds = true
     }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        layer.borderColor = UIColor.charcoal.cgColor
+    }
 
     override func prepareForReuse() {
         super.prepareForReuse()

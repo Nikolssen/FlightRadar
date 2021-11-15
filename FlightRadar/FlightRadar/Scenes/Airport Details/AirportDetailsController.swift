@@ -143,6 +143,13 @@ final class AirportDetailsController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if isMapLoaded {
+            mapView.layer.borderColor = UIColor.charcoal.cgColor
+        }
+    }
+    
     private func configureCollectionViews() {
         optionsCollectionView.register(OptionCell.self, forCellWithReuseIdentifier: Constants.optionsID)
         flightsCollectionView.register(FlightCell.self, forCellWithReuseIdentifier: Constants.flightsID)
