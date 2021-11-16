@@ -70,6 +70,11 @@
 		3FC061BE2738252D00CCB2BB /* TicketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061BC2738252D00CCB2BB /* TicketsController.swift */; };
 		3FC061BF2738252D00CCB2BB /* TicketsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FC061BD2738252D00CCB2BB /* TicketsController.xib */; };
 		3FC3225F273914750090E001 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3225E273914750090E001 /* BaseViewController.swift */; };
+		3FCC4DE727439CB800FBE76C /* MockPersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC4DE627439CB800FBE76C /* MockPersistanceService.swift */; };
+		3FCC4DE927439FD100FBE76C /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC4DE827439FD100FBE76C /* MockNetworkService.swift */; };
+		3FCC4DEB2743A46100FBE76C /* MockLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC4DEA2743A46100FBE76C /* MockLocationService.swift */; };
+		3FCC4DED2743A5D700FBE76C /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC4DEC2743A5D700FBE76C /* MockService.swift */; };
+		3FCC4DF22743A6E800FBE76C /* MockAirportSearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC4DF12743A6E800FBE76C /* MockAirportSearchCoordinator.swift */; };
 		3FD2D75F273A85E20096B5AB /* FlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2D75E273A85E20096B5AB /* FlightViewModel.swift */; };
 		3FE0B3E02731258100722CBE /* AirportDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */; };
 		3FE0B3E227312BE100722CBE /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0B3E127312BE100722CBE /* FlightModel.swift */; };
@@ -173,6 +178,11 @@
 		3FC061BC2738252D00CCB2BB /* TicketsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsController.swift; sourceTree = "<group>"; };
 		3FC061BD2738252D00CCB2BB /* TicketsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketsController.xib; sourceTree = "<group>"; };
 		3FC3225E273914750090E001 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3FCC4DE627439CB800FBE76C /* MockPersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistanceService.swift; sourceTree = "<group>"; };
+		3FCC4DE827439FD100FBE76C /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		3FCC4DEA2743A46100FBE76C /* MockLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationService.swift; sourceTree = "<group>"; };
+		3FCC4DEC2743A5D700FBE76C /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		3FCC4DF12743A6E800FBE76C /* MockAirportSearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAirportSearchCoordinator.swift; sourceTree = "<group>"; };
 		3FD2D75E273A85E20096B5AB /* FlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewModel.swift; sourceTree = "<group>"; };
 		3FE0B3DF2731258100722CBE /* AirportDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsViewModel.swift; sourceTree = "<group>"; };
 		3FE0B3E127312BE100722CBE /* FlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModel.swift; sourceTree = "<group>"; };
@@ -431,6 +441,41 @@
 			path = Aircraft;
 			sourceTree = "<group>";
 		};
+		3FCC4DE527439C9A00FBE76C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC4DF02743A6C700FBE76C /* Coordinator */,
+				3FCC4DEF2743A6B600FBE76C /* Service */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3FCC4DEE2743A6A600FBE76C /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		3FCC4DEF2743A6B600FBE76C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC4DE627439CB800FBE76C /* MockPersistanceService.swift */,
+				3FCC4DE827439FD100FBE76C /* MockNetworkService.swift */,
+				3FCC4DEA2743A46100FBE76C /* MockLocationService.swift */,
+				3FCC4DEC2743A5D700FBE76C /* MockService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3FCC4DF02743A6C700FBE76C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC4DF12743A6E800FBE76C /* MockAirportSearchCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		3FE0B3E5273143FD00722CBE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +521,8 @@
 		3FEBA7E12727FA18006C476F /* FlightRadarTests */ = {
 			isa = PBXGroup;
 			children = (
+				3FCC4DEE2743A6A600FBE76C /* ViewModelTests */,
+				3FCC4DE527439C9A00FBE76C /* Mocks */,
 				3FA8BDC12742964500BF669B /* HelperTests.swift */,
 			);
 			path = FlightRadarTests;
@@ -749,7 +796,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FCC4DEB2743A46100FBE76C /* MockLocationService.swift in Sources */,
+				3FCC4DED2743A5D700FBE76C /* MockService.swift in Sources */,
+				3FCC4DF22743A6E800FBE76C /* MockAirportSearchCoordinator.swift in Sources */,
+				3FCC4DE927439FD100FBE76C /* MockNetworkService.swift in Sources */,
 				3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */,
+				3FCC4DE727439CB800FBE76C /* MockPersistanceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
