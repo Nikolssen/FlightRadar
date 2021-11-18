@@ -13,9 +13,10 @@ class MockLocationService: LocationService {
     
     var hasLocation: Bool = true
     var didRequestDistance: Bool = false
-    
+    var didRequestLocation: Bool = false
     var currentLocation: CLLocationCoordinate2D? {
-        hasLocation ? CLLocationCoordinate2D(latitude: 0, longitude: 0) : nil
+        didRequestLocation = true
+        return hasLocation ? CLLocationCoordinate2D(latitude: 0, longitude: 0) : nil
     }
     
     func distance(from coordinates: (latitude: Double, longitude: Double)) -> Double? {

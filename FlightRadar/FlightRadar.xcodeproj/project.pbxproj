@@ -62,6 +62,7 @@
 		3F99DFCD273A5A2E009A838C /* Rx+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99DFCC273A5A2E009A838C /* Rx+AlertController.swift */; };
 		3FA400482732BE970008A1FB /* AltitudeLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA400472732BE970008A1FB /* AltitudeLegend.swift */; };
 		3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8BDC12742964500BF669B /* HelperTests.swift */; };
+		3FB67C07274640DD00A551A6 /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FB67C06274640DD00A551A6 /* airports.json */; };
 		3FBBFD99272F05B200AA93E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBBFD98272F05B200AA93E1 /* TabBarController.swift */; };
 		3FC061B6273824C500CCB2BB /* CompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061B4273824C500CCB2BB /* CompanyController.swift */; };
 		3FC061B7273824C500CCB2BB /* CompanyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FC061B5273824C500CCB2BB /* CompanyController.xib */; };
@@ -101,6 +102,7 @@
 		3FEBA819272801CB006C476F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3FEBA818272801CB006C476F /* RxSwift */; };
 		3FEBA81C272801E8006C476F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3FEBA81B272801E8006C476F /* Alamofire */; };
 		3FEBA81F27280234006C476F /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3FEBA81E27280234006C476F /* RxAlamofire */; };
+		3FF078702743ACB500C9232E /* AirportSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0786F2743ACB500C9232E /* AirportSearchTest.swift */; };
 		3FF9C1D027300B84001B7745 /* FlightModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF9C1CE27300B84001B7745 /* FlightModalController.swift */; };
 		3FF9C1D127300B84001B7745 /* FlightModalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF9C1CF27300B84001B7745 /* FlightModalController.xib */; };
 /* End PBXBuildFile section */
@@ -170,6 +172,7 @@
 		3F99DFCC273A5A2E009A838C /* Rx+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+AlertController.swift"; sourceTree = "<group>"; };
 		3FA400472732BE970008A1FB /* AltitudeLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltitudeLegend.swift; sourceTree = "<group>"; };
 		3FA8BDC12742964500BF669B /* HelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
+		3FB67C06274640DD00A551A6 /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
 		3FBBFD98272F05B200AA93E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3FC061B4273824C500CCB2BB /* CompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyController.swift; sourceTree = "<group>"; };
 		3FC061B5273824C500CCB2BB /* CompanyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyController.xib; sourceTree = "<group>"; };
@@ -203,6 +206,7 @@
 		3FEBA80B2727FF1B006C476F /* UIColor + Custom Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Custom Colors.swift"; sourceTree = "<group>"; };
 		3FEBA80D2727FF38006C476F /* UIImage + Custom Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Custom Images.swift"; sourceTree = "<group>"; };
 		3FEBA80F2727FF50006C476F /* UIFont + Custom Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Custom Fonts.swift"; sourceTree = "<group>"; };
+		3FF0786F2743ACB500C9232E /* AirportSearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchTest.swift; sourceTree = "<group>"; };
 		3FF9C1CE27300B84001B7745 /* FlightModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModalController.swift; sourceTree = "<group>"; };
 		3FF9C1CF27300B84001B7745 /* FlightModalController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlightModalController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -408,6 +412,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		3FB67C05274640AB00A551A6 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				3FB67C06274640DD00A551A6 /* airports.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		3FC061B12738248900CCB2BB /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +465,7 @@
 		3FCC4DEE2743A6A600FBE76C /* ViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				3FF0786F2743ACB500C9232E /* AirportSearchTest.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -521,9 +534,10 @@
 		3FEBA7E12727FA18006C476F /* FlightRadarTests */ = {
 			isa = PBXGroup;
 			children = (
+				3FB67C05274640AB00A551A6 /* JSON */,
+				3FA8BDC12742964500BF669B /* HelperTests.swift */,
 				3FCC4DEE2743A6A600FBE76C /* ViewModelTests */,
 				3FCC4DE527439C9A00FBE76C /* Mocks */,
-				3FA8BDC12742964500BF669B /* HelperTests.swift */,
 			);
 			path = FlightRadarTests;
 			sourceTree = "<group>";
@@ -712,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEBA8072727FCF2006C476F /* Oswald-Light.ttf in Resources */,
+				3FB67C07274640DD00A551A6 /* airports.json in Resources */,
 				3FEBA8032727FCF2006C476F /* Oswald-Medium.ttf in Resources */,
 				3FEBA8052727FCF2006C476F /* Oswald-Regular.ttf in Resources */,
 			);
@@ -801,6 +816,7 @@
 				3FCC4DF22743A6E800FBE76C /* MockAirportSearchCoordinator.swift in Sources */,
 				3FCC4DE927439FD100FBE76C /* MockNetworkService.swift in Sources */,
 				3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */,
+				3FF078702743ACB500C9232E /* AirportSearchTest.swift in Sources */,
 				3FCC4DE727439CB800FBE76C /* MockPersistanceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

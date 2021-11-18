@@ -58,7 +58,9 @@ final class AirportSearchViewModel: AirportSearchViewModelling {
                 service.networkService.request(request: .airportByFreeText(.init(q: query)))
             }
             .observe(on: MainScheduler.asyncInstance)
-            .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(false) })
+            .do(onError: { [weak self] in
+                self?.activityIndicatorRelay.accept(false)
+                self?.coordinator.errorHandlerRelay.accept($0)} )
             .subscribe(onNext: { [weak self] in
                 self?.airportModelRelay.accept($0.items) } )
             .disposed(by: disposeBag)
