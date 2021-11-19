@@ -77,8 +77,10 @@ extension MapController: MKMapViewDelegate {
         guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.mapAnnotationID),
               let liveData = viewModel.flightRelay.value else { return nil }
         annotationView.image = .airplane?
-            .withTintColor(AltitudeHeight.color(for: liveData.altitude))
-            .imageRotatedByDegrees(degrees: -90 + liveData.direction, flip: false)
+            .withRenderingMode(.alwaysTemplate)
+            .imageRotatedByDegrees(degrees: -90 + liveData.direction, flip: false, color: AltitudeHeight.color(for: liveData.altitude / 1000))
+    
+            
         annotationView.annotation = annotation
         return annotationView
     }

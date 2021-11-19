@@ -61,6 +61,8 @@ final class AirportSearchViewModel: AirportSearchViewModelling {
             .do(onError: { [weak self] in
                 self?.activityIndicatorRelay.accept(false)
                 self?.coordinator.errorHandlerRelay.accept($0)} )
+            .retry()
+            .do(onNext: { [weak self] _ in self?.activityIndicatorRelay.accept(false) })
             .subscribe(onNext: { [weak self] in
                 self?.airportModelRelay.accept($0.items) } )
             .disposed(by: disposeBag)

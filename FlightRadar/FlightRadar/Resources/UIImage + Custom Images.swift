@@ -20,7 +20,7 @@ extension UIImage {
     static let filledStar = UIImage(systemName: "star.fill")
     static let airplane = UIImage(systemName: "airplane")
     
-    func imageRotatedByDegrees(degrees: CGFloat, flip: Bool) -> UIImage {
+    func imageRotatedByDegrees(degrees: CGFloat, flip: Bool, color: UIColor) -> UIImage {
         
         let degreesToRadians: (CGFloat) -> CGFloat = {
             return $0 / 180.0 * CGFloat.pi
@@ -55,7 +55,8 @@ extension UIImage {
         let rect = CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height)
         
         bitmap?.draw(cgImage!, in: rect)
-        
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         

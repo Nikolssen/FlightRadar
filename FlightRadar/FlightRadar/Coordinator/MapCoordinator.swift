@@ -69,6 +69,13 @@ final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, 
                 .alertControllerBinder.onNext((Constants.warning, Constants.errorMessage))
                 })
             .disposed(by: disposeBag)
+                
+        showModalRelay
+                .compactMap { $0.live }
+                .subscribe(onNext: {[weak self] in
+                    (self?.rootViewController.viewControllers[0] as? MapController)?.viewModel.flightRelay.accept($0)
+                })
+                .disposed(by: disposeBag)
     }
     
     
