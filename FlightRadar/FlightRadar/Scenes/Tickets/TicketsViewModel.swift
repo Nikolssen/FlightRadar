@@ -87,7 +87,7 @@ final class TicketsViewModel: TicketsViewModelling {
         selectedIndexRelay
             .withLatestFrom(responseRelay) { $1[$0].url }
             .compactMap{ URL(string: $0) }
-            .subscribe(onNext: { UIApplication.shared.open($0, options: [:], completionHandler: nil)})
+            .bind(to: coordinator.urlRelay)
             .disposed(by: disposeBag)
         
     }

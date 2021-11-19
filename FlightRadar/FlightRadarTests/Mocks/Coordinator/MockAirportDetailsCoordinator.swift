@@ -10,7 +10,7 @@ import RxSwift
 import RxRelay
 @testable import FlightRadar
 
-class MockAirportDetailsCoordinator: AirportDetailsCoordinator {
+final class MockAirportDetailsCoordinator: AirportDetailsCoordinator {
     
     var didShowDetails: Bool = false
     var didSwitchToMap: Bool = false

@@ -5,12 +5,11 @@
 //  Created by Ivan Budovich on 11/18/21.
 //
 import XCTest
-import Foundation
 import RxSwift
 import RxRelay
 @testable import FlightRadar
 
-class AirportDetailsTest: XCTestCase {
+final class AirportDetailsTest: XCTestCase {
     var coordinator: MockAirportDetailsCoordinator!
     var service: MockService!
     var viewModel: AirportDetailsViewModel!

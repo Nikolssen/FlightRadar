@@ -9,7 +9,7 @@ import Foundation
 @testable import FlightRadar
 import CoreLocation
 
-class MockLocationService: LocationService {
+final class MockLocationService: LocationService {
     
     var hasLocation: Bool = true
     var didRequestDistance: Bool = false

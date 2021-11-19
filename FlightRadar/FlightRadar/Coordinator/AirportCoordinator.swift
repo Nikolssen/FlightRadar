@@ -10,6 +10,7 @@ import RxRelay
 import UIKit
 
 final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDetailsCoordinator, FlightCoordinator, CompanyCoordinator, AircraftCoordinator, ErrorHandler {
+    let  urlRelay: PublishRelay<URL> = .init()
     
     let flightOnMapRelay: PublishRelay<FlightResponseModel.Data> = .init()
     let airportDetailsRelay: PublishRelay<AirportModel> = .init()
@@ -73,6 +74,11 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
                     .alertControllerBinder.onNext((Constants.warning, Constants.errorMessage))
             })
             .disposed(by: disposeBag)
+        
+        urlRelay
+            .subscribe(onNext: { UIApplication.shared.open($0, options: [:], completionHandler: nil)})
+            .disposed(by: disposeBag)
+            
     }
     
     private var airportSearchController: AirportSearchController {

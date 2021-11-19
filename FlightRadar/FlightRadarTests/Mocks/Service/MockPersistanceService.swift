@@ -10,7 +10,7 @@ import RxSwift
 
 @testable import FlightRadar
 
-class MockPersistanceService: PersistanceService {
+final class MockPersistanceService: PersistanceService {
     
     private var airports: [AirportModel] = []
     var didFetchAirports: Bool = false

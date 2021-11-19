@@ -8,7 +8,7 @@
 import Foundation
 @testable import FlightRadar
 
-class MockService: Services {
+final class MockService: Services {
     
     var persistanceService: PersistanceService = MockPersistanceService(containerName: "")
     

@@ -10,7 +10,7 @@ import Foundation
 import RxRelay
 import RxSwift
 
-class MockAirportSearchCoordinator: AirportSearchCoordinator {
+final class MockAirportSearchCoordinator: AirportSearchCoordinator {
     var didShowDetails: Bool = false
     var didHandleError: Bool = false
     

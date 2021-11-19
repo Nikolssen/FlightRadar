@@ -9,7 +9,7 @@ import Foundation
 @testable import FlightRadar
 import RxSwift
 
-class MockNetworkService: NetworkService {
+final class MockNetworkService: NetworkService {
     
     var sourceJSON: Data?
     var didPerformRequest: Bool = false

@@ -9,7 +9,7 @@ import XCTest
 @testable import FlightRadar
 import RxSwift
 
-class AirportSearchTest: XCTestCase {
+final class AirportSearchTest: XCTestCase {
 
     var viewModel: AirportSearchViewModel!
     var coordinator: MockAirportSearchCoordinator!

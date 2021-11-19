@@ -31,6 +31,11 @@
 		3F4F34AE273000FA004E9EB3 /* AirportDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F34AC273000FA004E9EB3 /* AirportDetailsController.swift */; };
 		3F4F34AF273000FA004E9EB3 /* AirportDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4F34AD273000FA004E9EB3 /* AirportDetailsController.xib */; };
 		3F4F34B22730040C004E9EB3 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F34B12730040C004E9EB3 /* MapController.swift */; };
+		3F4FA454274813F600BD57D8 /* MockCompanyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FA453274813F600BD57D8 /* MockCompanyCoordinator.swift */; };
+		3F4FA456274814A500BD57D8 /* CompanyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FA455274814A500BD57D8 /* CompanyTest.swift */; };
+		3F4FA45A274814C700BD57D8 /* FlightTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FA459274814C700BD57D8 /* FlightTest.swift */; };
+		3F4FA45E2748165400BD57D8 /* MockFlightCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FA45D2748165400BD57D8 /* MockFlightCoordinator.swift */; };
+		3F4FA46227481E0400BD57D8 /* company.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F4FA46127481E0400BD57D8 /* company.json */; };
 		3F502556272C43140029F0D0 /* AirportViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F502555272C43140029F0D0 /* AirportViewViewModel.swift */; };
 		3F502559272C44010029F0D0 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F502558272C44010029F0D0 /* LocationService.swift */; };
 		3F50255B272C49420029F0D0 /* AirportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50255A272C49420029F0D0 /* AirportCoordinator.swift */; };
@@ -145,6 +150,11 @@
 		3F4F34AC273000FA004E9EB3 /* AirportDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsController.swift; sourceTree = "<group>"; };
 		3F4F34AD273000FA004E9EB3 /* AirportDetailsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirportDetailsController.xib; sourceTree = "<group>"; };
 		3F4F34B12730040C004E9EB3 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		3F4FA453274813F600BD57D8 /* MockCompanyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCompanyCoordinator.swift; sourceTree = "<group>"; };
+		3F4FA455274814A500BD57D8 /* CompanyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTest.swift; sourceTree = "<group>"; };
+		3F4FA459274814C700BD57D8 /* FlightTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTest.swift; sourceTree = "<group>"; };
+		3F4FA45D2748165400BD57D8 /* MockFlightCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFlightCoordinator.swift; sourceTree = "<group>"; };
+		3F4FA46127481E0400BD57D8 /* company.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = company.json; sourceTree = "<group>"; };
 		3F502555272C43140029F0D0 /* AirportViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportViewViewModel.swift; sourceTree = "<group>"; };
 		3F502558272C44010029F0D0 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		3F50255A272C49420029F0D0 /* AirportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportCoordinator.swift; sourceTree = "<group>"; };
@@ -423,6 +433,7 @@
 			children = (
 				3FB67C06274640DD00A551A6 /* airports.json */,
 				3FB67C0927464E0900A551A6 /* airportDetails.json */,
+				3F4FA46127481E0400BD57D8 /* company.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -474,6 +485,8 @@
 			children = (
 				3FF0786F2743ACB500C9232E /* AirportSearchTest.swift */,
 				3FB67C0D2746574800A551A6 /* AirportDetailsTest.swift */,
+				3F4FA455274814A500BD57D8 /* CompanyTest.swift */,
+				3F4FA459274814C700BD57D8 /* FlightTest.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -494,6 +507,8 @@
 			children = (
 				3FCC4DF12743A6E800FBE76C /* MockAirportSearchCoordinator.swift */,
 				3FB67C0B274651F500A551A6 /* MockAirportDetailsCoordinator.swift */,
+				3F4FA453274813F600BD57D8 /* MockCompanyCoordinator.swift */,
+				3F4FA45D2748165400BD57D8 /* MockFlightCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -735,6 +750,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEBA8072727FCF2006C476F /* Oswald-Light.ttf in Resources */,
+				3F4FA46227481E0400BD57D8 /* company.json in Resources */,
 				3FB67C0A27464E0900A551A6 /* airportDetails.json in Resources */,
 				3FB67C07274640DD00A551A6 /* airports.json in Resources */,
 				3FEBA8032727FCF2006C476F /* Oswald-Medium.ttf in Resources */,
@@ -821,12 +837,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4FA45A274814C700BD57D8 /* FlightTest.swift in Sources */,
 				3FCC4DEB2743A46100FBE76C /* MockLocationService.swift in Sources */,
+				3F4FA456274814A500BD57D8 /* CompanyTest.swift in Sources */,
 				3FCC4DED2743A5D700FBE76C /* MockService.swift in Sources */,
+				3F4FA45E2748165400BD57D8 /* MockFlightCoordinator.swift in Sources */,
 				3FB67C0E2746574800A551A6 /* AirportDetailsTest.swift in Sources */,
 				3FCC4DF22743A6E800FBE76C /* MockAirportSearchCoordinator.swift in Sources */,
 				3FB67C0C274651F500A551A6 /* MockAirportDetailsCoordinator.swift in Sources */,
 				3FCC4DE927439FD100FBE76C /* MockNetworkService.swift in Sources */,
+				3F4FA454274813F600BD57D8 /* MockCompanyCoordinator.swift in Sources */,
 				3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */,
 				3FF078702743ACB500C9232E /* AirportSearchTest.swift in Sources */,
 				3FCC4DE727439CB800FBE76C /* MockPersistanceService.swift in Sources */,

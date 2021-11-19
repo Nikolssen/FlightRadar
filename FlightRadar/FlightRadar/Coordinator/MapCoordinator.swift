@@ -11,6 +11,7 @@ import RxSwift
 
 final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, AircraftCoordinator, FlightModalCoordinator, ErrorHandler {
     
+    
     private let rootViewController: UINavigationController
     private let service: Services
     private weak var modalController: FlightModalController?
@@ -21,6 +22,7 @@ final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, 
     let companySelectionRelay: PublishRelay<String> = .init()
     let aircraftSelectionRelay: PublishRelay<String> = .init()
     let popRelay: PublishRelay<Void> = .init()
+    let urlRelay: PublishRelay<URL> = .init()
     
     private let disposeBag: DisposeBag = .init()
     
@@ -76,6 +78,10 @@ final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, 
                     (self?.rootViewController.viewControllers[0] as? MapController)?.viewModel.flightRelay.accept($0)
                 })
                 .disposed(by: disposeBag)
+        
+        urlRelay
+            .subscribe(onNext: { UIApplication.shared.open($0, options: [:], completionHandler: nil)})
+            .disposed(by: disposeBag)
     }
     
     

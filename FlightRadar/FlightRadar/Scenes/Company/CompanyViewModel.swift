@@ -22,8 +22,9 @@ protocol CompanyViewModelling {
     var updateRelay: PublishRelay<Void> { get }
 }
 
-protocol CompanyCoordinator: ErrorHandler {
+protocol CompanyCoordinator {
     var popRelay: PublishRelay<Void> { get }
+    var urlRelay: PublishRelay<URL> { get }
 }
 
 final class CompanyViewModel: CompanyViewModelling {
@@ -84,7 +85,7 @@ final class CompanyViewModel: CompanyViewModelling {
             .withLatestFrom(dataRelay)
             .compactMap{ $0?.website }
             .compactMap{ URL(string: $0) }
-            .subscribe(onNext: { UIApplication.shared.open($0, options: [:], completionHandler: nil)})
+            .bind(to: coordinator.urlRelay)
             .disposed(by: disposeBag)
     }
     

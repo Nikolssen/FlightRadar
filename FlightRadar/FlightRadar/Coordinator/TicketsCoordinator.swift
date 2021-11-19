@@ -17,6 +17,8 @@ final class TicketsCoordinator: Coordinator, ErrorHandler {
     let showDeparturesRelay: PublishRelay<Void> = .init()
     
     let errorHandlerRelay: PublishRelay<Error> = .init()
+    let urlRelay: PublishRelay<URL> = .init()
+    
     private let disposeBag: DisposeBag = .init()
     
     func start() { }
@@ -57,6 +59,10 @@ final class TicketsCoordinator: Coordinator, ErrorHandler {
             .subscribe(onNext: { [weak self] _ in
                 self?.viewController.alertControllerBinder.onNext((Constants.warning, Constants.errorMessage))
             })
+            .disposed(by: disposeBag)
+        
+        urlRelay
+            .subscribe(onNext: { UIApplication.shared.open($0, options: [:], completionHandler: nil)})
             .disposed(by: disposeBag)
         
     }
