@@ -63,6 +63,9 @@
 		3FA400482732BE970008A1FB /* AltitudeLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA400472732BE970008A1FB /* AltitudeLegend.swift */; };
 		3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8BDC12742964500BF669B /* HelperTests.swift */; };
 		3FB67C07274640DD00A551A6 /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FB67C06274640DD00A551A6 /* airports.json */; };
+		3FB67C0A27464E0900A551A6 /* airportDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FB67C0927464E0900A551A6 /* airportDetails.json */; };
+		3FB67C0C274651F500A551A6 /* MockAirportDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB67C0B274651F500A551A6 /* MockAirportDetailsCoordinator.swift */; };
+		3FB67C0E2746574800A551A6 /* AirportDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB67C0D2746574800A551A6 /* AirportDetailsTest.swift */; };
 		3FBBFD99272F05B200AA93E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBBFD98272F05B200AA93E1 /* TabBarController.swift */; };
 		3FC061B6273824C500CCB2BB /* CompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC061B4273824C500CCB2BB /* CompanyController.swift */; };
 		3FC061B7273824C500CCB2BB /* CompanyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FC061B5273824C500CCB2BB /* CompanyController.xib */; };
@@ -173,6 +176,9 @@
 		3FA400472732BE970008A1FB /* AltitudeLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltitudeLegend.swift; sourceTree = "<group>"; };
 		3FA8BDC12742964500BF669B /* HelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTests.swift; sourceTree = "<group>"; };
 		3FB67C06274640DD00A551A6 /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
+		3FB67C0927464E0900A551A6 /* airportDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = airportDetails.json; sourceTree = "<group>"; };
+		3FB67C0B274651F500A551A6 /* MockAirportDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAirportDetailsCoordinator.swift; sourceTree = "<group>"; };
+		3FB67C0D2746574800A551A6 /* AirportDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsTest.swift; sourceTree = "<group>"; };
 		3FBBFD98272F05B200AA93E1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3FC061B4273824C500CCB2BB /* CompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyController.swift; sourceTree = "<group>"; };
 		3FC061B5273824C500CCB2BB /* CompanyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyController.xib; sourceTree = "<group>"; };
@@ -416,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				3FB67C06274640DD00A551A6 /* airports.json */,
+				3FB67C0927464E0900A551A6 /* airportDetails.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -466,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF0786F2743ACB500C9232E /* AirportSearchTest.swift */,
+				3FB67C0D2746574800A551A6 /* AirportDetailsTest.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -485,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				3FCC4DF12743A6E800FBE76C /* MockAirportSearchCoordinator.swift */,
+				3FB67C0B274651F500A551A6 /* MockAirportDetailsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -726,6 +735,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEBA8072727FCF2006C476F /* Oswald-Light.ttf in Resources */,
+				3FB67C0A27464E0900A551A6 /* airportDetails.json in Resources */,
 				3FB67C07274640DD00A551A6 /* airports.json in Resources */,
 				3FEBA8032727FCF2006C476F /* Oswald-Medium.ttf in Resources */,
 				3FEBA8052727FCF2006C476F /* Oswald-Regular.ttf in Resources */,
@@ -813,7 +823,9 @@
 			files = (
 				3FCC4DEB2743A46100FBE76C /* MockLocationService.swift in Sources */,
 				3FCC4DED2743A5D700FBE76C /* MockService.swift in Sources */,
+				3FB67C0E2746574800A551A6 /* AirportDetailsTest.swift in Sources */,
 				3FCC4DF22743A6E800FBE76C /* MockAirportSearchCoordinator.swift in Sources */,
+				3FB67C0C274651F500A551A6 /* MockAirportDetailsCoordinator.swift in Sources */,
 				3FCC4DE927439FD100FBE76C /* MockNetworkService.swift in Sources */,
 				3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */,
 				3FF078702743ACB500C9232E /* AirportSearchTest.swift in Sources */,

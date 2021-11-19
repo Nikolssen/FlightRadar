@@ -16,8 +16,8 @@ class MockAirportSearchCoordinator: AirportSearchCoordinator {
     
     private let disposeBag: DisposeBag = .init()
     
-    var airportDetailsRelay: PublishRelay<AirportModel> = .init()
-    var errorHandlerRelay: PublishRelay<Error> = .init()
+    let airportDetailsRelay: PublishRelay<AirportModel> = .init()
+    let errorHandlerRelay: PublishRelay<Error> = .init()
     
     init() {
         airportDetailsRelay

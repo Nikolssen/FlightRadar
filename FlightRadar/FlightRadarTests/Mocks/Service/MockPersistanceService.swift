@@ -39,12 +39,12 @@ class MockPersistanceService: PersistanceService {
     }
     
     func isFavorite(airport: AirportModel) -> Bool {
-        didCheckForFavorite = false
+        didCheckForFavorite = true
         return airports.contains(where: { $0.iata == airport.iata })
     }
     
     func remove(airport: AirportModel) {
-        didRemoveAirport = false
+        didRemoveAirport = true
         airports.removeAll(where: { $0.iata == airport.iata })
     }
     

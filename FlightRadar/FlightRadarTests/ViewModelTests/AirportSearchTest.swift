@@ -8,7 +8,6 @@
 import XCTest
 @testable import FlightRadar
 import RxSwift
-import RxBlocking
 
 class AirportSearchTest: XCTestCase {
 
@@ -42,7 +41,7 @@ class AirportSearchTest: XCTestCase {
         let networkingExpectation = XCTestExpectation(description: "Failed Networking")
         let errorHandlingExpectation = XCTestExpectation(description: "Error Handling")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertTrue(locationService.didRequestLocation)
             locationExpectation.fulfill()
             XCTAssertTrue(networkService.didPerformRequest)
@@ -51,7 +50,7 @@ class AirportSearchTest: XCTestCase {
             errorHandlingExpectation.fulfill()
         }
         
-        wait(for: [locationExpectation, networkingExpectation, errorHandlingExpectation], timeout: 5)
+        wait(for: [locationExpectation, networkingExpectation, errorHandlingExpectation], timeout: 2)
     }
     
     func testNoLocationSearch() throws {
@@ -68,7 +67,7 @@ class AirportSearchTest: XCTestCase {
         let networkingExpectation = XCTestExpectation(description: "Uncalled Networking")
         let errorHandlingExpectation = XCTestExpectation(description: "Error Handling")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertTrue(locationService.didRequestLocation)
             locationExpectation.fulfill()
             XCTAssertFalse(networkService.didPerformRequest)
@@ -77,7 +76,7 @@ class AirportSearchTest: XCTestCase {
             errorHandlingExpectation.fulfill()
         }
         
-        wait(for: [locationExpectation, networkingExpectation, errorHandlingExpectation], timeout: 5)
+        wait(for: [locationExpectation, networkingExpectation, errorHandlingExpectation], timeout: 2)
     }
     
     func testTextSearch() throws {
@@ -98,7 +97,7 @@ class AirportSearchTest: XCTestCase {
         let networkingExpectation = XCTestExpectation(description: "Networking")
         let errorHandlingExpectation = XCTestExpectation(description: "Error Handling")
         let dataSourceExpectation = XCTestExpectation(description: "Datasource")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertTrue(networkService.didPerformRequest)
             networkingExpectation.fulfill()
             XCTAssertFalse(coordinator.didHandleError)
@@ -106,7 +105,7 @@ class AirportSearchTest: XCTestCase {
             XCTAssertFalse(viewModel.dataSourceRelay.value.isEmpty)
             dataSourceExpectation.fulfill()
         }
-        wait(for: [networkingExpectation, errorHandlingExpectation, dataSourceExpectation], timeout: 5)
+        wait(for: [networkingExpectation, errorHandlingExpectation, dataSourceExpectation], timeout: 2)
         
     }
     
@@ -122,13 +121,13 @@ class AirportSearchTest: XCTestCase {
         let networkingExpectation = XCTestExpectation(description: "Networking")
         let errorHandlingExpectation = XCTestExpectation(description: "Error Handling")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertTrue(networkService.didPerformRequest)
             networkingExpectation.fulfill()
             XCTAssertTrue(coordinator.didHandleError)
             errorHandlingExpectation.fulfill()
         }
-        wait(for: [networkingExpectation, errorHandlingExpectation], timeout: 5)
+        wait(for: [networkingExpectation, errorHandlingExpectation], timeout: 2)
         
     }
     
@@ -175,13 +174,13 @@ class AirportSearchTest: XCTestCase {
         viewModel.searchActionRelay.accept(Void())
         
         let dataSourceExpectation = XCTestExpectation(description: "Datasource")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertFalse(viewModel.dataSourceRelay.value.isEmpty)
             viewModel.selectedCellRelay.accept(0)
             XCTAssertTrue(coordinator.didShowDetails)
             dataSourceExpectation.fulfill()
         }
-        wait(for: [dataSourceExpectation], timeout: 5)
+        wait(for: [dataSourceExpectation], timeout: 2)
     }
     
 
