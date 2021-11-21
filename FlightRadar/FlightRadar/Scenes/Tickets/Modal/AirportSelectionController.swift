@@ -28,6 +28,7 @@ final class AirportSelectionController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupBorders()
     }
     
@@ -58,7 +59,7 @@ final class AirportSelectionController: UIViewController {
     
     private func configureTableView() {
         tableView.register(AirportCell.self, forCellReuseIdentifier: Constants.cellID)
-        
+        tableView.separatorStyle = .none
         tableView.estimatedRowHeight = UITableView.automaticDimension
         
         viewModel

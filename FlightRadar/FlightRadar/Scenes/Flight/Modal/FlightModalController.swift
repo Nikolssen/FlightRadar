@@ -71,10 +71,16 @@ final class FlightModalController: UIViewController {
         
         flightView.configure(with: viewModel.flightViewViewModel)
         
-        fullModeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showFullMode)))
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(hide))
-        swipeGesture.direction = .down
-        view.addGestureRecognizer(swipeGesture)
+        
+        let upSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(showFullMode))
+        upSwipeGesture.direction = .up
+        upSwipeGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(upSwipeGesture)
+        
+        let downSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(hide))
+        downSwipeGesture.direction = .down
+        downSwipeGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(downSwipeGesture)
     }
     
     private func setupBorders() {
@@ -98,12 +104,12 @@ final class FlightModalController: UIViewController {
     
     private func configureAttributes() {
         
-        companyLabel.attributes = TextAttributes.smallMediumAttributes
-        companyNameLabel.attributes = TextAttributes.smallMediumAttributes
-        departureLabel.attributes = TextAttributes.smallMediumAttributes
-        departureDateLabel.attributes = TextAttributes.smallMediumAttributes
-        arrivalLabel.attributes = TextAttributes.smallMediumAttributes
-        arrivalDateLabel.attributes = TextAttributes.smallMediumAttributes
+        companyLabel.attributes = TextAttributes.averageMediumAttributes
+        companyNameLabel.attributes = TextAttributes.averageMediumAttributes
+        departureLabel.attributes = TextAttributes.averageMediumAttributes
+        departureDateLabel.attributes = TextAttributes.averageMediumAttributes
+        arrivalLabel.attributes = TextAttributes.averageMediumAttributes
+        arrivalDateLabel.attributes = TextAttributes.averageMediumAttributes
     }
 
     private enum Constants {

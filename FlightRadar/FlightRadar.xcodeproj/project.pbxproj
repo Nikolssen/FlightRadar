@@ -113,6 +113,15 @@
 		3FF078702743ACB500C9232E /* AirportSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0786F2743ACB500C9232E /* AirportSearchTest.swift */; };
 		3FF9C1D027300B84001B7745 /* FlightModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF9C1CE27300B84001B7745 /* FlightModalController.swift */; };
 		3FF9C1D127300B84001B7745 /* FlightModalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF9C1CF27300B84001B7745 /* FlightModalController.xib */; };
+		3FFD5B46274A98CA00EB6449 /* AircraftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD5B45274A98CA00EB6449 /* AircraftTest.swift */; };
+		3FFD5B48274A98E200EB6449 /* TicketsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD5B47274A98E200EB6449 /* TicketsTest.swift */; };
+		3FFD5B4A274A990100EB6449 /* MockAircraftCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD5B49274A990100EB6449 /* MockAircraftCoordinator.swift */; };
+		3FFD5B4C274A9A5000EB6449 /* aircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FFD5B4B274A9A5000EB6449 /* aircraft.json */; };
+		3FFD5B4E274A9A6C00EB6449 /* aircraftImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FFD5B4D274A9A6C00EB6449 /* aircraftImage.json */; };
+		3FFD5B50274A9A7C00EB6449 /* tickets.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FFD5B4F274A9A7C00EB6449 /* tickets.json */; };
+		3FFD5B53274AB6CD00EB6449 /* AirportSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD5B52274AB6CD00EB6449 /* AirportSelectionTest.swift */; };
+		3FFD5B55274AB78E00EB6449 /* MockAirportSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD5B54274AB78E00EB6449 /* MockAirportSelectionCoordinator.swift */; };
+		3FFD5B57274AC21100EB6449 /* MockTicketsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD5B56274AC21100EB6449 /* MockTicketsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +234,15 @@
 		3FF0786F2743ACB500C9232E /* AirportSearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchTest.swift; sourceTree = "<group>"; };
 		3FF9C1CE27300B84001B7745 /* FlightModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModalController.swift; sourceTree = "<group>"; };
 		3FF9C1CF27300B84001B7745 /* FlightModalController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlightModalController.xib; sourceTree = "<group>"; };
+		3FFD5B45274A98CA00EB6449 /* AircraftTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftTest.swift; sourceTree = "<group>"; };
+		3FFD5B47274A98E200EB6449 /* TicketsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsTest.swift; sourceTree = "<group>"; };
+		3FFD5B49274A990100EB6449 /* MockAircraftCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAircraftCoordinator.swift; sourceTree = "<group>"; };
+		3FFD5B4B274A9A5000EB6449 /* aircraft.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = aircraft.json; sourceTree = "<group>"; };
+		3FFD5B4D274A9A6C00EB6449 /* aircraftImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = aircraftImage.json; sourceTree = "<group>"; };
+		3FFD5B4F274A9A7C00EB6449 /* tickets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tickets.json; sourceTree = "<group>"; };
+		3FFD5B52274AB6CD00EB6449 /* AirportSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSelectionTest.swift; sourceTree = "<group>"; };
+		3FFD5B54274AB78E00EB6449 /* MockAirportSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAirportSelectionCoordinator.swift; sourceTree = "<group>"; };
+		3FFD5B56274AC21100EB6449 /* MockTicketsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTicketsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +452,9 @@
 				3FB67C06274640DD00A551A6 /* airports.json */,
 				3FB67C0927464E0900A551A6 /* airportDetails.json */,
 				3F4FA46127481E0400BD57D8 /* company.json */,
+				3FFD5B4B274A9A5000EB6449 /* aircraft.json */,
+				3FFD5B4D274A9A6C00EB6449 /* aircraftImage.json */,
+				3FFD5B4F274A9A7C00EB6449 /* tickets.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -487,6 +508,9 @@
 				3FB67C0D2746574800A551A6 /* AirportDetailsTest.swift */,
 				3F4FA455274814A500BD57D8 /* CompanyTest.swift */,
 				3F4FA459274814C700BD57D8 /* FlightTest.swift */,
+				3FFD5B45274A98CA00EB6449 /* AircraftTest.swift */,
+				3FFD5B47274A98E200EB6449 /* TicketsTest.swift */,
+				3FFD5B52274AB6CD00EB6449 /* AirportSelectionTest.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -509,6 +533,9 @@
 				3FB67C0B274651F500A551A6 /* MockAirportDetailsCoordinator.swift */,
 				3F4FA453274813F600BD57D8 /* MockCompanyCoordinator.swift */,
 				3F4FA45D2748165400BD57D8 /* MockFlightCoordinator.swift */,
+				3FFD5B49274A990100EB6449 /* MockAircraftCoordinator.swift */,
+				3FFD5B54274AB78E00EB6449 /* MockAirportSelectionCoordinator.swift */,
+				3FFD5B56274AC21100EB6449 /* MockTicketsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -749,6 +776,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFD5B50274A9A7C00EB6449 /* tickets.json in Resources */,
+				3FFD5B4C274A9A5000EB6449 /* aircraft.json in Resources */,
+				3FFD5B4E274A9A6C00EB6449 /* aircraftImage.json in Resources */,
 				3FEBA8072727FCF2006C476F /* Oswald-Light.ttf in Resources */,
 				3F4FA46227481E0400BD57D8 /* company.json in Resources */,
 				3FB67C0A27464E0900A551A6 /* airportDetails.json in Resources */,
@@ -841,13 +871,19 @@
 				3FCC4DEB2743A46100FBE76C /* MockLocationService.swift in Sources */,
 				3F4FA456274814A500BD57D8 /* CompanyTest.swift in Sources */,
 				3FCC4DED2743A5D700FBE76C /* MockService.swift in Sources */,
+				3FFD5B4A274A990100EB6449 /* MockAircraftCoordinator.swift in Sources */,
 				3F4FA45E2748165400BD57D8 /* MockFlightCoordinator.swift in Sources */,
 				3FB67C0E2746574800A551A6 /* AirportDetailsTest.swift in Sources */,
 				3FCC4DF22743A6E800FBE76C /* MockAirportSearchCoordinator.swift in Sources */,
+				3FFD5B48274A98E200EB6449 /* TicketsTest.swift in Sources */,
 				3FB67C0C274651F500A551A6 /* MockAirportDetailsCoordinator.swift in Sources */,
+				3FFD5B57274AC21100EB6449 /* MockTicketsCoordinator.swift in Sources */,
 				3FCC4DE927439FD100FBE76C /* MockNetworkService.swift in Sources */,
+				3FFD5B53274AB6CD00EB6449 /* AirportSelectionTest.swift in Sources */,
 				3F4FA454274813F600BD57D8 /* MockCompanyCoordinator.swift in Sources */,
+				3FFD5B55274AB78E00EB6449 /* MockAirportSelectionCoordinator.swift in Sources */,
 				3FA8BDC22742964500BF669B /* HelperTests.swift in Sources */,
+				3FFD5B46274A98CA00EB6449 /* AircraftTest.swift in Sources */,
 				3FF078702743ACB500C9232E /* AirportSearchTest.swift in Sources */,
 				3FCC4DE727439CB800FBE76C /* MockPersistanceService.swift in Sources */,
 			);

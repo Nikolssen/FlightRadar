@@ -12,6 +12,7 @@ final class CompanyTest: XCTestCase {
     var viewModel: CompanyViewModel!
     var coordinator: MockCompanyCoordinator!
     var service: MockService!
+    
     override func setUp() {
         coordinator = .init()
         
@@ -46,6 +47,7 @@ final class CompanyTest: XCTestCase {
             XCTFail()
             return
         }
+        viewModel.startRelay.accept(true)
         let expectation = XCTestExpectation(description: "General Methods")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertTrue(viewModel.hasLink)
@@ -56,6 +58,6 @@ final class CompanyTest: XCTestCase {
             XCTAssertTrue(coordinator.didOpenURL)
             expectation.fulfill()
         }
-        
+        wait(for: [expectation], timeout: 1.5)
     }
 }

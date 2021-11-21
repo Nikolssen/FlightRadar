@@ -8,14 +8,13 @@
 import Foundation
 import RxSwift
 import RxRelay
-import UIKit
 
-protocol TicketsViewModelling: AnyObject {
+protocol TicketsViewModelling {
     var activityIndicatorRelay: PublishRelay<Bool> { get }
     var arrivalSelectionRelay: PublishRelay<Void> { get }
     var departureSelectionRelay: PublishRelay<Void> { get }
-    var dateSelectionRelay: BehaviorRelay<Date?> { get }
-    var dataSourceRelay: PublishRelay<[TicketCellViewModelling]> { get }
+    var dateSelection: BehaviorRelay<Date?> { get }
+    var dataSourceRelay: BehaviorRelay<[TicketCellViewModelling]> { get }
     var arrivalRelay: BehaviorRelay<String?> { get }
     var departureRelay: BehaviorRelay<String?> { get }
     var searchActionRelay: PublishRelay<Void> { get }
@@ -23,14 +22,18 @@ protocol TicketsViewModelling: AnyObject {
     var selectedIndexRelay: PublishRelay<Int> { get }
 }
 
-
+protocol TicketsViewModelCoordinator: ErrorHandler {
+    var showArrivalsRelay: PublishRelay<Void> { get }
+    var showDeparturesRelay: PublishRelay<Void> { get }
+    var urlRelay: PublishRelay<URL> { get }
+}
 
 final class TicketsViewModel: TicketsViewModelling {
-    let dataSourceRelay: PublishRelay<[TicketCellViewModelling]> = .init()
+    let dataSourceRelay: BehaviorRelay<[TicketCellViewModelling]> = .init(value: [])
     let activityIndicatorRelay: PublishRelay<Bool> = .init()
     let arrivalSelectionRelay: PublishRelay<Void> = .init()
     let departureSelectionRelay: PublishRelay<Void> = .init()
-    let dateSelectionRelay: BehaviorRelay<Date?> = .init(value: nil)
+    let dateSelection: BehaviorRelay<Date?> = .init(value: nil)
     let arrivalRelay: BehaviorRelay<String?> = .init(value: nil)
     let departureRelay: BehaviorRelay<String?> = .init(value: nil)
     let searchActionRelay: PublishRelay<Void> = .init()
@@ -38,10 +41,10 @@ final class TicketsViewModel: TicketsViewModelling {
     let selectedIndexRelay: PublishRelay<Int> = .init()
     private let responseRelay: BehaviorRelay<[TicketModel]> = .init(value: [])
     private let service: Services
-    private let coordinator: TicketsCoordinator
+    private let coordinator: TicketsViewModelCoordinator
     private let disposeBag: DisposeBag = .init()
     
-    init(coordinator: TicketsCoordinator, service: Services) {
+    init(coordinator: TicketsViewModelCoordinator, service: Services) {
         self.coordinator = coordinator
         self.service = service
         
@@ -53,8 +56,7 @@ final class TicketsViewModel: TicketsViewModelling {
             .bind(to: coordinator.showArrivalsRelay)
             .disposed(by: disposeBag)
         
-        Observable.combineLatest(arrivalRelay, departureRelay, dateSelectionRelay)
-            
+        Observable.combineLatest(arrivalRelay, departureRelay, dateSelection)
             .map {
                 (arrival, departure, date) in
                 guard let arrival = arrival, let departure = departure, let date = date else { return false }
@@ -65,7 +67,7 @@ final class TicketsViewModel: TicketsViewModelling {
         searchActionRelay
             .do(onNext: {[weak self] in self?.activityIndicatorRelay.accept(true)})
             .observe(on: SerialDispatchQueueScheduler(qos: .utility))
-            .withLatestFrom(Observable.combineLatest(arrivalRelay, departureRelay, dateSelectionRelay))
+            .withLatestFrom(Observable.combineLatest(arrivalRelay, departureRelay, dateSelection))
             .filter { $0 != nil && $1 != nil && $2 != nil}
             .flatMapLatest { [service] (arrival, departure, date) -> Observable<TicketResponseModel> in
                 service.networkService.request(request: .tickets(.init(arrival: arrival!, departure: departure!, date: DateFormatter.encodeDate(date: date!))))

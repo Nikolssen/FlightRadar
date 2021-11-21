@@ -60,7 +60,7 @@ final class FlightViewModel: FlightViewModelling {
     }
     
     var isAircraftAvailable: Bool {
-        flightInfo.aircraft?.icao24 != nil
+        flightInfo.aircraft?.registration != nil
     }
     
     var isCompanyAvailable: Bool {
@@ -81,7 +81,7 @@ final class FlightViewModel: FlightViewModelling {
         
         aircraftSelectionRelay
             .compactMap { [weak self] in
-                self?.flightInfo.aircraft?.icao24}
+                self?.flightInfo.aircraft?.registration}
             .bind(to: coordinator.aircraftSelectionRelay)
             .disposed(by: disposeBag)
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AltitudeLegend: UIView {
+final class AltitudeLegend: UIView {
 
     lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()

@@ -44,6 +44,7 @@ final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, 
         hideModalRelay
             .subscribe(onNext: { [weak self] _ in
                 guard let controller = self?.modalController else { return }
+                viewModel.flightRelay.accept(nil)
                 self?.removeModal(controller: controller) })
             .disposed(by: disposeBag)
                 
@@ -81,6 +82,16 @@ final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, 
         
         urlRelay
             .subscribe(onNext: { UIApplication.shared.open($0, options: [:], completionHandler: nil)})
+            .disposed(by: disposeBag)
+        
+        flightDetailsRelay
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                if let modalController = self.modalController {
+                    self.removeModal(controller: modalController)
+                }
+                self.rootViewController.pushViewController(self.flightDetailsController(model: $0), animated: true)
+            })
             .disposed(by: disposeBag)
     }
     
@@ -122,7 +133,7 @@ final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, 
     
     private func aircraftDetailsController(code: String) -> AircraftController {
         let controller = AircraftController(nibName: Constants.aircraftControllerNibName, bundle: nil)
-        let viewModel = AircraftViewModel(coordinator: self, service: service, icao24: code)
+        let viewModel = AircraftViewModel(coordinator: self, service: service, registration: code)
         controller.viewModel = viewModel
         return controller
     }

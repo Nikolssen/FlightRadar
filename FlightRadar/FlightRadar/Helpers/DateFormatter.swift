@@ -26,11 +26,6 @@ extension DateFormatter {
         return formatter
     }()
     
-    static var aircraftDecodingFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        return formatter
-    }()
     
     static var encodingTicketFormatter: DateFormatter  = {
         let formatter = DateFormatter()
@@ -56,7 +51,7 @@ extension DateFormatter {
     }
     
     static func date(from: String?) -> String? {
-        guard let string = from, let date = aircraftDecodingFormatter.date(from: string) else { return nil }
+        guard let string = from, let date = encodingTicketFormatter.date(from: string) else { return nil }
         return dateFormatter.string(from: date)
     }
     

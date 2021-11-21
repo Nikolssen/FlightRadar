@@ -56,7 +56,7 @@ final class TicketsController: UIViewController {
             .disposed(by: disposeBag)
 
         datePicker.rx.date
-            .bind(to: viewModel.dateSelectionRelay)
+            .bind(to: viewModel.dateSelection)
             .disposed(by: disposeBag)
 
         arrivalButton.rx
@@ -109,6 +109,7 @@ final class TicketsController: UIViewController {
         
         datePicker.tintColor = .charcoal
         searchButton.setTitle(Constants.search, for: .normal)
+        
     }
 
 

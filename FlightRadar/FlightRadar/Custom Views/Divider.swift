@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Divider: UIView {
+final class Divider: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

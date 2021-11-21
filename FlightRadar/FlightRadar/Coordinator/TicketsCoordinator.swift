@@ -9,16 +9,19 @@ import UIKit
 import RxSwift
 import RxRelay
 
-final class TicketsCoordinator: Coordinator, ErrorHandler {
+final class TicketsCoordinator: Coordinator, ErrorHandler, AirportSelectionCoordinator, TicketsViewModelCoordinator {
+    
     let viewController: TicketsController
-    let service: Services
+    private let service: Services
     var modalController: AirportSelectionController?
     let showArrivalsRelay:PublishRelay<Void> = .init()
     let showDeparturesRelay: PublishRelay<Void> = .init()
     
     let errorHandlerRelay: PublishRelay<Error> = .init()
     let urlRelay: PublishRelay<URL> = .init()
-    
+    let selectedAirportRelay: PublishRelay<String?> = .init()
+    let dismissalRelay: PublishRelay<Void> = .init()
+    var isArrivalModal: Bool = true
     private let disposeBag: DisposeBag = .init()
     
     func start() { }
@@ -38,20 +41,16 @@ final class TicketsCoordinator: Coordinator, ErrorHandler {
         showArrivalsRelay
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                let viewModel = self.createAndShowModal()
-                viewModel?.selectedAirportRelay
-                    .bind(to: self.viewController.viewModel.arrivalRelay)
-                    .disposed(by: self.disposeBag)
+                self.isArrivalModal = true
+                self.createAndShowModal()
             })
             .disposed(by: disposeBag)
         
         showDeparturesRelay
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                let viewModel = self.createAndShowModal()
-                viewModel?.selectedAirportRelay
-                    .bind(to: self.viewController.viewModel.departureRelay)
-                    .disposed(by: self.disposeBag)
+                self.isArrivalModal = false
+                self.createAndShowModal()
             })
             .disposed(by: disposeBag)
         
@@ -65,15 +64,30 @@ final class TicketsCoordinator: Coordinator, ErrorHandler {
             .subscribe(onNext: { UIApplication.shared.open($0, options: [:], completionHandler: nil)})
             .disposed(by: disposeBag)
         
+        dismissalRelay
+            .subscribe(onNext: { [weak self] in
+                guard let self = self, let modalController = self.modalController else { return }
+                self.removeModal(controller: modalController)
+            })
+            .disposed(by: disposeBag)
+        
+        selectedAirportRelay
+            .filter{ [weak self] _ in self?.isArrivalModal ?? true }
+            .bind(to: viewModel.arrivalRelay)
+            .disposed(by: disposeBag)
+        
+        selectedAirportRelay
+            .filter { [weak self] _ in !(self?.isArrivalModal ?? true) }
+            .bind(to: viewModel.departureRelay)
+            .disposed(by: disposeBag)
     }
     
-    private func createAndShowModal() -> AirportSelectionViewModelling? {
-        guard let mainViewModel = viewController.viewModel else { return nil }
+    private func createAndShowModal() {
         if let modalController = modalController {
             removeModal(controller: modalController)
         }
         let controller = AirportSelectionController(nibName: Constants.airportSelectionControllerNibName, bundle: nil)
-        let viewModel = AirportSelectionViewModel(service: service, viewModel: mainViewModel)
+        let viewModel = AirportSelectionViewModel(service: service, coordinator: self)
         controller.viewModel = viewModel
         modalController = controller
         viewController.addChild(controller)
@@ -81,20 +95,15 @@ final class TicketsCoordinator: Coordinator, ErrorHandler {
         viewController.view.addSubview(controller.view)
         controller.didMove(toParent: viewController)
         
-        viewModel.dismissalRelay
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                self.removeModal(controller: controller)
-            })
-            .disposed(by: disposeBag)
+
             
-        return viewModel
     }
     
     private func removeModal(controller: UIViewController) {
         controller.willMove(toParent: nil)
         controller.view.removeFromSuperview()
         controller.removeFromParent()
+        self.modalController = nil
     }
     
     private enum Constants {

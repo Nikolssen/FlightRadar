@@ -14,18 +14,16 @@ final class AircraftController: BaseViewController {
     @IBOutlet private var collectionView: UICollectionView!
     
     @IBOutlet private var aircraftRegistrationDescriptionLabel: MonochromeLabel!
-    @IBOutlet private var icaoDescriptionLabel: MonochromeLabel!
+    @IBOutlet private var ownerDescriptionLabel: MonochromeLabel!
     @IBOutlet private var enginesDescriptionLabel: MonochromeLabel!
     @IBOutlet private var ageDescriptionLabel: MonochromeLabel!
     @IBOutlet private var firstFlightDescriptionLabel: MonochromeLabel!
-    @IBOutlet private var numberOfSeatsDescriptionLabel: MonochromeLabel!
-    
+
     @IBOutlet private var aircraftRegistrationLabel: MonochromeLabel!
-    @IBOutlet private var icaoLabel: MonochromeLabel!
+    @IBOutlet private var ownerLabel: MonochromeLabel!
     @IBOutlet private var numberOfEnginesLabel: MonochromeLabel!
     @IBOutlet private var ageLabel: MonochromeLabel!
     @IBOutlet private var firstFlightLabel: MonochromeLabel!
-    @IBOutlet private var numberOfSeatsLabel: MonochromeLabel!
     
     var viewModel: AircraftViewModelling!
     
@@ -72,10 +70,10 @@ final class AircraftController: BaseViewController {
             aircraftRegistrationDescriptionLabel.isHidden = false
         }
         
-        if let icaoNumber = viewModel.icaoNumber{
-            icaoLabel.text = icaoNumber
-            icaoDescriptionLabel.isHidden = false
-            icaoLabel.isHidden = false
+        if let icaoNumber = viewModel.owner{
+            ownerLabel.text = icaoNumber
+            ownerDescriptionLabel.isHidden = false
+            ownerLabel.isHidden = false
         }
 
         
@@ -91,11 +89,6 @@ final class AircraftController: BaseViewController {
             firstFlightDescriptionLabel.isHidden = false
         }
         
-        if let numberOfSeats = viewModel.numberOfSeats{
-            numberOfSeatsLabel.text = numberOfSeats
-            numberOfSeatsDescriptionLabel.isHidden = false
-            numberOfSeatsLabel.isHidden = false
-        }
         
         if let age = viewModel.age{
             ageLabel.text = age
@@ -114,53 +107,49 @@ final class AircraftController: BaseViewController {
         titleLabel.isHidden = true
         collectionView.isHidden = true
         aircraftRegistrationDescriptionLabel.isHidden = true
-        icaoDescriptionLabel.isHidden = true
+        ownerDescriptionLabel.isHidden = true
         enginesDescriptionLabel.isHidden = true
         ageDescriptionLabel.isHidden = true
         firstFlightDescriptionLabel.isHidden = true
-        numberOfSeatsDescriptionLabel.isHidden = true
+
         aircraftRegistrationLabel.isHidden = true
-        icaoLabel.isHidden = true
+        ownerLabel.isHidden = true
         numberOfEnginesLabel.isHidden = true
         ageLabel.isHidden = true
         firstFlightLabel.isHidden = true
-        numberOfSeatsLabel.isHidden = true
     }
     
     private func configureAttributes() {
         titleLabel.attributes = TextAttributes.largeMediumAttributes
         aircraftRegistrationDescriptionLabel.text = Constants.aircraftRegistrationDescription
-        icaoDescriptionLabel.text = Constants.aircraftIcaoDescription
+        ownerDescriptionLabel.text = Constants.ownerDescription
         enginesDescriptionLabel.text = Constants.numberOfEnginesDescription
         ageDescriptionLabel.text = Constants.ageDescription
         firstFlightDescriptionLabel.text = Constants.firstFlightDescription
-        numberOfSeatsDescriptionLabel.text = Constants.numberOfSeatsDescription
         
         aircraftRegistrationDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
-        icaoDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+        ownerDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
         enginesDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
         ageDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
         firstFlightDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
-        numberOfSeatsDescriptionLabel.attributes = TextAttributes.averageMediumAttributes
+
         
     
         aircraftRegistrationLabel.attributes = TextAttributes.averageMediumAttributes
-        icaoLabel.attributes = TextAttributes.averageMediumAttributes
+        ownerLabel.attributes = TextAttributes.averageMediumAttributes
         numberOfEnginesLabel.attributes = TextAttributes.averageMediumAttributes
         ageLabel.attributes = TextAttributes.averageMediumAttributes
         firstFlightLabel.attributes = TextAttributes.averageMediumAttributes
-        numberOfSeatsLabel.attributes = TextAttributes.averageMediumAttributes
         
     }
     
 
     private enum Constants {
         static let aircraftRegistrationDescription: String = "Aircraft registration number"
-        static let aircraftIcaoDescription: String = "Aircraft ICAO number"
+        static let ownerDescription: String = "Owner"
         static let numberOfEnginesDescription: String = "Number of Engines"
         static let ageDescription: String = "Age"
         static let firstFlightDescription: String = "First flight"
-        static let numberOfSeatsDescription: String = "Number of seats"
         
         static let cellID: String = "ImageCellID"
     }

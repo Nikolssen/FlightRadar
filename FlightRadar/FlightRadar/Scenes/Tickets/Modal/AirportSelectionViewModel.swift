@@ -11,30 +11,32 @@ import RxSwift
 
 protocol AirportSelectionViewModelling {
     var dismissalRelay: PublishRelay<Void> { get }
-    var dataSourceRelay: PublishRelay<[AirportViewViewModelling]> { get }
+    var dataSourceRelay: BehaviorRelay<[AirportViewViewModelling]> { get }
     var selectedIndexRelay: PublishRelay<Int> { get }
-    var selectedAirportRelay: BehaviorRelay<String?> { get }
 }
 
+protocol AirportSelectionCoordinator: ErrorHandler {
+    var selectedAirportRelay: PublishRelay<String?> { get }
+    var dismissalRelay: PublishRelay<Void> { get }
+}
 
 final class AirportSelectionViewModel: AirportSelectionViewModelling {
     let dismissalRelay: PublishRelay<Void> = .init()
-    let dataSourceRelay: PublishRelay<[AirportViewViewModelling]> = .init()
+    let dataSourceRelay: BehaviorRelay<[AirportViewViewModelling]> = .init(value: [])
     let selectedIndexRelay: PublishRelay<Int> = .init()
-    let selectedAirportRelay: BehaviorRelay<String?> = .init(value: nil)
-    
+    private let coordinator: AirportSelectionCoordinator
     private let disposeBag: DisposeBag = .init()
     private let service: Services
-    weak var viewModel: TicketsViewModelling?
     private let valuesRelay: BehaviorRelay<[AirportModel]> = .init(value: [])
-    init(service: Services, viewModel: TicketsViewModelling) {
+    
+    init(service: Services, coordinator: AirportSelectionCoordinator) {
         self.service = service
-        self.viewModel = viewModel
-        
+        self.coordinator = coordinator
         service
             .persistanceService
             .fetchAirports()
             .observe(on: MainScheduler.instance)
+            .do(onError: {[coordinator] in coordinator.errorHandlerRelay.accept($0)})
             .subscribe(onSuccess: {[valuesRelay] in valuesRelay.accept($0) },
                        onFailure: {[dismissalRelay] _ in dismissalRelay.accept(Void())  })
             .disposed(by: disposeBag)
@@ -48,7 +50,12 @@ final class AirportSelectionViewModel: AirportSelectionViewModelling {
         
         selectedIndexRelay
             .withLatestFrom(valuesRelay) { $1[$0].iata }
-            .bind(to: selectedAirportRelay)
+            .bind(to: coordinator.selectedAirportRelay)
             .disposed(by: disposeBag)
+        
+        dismissalRelay
+            .bind(to: coordinator.dismissalRelay)
+            .disposed(by: disposeBag)
+        
     }
 }

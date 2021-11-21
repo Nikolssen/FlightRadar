@@ -13,8 +13,8 @@ enum APIRequest {
     case airportByFreeText(AirportTextGetModel)
     case airportByLocation(AirportLocationGetModel)
     case company(CompanyGetModel)
-    case aircraft(icao24: String)
-    case aircraftImage(icao24: String)
+    case aircraft(registration: String)
+    case aircraftImage(registration: String)
     case tickets(TicketGetModel)
     
     var path: String {
@@ -27,10 +27,10 @@ enum APIRequest {
             return "https://aerodatabox.p.rapidapi.com/airports/search/location/\(model.lat)/\(model.lon)/km/\(model.radiusKm)/\(model.limit)"
         case .company:
             return "https://iata-and-icao-codes.p.rapidapi.com/airline"
-        case .aircraft(icao24: let icao):
-            return "https://aerodatabox.p.rapidapi.com/aircrafts/icao24/\(icao)"
-        case .aircraftImage(icao24: let icao):
-            return "https://aerodatabox.p.rapidapi.com/aircrafts/reg/\(icao)/image/beta"
+        case .aircraft(registration: let code):
+            return "https://aerodatabox.p.rapidapi.com/aircrafts/reg/\(code)"
+        case .aircraftImage(registration: let code):
+            return "https://aerodatabox.p.rapidapi.com/aircrafts/reg/\(code)/image/beta"
         case .tickets:
             return "https://google-flights-search.p.rapidapi.com/search"
         }

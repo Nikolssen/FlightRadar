@@ -111,7 +111,7 @@ final class AirportCoordinator: Coordinator, AirportSearchCoordinator, AirportDe
     
     private func aircraftDetailsController(code: String) -> AircraftController {
         let controller = AircraftController(nibName: Constants.aircraftControllerNibName, bundle: nil)
-        let viewModel = AircraftViewModel(coordinator: self, service: service, icao24: code)
+        let viewModel = AircraftViewModel(coordinator: self, service: service, registration: code)
         controller.viewModel = viewModel
         return controller
     }

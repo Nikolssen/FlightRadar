@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MonochromeLabel: UILabel {
+final class MonochromeLabel: UILabel {
     
     var attributes: [NSAttributedString.Key : Any] = [:] {
         didSet {
