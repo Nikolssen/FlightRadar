@@ -76,10 +76,10 @@ extension MapController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.mapAnnotationID),
               let liveData = viewModel.flightRelay.value else { return nil }
-        annotationView.image = .airplane?
+        annotationView.image = UIImage.airplane?
             .withRenderingMode(.alwaysTemplate)
-            .imageRotatedByDegrees(degrees: -90 + liveData.direction, flip: false, color: AltitudeHeight.color(for: liveData.altitude / 1000))
-    
+            .imageRotatedByDegrees(degrees: -90 + liveData.direction, flip: false)
+            .colorized(color: AltitudeHeight.color(for: liveData.altitude / 1000))
             
         annotationView.annotation = annotation
         return annotationView

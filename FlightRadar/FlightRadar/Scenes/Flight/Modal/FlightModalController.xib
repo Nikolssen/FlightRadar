@@ -42,20 +42,20 @@
                         <constraint firstAttribute="height" constant="70" id="dNE-TW-Zmp"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-qf-ZnL">
-                    <rect key="frame" x="70" y="139" width="245" height="204"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-qf-ZnL">
+                    <rect key="frame" x="60" y="139" width="265" height="204"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xc7-ma-idS">
-                            <rect key="frame" x="0.0" y="0.0" width="245" height="68"/>
+                            <rect key="frame" x="0.0" y="0.0" width="265" height="68"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-Qf-Lad" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="68"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-Qf-Lad" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Af-zP-L8H" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="68"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Af-zP-L8H" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="132.5" y="0.0" width="132.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -63,16 +63,16 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-Dy-D0f">
-                            <rect key="frame" x="0.0" y="68" width="245" height="68"/>
+                            <rect key="frame" x="0.0" y="68" width="265" height="68"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBf-mV-CjF" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="68"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBf-mV-CjF" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdD-2s-WFg" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="68"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdD-2s-WFg" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="132.5" y="0.0" width="132.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -80,16 +80,16 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pZY-l2-A0v">
-                            <rect key="frame" x="0.0" y="136" width="245" height="68"/>
+                            <rect key="frame" x="0.0" y="136" width="265" height="68"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z3-qo-60V" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="122.5" height="68"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z3-qo-60V" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-N7-vwb" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
-                                    <rect key="frame" x="122.5" y="0.0" width="122.5" height="68"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-N7-vwb" customClass="MonochromeLabel" customModule="FlightRadar" customModuleProvider="target">
+                                    <rect key="frame" x="132.5" y="0.0" width="132.5" height="68"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -105,7 +105,7 @@
                 <constraint firstItem="3dO-B7-iVi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="147" id="8AD-pt-EjJ"/>
                 <constraint firstItem="bKi-qf-ZnL" firstAttribute="top" secondItem="e3V-6p-Cxg" secondAttribute="bottom" constant="30" id="Gvu-5j-UU3"/>
                 <constraint firstItem="3dO-B7-iVi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Lgi-PS-jol"/>
-                <constraint firstItem="bKi-qf-ZnL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="a5Q-Cl-jrj"/>
+                <constraint firstItem="bKi-qf-ZnL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="a5Q-Cl-jrj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bKi-qf-ZnL" secondAttribute="bottom" constant="30" id="bxM-R7-K0j"/>
                 <constraint firstItem="3dO-B7-iVi" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fhu-yg-cxp"/>
                 <constraint firstItem="bKi-qf-ZnL" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="mF4-Qs-RKj"/>

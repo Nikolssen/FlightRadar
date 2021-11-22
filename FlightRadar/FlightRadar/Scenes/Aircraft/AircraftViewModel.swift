@@ -76,7 +76,8 @@ final class AircraftViewModel: AircraftViewModelling {
             .flatMap { [service] _ -> Observable<Aircraft> in
                 service.networkService.request(request: .aircraft(registration: registration))
                 }
-            .observe(on: MainScheduler.instance)
+            .do(onNext: { print($0) })
+            .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: {[weak self] in
                 self?.activityIndicatorRelay.accept(false)
                 self?.modelRelay.accept($0)
@@ -89,9 +90,11 @@ final class AircraftViewModel: AircraftViewModelling {
             .observe(on: SerialDispatchQueueScheduler.init(qos: .utility))
             .flatMap { [service] _ -> Observable<AircraftImage> in
                 service.networkService.request(request: .aircraftImage(registration: registration))}
+            .do(onNext: { print($0) })
             .compactMap { (imageModel: AircraftImage) -> URL? in
                 URL(string: imageModel.url)
             }
+            .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: {[weak self] in
                 self?.urlDataSource.accept([$0])
             }, onError: {error in })

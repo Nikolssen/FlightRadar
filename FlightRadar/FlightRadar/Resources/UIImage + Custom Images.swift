@@ -20,7 +20,7 @@ extension UIImage {
     static let filledStar = UIImage(systemName: "star.fill")
     static let airplane = UIImage(systemName: "airplane")
     
-    func imageRotatedByDegrees(degrees: CGFloat, flip: Bool, color: UIColor) -> UIImage {
+    func imageRotatedByDegrees(degrees: CGFloat, flip: Bool) -> UIImage {
         
         let degreesToRadians: (CGFloat) -> CGFloat = {
             return $0 / 180.0 * CGFloat.pi
@@ -55,11 +55,25 @@ extension UIImage {
         let rect = CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height)
         
         bitmap?.draw(cgImage!, in: rect)
-        let context = UIGraphicsGetCurrentContext()
-        context?.setFillColor(color.cgColor)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return newImage!
     }
+    func colorized(color : UIColor) -> UIImage {
+        guard let cgImage = self.cgImage else { return self }
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height);
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0);
+        let context = UIGraphicsGetCurrentContext();
+        context?.setBlendMode(.copy)
+        context?.draw(cgImage, in: rect)
+        context?.clip(to: rect, mask: cgImage)
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        let colorizedImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return colorizedImage ?? self
+    }
+    
+    
 }

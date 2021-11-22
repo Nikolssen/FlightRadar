@@ -70,7 +70,6 @@ final class FlightViewModel: FlightViewModelling {
     init(coordinator: FlightCoordinator, flightInfo: FlightResponseModel.Data) {
         self.coordinator = coordinator
         self.flightInfo = flightInfo
-        print(flightInfo)
         
         companySelectionRelay
             .compactMap {
