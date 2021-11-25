@@ -12,25 +12,50 @@ protocol LocationService {
     var currentLocation: CLLocationCoordinate2D? { get }
     func distance(from coordinates: (latitude: Double, longitude: Double)) -> Double?
     func distance(from coordinates: CLLocationCoordinate2D) -> Double?
+    
 }
 final class LocationManager: NSObject, LocationService, CLLocationManagerDelegate {
-    
+    private var statusCallback: ((CLAuthorizationStatus) -> Void)?
     private lazy var manager = CLLocationManager()
     
     override init() {
         super.init()
-        manager.startUpdatingLocation()
+        requestLocationAuthorization()
     }
     
     var currentLocation: CLLocationCoordinate2D? {
         manager.location?.coordinate
     }
+    
     func distance(from coordinates: (latitude: Double, longitude: Double)) -> Double? {
         let coordinate = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
         return distance(from: coordinate)
     }
+    
     func distance(from coordinates: CLLocationCoordinate2D) -> Double? {
         return coordinates.areCoordinatesValid ? manager.location?.distance(from: CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)) : nil
+    }
+    
+    private func requestLocationAuthorization() {
+        guard CLLocationManager.authorizationStatus() == .notDetermined else {
+            manager.startUpdatingLocation()
+            return }
+        
+        if #available(iOS 13.4, *) {
+            self.statusCallback = { [weak self] status in
+                if status == .authorizedWhenInUse {
+                    self?.manager.requestAlwaysAuthorization()
+                }
+            }
+            self.manager.requestWhenInUseAuthorization()
+        } else {
+            self.manager.requestAlwaysAuthorization()
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+            statusCallback?(status)
+            manager.startUpdatingLocation()
+        }
     }
 }
 
