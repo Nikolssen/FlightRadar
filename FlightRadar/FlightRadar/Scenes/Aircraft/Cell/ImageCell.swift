@@ -9,7 +9,7 @@ import UIKit
 import RxNuke
 import RxSwift
 import Nuke
-class ImageCell: UICollectionViewCell {
+final class ImageCell: UICollectionViewCell {
 
     @IBOutlet private var imageView: UIImageView!
     private var disposeBag = DisposeBag()
@@ -34,6 +34,7 @@ class ImageCell: UICollectionViewCell {
     
     func configure(with url: URL) {
         ImagePipeline.shared.rx.loadImage(with: url)
+            .observe(on: MainScheduler.asyncInstance)
             .subscribe(onSuccess: {[weak self] in self?.imageView.image = $0.image})
             .disposed(by: disposeBag)
     }

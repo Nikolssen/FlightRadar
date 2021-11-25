@@ -33,6 +33,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rgo-5s-hDe">
                     <rect key="frame" x="0.0" y="384" width="414" height="150"/>
+                    <color key="backgroundColor" name="Athens Gray"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="eSW-s8-SxQ"/>
                     </constraints>

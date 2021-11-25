@@ -38,7 +38,7 @@ final class AircraftController: BaseViewController {
             .bind(onNext: configure)
             .disposed(by: disposeBag)
         
-        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: Constants.cellID)
+        collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: Constants.cellID)
         
         viewModel.urlDataSource
             .filter{ !$0.isEmpty }
