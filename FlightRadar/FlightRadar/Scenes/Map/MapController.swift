@@ -18,6 +18,7 @@ final class MapController: UIViewController {
         view.isZoomEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: Constants.mapAnnotationID)
+        view.isRotateEnabled = false
         return view
     }()
     
@@ -45,7 +46,7 @@ final class MapController: UIViewController {
                     self?.mapView.removeAnnotation(annotation)
                 }
                 guard let value = $0 else { return }
-                self?.mapView.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude), latitudinalMeters: 200_000, longitudinalMeters: 200_000)
+                self?.mapView.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude), latitudinalMeters: Constants.mapDiameter, longitudinalMeters: Constants.mapDiameter)
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude)
                 self?.annotation = annotation
@@ -60,15 +61,20 @@ final class MapController: UIViewController {
             mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            legend.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            legend.widthAnchor.constraint(equalToConstant: 20),
-            legend.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            legend.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            legend.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constants.legendInset),
+            legend.widthAnchor.constraint(equalToConstant: Constants.legendWidth),
+            legend.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.legendInset),
+            legend.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: Constants.legendMultiplier, constant: Constants.legendRatioConstant)
         ])
     }
 
     private enum Constants {
         static let mapAnnotationID: String = "MapID"
+        static let legendWidth: CGFloat = 20
+        static let legendMultiplier: CGFloat = 0.5
+        static let legendInset: CGFloat = 20
+        static let legendRatioConstant: CGFloat = -40
+        static let mapDiameter: CLLocationDistance = 200_000
     }
 }
 
