@@ -20,7 +20,7 @@ struct PromoView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 80, style: .continuous))
-                .modifier(NeomorhicShadow())
+                .modifier(NeomorphicShadow())
                 .padding()
             
             Text(viewModel.bottomText)

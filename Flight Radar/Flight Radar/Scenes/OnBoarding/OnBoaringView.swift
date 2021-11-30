@@ -31,7 +31,7 @@ struct OnBoaringView: View {
                         .font(.oswaldMedium(size: 36))
                         .lineLimit(2)
                         .foregroundColor(.charcoal)
-                        .modifier(NeomorhicShadow())
+                        .modifier(NeomorphicShadow())
                     
                     TabView(selection: $selectedIndex) {
                         ForEach(viewModel.promoViewModels) {

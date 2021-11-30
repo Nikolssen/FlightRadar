@@ -30,7 +30,7 @@ struct CompanyView: View {
         .padding(15)
         .background(Color.athensGray)
         .clipShape(Capsule(style: .continuous))
-        .modifier(NeomorhicShadow())
+        .modifier(NeomorphicShadow())
         
 
     }

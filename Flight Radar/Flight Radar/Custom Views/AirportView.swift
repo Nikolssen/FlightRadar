@@ -44,7 +44,7 @@ struct AirportView: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.whiteLiliac)
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-        .modifier(NeomorhicShadow())
+        .modifier(NeomorphicShadow())
         .opacity(opacity)
         .onAppear {
             if allowFadedAppearence {

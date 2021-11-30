@@ -15,17 +15,17 @@ struct SearchField: View {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 26).bold())
                 .foregroundColor(.sanMarino)
-                .modifier(NeomorhicShadow())
+                .modifier(NeomorphicShadow())
             PackedTextField(text: $text, placeholder: placeholder)
                 .foregroundColor(.sanMarino)
                 .font(.gnuolane(size: 26))
                 .accentColor(.sanMarino)
-                .modifier(NeomorhicShadow())
+                .modifier(NeomorphicShadow())
         }
         .padding()
         .background(Color.whiteLiliac)
         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-        .modifier(NeomorhicShadow())
+        .modifier(NeomorphicShadow())
         .padding()
         
         

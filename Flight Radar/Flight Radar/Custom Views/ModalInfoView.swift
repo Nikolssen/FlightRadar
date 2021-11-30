@@ -28,7 +28,7 @@ struct ModalInfoView: View {
                 Text("Belavia")
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
-            .modifier(NeomorhicShadow())
+            .modifier(NeomorphicShadow())
             .font(.oswaldMedium(size: 18))
             .foregroundColor(.charcoal)
             
@@ -38,7 +38,7 @@ struct ModalInfoView: View {
                 Text("Belavia")
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
-            .modifier(NeomorhicShadow())
+            .modifier(NeomorphicShadow())
             .font(.oswaldMedium(size: 18))
             .foregroundColor(.charcoal)
             HStack(spacing: 20) {
@@ -47,7 +47,7 @@ struct ModalInfoView: View {
                 Text("Belavia")
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
-            .modifier(NeomorhicShadow())
+            .modifier(NeomorphicShadow())
             .font(.oswaldMedium(size: 18))
             .foregroundColor(.charcoal)
         }

@@ -19,7 +19,7 @@ struct TabBarView: View {
         .padding(Constants.paddingValue)
         .background(Color.whiteLiliac)
         .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
-        .modifier(NeomorhicShadow())
+        .modifier(NeomorphicShadow())
         .padding(.horizontal)
     }
     
@@ -49,7 +49,7 @@ struct TabBarButton: View {
                 
                     .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
                     .frame(width: Constants.externalShadowSize, height: Constants.externalShadowSize, alignment: .center)
-                    .modifier(NeomorhicShadow())
+                    .modifier(NeomorphicShadow())
                     .opacity(selectedTab == index ? Constants.zeroOpacity : Constants.fullOpacity)
                 
                 

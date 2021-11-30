@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NeomorhicShadow: ViewModifier {
+struct NeomorphicShadow: ViewModifier {
     func body(content: Content) -> some View {
         content
             .shadow(color: .charcoal.opacity(0.4), radius: 4, x: 5, y: 5)

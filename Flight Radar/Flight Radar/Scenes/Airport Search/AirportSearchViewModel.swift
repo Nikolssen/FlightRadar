@@ -39,13 +39,12 @@ class AirportSearchViewModel: ObservableObject {
             .removeDuplicates()
             .assign(to: &$buttonTitle)
         
-        
         let searchAction = buttonAction
             .throttle(for: 0.5, scheduler: RunLoop.main, latest: false)
             .setFailureType(to: Never.self)
             .withLatestFrom(isTextEmptyPublisher)
             .share()
-        
+
         searchAction
             .filter { !$0 }
             .withLatestFrom($searchText)
@@ -60,12 +59,12 @@ class AirportSearchViewModel: ObservableObject {
                 self?.process(result: $0.result)
             }
             .store(in: &subscriptions)
-        
+
         let locationSearchAction = searchAction
             .filter { $0 }
             .map { [locationManager] _ in locationManager.currentLocation}
             .share()
-        
+
         locationSearchAction
             .compactMap { $0 }
             .receive(on: DispatchQueue.global(qos: .utility))
@@ -78,11 +77,11 @@ class AirportSearchViewModel: ObservableObject {
                 self?.process(result: $0.result)
             }
             .store(in: &subscriptions)
-        
+
         locationSearchAction
             .filter { $0 == nil }
             .sink { _ in
-                
+
             }
             .store(in: &subscriptions)
         

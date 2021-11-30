@@ -29,13 +29,13 @@ struct FlightInfoView: View {
                     .font(.oswaldLight(size: 18))
             }
             .padding(5)
-            .modifier(NeomorhicShadow())
+            .modifier(NeomorphicShadow())
             
             Spacer()
             
             Text(viewModel.flightTime)
                 .font(.oswaldMedium(size: 18))
-                .modifier(NeomorhicShadow())
+                .modifier(NeomorphicShadow())
             Spacer()
             VStack {
                 Text(viewModel.destinationCode)
@@ -44,7 +44,7 @@ struct FlightInfoView: View {
                     .font(.oswaldLight(size: 18))
             }
             .padding(5)
-            .modifier(NeomorhicShadow())
+            .modifier(NeomorphicShadow())
             
         }
         .foregroundColor(.charcoal)
@@ -53,7 +53,7 @@ struct FlightInfoView: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.whiteLiliac)
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .modifier(NeomorhicShadow())
+        .modifier(NeomorphicShadow())
     }
 }
 
