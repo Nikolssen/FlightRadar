@@ -38,7 +38,8 @@ final class MapCoordinator: Coordinator, FlightCoordinator, CompanyCoordinator, 
                 guard let controller = self?.modalController else { return }
                 self?.removeModal(controller: controller)
             })
-            .bind(onNext: showModalController(with:))
+                .bind(onNext: { [weak self]  in
+                    self?.showModalController(with: $0)} )
                 .disposed(by: disposeBag)
                 
         hideModalRelay

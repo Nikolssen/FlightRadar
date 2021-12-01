@@ -31,7 +31,7 @@ final class CompanyController: BaseViewController {
         
         viewModel
             .updateRelay
-            .bind(onNext: configure)
+            .subscribe(onNext: { [weak self] in  self?.configure() })
             .disposed(by: disposeBag)
         
         linkButton.rx
