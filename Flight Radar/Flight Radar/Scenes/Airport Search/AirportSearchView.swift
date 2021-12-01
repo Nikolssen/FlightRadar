@@ -59,9 +59,3 @@ private extension AirportSearchView {
         static let placeholder: LocalizedStringKey = "airportsearch_placeholder"
     }
 }
-
-//struct SearchView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AirportSearchView(viewModel: )
-//    }
-//}

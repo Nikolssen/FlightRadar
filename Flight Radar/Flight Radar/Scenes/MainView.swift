@@ -12,26 +12,13 @@ struct MainView: View {
     var body: some View {
 
         ZStack {
-            //            Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 50), latitudinalMeters: 30000, longitudinalMeters: 30000)))
-            //                .edgesIgnoringSafeArea([.all])
-            
-            VStack {
-                VStack(spacing: 0) {
-                AirportSearchView(viewModel: AirportSearchViewModel())
-                    .padding(.top, 20)
-                    Divider()
-                }
-                    TabBarView(selectedTab: $selectedTab)
-                        .padding(.bottom, 30)
 
+            TabBarContainerView(selectedTab: $selectedTab)
+                .padding(.bottom, 30)
                 
             }
-            
             .background(Color.athensGray)
             .ignoresSafeArea(.container, edges: .bottom)
-            
-            
-        }
         
     }
 }
