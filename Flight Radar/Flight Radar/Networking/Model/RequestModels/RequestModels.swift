@@ -8,15 +8,38 @@
 import Foundation
 
 struct FlightGetModel: Encodable {
+    
+    init(departureCode: String? = nil, arrivalCode: String? = nil) {
+        self.departureCode = departureCode
+        self.arrivalCode = arrivalCode
+    }
+    
     enum CodingKeys: String, CodingKey {
         case accessKey = "access_key"
+        case departureCode = "dep_iata"
+        case arrivalCode = "arr_iata"
     }
     
     let accessKey = APIKey.aviationStackKey
+    let departureCode: String?
+    let arrivalCode: String?
 }
 
 struct AirportTextGetModel: Encodable {
     let q: String
+    
+}
+
+struct TicketGetModel: Encodable {
+    let arrival: String
+    let departure: String
+    let date: String
+    
+    enum CodingKeys: String, CodingKey {
+        case arrival = "arrival_airport_code"
+        case departure = "departure_airport_code"
+        case date = "departure_date"
+    }
     
 }
 
@@ -39,6 +62,6 @@ struct CompanyGetModel: Encodable {
 extension Encodable {
   var dictionary: [String: Any]? {
     guard let data = try? JSONEncoder().encode(self) else { return nil }
-    return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+      return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }?.compactMapValues { $0 }
   }
 }
