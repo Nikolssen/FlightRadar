@@ -10,23 +10,29 @@ import SwiftUI
 struct TabBarContainerView: View {
     @Binding var selectedTab: Int
     var body: some View {
-        VStack {
-            switch selectedTab {
-            case 0:
-                AirportSearchView(viewModel: AirportSearchViewModel())
-            case 1:
-                MapView()
-            case 2:
-                Color.sanMarino
-            case 3:
-                ActivityView()
-            default:
-                EmptyView()
+        ZStack {
+            Color.whiteLiliac
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                VStack(spacing: 0) {
+                    switch selectedTab {
+                    case 0:
+                        AirportSearchView(viewModel: AirportSearchViewModel())
+                    case 1:
+                        MapView()
+                    case 2:
+                        Color.sanMarino
+                    case 3:
+                        ActivityView()
+                    default:
+                        EmptyView()
+                    }
+                    Divider()
+                }
+                TabBarView(selectedTab: $selectedTab)
             }
-            Divider()
-            TabBarView(selectedTab: $selectedTab)
+            .padding(.vertical, 30)
         }
-
     }
 }
 

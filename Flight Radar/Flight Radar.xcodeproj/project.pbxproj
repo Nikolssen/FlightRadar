@@ -37,6 +37,8 @@
 		3F7772AF2722E2D700773C8E /* AirportInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7772AE2722E2D700773C8E /* AirportInfoView.swift */; };
 		3F7772B12722EF1500773C8E /* AirportDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7772B02722EF1500773C8E /* AirportDetailsViewModel.swift */; };
 		3F7772B42722FAD900773C8E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7772B32722FAD900773C8E /* MapView.swift */; };
+		3F9016652758C5EA00FF0505 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9016632758C5EA00FF0505 /* NumberFormatter.swift */; };
+		3F9016662758C5EA00FF0505 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9016642758C5EA00FF0505 /* DateFormatter.swift */; };
 		3F9106752721685B00C9FB96 /* AirportSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9106742721685B00C9FB96 /* AirportSearchViewModel.swift */; };
 		3F91067727218E1D00C9FB96 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91067627218E1D00C9FB96 /* LocationManager.swift */; };
 		3F9106792721A06E00C9FB96 /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9106782721A06E00C9FB96 /* AirportModel.swift */; };
@@ -92,6 +94,8 @@
 		3F7772AE2722E2D700773C8E /* AirportInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportInfoView.swift; sourceTree = "<group>"; };
 		3F7772B02722EF1500773C8E /* AirportDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsViewModel.swift; sourceTree = "<group>"; };
 		3F7772B32722FAD900773C8E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3F9016632758C5EA00FF0505 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		3F9016642758C5EA00FF0505 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		3F9106742721685B00C9FB96 /* AirportSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchViewModel.swift; sourceTree = "<group>"; };
 		3F91067627218E1D00C9FB96 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3F9106782721A06E00C9FB96 /* AirportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportModel.swift; sourceTree = "<group>"; };
@@ -231,6 +235,24 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		3F9016622758C5EA00FF0505 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3F9016632758C5EA00FF0505 /* NumberFormatter.swift */,
+				3F9016642758C5EA00FF0505 /* DateFormatter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3F9016672758CDB700FF0505 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3FB03994271EE69F00276FB3 /* Networking */,
+				3F91067627218E1D00C9FB96 /* LocationManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		3F910646272157FE00C9FB96 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,7 +322,8 @@
 		3FF00460271847CC00404C7A /* Flight Radar */ = {
 			isa = PBXGroup;
 			children = (
-				3FB03994271EE69F00276FB3 /* Networking */,
+				3F9016672758CDB700FF0505 /* Service */,
+				3F9016622758C5EA00FF0505 /* Helpers */,
 				3F6CFA5E271EA2B2006A6134 /* SwiftUI Extension + Modifier */,
 				3F2A2F19271D77C3007276E1 /* Scenes */,
 				3FF004802718666500404C7A /* Custom Views */,
@@ -310,7 +333,6 @@
 				3FF0046F27184AB400404C7A /* Flight-Radar-Info.plist */,
 				3FF00461271847CC00404C7A /* Flight_RadarApp.swift */,
 				3FF00467271847CE00404C7A /* Preview Content */,
-				3F91067627218E1D00C9FB96 /* LocationManager.swift */,
 			);
 			path = "Flight Radar";
 			sourceTree = "<group>";
@@ -453,6 +475,7 @@
 				3F31C37E27575FDE0047BCCA /* FlightViewViewModel.swift in Sources */,
 				3F31C37B275759000047BCCA /* AircraftImage.swift in Sources */,
 				3FF00484271874C200404C7A /* PromoView.swift in Sources */,
+				3F9016662758C5EA00FF0505 /* DateFormatter.swift in Sources */,
 				3F647940272690BC00CA4075 /* AirportViewViewModel.swift in Sources */,
 				3FF004762718535E00404C7A /* Fonts.swift in Sources */,
 				3F31C37A275759000047BCCA /* TicketModel.swift in Sources */,
@@ -461,6 +484,7 @@
 				3F7772B12722EF1500773C8E /* AirportDetailsViewModel.swift in Sources */,
 				3FB03996271EE6B600276FB3 /* APIKey.swift in Sources */,
 				3F2A2F12271D6B52007276E1 /* PromoViewModel.swift in Sources */,
+				3F9016652758C5EA00FF0505 /* NumberFormatter.swift in Sources */,
 				3F6A18C627204FBB00A673D6 /* AirportView.swift in Sources */,
 				3F6A18C32720394600A673D6 /* CorneredRectangle.swift in Sources */,
 				3F6A18BB271FFDDC00A673D6 /* NeomorphicShadow.swift in Sources */,

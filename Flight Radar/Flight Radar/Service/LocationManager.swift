@@ -31,9 +31,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     private func requestLocationAuthorization() {
-        guard CLLocationManager.authorizationStatus() == .notDetermined else {
-            manager.startUpdatingLocation()
-            return }
+        manager.startUpdatingLocation()
         
         if #available(iOS 13.4, *) {
             self.statusCallback = { [weak self] status in

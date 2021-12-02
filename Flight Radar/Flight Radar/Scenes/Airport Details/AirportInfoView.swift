@@ -23,8 +23,8 @@ struct AirportDetailsView: View {
     }
 }
 
-//struct AirportDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AirportDetailsView()
-//    }
-//}
+struct AirportDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        AirportDetailsView()
+    }
+}

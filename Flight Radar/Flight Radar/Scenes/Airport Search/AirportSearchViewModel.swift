@@ -32,7 +32,7 @@ class AirportSearchViewModel: ObservableObject {
         let isTextEmptyPublisher = $searchText
             .removeDuplicates()
             .map { $0.isEmpty }
-            .share()
+            .share(replay: 1)
         
         isTextEmptyPublisher
             .map { $0 ? Constants.searchNearestTitle : Constants.searchTitle }
@@ -50,10 +50,11 @@ class AirportSearchViewModel: ObservableObject {
             .withLatestFrom($searchText)
             .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMapLatest{ [repo] (query) -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, DataResponsePublisher<AirportResponseModel>.Failure> in
+            .flatMapLatest{ [repo] (query) -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, Never> in
                 repo.genericRequest(request: .airportByFreeText(AirportTextGetModel(q: query)))
             }
             .receive(on: DispatchQueue.main)
+            .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = false })
             .sink {
                 [weak self] in
                 self?.process(result: $0.result)
@@ -67,11 +68,13 @@ class AirportSearchViewModel: ObservableObject {
 
         locationSearchAction
             .compactMap { $0 }
+            .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMapLatest { [repo] location -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, DataResponsePublisher<AirportResponseModel>.Failure> in
+            .flatMapLatest { [repo] location -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, Never> in
                 repo.genericRequest(request: .airportByLocation(AirportLocationGetModel(lat: location.latitude, lon: location.longitude)))
             }
             .receive(on: DispatchQueue.main)
+            .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = false })
             .sink {
                 [weak self] in
                 self?.process(result: $0.result)

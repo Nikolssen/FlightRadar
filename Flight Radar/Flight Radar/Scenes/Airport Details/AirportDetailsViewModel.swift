@@ -13,7 +13,10 @@ import MapKit
 class AirportDetailsViewModel: ObservableObject {
     private let airport: AirportModel
     @Published var region: MKCoordinateRegion?
-    
+    @Published var coordinate: CLLocationCoordinate2D?
+    @Published var departures: [FlightResponseModel.Data] = []
+    @Published var arrivals: [FlightResponseModel.Data] = []
+    @Published var selectedIndex: Int = 0
     
     init(airport: AirportModel) {
         self.airport = airport

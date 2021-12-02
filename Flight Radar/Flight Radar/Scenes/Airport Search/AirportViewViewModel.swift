@@ -20,14 +20,14 @@ struct AirportViewViewModel {
     
     init(model: AirportModel, using locationManager: LocationManager, index: Int) {
         self.name = model.name ?? "Unnamed Airport"
-        self.abbreviations = [model.icao, model.iata].compactMap{ $0 }.joined(separator: "/")
-        if let location = model.location, let distance = locationManager.distance(from: CLLocationCoordinate2D(latitude: location.lat, longitude: location.lon)) {
-            self.distance = "\(distance / 1000) KM"
-        }
-        else {
-            self.distance = ""
-        }
         self.index = index
+        self.abbreviations = [model.icao, model.iata].compactMap{ $0 }.joined(separator: "/")
+        guard let location = model.location, let distance = locationManager.distance(from: (latitude: location.lat, longitude: location.lon)), let value = NumberFormatter.round(number: distance / 1000) else {
+            self.distance = ""
+            return
+        }
+        self.distance = value + Constants.kilometers
+        
     }
     
     init(distance: String, name: String, abbreviations: String, index: Int) {
@@ -40,7 +40,7 @@ struct AirportViewViewModel {
     
     private enum Constants {
         static let unnamedAirport: LocalizedStringKey = "airportsearch_unnamed_airport"
-        static let kilometers: LocalizedStringKey = "km"
+        static let kilometers: String = "km"
     }
 }
 

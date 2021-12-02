@@ -10,15 +10,8 @@ import MapKit
 struct MainView: View {
     @State var selectedTab: Int = 0
     var body: some View {
-
-        ZStack {
-
-            TabBarContainerView(selectedTab: $selectedTab)
-                .padding(.bottom, 30)
-                
-            }
-            .background(Color.athensGray)
-            .ignoresSafeArea(.container, edges: .bottom)
+            
+        TabBarContainerView(selectedTab: $selectedTab)                
         
     }
 }
