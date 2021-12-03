@@ -16,8 +16,8 @@ class AirportSearchViewModel: ObservableObject {
     @Published var airportViewModels: [AirportViewViewModel] = .init()
     @Published var shouldShowSpinner: Bool = false
     @Published var alertViewModel: AlertViewModel?
-    
-    private var airports: [AirportModel] = .init()
+    @Published var selectedIndex: Int?
+    var airports: [AirportModel] = .init()
     
     let buttonAction: PassthroughSubject<Void, Never> = .init()
     
@@ -87,14 +87,17 @@ class AirportSearchViewModel: ObservableObject {
 
             }
             .store(in: &subscriptions)
-        
+        $selectedIndex
+            .print("Selected")
+            .sink(receiveValue: {_ in })
+            .store(in: &subscriptions)
     }
     
     
     func process(result: Result<AirportResponseModel, AFError>){
         switch result {
         case .failure(let error):
-            alertViewModel = AlertViewModel(id: 0, title: "Error", description: error.localizedDescription)
+            //alertViewModel = AlertViewModel(id: 0, title: "Error", description: error.localizedDescription)
             break
         case .success(let values):
             self.airports = values.items
@@ -104,7 +107,7 @@ class AirportSearchViewModel: ObservableObject {
             }
             self.airportViewModels = airportViewModels
             if airportViewModels.isEmpty {
-                alertViewModel = AlertViewModel(id: 1, title: "No data", description: "Failed to provide information that satisfies your request.")
+                //alertViewModel = AlertViewModel(id: 1, title: "No data", description: "Failed to provide information that satisfies your request.")
             }
         }
         shouldShowSpinner = false

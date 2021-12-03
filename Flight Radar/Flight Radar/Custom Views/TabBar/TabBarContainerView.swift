@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBarContainerView: View {
     @Binding var selectedTab: Int
+    var airportSearchViewModel: AirportSearchViewModel = .init()
     var body: some View {
         ZStack {
             Color.whiteLiliac
@@ -17,13 +18,11 @@ struct TabBarContainerView: View {
                 VStack(spacing: 0) {
                     switch selectedTab {
                     case 0:
-                        AirportSearchView(viewModel: AirportSearchViewModel())
+                        AirportSearchView(viewModel: airportSearchViewModel)
                     case 1:
                         MapView()
                     case 2:
-                        Color.sanMarino
-                    case 3:
-                        ActivityView()
+                        TicketSearchView()
                     default:
                         EmptyView()
                     }

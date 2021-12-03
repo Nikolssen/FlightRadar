@@ -11,10 +11,9 @@ struct TabBarView: View {
     @Binding var selectedTab: Int
     var body: some View {
         HStack(spacing: .zero) {
-            TabBarButton(image: Image("map"), index: 0, selectedTab: $selectedTab)
-            TabBarButton(image: Image("compass"), index: 1, selectedTab: $selectedTab)
-            TabBarButton(image: Image("hourglass"), index: 2, selectedTab: $selectedTab)
-            TabBarButton(image: .airport, index: 3, selectedTab: $selectedTab)
+            TabBarButton(image: .airport, index: 0, selectedTab: $selectedTab)
+            TabBarButton(image: Image("map"), index: 1, selectedTab: $selectedTab)
+            TabBarButton(image: Image("compass"), index: 2, selectedTab: $selectedTab)
         }
         .padding(Constants.paddingValue)
         .background(Color.whiteLiliac)

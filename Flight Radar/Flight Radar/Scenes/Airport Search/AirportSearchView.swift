@@ -9,12 +9,16 @@ import SwiftUI
 
 struct AirportSearchView: View {
     @ObservedObject var viewModel: AirportSearchViewModel
-    
+    @State var navigation: Bool = false
     let column = [GridItem(.flexible(maximum: .infinity))]
     
     var body: some View {
         ZStack {
-            
+            NavigationLink("Airport", isActive: $navigation, destination: {
+                if let index = viewModel.selectedIndex, viewModel.airports.count > index { AirportDetailsView(viewModel: .init(airport: viewModel.airports[index])) }
+                else {
+                    EmptyView() }
+            })
             Color.athensGray
                 .ignoresSafeArea()
             VStack(spacing: 0) {
@@ -39,8 +43,13 @@ struct AirportSearchView: View {
                 else {
                     ScrollView{
                         LazyVGrid(columns: column, alignment: .center, spacing: 20) {
-                            ForEach(viewModel.airportViewModels, id: \.index) {
-                                AirportView(viewModel: $0, allowFadedAppearence: true)
+                            ForEach(viewModel.airportViewModels, id: \.index) { cellModel in
+                                
+                                AirportView(viewModel: cellModel, allowFadedAppearence: true)
+                                    .onTapGesture {
+                                        viewModel.selectedIndex = cellModel.index
+                                        navigation = true
+                                    }
                             }
                         }
                         .padding()
@@ -48,7 +57,7 @@ struct AirportSearchView: View {
                 }
                 
             }
-            .modifier(HidesKeyboardOnTap())
+//            .modifier(HidesKeyboardOnTap())
         }
         
     }

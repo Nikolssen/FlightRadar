@@ -13,9 +13,12 @@ struct AirportDetailsView: View {
     
     var body: some View {
         VStack {
-//            AirportView()
-//                .padding()
+            AirportView(viewModel: viewModel.airportViewViewModel, allowFadedAppearence: false)
+                .padding()
             Divider()
+            //LazyHGrid
+            //Map
+            //LazyVGrid
             Spacer()
             
         }
@@ -25,6 +28,6 @@ struct AirportDetailsView: View {
 
 struct AirportDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        AirportDetailsView()
+        AirportDetailsView(viewModel: .init(airport: .init(icao: "MSQ", iata: "UUAE", name: "Minsk International", municipalityName: "Minsk", latitude: 35, longitude: 54)))
     }
 }

@@ -17,7 +17,9 @@ class AirportDetailsViewModel: ObservableObject {
     @Published var departures: [FlightResponseModel.Data] = []
     @Published var arrivals: [FlightResponseModel.Data] = []
     @Published var selectedIndex: Int = 0
-    
+    var airportViewViewModel: AirportViewViewModel {
+        AirportViewViewModel(model: airport, using: LocationManager(), index: 0)
+    }
     init(airport: AirportModel) {
         self.airport = airport
         if let location = airport.location{
