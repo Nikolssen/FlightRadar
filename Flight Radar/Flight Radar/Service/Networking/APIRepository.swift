@@ -9,8 +9,12 @@ import Combine
 import Alamofire
 import CombineExt
 
-class APIRepository {
-    func genericRequest<ResponseModel: Decodable>(request: APIRequest) -> AnyPublisher<DataResponsePublisher<ResponseModel>.Output, Never>  {
+protocol NetworkService {
+    func genericRequest<ResponseModel: Decodable>(request: APIRequest) -> AnyPublisher<DataResponse<ResponseModel, AFError>, Never>
+}
+
+class APIRepository: NetworkService {
+    func genericRequest<ResponseModel: Decodable>(request: APIRequest) -> AnyPublisher<DataResponse<ResponseModel, AFError>, Never>  {
         return AF.request(request.path, method: .get, parameters: request.parameters, encoding: URLEncoding.queryString, headers: request.headers)
             .cURLDescription {  print($0) }
             .publishDecodable(type: ResponseModel.self, queue: .global(qos: .utility), preprocessor: PassthroughPreprocessor(), decoder: JSONDecoder(), emptyResponseCodes: [], emptyResponseMethods: [])

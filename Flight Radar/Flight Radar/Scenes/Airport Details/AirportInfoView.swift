@@ -16,7 +16,35 @@ struct AirportDetailsView: View {
             AirportView(viewModel: viewModel.airportViewViewModel, allowFadedAppearence: false)
                 .padding()
             Divider()
-            //LazyHGrid
+            LazyHGrid(rows: [.init(.flexible())], spacing: 40) {
+                ForEach(viewModel.optionCellViewModels, id: \.index) { cellViewModel in
+                    OptionCell(viewModel: cellViewModel, isSelected: cellViewModel.index == viewModel.selectedIndex)
+                        .onTapGesture {
+                            viewModel.selectedIndex = cellViewModel.index
+                        }
+                        
+                }
+            }
+            .frame(maxWidth: .infinity ,maxHeight: 30, alignment: .top)
+            
+            switch viewModel.selectedIndex {
+            case 0:
+                EmptyView()
+            case 1, 2:
+                if viewModel.shouldShowSpinner {
+                    ActivityView(isAnimating: true)
+                }
+                else {
+                    LazyVGrid(columns: [GridItem(.flexible(maximum: .infinity))]) {
+                        ForEach(viewModel.dataSource, id: \.index) {
+                            flightViewViewModel in
+                            FlightView(viewModel: flightViewViewModel)
+                        }
+                    }
+                }
+            default:
+                EmptyView()
+            }
             //Map
             //LazyVGrid
             Spacer()

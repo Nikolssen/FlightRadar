@@ -8,7 +8,13 @@
 import Foundation
 import CoreLocation
 
-final class LocationManager: NSObject, CLLocationManagerDelegate {
+protocol LocationService {
+    func distance(from coordinates: CLLocationCoordinate2D) -> Double?
+    func distance(from coordinates: (latitude: Double, longitude: Double)) -> Double?
+    var currentLocation: CLLocationCoordinate2D? { get }
+}
+
+final class LocationManager: NSObject, CLLocationManagerDelegate, LocationService {
     private var statusCallback: ((CLAuthorizationStatus) -> Void)?
     private lazy var manager = CLLocationManager()
     

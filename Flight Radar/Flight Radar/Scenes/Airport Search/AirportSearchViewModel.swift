@@ -15,7 +15,6 @@ class AirportSearchViewModel: ObservableObject {
     @Published var buttonTitle: LocalizedStringKey = Constants.searchNearestTitle
     @Published var airportViewModels: [AirportViewViewModel] = .init()
     @Published var shouldShowSpinner: Bool = false
-    @Published var alertViewModel: AlertViewModel?
     @Published var selectedIndex: Int?
     var airports: [AirportModel] = .init()
     
@@ -97,7 +96,7 @@ class AirportSearchViewModel: ObservableObject {
     func process(result: Result<AirportResponseModel, AFError>){
         switch result {
         case .failure(let error):
-            //alertViewModel = AlertViewModel(id: 0, title: "Error", description: error.localizedDescription)
+
             break
         case .success(let values):
             self.airports = values.items
@@ -107,7 +106,7 @@ class AirportSearchViewModel: ObservableObject {
             }
             self.airportViewModels = airportViewModels
             if airportViewModels.isEmpty {
-                //alertViewModel = AlertViewModel(id: 1, title: "No data", description: "Failed to provide information that satisfies your request.")
+
             }
         }
         shouldShowSpinner = false

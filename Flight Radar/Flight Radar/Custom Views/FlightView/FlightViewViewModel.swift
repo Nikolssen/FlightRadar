@@ -12,4 +12,5 @@ struct FlightViewViewModel {
     let originCode: String
     let status: String
     let flightTime: String
+    let index = 0
 }

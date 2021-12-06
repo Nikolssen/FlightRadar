@@ -63,6 +63,8 @@
 		3FF0047F27185DF500404C7A /* Gnuolane.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FF004782718539A00404C7A /* Gnuolane.ttf */; };
 		3FF004822718668F00404C7A /* SolidButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF004812718668F00404C7A /* SolidButtonStyle.swift */; };
 		3FF00484271874C200404C7A /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF00483271874C200404C7A /* PromoView.swift */; };
+		3FF4EC1F275DF61400B82325 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4EC1E275DF61400B82325 /* OptionCell.swift */; };
+		3FF4EC21275DF61F00B82325 /* OptionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4EC20275DF61F00B82325 /* OptionCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +125,8 @@
 		3FF0047B271853A800404C7A /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
 		3FF004812718668F00404C7A /* SolidButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButtonStyle.swift; sourceTree = "<group>"; };
 		3FF00483271874C200404C7A /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
+		3FF4EC1E275DF61400B82325 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		3FF4EC20275DF61F00B82325 /* OptionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,7 @@
 		3F7772AD2722E2AE00773C8E /* Airport Details */ = {
 			isa = PBXGroup;
 			children = (
+				3F78538F275E0E560043C55D /* Cell */,
 				3F7772AE2722E2D700773C8E /* AirportInfoView.swift */,
 				3F7772B02722EF1500773C8E /* AirportDetailsViewModel.swift */,
 			);
@@ -244,6 +249,15 @@
 				3F7772B32722FAD900773C8E /* MapView.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		3F78538F275E0E560043C55D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3FF4EC1E275DF61400B82325 /* OptionCell.swift */,
+				3FF4EC20275DF61F00B82325 /* OptionCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3F9016622758C5EA00FF0505 /* Helpers */ = {
@@ -486,6 +500,7 @@
 				3F31C37E27575FDE0047BCCA /* FlightViewViewModel.swift in Sources */,
 				3F31C37B275759000047BCCA /* AircraftImage.swift in Sources */,
 				3FF00484271874C200404C7A /* PromoView.swift in Sources */,
+				3FF4EC21275DF61F00B82325 /* OptionCellViewModel.swift in Sources */,
 				3F9016662758C5EA00FF0505 /* DateFormatter.swift in Sources */,
 				3F647940272690BC00CA4075 /* AirportViewViewModel.swift in Sources */,
 				3FF004762718535E00404C7A /* Fonts.swift in Sources */,
@@ -522,6 +537,7 @@
 				3F2A2F25271D89DE007276E1 /* Image + Custom Images.swift in Sources */,
 				3F2A2F29271D9360007276E1 /* TabBarView.swift in Sources */,
 				3FF004732718513A00404C7A /* Color + Custom Colors.swift in Sources */,
+				3FF4EC1F275DF61400B82325 /* OptionCell.swift in Sources */,
 				3F91067727218E1D00C9FB96 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
