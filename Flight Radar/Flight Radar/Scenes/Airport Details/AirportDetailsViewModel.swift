@@ -22,6 +22,8 @@ class AirportDetailsViewModel: ObservableObject {
     @Published var selectedFlight: Int?
     @Published var optionCellViewModels: [OptionCellViewModel] = []
     @Published var shouldShowSpinner: Bool = false
+    var selectedModel: FlightResponseModel.Data?
+    
     let locationService = LocationManager()
     let networkService = APIRepository()
     var subscriptions: Set<AnyCancellable> = .init()
@@ -124,6 +126,38 @@ class AirportDetailsViewModel: ObservableObject {
             .sink { [weak self] in
                 self?.dataSource = $0
                 
+            }
+            .store(in: &subscriptions)
+        
+        $selectedFlight
+            .compactMap { $0 }
+            .filter { [weak self] _ in self?.selectedIndex == 1 }
+            .withLatestFrom(departures) {
+                (index, departures) -> FlightResponseModel.Data? in
+                if let departures = departures, departures.count > index {
+                    return departures[index]
+                }
+                return nil
+            }
+            .compactMap { $0 }
+            .sink { [weak self] in
+                self?.selectedModel = $0
+            }
+            .store(in: &subscriptions)
+        
+        $selectedFlight
+            .compactMap { $0 }
+            .filter { [weak self] _ in self?.selectedIndex == 2 }
+            .withLatestFrom(arrivals) {
+                (index, arrivals) -> FlightResponseModel.Data? in
+                if let arrivals = arrivals, arrivals.count > index {
+                    return arrivals[index]
+                }
+                return nil
+            }
+            .compactMap { $0 }
+            .sink { [weak self] in
+                self?.selectedModel = $0
             }
             .store(in: &subscriptions)
     }

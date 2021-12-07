@@ -16,34 +16,12 @@ struct FlightModalView: View {
                 .foregroundColor(.charcoal.opacity(0.5))
                 .offset(y: 5)
             FlightView(viewModel: viewModel.flightViewViewModel)
-            HStack(spacing: 20) {
-                Text(Constants.companyDescription)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(viewModel.company)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-            }
-            .modifier(NeomorphicShadow())
-            .font(.oswaldMedium(size: 18))
-            .foregroundColor(.charcoal)
             
-            HStack(spacing: 20) {
-                Text(Constants.departureDescription)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(viewModel.departureDate)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-            }
-            .modifier(NeomorphicShadow())
-            .font(.oswaldMedium(size: 18))
-            .foregroundColor(.charcoal)
-            HStack(spacing: 20) {
-                Text(Constants.arrivalDescription)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(viewModel.arrivalDate)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-            }
-            .modifier(NeomorphicShadow())
-            .font(.oswaldMedium(size: 18))
-            .foregroundColor(.charcoal)
+            TextLine(label: Constants.companyDescription, text: viewModel.company)
+            
+            TextLine(label: Constants.departureDescription, text: viewModel.departureDate)
+            
+            TextLine(label: Constants.arrivalDescription, text: viewModel.arrivalDate)
         }
         .padding(.horizontal, 50)
         .frame(maxWidth: .infinity, alignment: .center)

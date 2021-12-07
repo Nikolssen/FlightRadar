@@ -18,7 +18,9 @@ struct AirportSearchView: View {
                 if let index = viewModel.selectedIndex, viewModel.airports.count > index { AirportDetailsView(viewModel: .init(airport: viewModel.airports[index])) }
                 else {
                     EmptyView() }
-            })
+            }).opacity(0)
+            
+            
             Color.athensGray
                 .ignoresSafeArea()
             VStack(spacing: 0) {

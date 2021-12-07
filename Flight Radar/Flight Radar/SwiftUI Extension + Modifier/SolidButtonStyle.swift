@@ -12,9 +12,8 @@ struct SolidButtonStyle: ButtonStyle {
         configuration.label
             .font(.oswaldRegular(size: 20))
             .foregroundColor(.whiteLiliac)
-            .frame(width: UIScreen.main.bounds.width - 60, height: 50, alignment: .center)
+            .frame(maxWidth: .infinity, idealHeight: 50, alignment: .center)
             .background(configuration.isPressed ? Color.sanMarino.opacity(0.9) : Color.sanMarino)
-
             .clipShape(Capsule(style: .continuous))
             .shadow(color: Color.charcoal.opacity(0.5), radius: 5, x: 0, y: 5)
     }
