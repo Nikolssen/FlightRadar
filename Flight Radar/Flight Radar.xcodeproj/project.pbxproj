@@ -23,6 +23,8 @@
 		3F31C381275761070047BCCA /* FlightModalViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F31C380275761070047BCCA /* FlightModalViewViewModel.swift */; };
 		3F31C384275765400047BCCA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F31C383275765400047BCCA /* TabBarButton.swift */; };
 		3F31C386275768F70047BCCA /* TabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F31C385275768F70047BCCA /* TabBarContainerView.swift */; };
+		3F470B6D275F859D008BB9F0 /* CompanyDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F470B6C275F859D008BB9F0 /* CompanyDetailsViewModel.swift */; };
+		3F57EE14275F6CE6000741D6 /* CompanyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F57EE13275F6CE6000741D6 /* CompanyInfoView.swift */; };
 		3F647940272690BC00CA4075 /* AirportViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64793F272690BC00CA4075 /* AirportViewViewModel.swift */; };
 		3F6A18BB271FFDDC00A673D6 /* NeomorphicShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18BA271FFDDB00A673D6 /* NeomorphicShadow.swift */; };
 		3F6A18BD2720261400A673D6 /* FlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18BC2720261400A673D6 /* FlightView.swift */; };
@@ -88,6 +90,8 @@
 		3F31C380275761070047BCCA /* FlightModalViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModalViewViewModel.swift; sourceTree = "<group>"; };
 		3F31C383275765400047BCCA /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		3F31C385275768F70047BCCA /* TabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContainerView.swift; sourceTree = "<group>"; };
+		3F470B6C275F859D008BB9F0 /* CompanyDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailsViewModel.swift; sourceTree = "<group>"; };
+		3F57EE13275F6CE6000741D6 /* CompanyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyInfoView.swift; sourceTree = "<group>"; };
 		3F64793F272690BC00CA4075 /* AirportViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportViewViewModel.swift; sourceTree = "<group>"; };
 		3F6A18BA271FFDDB00A673D6 /* NeomorphicShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeomorphicShadow.swift; sourceTree = "<group>"; };
 		3F6A18BC2720261400A673D6 /* FlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightView.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		3F2A2F19271D77C3007276E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3F57EE12275F6CC7000741D6 /* Company Info */,
 				3F705545275F5D15007C5827 /* Flight Info */,
 				3F04DB5B2759FD9500F6283C /* Tickets */,
 				3F7772B22722FAAB00773C8E /* Map */,
@@ -224,6 +229,15 @@
 				3F31C385275768F70047BCCA /* TabBarContainerView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		3F57EE12275F6CC7000741D6 /* Company Info */ = {
+			isa = PBXGroup;
+			children = (
+				3F57EE13275F6CE6000741D6 /* CompanyInfoView.swift */,
+				3F470B6C275F859D008BB9F0 /* CompanyDetailsViewModel.swift */,
+			);
+			path = "Company Info";
 			sourceTree = "<group>";
 		};
 		3F6CFA5E271EA2B2006A6134 /* SwiftUI Extension + Modifier */ = {
@@ -554,10 +568,12 @@
 				3F9106752721685B00C9FB96 /* AirportSearchViewModel.swift in Sources */,
 				3F04DB5D2759FDB700F6283C /* TicketSearchView.swift in Sources */,
 				3F7772AC2722D02800773C8E /* ActivityView.swift in Sources */,
+				3F470B6D275F859D008BB9F0 /* CompanyDetailsViewModel.swift in Sources */,
 				3F2A2F25271D89DE007276E1 /* Image + Custom Images.swift in Sources */,
 				3F2A2F29271D9360007276E1 /* TabBarView.swift in Sources */,
 				3FF004732718513A00404C7A /* Color + Custom Colors.swift in Sources */,
 				3FF4EC1F275DF61400B82325 /* OptionCell.swift in Sources */,
+				3F57EE14275F6CE6000741D6 /* CompanyInfoView.swift in Sources */,
 				3F91067727218E1D00C9FB96 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,6 +34,7 @@ struct FlightInfoScreenView: View {
                 }
                 .buttonStyle(SolidButtonStyle())
                 .padding(.horizontal, 10)
+                
                 Button(action: { }) {
                     Text(Constants.aircraftButtonDescription)
                 }

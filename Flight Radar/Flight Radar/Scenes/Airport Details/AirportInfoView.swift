@@ -43,7 +43,9 @@ struct AirportDetailsView: View {
                     Map(coordinateRegion: $viewModel.region)
                 case 1, 2:
                     if viewModel.shouldShowSpinner {
+                        Spacer()
                         ActivityView()
+                        Spacer()
                     }
                     else {
                         ScrollView{
