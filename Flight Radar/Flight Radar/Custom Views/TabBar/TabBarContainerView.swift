@@ -18,7 +18,12 @@ struct TabBarContainerView: View {
                 VStack(spacing: 0) {
                     switch selectedTab {
                     case 0:
-                        AirportSearchView(viewModel: airportSearchViewModel)
+                        NavigationView {
+                            AirportSearchView(viewModel: airportSearchViewModel)
+                                .modifier(NavigationBarHidden())
+                        }
+                        
+                        
                     case 1:
                         MapView()
                     case 2:
@@ -30,7 +35,7 @@ struct TabBarContainerView: View {
                 }
                 TabBarView(selectedTab: $selectedTab)
             }
-            .padding(.vertical, 30)
+            .padding(.bottom, 30)
         }
     }
 }

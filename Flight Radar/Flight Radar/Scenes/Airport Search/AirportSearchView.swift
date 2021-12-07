@@ -55,11 +55,9 @@ struct AirportSearchView: View {
                         .padding()
                     }
                 }
-                
             }
-//            .modifier(HidesKeyboardOnTap())
+            .padding(.top)
         }
-        
     }
 }
 

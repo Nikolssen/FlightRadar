@@ -11,7 +11,7 @@ import SwiftUI
 struct Flight_RadarApp: App {
     var body: some Scene {
         WindowGroup {
-            OnBoaringView(viewModel: OnBoardingViewModel())
+            MainView()
         }
     }
 }

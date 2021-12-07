@@ -22,35 +22,37 @@ struct AirportDetailsView: View {
                         .onTapGesture {
                             viewModel.selectedIndex = cellViewModel.index
                         }
-                        
+                    
                 }
             }
             .frame(maxWidth: .infinity ,maxHeight: 30, alignment: .top)
             
             switch viewModel.selectedIndex {
             case 0:
-                EmptyView()
+                Map(coordinateRegion: $viewModel.region)
             case 1, 2:
                 if viewModel.shouldShowSpinner {
                     ActivityView(isAnimating: true)
                 }
                 else {
-                    LazyVGrid(columns: [GridItem(.flexible(maximum: .infinity))]) {
-                        ForEach(viewModel.dataSource, id: \.index) {
-                            flightViewViewModel in
-                            FlightView(viewModel: flightViewViewModel)
+                    ScrollView{
+                        LazyVGrid(columns: [GridItem(.flexible(maximum: .infinity))], spacing: 20) {
+                            ForEach(viewModel.dataSource, id: \.index) {
+                                flightViewViewModel in
+                                FlightView(viewModel: flightViewViewModel)
+                                    .padding(.horizontal, 10)
+                            }
                         }
                     }
                 }
             default:
                 EmptyView()
             }
-            //Map
-            //LazyVGrid
             Spacer()
             
         }
         .background(Color.whiteLiliac)
+        .navigationTitle(viewModel.airport.value.name ?? "Unnamed airport")
     }
 }
 
