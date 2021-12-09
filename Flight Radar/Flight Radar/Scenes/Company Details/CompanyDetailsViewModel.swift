@@ -21,7 +21,7 @@ class CompanyDetailsViewModel: ObservableObject {
         Just(code)
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMap { [networkService] string -> AnyPublisher<DataResponsePublisher<CompanyModel>.Output, Never> in
+            .flatMap { [networkService] string -> AnyPublisher<DataResponsePublisher<[CompanyModel]>.Output, Never> in
                 networkService.genericRequest(request: .company(.init(iataCode: string)))
             }
             .receive(on: DispatchQueue.main)
@@ -32,7 +32,12 @@ class CompanyDetailsViewModel: ObservableObject {
                     self?.dismissAction = true
                     break
                 case .success(let value):
-                    self?.details = value
+                    if let value = value.first {
+                        self?.details = value
+                    }
+                    else {
+                        self?.dismissAction = true
+                    }
                 }
                 
             }

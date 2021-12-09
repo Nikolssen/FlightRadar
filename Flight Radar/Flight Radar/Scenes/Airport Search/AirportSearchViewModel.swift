@@ -87,7 +87,6 @@ class AirportSearchViewModel: ObservableObject {
             }
             .store(in: &subscriptions)
         $selectedIndex
-            .print("Selected")
             .sink(receiveValue: {_ in })
             .store(in: &subscriptions)
     }

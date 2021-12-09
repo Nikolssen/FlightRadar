@@ -32,7 +32,7 @@ struct CompanyDetailsView: View {
                     }
                     if let isLowcoster = viewModel.details?.isLowCostCarrier, isLowcoster {
                         Text(Constants.lowCostCarrierDescription)
-                            .font(.oswaldRegular(size: 24))
+                            .font(.oswaldRegular(size: 18))
                             .foregroundColor(.manhattan)
                     }
                     if let url = viewModel.details?.website {
@@ -43,6 +43,8 @@ struct CompanyDetailsView: View {
                         .padding(.horizontal, 40)
                     }
                 }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
             
         }

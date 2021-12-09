@@ -43,6 +43,8 @@ struct AircraftDetailsView: View {
                     }
                     
                 }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
         }
         .onReceive(viewModel.$dismissAction, perform: {
