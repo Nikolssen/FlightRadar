@@ -24,6 +24,8 @@
 		3F31C384275765400047BCCA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F31C383275765400047BCCA /* TabBarButton.swift */; };
 		3F31C386275768F70047BCCA /* TabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F31C385275768F70047BCCA /* TabBarContainerView.swift */; };
 		3F470B6D275F859D008BB9F0 /* CompanyDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F470B6C275F859D008BB9F0 /* CompanyDetailsViewModel.swift */; };
+		3F470B70275F965B008BB9F0 /* AircraftDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F470B6F275F965B008BB9F0 /* AircraftDetailsView.swift */; };
+		3F470B72275F966B008BB9F0 /* AircraftDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F470B71275F966B008BB9F0 /* AircraftDetailsViewModel.swift */; };
 		3F57EE14275F6CE6000741D6 /* CompanyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F57EE13275F6CE6000741D6 /* CompanyInfoView.swift */; };
 		3F647940272690BC00CA4075 /* AirportViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64793F272690BC00CA4075 /* AirportViewViewModel.swift */; };
 		3F6A18BB271FFDDC00A673D6 /* NeomorphicShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A18BA271FFDDB00A673D6 /* NeomorphicShadow.swift */; };
@@ -49,6 +51,7 @@
 		3F9106792721A06E00C9FB96 /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9106782721A06E00C9FB96 /* AirportModel.swift */; };
 		3F91067D2721A2AE00C9FB96 /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91067C2721A2AE00C9FB96 /* CompanyModel.swift */; };
 		3F92EA982726EFF9005A21DF /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F92EA972726EFF9005A21DF /* AlertViewModel.swift */; };
+		3FA0F37D276202FF00FED6C7 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 3FA0F37C276202FF00FED6C7 /* Nuke */; };
 		3FB03990271EC7CF00276FB3 /* View + isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB0398F271EC7CF00276FB3 /* View + isHidden.swift */; };
 		3FB03992271ED9B100276FB3 /* OpaqueButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB03991271ED9B100276FB3 /* OpaqueButtonStyle.swift */; };
 		3FB03996271EE6B600276FB3 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB03995271EE6B600276FB3 /* APIKey.swift */; };
@@ -91,6 +94,8 @@
 		3F31C383275765400047BCCA /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		3F31C385275768F70047BCCA /* TabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContainerView.swift; sourceTree = "<group>"; };
 		3F470B6C275F859D008BB9F0 /* CompanyDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailsViewModel.swift; sourceTree = "<group>"; };
+		3F470B6F275F965B008BB9F0 /* AircraftDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftDetailsView.swift; sourceTree = "<group>"; };
+		3F470B71275F966B008BB9F0 /* AircraftDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftDetailsViewModel.swift; sourceTree = "<group>"; };
 		3F57EE13275F6CE6000741D6 /* CompanyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyInfoView.swift; sourceTree = "<group>"; };
 		3F64793F272690BC00CA4075 /* AirportViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportViewViewModel.swift; sourceTree = "<group>"; };
 		3F6A18BA271FFDDB00A673D6 /* NeomorphicShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeomorphicShadow.swift; sourceTree = "<group>"; };
@@ -144,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA0F37D276202FF00FED6C7 /* Nuke in Frameworks */,
 				3F6CFA69271EB0D9006A6134 /* Alamofire in Frameworks */,
 				3F6CFA66271EB034006A6134 /* CombineExt in Frameworks */,
 			);
@@ -182,6 +188,7 @@
 		3F2A2F19271D77C3007276E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3F470B6E275F9643008BB9F0 /* Aircraft Info */,
 				3F57EE12275F6CC7000741D6 /* Company Info */,
 				3F705545275F5D15007C5827 /* Flight Info */,
 				3F04DB5B2759FD9500F6283C /* Tickets */,
@@ -229,6 +236,15 @@
 				3F31C385275768F70047BCCA /* TabBarContainerView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		3F470B6E275F9643008BB9F0 /* Aircraft Info */ = {
+			isa = PBXGroup;
+			children = (
+				3F470B6F275F965B008BB9F0 /* AircraftDetailsView.swift */,
+				3F470B71275F966B008BB9F0 /* AircraftDetailsViewModel.swift */,
+			);
+			path = "Aircraft Info";
 			sourceTree = "<group>";
 		};
 		3F57EE12275F6CC7000741D6 /* Company Info */ = {
@@ -456,6 +472,7 @@
 			packageProductDependencies = (
 				3F6CFA65271EB034006A6134 /* CombineExt */,
 				3F6CFA68271EB0D9006A6134 /* Alamofire */,
+				3FA0F37C276202FF00FED6C7 /* Nuke */,
 			);
 			productName = "Flight Radar";
 			productReference = 3FF0045E271847CC00404C7A /* Flight Radar.app */;
@@ -489,6 +506,7 @@
 			packageReferences = (
 				3F6CFA64271EB034006A6134 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				3F6CFA67271EB0D9006A6134 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3FA0F37B276202FF00FED6C7 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 3FF0045F271847CC00404C7A /* Products */;
 			projectDirPath = "";
@@ -527,6 +545,7 @@
 				3F705544275F51E6007C5827 /* TextLine.swift in Sources */,
 				3F2A2F15271D7513007276E1 /* OnBoaringView.swift in Sources */,
 				3F7772A427229E5B00773C8E /* RequestModels.swift in Sources */,
+				3F470B70275F965B008BB9F0 /* AircraftDetailsView.swift in Sources */,
 				3F91067D2721A2AE00C9FB96 /* CompanyModel.swift in Sources */,
 				3F31C381275761070047BCCA /* FlightModalViewViewModel.swift in Sources */,
 				3F31C37E27575FDE0047BCCA /* FlightViewViewModel.swift in Sources */,
@@ -547,6 +566,7 @@
 				3F705547275F5D31007C5827 /* FlightInfoViewModel.swift in Sources */,
 				3F6A18C627204FBB00A673D6 /* AirportView.swift in Sources */,
 				3F6A18C32720394600A673D6 /* CorneredRectangle.swift in Sources */,
+				3F470B72275F966B008BB9F0 /* AircraftDetailsViewModel.swift in Sources */,
 				3F6A18BB271FFDDC00A673D6 /* NeomorphicShadow.swift in Sources */,
 				3FB0399A271EFE6B00276FB3 /* AirportSearchView.swift in Sources */,
 				3F6CFA60271EA310006A6134 /* Navigation.swift in Sources */,
@@ -817,6 +837,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		3FA0F37B276202FF00FED6C7 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -829,6 +857,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F6CFA67271EB0D9006A6134 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		3FA0F37C276202FF00FED6C7 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FA0F37B276202FF00FED6C7 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

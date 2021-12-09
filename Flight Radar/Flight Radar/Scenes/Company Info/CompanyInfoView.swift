@@ -13,6 +13,7 @@ struct CompanyInfoView: View {
     @Environment(\.openURL) var openURL
     var body: some View {
         ZStack {
+            Color.whiteLiliac
             if (viewModel.shouldShowSpinner) {
                 Spacer()
                 ActivityView()
@@ -43,7 +44,7 @@ struct CompanyInfoView: View {
             }
             
         }
-        .navigationTitle(viewModel.details?.name ?? "Company")
+        .navigationTitle(viewModel.details?.name ?? Constants.defaultTitle)
         .onAppear {
             viewModel.$dismissAction.sink { _ in
                 presentationMode.wrappedValue.dismiss()
@@ -57,6 +58,7 @@ struct CompanyInfoView: View {
         static let iataCodeDescription: LocalizedStringKey = "IATA code"
         static let icaoCodeDescription: LocalizedStringKey = "ICAO code"
         static let lowCostCarrierDescription: LocalizedStringKey = "Lowcost carrier"
+        static let defaultTitle: String = "Company"
     }
 }
 
