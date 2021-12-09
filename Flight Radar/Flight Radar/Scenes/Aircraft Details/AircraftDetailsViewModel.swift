@@ -53,6 +53,7 @@ final class AircraftDetailsViewModel: ObservableObject {
                 networkService.genericRequest(request: .aircraft(registration: string))
             }
             .receive(on: DispatchQueue.main)
+            .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = false })
             .sink { [weak self] in
                 switch $0.result {
                 case .failure(_):

@@ -14,9 +14,11 @@ struct AircraftDetailsView: View {
         ZStack {
             Color.whiteLiliac
             if (viewModel.shouldShowSpinner) {
+                VStack {
                 Spacer()
                 ActivityView()
                 Spacer()
+                }
             }
             else {
                 
@@ -43,12 +45,11 @@ struct AircraftDetailsView: View {
                 }
             }
         }
-        .onAppear {
-            viewModel.$dismissAction.sink { _ in
+        .onReceive(viewModel.$dismissAction, perform: {
+            if $0 {
                 presentationMode.wrappedValue.dismiss()
             }
-            .store(in: &viewModel.subscriptions)
-        }
+        })
     }
     
     private enum Constants {

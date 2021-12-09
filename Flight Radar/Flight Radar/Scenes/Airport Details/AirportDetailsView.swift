@@ -16,7 +16,7 @@ struct AirportDetailsView: View {
             
             NavigationLink("Flight", isActive: $navigation, destination: {
                 if let model = viewModel.selectedModel {
-                    FlightInfoScreenView(viewModel: .init(model: model))
+                    FlightDetailsView(viewModel: .init(model: model))
                 }
                 else {
                     EmptyView()

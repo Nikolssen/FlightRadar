@@ -1,5 +1,5 @@
 //
-//  CompanyInfoView.swift
+//  CompanyDetailsView.swift
 //  Flight Radar
 //
 //  Created by Ivan Budovich on 12/7/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CompanyInfoView: View {
+struct CompanyDetailsView: View {
     @ObservedObject var viewModel: CompanyDetailsViewModel
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.openURL) var openURL
@@ -15,9 +15,11 @@ struct CompanyInfoView: View {
         ZStack {
             Color.whiteLiliac
             if (viewModel.shouldShowSpinner) {
+                VStack {
                 Spacer()
                 ActivityView()
                 Spacer()
+                }
             }
             else {
                 
@@ -45,12 +47,11 @@ struct CompanyInfoView: View {
             
         }
         .navigationTitle(viewModel.details?.name ?? Constants.defaultTitle)
-        .onAppear {
-            viewModel.$dismissAction.sink { _ in
+        .onReceive(viewModel.$dismissAction, perform: {
+            if $0 {
                 presentationMode.wrappedValue.dismiss()
             }
-            .store(in: &viewModel.subscriptions)
-        }
+        })
     }
     
     enum Constants {
@@ -64,6 +65,6 @@ struct CompanyInfoView: View {
 
 //struct CompanyInfoView_Previews: PreviewProvider {
 //    static var previews: some View {
-//       // CompanyInfoView()
+//       // CompanyDetailsView()
 //    }
 //}

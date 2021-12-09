@@ -47,7 +47,7 @@ struct AirportLocationGetModel: Encodable {
     let lat: Double
     let lon: Double
     let limit: Int = 10
-    let radiusKm: Int = 100
+    let radiusKm: Int = 200
 }
 
 struct CompanyGetModel: Encodable {

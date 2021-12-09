@@ -1,5 +1,5 @@
 //
-//  FlightInfoViewModel.swift
+//  FlightDetailsViewModel.swift
 //  Flight Radar
 //
 //  Created by Ivan Budovich on 12/7/21.
@@ -8,16 +8,22 @@
 import Foundation
 import Combine
 
-final class FlightInfoViewModel: ObservableObject {
+final class FlightDetailsViewModel: ObservableObject {
     private let flightInfo: FlightResponseModel.Data
-    let companySelectionRelay: PassthroughSubject<Void, Never> = .init()
-    let aircraftSelectionRelay: PassthroughSubject<Void, Never> = .init()
     var subscribtions: Set<AnyCancellable> = .init()
     
     var flightViewViewModel: FlightViewViewModel {
         FlightViewViewModel(destinationCode: flightInfo.departure?.iata ?? "", originCode: flightInfo.arrival?.iata ?? "", status: flightInfo.flightStatus ?? "", flightTime: DateFormatter.substract(flightInfo.departure?.time, d2: flightInfo.arrival?.time) ?? "" )
     }
 
+    var companyCode: String? {
+        flightInfo.airline?.iata
+    }
+    
+    var aircraftCode: String? {
+        flightInfo.aircraft?.registration
+    }
+    
     var company: String? {
         flightInfo.airline?.name
     }
