@@ -27,7 +27,7 @@ struct TabBarButton: View {
                 Color.whiteLiliac
                     .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
                     .frame(width: Constants.innerShadowSide, height: Constants.innerShadowSide, alignment: .center)
-                    .modifier(NeomorphicInnerShadow(shape: RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)))
+                    .modifier(NeuromorphicInnerShadow(shape: RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)))
                     .opacity(selectedTab != index ? Constants.zeroOpacity : Constants.fullOpacity)
                 
                 

@@ -16,7 +16,7 @@ struct NeomorphicShadow: ViewModifier {
 }
 
 
-struct NeomorphicInnerShadow<S>: ViewModifier where S : Shape {
+struct NeuromorphicInnerShadow<S>: ViewModifier where S : Shape {
 
     var shape: S
     

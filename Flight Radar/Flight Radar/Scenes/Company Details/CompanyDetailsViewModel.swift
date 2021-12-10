@@ -25,7 +25,6 @@ class CompanyDetailsViewModel: ObservableObject {
                 networkService.genericRequest(request: .company(.init(iataCode: string)))
             }
             .receive(on: DispatchQueue.main)
-            .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = false })
             .sink { [weak self] in
                 switch $0.result {
                 case .failure(_):
@@ -34,6 +33,7 @@ class CompanyDetailsViewModel: ObservableObject {
                 case .success(let value):
                     if let value = value.first {
                         self?.details = value
+                        self?.shouldShowSpinner = false
                     }
                     else {
                         self?.dismissAction = true

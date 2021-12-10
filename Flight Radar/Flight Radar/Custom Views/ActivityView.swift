@@ -33,7 +33,7 @@ struct ActivityView: View {
         }
           .frame(width: 80, height: 80)
           .background(Color.white)
-          .modifier(NeomorphicInnerShadow(shape: Capsule(style: .continuous)))
+          .modifier(NeuromorphicInnerShadow(shape: Capsule(style: .continuous)))
           .clipShape(Capsule(style: .continuous))
           .onAppear {
               isAnimating = true
