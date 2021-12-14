@@ -16,6 +16,7 @@ class AirportSearchViewModel: ObservableObject {
     @Published var airportViewModels: [AirportViewViewModel] = .init()
     @Published var shouldShowSpinner: Bool = false
     @Published var selectedIndex: Int?
+    @Published var navigation: Bool = false
     var airports: [AirportModel] = .init()
     
     let buttonAction: PassthroughSubject<Void, Never> = .init()

@@ -8,10 +8,11 @@
 import SwiftUI
 import MapKit
 struct MainView: View {
-    @State var selectedTab: Int = 0
+    @StateObject var state: AppState = .init()
     var body: some View {
             
-        TabBarContainerView(selectedTab: $selectedTab)                
+        TabBarContainerView()
+            .environmentObject(state)
         
     }
 }

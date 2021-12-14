@@ -10,21 +10,25 @@ import MapKit
 
 struct AirportDetailsView: View {
     @ObservedObject var viewModel: AirportDetailsViewModel
-    @State var navigation: Bool = false
+    @EnvironmentObject var state: AppState
     var body: some View {
         ZStack {
-            NavigationLink("Flight", isActive: $navigation, destination: {
-                if navigation, let model = viewModel.selectedModel {
-                    FlightDetailsView(viewModel: .init(model: model))
+            NavigationLink("Flight", isActive: $viewModel.navigation, destination: {
+                if viewModel.navigation, let viewModel = state.airportSearchModels[1] as? FlightDetailsViewModel {
+                    FlightDetailsView(viewModel: viewModel)
                 }
                 else {
                     EmptyView()
                 }
             }).opacity(0)
+            
             VStack {
                 AirportView(viewModel: viewModel.airportViewViewModel, allowFadedAppearence: false)
                     .padding()
                 Divider()
+                Button("title") {
+                    state.selectedIndex = 1
+                }
                 LazyHGrid(rows: [.init(.flexible())], spacing: 40) {
                     ForEach(viewModel.optionCellViewModels, id: \.index) { cellViewModel in
                         OptionCell(viewModel: cellViewModel, isSelected: cellViewModel.index == viewModel.selectedIndex)
@@ -53,7 +57,13 @@ struct AirportDetailsView: View {
                                     FlightView(viewModel: flightViewViewModel)
                                         .onTapGesture {
                                             viewModel.selectedFlight = flightViewViewModel.index
-                                            navigation = true
+                                            if let model = viewModel.selectedModel {
+                                                let flightViewModel = FlightDetailsViewModel(model: model)
+                                                state.airportSearchModels.append(flightViewModel)
+                                                viewModel.navigation = true
+                                            }
+                                            
+                                            
                                         }
                                         .padding(.horizontal, 20)
                                         .padding(.top, 10)
@@ -68,13 +78,12 @@ struct AirportDetailsView: View {
                 
             }
         }
+        .onChange(of: viewModel.navigation) {
+            if !$0 {
+                state.airportSearchModels.remove(at: 1)
+            }
+        }
         .background(Color.whiteLiliac)
         .navigationTitle(viewModel.airport.value.name ?? "Unnamed airport")
     }
 }
-
-//struct AirportDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AirportDetailsView(viewModel: .init(airport: .init(icao: "MSQ", iata: "UUAE", name: "Minsk International", municipalityName: "Minsk", latitude: 35, longitude: 54)))
-//    }
-//}

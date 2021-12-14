@@ -79,6 +79,7 @@ final class AircraftDetailsViewModel: ObservableObject {
             .receive(on: DispatchQueue.global(qos: .utility))
             .flatMap { [networkService] code -> AnyPublisher<DataResponsePublisher<AircraftImage>.Output, Never> in
                 networkService.genericRequest(request: .aircraftImage(registration: code))}
+            .receive(on: DispatchQueue.main)
             .sink { [weak self]
                 response in
                 if let string = response.value?.url, let url = URL(string: string) {

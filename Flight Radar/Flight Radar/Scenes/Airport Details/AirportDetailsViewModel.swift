@@ -13,6 +13,7 @@ import Alamofire
 
 class AirportDetailsViewModel: ObservableObject {
     let airport: CurrentValueSubject<AirportModel, Never>
+    @Published var navigation: Bool = false
     @Published var region: MKCoordinateRegion
     @Published var coordinate: CLLocationCoordinate2D?
     @Published var dataSource: [FlightViewViewModel] = []

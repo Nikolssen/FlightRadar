@@ -9,14 +9,16 @@ import SwiftUI
 
 struct AirportSearchView: View {
     @ObservedObject var viewModel: AirportSearchViewModel
-    @State var navigation: Bool = false
+    @EnvironmentObject var state: AppState
     let column = [GridItem(.flexible(maximum: .infinity))]
     
     var body: some View {
         
         ZStack {
-            NavigationLink("Airport", isActive: $navigation, destination: {
-                if navigation, let index = viewModel.selectedIndex, viewModel.airports.count > index { AirportDetailsView(viewModel: .init(airport: viewModel.airports[index])) }
+            NavigationLink("Airport", isActive: $viewModel.navigation, destination: {
+                if viewModel.navigation, let viewModel = state.airportSearchModels[0] as? AirportDetailsViewModel {
+                        AirportDetailsView(viewModel: viewModel)
+                    }
                 else {
                     EmptyView() }
             }).opacity(0)
@@ -50,7 +52,11 @@ struct AirportSearchView: View {
                                 AirportView(viewModel: cellModel, allowFadedAppearence: true)
                                     .onTapGesture {
                                         viewModel.selectedIndex = cellModel.index
-                                        navigation = true
+                                        if let index = viewModel.selectedIndex, viewModel.airports.count > index {
+                                            let viewModel = AirportDetailsViewModel(airport: viewModel.airports[index])
+                                            state.airportSearchModels.append(viewModel)
+                                            self.viewModel.navigation = true
+                                        }
                                     }
                             }
                         }
@@ -59,6 +65,11 @@ struct AirportSearchView: View {
                 }
             }
             .padding(.top)
+        }
+        .onChange(of: viewModel.navigation) {
+            if !$0 {
+                state.airportSearchModels.removeAll()
+            }
         }
     }
 }

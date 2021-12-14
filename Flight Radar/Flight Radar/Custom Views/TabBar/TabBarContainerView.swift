@@ -8,40 +8,36 @@
 import SwiftUI
 
 struct TabBarContainerView: View {
-    @Binding var selectedTab: Int
-    var airportSearchViewModel: AirportSearchViewModel = .init()
+    @EnvironmentObject var state: AppState
     var body: some View {
         ZStack {
             Color.whiteLiliac
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 VStack(spacing: 0) {
-                    switch selectedTab {
-                    case 0:
-                        NavigationView {
-                            AirportSearchView(viewModel: airportSearchViewModel)
-                                .modifier(NavigationBarHidden())
+                        ZStack {
+                            NavigationView {
+                                AirportSearchView(viewModel: state.airportSearchViewModel)
+                                    .modifier(NavigationBarHidden())
+                            }
+                            .opacity( state.selectedIndex == 0 ? 1 : 0)
+                            
+                            MapView()
+                                .opacity( state.selectedIndex == 1 ? 1 : 0)
+                            TicketSearchView()
+                                .opacity( state.selectedIndex == 2 ? 1 : 0)
                         }
-                        
-                        
-                    case 1:
-                        MapView()
-                    case 2:
-                        TicketSearchView()
-                    default:
-                        EmptyView()
-                    }
                     Divider()
                 }
-                TabBarView(selectedTab: $selectedTab)
+                TabBarView(selectedTab: $state.selectedIndex)
             }
             .padding(.bottom, 30)
         }
     }
 }
 
-struct TabBarContainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarContainerView(selectedTab: .constant(0))
-    }
-}
+//struct TabBarContainerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TabBarContainerView()
+//    }
+//}
