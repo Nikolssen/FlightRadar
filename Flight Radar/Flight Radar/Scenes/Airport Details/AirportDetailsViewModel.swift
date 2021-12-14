@@ -62,7 +62,7 @@ class AirportDetailsViewModel: ObservableObject {
                 [weak self]  in
                 switch $0.result {
                 case .failure(let error):
-                    
+                    print(error)
                     break
                 case .success(let values):
                     self?.departures.send(values.data)
@@ -86,7 +86,7 @@ class AirportDetailsViewModel: ObservableObject {
                 [weak self]  in
                 switch $0.result {
                 case .failure(let error):
-                    
+                    print(error)
                     break
                 case .success(let values):
                     self?.arrivals.send(values.data)

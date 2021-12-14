@@ -44,6 +44,7 @@
 		3F7772AF2722E2D700773C8E /* AirportDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7772AE2722E2D700773C8E /* AirportDetailsView.swift */; };
 		3F7772B12722EF1500773C8E /* AirportDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7772B02722EF1500773C8E /* AirportDetailsViewModel.swift */; };
 		3F7772B42722FAD900773C8E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7772B32722FAD900773C8E /* MapView.swift */; };
+		3F8D50B2276725A7007A2AA2 /* CustomDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D50B1276725A7007A2AA2 /* CustomDismiss.swift */; };
 		3F9016652758C5EA00FF0505 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9016632758C5EA00FF0505 /* NumberFormatter.swift */; };
 		3F9016662758C5EA00FF0505 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9016642758C5EA00FF0505 /* DateFormatter.swift */; };
 		3F9106752721685B00C9FB96 /* AirportSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9106742721685B00C9FB96 /* AirportSearchViewModel.swift */; };
@@ -112,6 +113,7 @@
 		3F7772AE2722E2D700773C8E /* AirportDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsView.swift; sourceTree = "<group>"; };
 		3F7772B02722EF1500773C8E /* AirportDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsViewModel.swift; sourceTree = "<group>"; };
 		3F7772B32722FAD900773C8E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3F8D50B1276725A7007A2AA2 /* CustomDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDismiss.swift; sourceTree = "<group>"; };
 		3F9016632758C5EA00FF0505 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		3F9016642758C5EA00FF0505 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		3F9106742721685B00C9FB96 /* AirportSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchViewModel.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				3F6A18BA271FFDDB00A673D6 /* NeomorphicShadow.swift */,
 				3F6A18C22720394600A673D6 /* CorneredRectangle.swift */,
 				3F6A18C727205F8A00A673D6 /* HidesKeyboardOnTap.swift */,
+				3F8D50B1276725A7007A2AA2 /* CustomDismiss.swift */,
 			);
 			path = "SwiftUI Extension + Modifier";
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				3FF004822718668F00404C7A /* SolidButtonStyle.swift in Sources */,
 				3F2A2F2B271DA164007276E1 /* MainView.swift in Sources */,
 				3F9106792721A06E00C9FB96 /* AirportModel.swift in Sources */,
+				3F8D50B2276725A7007A2AA2 /* CustomDismiss.swift in Sources */,
 				3F31C386275768F70047BCCA /* TabBarContainerView.swift in Sources */,
 				3FB03992271ED9B100276FB3 /* OpaqueButtonStyle.swift in Sources */,
 				3F31C379275759000047BCCA /* Aircraft.swift in Sources */,

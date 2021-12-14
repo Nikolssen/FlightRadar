@@ -13,16 +13,14 @@ struct AirportDetailsView: View {
     @State var navigation: Bool = false
     var body: some View {
         ZStack {
-            
             NavigationLink("Flight", isActive: $navigation, destination: {
-                if let model = viewModel.selectedModel {
+                if navigation, let model = viewModel.selectedModel {
                     FlightDetailsView(viewModel: .init(model: model))
                 }
                 else {
                     EmptyView()
                 }
             }).opacity(0)
-            
             VStack {
                 AirportView(viewModel: viewModel.airportViewViewModel, allowFadedAppearence: false)
                     .padding()

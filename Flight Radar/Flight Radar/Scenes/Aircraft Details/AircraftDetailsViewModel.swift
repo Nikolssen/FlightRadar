@@ -9,11 +9,14 @@ import Foundation
 import Combine
 import Alamofire
 import Nuke
+import UIKit
 
 final class AircraftDetailsViewModel: ObservableObject {
     @Published var model: Aircraft?
     @Published var shouldShowSpinner: Bool = false
-    @Published var dismissAction: Bool = false
+    @Published var image: UIImage?
+    var dismissAction: CurrentValueSubject<Bool, Never> =  .init(false)
+    let onAppearAction: PassthroughSubject<Void, Never> = .init()
     private let imageURL: CurrentValueSubject<URL?, Never> = .init(nil)
     
     var subscriptions: Set<AnyCancellable> = .init()
@@ -46,7 +49,13 @@ final class AircraftDetailsViewModel: ObservableObject {
         }
     
     init(code: String) {
-        Just(code)
+        let startPublisher =
+            onAppearAction
+            .withLatestFrom($model)
+            .compactMap { [code] in $0 == nil ? code : nil }
+            .share()
+        
+        startPublisher
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
             .flatMap { [networkService] string -> AnyPublisher<DataResponsePublisher<Aircraft>.Output, Never> in
@@ -57,7 +66,7 @@ final class AircraftDetailsViewModel: ObservableObject {
             .sink { [weak self] in
                 switch $0.result {
                 case .failure(_):
-                    self?.dismissAction = true
+                    self?.dismissAction.send(true)
                     break
                 case .success(let value):
                     self?.model = value
@@ -66,7 +75,7 @@ final class AircraftDetailsViewModel: ObservableObject {
             }
             .store(in: &subscriptions)
         
-        Just(code)
+        startPublisher
             .receive(on: DispatchQueue.global(qos: .utility))
             .flatMap { [networkService] code -> AnyPublisher<DataResponsePublisher<AircraftImage>.Output, Never> in
                 networkService.genericRequest(request: .aircraftImage(registration: code))}
@@ -75,6 +84,9 @@ final class AircraftDetailsViewModel: ObservableObject {
                 if let string = response.value?.url, let url = URL(string: string) {
                     self?.imageURL.send(url)
                 }
+                else {
+                    self?.image = UIImage(named: "logo")!
+                }
             }
             .store(in: &subscriptions)
         
@@ -82,7 +94,7 @@ final class AircraftDetailsViewModel: ObservableObject {
             .compactMap { $0 }
             .flatMap { Nuke.ImagePipeline.shared.imagePublisher(with: $0) }
             .map { $0.image }
-            .sink(receiveCompletion: {_ in }, receiveValue: { _ in })
+            .sink(receiveCompletion: {_ in }, receiveValue: { [weak self] in self?.image = $0 })
             .store(in: &subscriptions)
     }
 }

@@ -13,25 +13,22 @@ struct FlightDetailsView: View {
     @State var aircraftNavigation = false
     var body: some View {
         ZStack {
-            
             NavigationLink("Company", isActive: $companyNavigation, destination: {
-                if let code = viewModel.companyCode {
+                if companyNavigation, let code = viewModel.companyCode {
                     CompanyDetailsView(viewModel: .init(code: code))
                 }
                 else {
                     EmptyView()
                 }
             })
-            
             NavigationLink("Aircraft", isActive: $aircraftNavigation, destination: {
-                if let code = viewModel.aircraftCode {
+                if aircraftNavigation, let code = viewModel.aircraftCode {
                     AircraftDetailsView(viewModel: .init(code: code))
                 }
                 else {
                     EmptyView()
                 }
             })
-            
             VStack(spacing: 30) {
                 FlightView(viewModel: viewModel.flightViewViewModel)
                 if let company = viewModel.company {

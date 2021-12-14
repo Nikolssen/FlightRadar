@@ -12,13 +12,16 @@ import Alamofire
 class CompanyDetailsViewModel: ObservableObject {
     @Published var details: CompanyModel?
     @Published var shouldShowSpinner: Bool = false
-    @Published var dismissAction: Bool = false
+    var dismissAction: CurrentValueSubject<Bool, Never> =  .init(false)
+    let onAppearAction: PassthroughSubject<Void, Never> = .init()
     let urlAction: PassthroughSubject<Void, Never> = .init()
     let networkService = APIRepository()
     var subscriptions: Set<AnyCancellable> = .init()
     
     init(code: String) {
-        Just(code)
+        onAppearAction
+            .withLatestFrom($details)
+            .compactMap { [code] in $0 == nil ? code : nil }
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
             .flatMap { [networkService] string -> AnyPublisher<DataResponsePublisher<[CompanyModel]>.Output, Never> in
@@ -28,7 +31,7 @@ class CompanyDetailsViewModel: ObservableObject {
             .sink { [weak self] in
                 switch $0.result {
                 case .failure(_):
-                    self?.dismissAction = true
+                    self?.dismissAction.send(true)
                     break
                 case .success(let value):
                     if let value = value.first {
@@ -36,7 +39,7 @@ class CompanyDetailsViewModel: ObservableObject {
                         self?.shouldShowSpinner = false
                     }
                     else {
-                        self?.dismissAction = true
+                        self?.dismissAction.send(true)
                     }
                 }
                 

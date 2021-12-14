@@ -42,16 +42,28 @@ struct AircraftDetailsView: View {
                         TextLine(label: Constants.ownerDescription, text: owner)
                     }
                     
+                    if let image = viewModel.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: 250.0, maxHeight: 250.0, alignment: .center)
+                            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                            .modifier(NeomorphicShadow())
+                    }
+                    
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
         }
-        .onReceive(viewModel.$dismissAction, perform: {
+        .onReceive(viewModel.dismissAction, perform: {
             if $0 {
                 presentationMode.wrappedValue.dismiss()
             }
         })
+        .onAppear {
+            viewModel.onAppearAction.send(Void())
+        }
     }
     
     private enum Constants {

@@ -11,6 +11,8 @@ struct CompanyDetailsView: View {
     @ObservedObject var viewModel: CompanyDetailsViewModel
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.openURL) var openURL
+    @Environment(\.customPresentationMode) private var customPresentationMode
+    
     var body: some View {
         ZStack {
             Color.whiteLiliac
@@ -49,11 +51,14 @@ struct CompanyDetailsView: View {
             
         }
         .navigationTitle(viewModel.details?.name ?? Constants.defaultTitle)
-        .onReceive(viewModel.$dismissAction, perform: {
+        .onReceive(viewModel.dismissAction, perform: {
             if $0 {
                 presentationMode.wrappedValue.dismiss()
             }
         })
+        .onAppear {
+            viewModel.onAppearAction.send(Void())
+        }
     }
     
     enum Constants {

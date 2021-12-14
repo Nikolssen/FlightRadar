@@ -13,13 +13,13 @@ struct AirportSearchView: View {
     let column = [GridItem(.flexible(maximum: .infinity))]
     
     var body: some View {
+        
         ZStack {
             NavigationLink("Airport", isActive: $navigation, destination: {
-                if let index = viewModel.selectedIndex, viewModel.airports.count > index { AirportDetailsView(viewModel: .init(airport: viewModel.airports[index])) }
+                if navigation, let index = viewModel.selectedIndex, viewModel.airports.count > index { AirportDetailsView(viewModel: .init(airport: viewModel.airports[index])) }
                 else {
                     EmptyView() }
             }).opacity(0)
-            
             
             Color.athensGray
                 .ignoresSafeArea()

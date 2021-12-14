@@ -95,7 +95,7 @@ class AirportSearchViewModel: ObservableObject {
     func process(result: Result<AirportResponseModel, AFError>){
         switch result {
         case .failure(let error):
-
+            print(error)
             break
         case .success(let values):
             self.airports = values.items
