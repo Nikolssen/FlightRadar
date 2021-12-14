@@ -17,11 +17,19 @@ struct FlightModalView: View {
                 .offset(y: 5)
             FlightView(viewModel: viewModel.flightViewViewModel)
             
-            TextLine(label: Constants.companyDescription, text: viewModel.company)
+            if let company = viewModel.company {
+                TextLine(label: Constants.companyDescription, text: company)
+            }
+            if let departure = viewModel.departureDate {
+                TextLine(label: Constants.departureDescription, text: departure)
+            }
             
-            TextLine(label: Constants.departureDescription, text: viewModel.departureDate)
+            if let arrival = viewModel.arrivalDate {
+                TextLine(label: Constants.arrivalDescription, text: arrival)
+            }
+
             
-            TextLine(label: Constants.arrivalDescription, text: viewModel.arrivalDate)
+
         }
         .padding(.horizontal, 50)
         .frame(maxWidth: .infinity, alignment: .center)
@@ -35,11 +43,5 @@ struct FlightModalView: View {
         static let arrivalDescription: LocalizedStringKey = "flightinfo_arrival"
         static let departureDescription: LocalizedStringKey = "flightinfo_departure"
         static let companyDescription: LocalizedStringKey = "flightinfo_company"
-    }
-}
-
-struct FlightModalView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlightModalView(viewModel: .init(arrivalDate: "18:30 25 Sep", departureDate: "16:00 25 Sep", company: "Ryanair", destinationCode: "VNO", originCode: "WAW", status: "Active", flightTime: "1h 30m"))
     }
 }

@@ -8,16 +8,26 @@
 import Foundation
 
 struct FlightModalViewViewModel {
-    let arrivalDate: String
-    let departureDate: String
-    let company: String
-    let destinationCode: String
-    let originCode: String
-    let status: String
-    let flightTime: String
+    
+    init(flightInfo: FlightResponseModel.Data) {
+        self.flightInfo = flightInfo
+    }
+    
+    private let flightInfo: FlightResponseModel.Data
     
     var flightViewViewModel: FlightViewViewModel {
-        FlightViewViewModel(destinationCode: destinationCode, originCode: originCode,
-                            status: status, flightTime: flightTime)
+        FlightViewViewModel(destinationCode: flightInfo.arrival?.iata ?? "", originCode: flightInfo.departure?.iata ?? "",
+                            status: "", flightTime: DateFormatter.substract(flightInfo.departure?.time, d2: flightInfo.arrival?.time) ?? "")
     }
+    
+    var company: String? {
+        flightInfo.airline?.name
+    }
+    var departureDate: String? {
+        DateFormatter.extendedDate(from: flightInfo.departure?.time)
+    }
+    var arrivalDate: String? {
+        DateFormatter.extendedDate(from: flightInfo.arrival?.time)
+    }
+    
 }

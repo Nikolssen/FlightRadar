@@ -69,9 +69,3 @@ struct CompanyDetailsView: View {
         static let defaultTitle: String = "Company"
     }
 }
-
-//struct CompanyInfoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//       // CompanyDetailsView()
-//    }
-//}

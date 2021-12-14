@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 class MapViewModel {
-    
+    var flightInfo: FlightResponseModel.Data?
+    var flightViewViewModel: FlightModalViewViewModel? {
+        if let flightInfo = flightInfo {
+            return .init(flightInfo: flightInfo)
+        }
+        return nil
+    }
 }

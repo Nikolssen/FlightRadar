@@ -76,9 +76,3 @@ struct AircraftDetailsView: View {
         
     }
 }
-//
-//struct AircraftDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AircraftDetailsView()
-//    }
-//}

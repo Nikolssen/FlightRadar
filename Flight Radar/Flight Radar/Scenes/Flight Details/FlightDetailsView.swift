@@ -82,10 +82,3 @@ struct FlightDetailsView: View {
         static let aircraftButtonDescription: LocalizedStringKey = "More about this aircraft"
     }
 }
-
-//struct FlightInfoScreenView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FlightDetailsView()
-//        
-//    }
-//}
