@@ -23,11 +23,11 @@ class AirportSearchViewModel: ObservableObject {
     
     var subscriptions: Set<AnyCancellable> = .init()
     
-    let repo: APIRepository = .init()
-    let locationManager: LocationManager = .init()
     
-    init() {
-        
+    let service: Service
+    
+    init(service: Service) {
+        self.service = service
         
         let isTextEmptyPublisher = $searchText
             .removeDuplicates()
@@ -50,8 +50,8 @@ class AirportSearchViewModel: ObservableObject {
             .withLatestFrom($searchText)
             .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMapLatest{ [repo] (query) -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, Never> in
-                repo.genericRequest(request: .airportByFreeText(AirportTextGetModel(q: query)))
+            .flatMapLatest{ [service] (query) -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, Never> in
+                service.networkService.genericRequest(request: .airportByFreeText(AirportTextGetModel(q: query)))
             }
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = false })
@@ -63,15 +63,15 @@ class AirportSearchViewModel: ObservableObject {
 
         let locationSearchAction = searchAction
             .filter { $0 }
-            .map { [locationManager] _ in locationManager.currentLocation}
+            .map { [service] _ in service.locationService.currentLocation}
             .share()
 
         locationSearchAction
             .compactMap { $0 }
             .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMapLatest { [repo] location -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, Never> in
-                repo.genericRequest(request: .airportByLocation(AirportLocationGetModel(lat: location.latitude, lon: location.longitude)))
+            .flatMapLatest { [service] location -> AnyPublisher<DataResponsePublisher<AirportResponseModel>.Output, Never> in
+                service.networkService.genericRequest(request: .airportByLocation(AirportLocationGetModel(lat: location.latitude, lon: location.longitude)))
             }
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveOutput: {[weak self] _ in self?.shouldShowSpinner = false })
@@ -102,7 +102,7 @@ class AirportSearchViewModel: ObservableObject {
             self.airports = values.items
             var airportViewModels = Array<AirportViewViewModel>()
             for (index, value) in values.items.enumerated() {
-                airportViewModels.append(AirportViewViewModel(model: value, using: locationManager, index: index))
+                airportViewModels.append(AirportViewViewModel(model: value, using: service.locationService, index: index))
             }
             self.airportViewModels = airportViewModels
             if airportViewModels.isEmpty {

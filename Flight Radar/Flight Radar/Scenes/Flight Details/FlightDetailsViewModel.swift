@@ -10,6 +10,8 @@ import Combine
 
 final class FlightDetailsViewModel: ObservableObject {
     private let flightInfo: FlightResponseModel.Data
+    @Published var companyNavigation = false
+    @Published var aircraftNavigation = false
     var subscribtions: Set<AnyCancellable> = .init()
     
     var flightViewViewModel: FlightViewViewModel {

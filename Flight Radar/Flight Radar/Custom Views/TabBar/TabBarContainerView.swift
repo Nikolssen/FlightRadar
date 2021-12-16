@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBarContainerView: View {
-    @EnvironmentObject var state: AppState
+    @EnvironmentObject var state: Router
     var body: some View {
         ZStack {
             Color.whiteLiliac
@@ -22,7 +22,7 @@ struct TabBarContainerView: View {
                             }
                             .opacity( state.selectedIndex == 0 ? 1 : 0)
                             
-                            MapView()
+                            MapView(viewModel: state.mapViewModel)
                                 .opacity( state.selectedIndex == 1 ? 1 : 0)
                             TicketSearchView()
                                 .opacity( state.selectedIndex == 2 ? 1 : 0)

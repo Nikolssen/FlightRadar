@@ -15,17 +15,18 @@ class CompanyDetailsViewModel: ObservableObject {
     var dismissAction: CurrentValueSubject<Bool, Never> =  .init(false)
     let onAppearAction: PassthroughSubject<Void, Never> = .init()
     let urlAction: PassthroughSubject<Void, Never> = .init()
-    let networkService = APIRepository()
+    let service: Service
     var subscriptions: Set<AnyCancellable> = .init()
     
-    init(code: String) {
+    init(service: Service, code: String) {
+        self.service = service
         onAppearAction
             .withLatestFrom($details)
             .compactMap { [code] in $0 == nil ? code : nil }
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMap { [networkService] string -> AnyPublisher<DataResponsePublisher<[CompanyModel]>.Output, Never> in
-                networkService.genericRequest(request: .company(.init(iataCode: string)))
+            .flatMap { [service] string -> AnyPublisher<DataResponsePublisher<[CompanyModel]>.Output, Never> in
+                service.networkService.genericRequest(request: .company(.init(iataCode: string)))
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in

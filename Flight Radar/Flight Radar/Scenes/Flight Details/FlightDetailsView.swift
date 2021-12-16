@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct FlightDetailsView: View {
-    var viewModel: FlightDetailsViewModel
-    @State var companyNavigation = false
-    @State var aircraftNavigation = false
+    @ObservedObject var viewModel: FlightDetailsViewModel
+    @EnvironmentObject var router: Router
     var body: some View {
         ZStack {
-            NavigationLink("Company", isActive: $companyNavigation, destination: {
-                if companyNavigation, let code = viewModel.companyCode {
-                    CompanyDetailsView(viewModel: .init(code: code))
+            NavigationLink("Company", isActive: $viewModel.companyNavigation, destination: {
+                if viewModel.companyNavigation, let viewModel = router.companyDetailsViewModel {
+                    CompanyDetailsView(viewModel: viewModel)
                 }
                 else {
                     EmptyView()
                 }
             })
-            NavigationLink("Aircraft", isActive: $aircraftNavigation, destination: {
-                if aircraftNavigation, let code = viewModel.aircraftCode {
-                    AircraftDetailsView(viewModel: .init(code: code))
+            NavigationLink("Aircraft", isActive: $viewModel.aircraftNavigation, destination: {
+                if viewModel.aircraftNavigation, let viewModel = router.aircraftDetailsViewModel {
+                    AircraftDetailsView(viewModel: viewModel)
                 }
                 else {
                     EmptyView()
@@ -49,7 +48,12 @@ struct FlightDetailsView: View {
                 
                 HStack {
                     if viewModel.isCompanyAvailable {
-                        Button(action: { companyNavigation = true }) {
+                        Button(action: {
+                            if let code = viewModel.companyCode {
+                                router.companyDetailsViewModel(code: code)
+                                viewModel.companyNavigation = true
+                            }
+                             }) {
                             Text(Constants.companyButtonDescription)
                         }
                         .buttonStyle(SolidButtonStyle())
@@ -57,7 +61,12 @@ struct FlightDetailsView: View {
                     }
                     
                     if viewModel.isAircraftAvailable {
-                        Button(action: { aircraftNavigation = true }) {
+                        Button(action: {
+                            if let code = viewModel.aircraftCode {
+                                router.aircraftDetailsViewModel(code: code)
+                                viewModel.aircraftNavigation = true
+                            }
+                        }) {
                             Text(Constants.aircraftButtonDescription)
                         }
                         .buttonStyle(SolidButtonStyle())
@@ -66,9 +75,18 @@ struct FlightDetailsView: View {
                 }
             }
             .padding()
-            
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(Color.whiteLiliac)
+            .onChange(of: viewModel.aircraftNavigation) {
+                if !$0 {
+                    router.popViewModel()
+                }
+            }
+            .onChange(of: viewModel.companyNavigation) {
+                if !$0 {
+                    router.popViewModel()
+                }
+            }
         }
     }
     

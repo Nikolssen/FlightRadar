@@ -18,7 +18,7 @@ struct AirportViewViewModel {
     let index: Int
     
     
-    init(model: AirportModel, using locationManager: LocationManager, index: Int) {
+    init(model: AirportModel, using locationManager: LocationService, index: Int) {
         self.name = model.name ?? "Unnamed Airport"
         self.index = index
         self.abbreviations = [model.icao, model.iata].compactMap{ $0 }.joined(separator: "/")

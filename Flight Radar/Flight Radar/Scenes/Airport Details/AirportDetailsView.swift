@@ -10,11 +10,11 @@ import MapKit
 
 struct AirportDetailsView: View {
     @ObservedObject var viewModel: AirportDetailsViewModel
-    @EnvironmentObject var state: AppState
+    @EnvironmentObject var router: Router
     var body: some View {
         ZStack {
             NavigationLink("Flight", isActive: $viewModel.navigation, destination: {
-                if viewModel.navigation, let viewModel = state.airportSearchModels[1] as? FlightDetailsViewModel {
+                if viewModel.navigation, let viewModel = router.flightDetailsViewModel {
                     FlightDetailsView(viewModel: viewModel)
                 }
                 else {
@@ -27,7 +27,7 @@ struct AirportDetailsView: View {
                     .padding()
                 Divider()
                 Button("title") {
-                    state.selectedIndex = 1
+                    router.selectedIndex = 1
                 }
                 LazyHGrid(rows: [.init(.flexible())], spacing: 40) {
                     ForEach(viewModel.optionCellViewModels, id: \.index) { cellViewModel in
@@ -58,8 +58,7 @@ struct AirportDetailsView: View {
                                         .onTapGesture {
                                             viewModel.selectedFlight = flightViewViewModel.index
                                             if let model = viewModel.selectedModel {
-                                                let flightViewModel = FlightDetailsViewModel(model: model)
-                                                state.airportSearchModels.append(flightViewModel)
+                                                router.flightDetailsViewModel(model: model)
                                                 viewModel.navigation = true
                                             }
                                             
@@ -80,7 +79,7 @@ struct AirportDetailsView: View {
         }
         .onChange(of: viewModel.navigation) {
             if !$0 {
-                state.airportSearchModels.remove(at: 1)
+                router.popViewModel()
             }
         }
         .background(Color.whiteLiliac)

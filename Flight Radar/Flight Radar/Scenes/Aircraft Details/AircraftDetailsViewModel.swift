@@ -20,7 +20,7 @@ final class AircraftDetailsViewModel: ObservableObject {
     private let imageURL: CurrentValueSubject<URL?, Never> = .init(nil)
     
     var subscriptions: Set<AnyCancellable> = .init()
-    let networkService = APIRepository()
+    let service: Service
     
     var title: String? {
             model?.productionLine
@@ -48,7 +48,8 @@ final class AircraftDetailsViewModel: ObservableObject {
             DateFormatter.date(from: model?.firstFlight)
         }
     
-    init(code: String) {
+    init(service: Service, code: String) {
+        self.service = service
         let startPublisher =
             onAppearAction
             .withLatestFrom($model)
@@ -58,8 +59,8 @@ final class AircraftDetailsViewModel: ObservableObject {
         startPublisher
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = true })
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMap { [networkService] string -> AnyPublisher<DataResponsePublisher<Aircraft>.Output, Never> in
-                networkService.genericRequest(request: .aircraft(registration: string))
+            .flatMap { [service] string -> AnyPublisher<DataResponsePublisher<Aircraft>.Output, Never> in
+                service.networkService.genericRequest(request: .aircraft(registration: string))
             }
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = false })
@@ -77,8 +78,8 @@ final class AircraftDetailsViewModel: ObservableObject {
         
         startPublisher
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMap { [networkService] code -> AnyPublisher<DataResponsePublisher<AircraftImage>.Output, Never> in
-                networkService.genericRequest(request: .aircraftImage(registration: code))}
+            .flatMap { [service] code -> AnyPublisher<DataResponsePublisher<AircraftImage>.Output, Never> in
+                service.networkService.genericRequest(request: .aircraftImage(registration: code))}
             .receive(on: DispatchQueue.main)
             .sink { [weak self]
                 response in

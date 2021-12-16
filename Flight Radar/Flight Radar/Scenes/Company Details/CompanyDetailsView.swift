@@ -11,7 +11,6 @@ struct CompanyDetailsView: View {
     @ObservedObject var viewModel: CompanyDetailsViewModel
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.openURL) var openURL
-    @Environment(\.customPresentationMode) private var customPresentationMode
     
     var body: some View {
         ZStack {

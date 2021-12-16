@@ -9,14 +9,14 @@ import SwiftUI
 
 struct AirportSearchView: View {
     @ObservedObject var viewModel: AirportSearchViewModel
-    @EnvironmentObject var state: AppState
+    @EnvironmentObject var router: Router
     let column = [GridItem(.flexible(maximum: .infinity))]
     
     var body: some View {
         
         ZStack {
             NavigationLink("Airport", isActive: $viewModel.navigation, destination: {
-                if viewModel.navigation, let viewModel = state.airportSearchModels[0] as? AirportDetailsViewModel {
+                if viewModel.navigation, let viewModel = router.airportDetailsViewModel {
                         AirportDetailsView(viewModel: viewModel)
                     }
                 else {
@@ -53,8 +53,7 @@ struct AirportSearchView: View {
                                     .onTapGesture {
                                         viewModel.selectedIndex = cellModel.index
                                         if let index = viewModel.selectedIndex, viewModel.airports.count > index {
-                                            let viewModel = AirportDetailsViewModel(airport: viewModel.airports[index])
-                                            state.airportSearchModels.append(viewModel)
+                                            router.airportDetailsViewModel(model: viewModel.airports[index])
                                             self.viewModel.navigation = true
                                         }
                                     }
@@ -68,7 +67,7 @@ struct AirportSearchView: View {
         }
         .onChange(of: viewModel.navigation) {
             if !$0 {
-                state.airportSearchModels.removeAll()
+                router.popViewModel()
             }
         }
     }

@@ -13,6 +13,7 @@ import Alamofire
 
 class AirportDetailsViewModel: ObservableObject {
     let airport: CurrentValueSubject<AirportModel, Never>
+    let service: Service
     @Published var navigation: Bool = false
     @Published var region: MKCoordinateRegion
     @Published var coordinate: CLLocationCoordinate2D?
@@ -24,15 +25,13 @@ class AirportDetailsViewModel: ObservableObject {
     @Published var optionCellViewModels: [OptionCellViewModel] = []
     @Published var shouldShowSpinner: Bool = false
     var selectedModel: FlightResponseModel.Data?
-    
-    let locationService = LocationManager()
-    let networkService = APIRepository()
     var subscriptions: Set<AnyCancellable> = .init()
     
     var airportViewViewModel: AirportViewViewModel {
-        AirportViewViewModel(model: airport.value, using: LocationManager(), index: 0)
+        AirportViewViewModel(model: airport.value, using: service.locationService, index: 0)
     }
-    init(airport: AirportModel) {
+    init(service: Service, airport: AirportModel) {
+        self.service = service
         self.airport = .init(airport)
         if let location = airport.location{
             let coordinates = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lon)
@@ -53,9 +52,9 @@ class AirportDetailsViewModel: ObservableObject {
             .compactMap { $0.iata }
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = true})
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMapLatest { [networkService] code -> AnyPublisher<DataResponsePublisher<FlightResponseModel>.Output, Never>
+            .flatMapLatest { [service] code -> AnyPublisher<DataResponsePublisher<FlightResponseModel>.Output, Never>
                 in
-                networkService.genericRequest(request: .allFlights(FlightGetModel(departureCode: code)))
+                service.networkService.genericRequest(request: .allFlights(FlightGetModel(departureCode: code)))
             }
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = false})
@@ -77,9 +76,9 @@ class AirportDetailsViewModel: ObservableObject {
             .compactMap { $0.iata }
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = true})
             .receive(on: DispatchQueue.global(qos: .utility))
-            .flatMapLatest { [networkService] code -> AnyPublisher<DataResponsePublisher<FlightResponseModel>.Output, Never>
+            .flatMapLatest { [service] code -> AnyPublisher<DataResponsePublisher<FlightResponseModel>.Output, Never>
                 in
-                networkService.genericRequest(request: .allFlights(FlightGetModel(arrivalCode: code)))
+                service.networkService.genericRequest(request: .allFlights(FlightGetModel(arrivalCode: code)))
             }
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveOutput: { [weak self] _ in self?.shouldShowSpinner = false})

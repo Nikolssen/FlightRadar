@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Flight_RadarApp: App {
+    @StateObject var router: Router = .init(service: Service(locationService: LocationManager(), networkService: APIRepository()))
     var body: some Scene {
         WindowGroup {
-            MainView()
+            TabBarContainerView()
+                .environmentObject(router)
         }
     }
 }

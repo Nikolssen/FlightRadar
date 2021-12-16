@@ -41,7 +41,7 @@ enum APIRequest {
         case .airportByLocation(let model):
             return "https://aerodatabox.p.rapidapi.com/airports/search/location/\(model.lat)/\(model.lon)/km/\(model.radiusKm)/\(model.limit)"
         case .company:
-            return "https://iata-and-icao-codes.p.rapidapi.com/rline"
+            return "https://iata-and-icao-codes.p.rapidapi.com/airline"
         case .aircraft(registration: let code):
             return "https://aerodatabox.p.rapidapi.com/aircrafts/reg/\(code)"
         case .aircraftImage(registration: let code):

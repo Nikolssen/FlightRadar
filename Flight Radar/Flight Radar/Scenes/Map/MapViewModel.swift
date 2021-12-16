@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class MapViewModel {
-    var flightInfo: FlightResponseModel.Data?
-    var flightViewViewModel: FlightModalViewViewModel? {
+class MapViewModel: ObservableObject {
+    @Published var flightInfo: FlightResponseModel.Data?
+    var flightModalViewModel: FlightModalViewViewModel? {
         if let flightInfo = flightInfo {
             return .init(flightInfo: flightInfo)
         }
