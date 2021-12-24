@@ -67,9 +67,11 @@ struct AirportSearchView: View {
         }
         .onChange(of: viewModel.navigation) {
             if !$0 {
-                router.popViewModel()
+                router.airportDetailsViewModel = nil
             }
         }
+        .navigationViewStyle(.stack)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

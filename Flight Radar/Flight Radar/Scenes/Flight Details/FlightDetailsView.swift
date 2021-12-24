@@ -79,12 +79,12 @@ struct FlightDetailsView: View {
             .background(Color.whiteLiliac)
             .onChange(of: viewModel.aircraftNavigation) {
                 if !$0 {
-                    router.popViewModel()
+                    router.aircraftDetailsViewModel = nil
                 }
             }
             .onChange(of: viewModel.companyNavigation) {
                 if !$0 {
-                    router.popViewModel()
+                    router.companyDetailsViewModel = nil
                 }
             }
         }

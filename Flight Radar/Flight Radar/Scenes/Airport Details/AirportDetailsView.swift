@@ -22,20 +22,19 @@ struct AirportDetailsView: View {
                 }
             }).opacity(0)
             
+            Color.whiteLiliac
+                .ignoresSafeArea(.all)
+            
             VStack {
                 AirportView(viewModel: viewModel.airportViewViewModel, allowFadedAppearence: false)
                     .padding()
                 Divider()
-                Button("title") {
-                    router.selectedIndex = 1
-                }
                 LazyHGrid(rows: [.init(.flexible())], spacing: 40) {
                     ForEach(viewModel.optionCellViewModels, id: \.index) { cellViewModel in
                         OptionCell(viewModel: cellViewModel, isSelected: cellViewModel.index == viewModel.selectedIndex)
                             .onTapGesture {
                                 viewModel.selectedIndex = cellViewModel.index
                             }
-                        
                     }
                 }
                 .frame(maxWidth: .infinity ,maxHeight: 30, alignment: .top)
@@ -61,11 +60,9 @@ struct AirportDetailsView: View {
                                                 router.flightDetailsViewModel(model: model)
                                                 viewModel.navigation = true
                                             }
-                                            
-                                            
                                         }
                                         .padding(.horizontal, 20)
-                                        .padding(.top, 10)
+                                        .padding(.top, 5)
                                 }
                             }
                         }
@@ -75,11 +72,6 @@ struct AirportDetailsView: View {
                 }
                 Spacer()
                 
-            }
-        }
-        .onChange(of: viewModel.navigation) {
-            if !$0 {
-                router.popViewModel()
             }
         }
         .background(Color.whiteLiliac)
