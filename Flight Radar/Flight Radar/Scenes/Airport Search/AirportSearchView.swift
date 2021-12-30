@@ -28,7 +28,6 @@ struct AirportSearchView: View {
             VStack(spacing: 0) {
                 VStack(spacing: 0) {
                     SearchField(text: $viewModel.searchText, placeholder: Constants.placeholder)
-                        .padding(.top)
                     HStack {
                         Spacer()
                         Button(viewModel.buttonTitle) {

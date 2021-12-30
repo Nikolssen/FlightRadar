@@ -20,7 +20,7 @@ struct ContentView: View {
                         NavigationView {
                             AirportSearchView(viewModel: state.airportSearchViewModel)
                         }
-                        .tag(0)
+                            .tag(0)
                         MapView(viewModel: state.mapViewModel)
                             .tag(1)
                         TicketSearchView()

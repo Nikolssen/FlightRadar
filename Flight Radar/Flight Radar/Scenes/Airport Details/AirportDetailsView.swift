@@ -57,8 +57,15 @@ struct AirportDetailsView: View {
                                         .onTapGesture {
                                             viewModel.selectedFlight = flightViewViewModel.index
                                             if let model = viewModel.selectedModel {
-                                                router.flightDetailsViewModel(model: model)
-                                                viewModel.navigation = true
+                                                if model.live != nil {
+                                                    router.selectedIndex = 1
+                                                    router.mapViewModel.flightInfo = model
+                                                }
+                                                else {
+                                                    router.flightDetailsViewModel(model: model)
+                                                    viewModel.navigation = true
+                                                }
+
                                             }
                                         }
                                         .padding(.horizontal, 20)
